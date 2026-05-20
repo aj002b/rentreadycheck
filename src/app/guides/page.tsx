@@ -1,114 +1,102 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { DisclaimerBox } from "@/components/DisclaimerBox";
+import { PublicPageHero, PublicPageShell } from "@/components/PublicPage";
 import { estimateDisclaimer } from "@/lib/site";
 
 export const metadata: Metadata = {
   title: {
-    absolute: "Renting Guides & Calculators | RentReadyCheck",
+    absolute: "Helpful Guides for US Renters | RentReadyCheck",
   },
   description:
-    "Browse RentReadyCheck guides on rent affordability, guarantors, co-signers, move-in costs, rent-to-income ratios, and country-specific rent checks.",
+    "Browse RentReadyCheck guides for US renters on apartment affordability, co-signers, move-in costs, application fees, security deposits, and roommate rent planning.",
 };
 
-const guideSections = [
+const guideCards = [
   {
-    title: "Country calculators",
-    description:
-      "Start with the rent affordability method that best matches where you are renting.",
-    links: [
-      { href: "/uk-rent-affordability-calculator", label: "UK rent affordability calculator" },
-      { href: "/us-rent-affordability-calculator", label: "US rent affordability calculator" },
-      { href: "/canada-rent-affordability-calculator", label: "Canada rent affordability calculator" },
-      { href: "/australia-rent-affordability-calculator", label: "Australia rent affordability calculator" },
-      { href: "/rent-affordability-calculator-rest-of-world", label: "Rent affordability for other countries" },
-    ],
+    title: "What is the 3x rent rule?",
+    href: "/rent-to-income-ratio-explained",
+    description: "Understand how gross monthly income can be compared with monthly rent.",
   },
   {
-    title: "Rent amount guides",
-    description:
-      "Compare example income signals for common monthly rent amounts.",
-    links: [
-      { href: "/how-much-income-to-rent-800", label: "How much income to rent 800?" },
-      { href: "/how-much-income-to-rent-1000", label: "How much income to rent 1,000?" },
-      { href: "/how-much-income-to-rent-1200", label: "How much income to rent 1,200?" },
-      { href: "/how-much-income-to-rent-1500", label: "How much income to rent 1,500?" },
-      { href: "/how-much-income-to-rent-2000", label: "How much income to rent 2,000?" },
-    ],
+    title: "Do I need a co-signer?",
+    href: "/guarantor-income-calculator",
+    description: "Learn when extra support may help an apartment application.",
   },
   {
-    title: "Guarantor and co-signer guides",
-    description:
-      "Understand when extra support may be requested and how income examples can vary.",
-    links: [
-      { href: "/how-much-does-a-guarantor-need-to-earn", label: "How much does a guarantor need to earn?" },
-      { href: "/guarantor-income-calculator", label: "Guarantor / co-signer income calculator" },
-    ],
+    title: "How much should I save before moving?",
+    href: "/how-much-should-i-save-before-moving-out",
+    description: "Plan your security deposit, first month's rent, moving costs, and setup buffer.",
   },
   {
-    title: "Move-in cost guides",
-    description:
-      "Plan for upfront costs such as deposits, bond, first rent payments, moving costs, and setup costs.",
-    links: [
-      { href: "/how-much-should-i-save-before-moving-out", label: "How much should I save before moving out?" },
-      { href: "/move-in-cost-calculator", label: "Move-in cost calculator" },
-    ],
+    title: "Can I rent with bad credit?",
+    href: "/disclaimer",
+    description: "See why credit history is only one part of a rental application.",
   },
   {
-    title: "Rent affordability basics",
-    description:
-      "Learn the common terms behind rental affordability estimates.",
-    links: [
-      { href: "/rent-to-income-ratio-explained", label: "Rent-to-income ratio explained" },
-      { href: "/what-is-30-times-rent", label: "What is 30 times rent?" },
-      { href: "/what-is-36-times-rent", label: "What is 36 times rent?" },
-      { href: "/can-flatmates-combine-income-for-rent", label: "Can flatmates combine income for rent?" },
-      { href: "/rent-referencing-calculator", label: "Rent affordability calculator" },
-      { href: "/joint-tenant-affordability-calculator", label: "Joint tenant affordability calculator" },
-      { href: "/rent-split-calculator", label: "Rent split calculator" },
-    ],
+    title: "Rental application fees",
+    href: "/move-in-cost-calculator",
+    description: "Estimate application fees alongside other move-in costs.",
   },
+  {
+    title: "Security deposit basics",
+    href: "/move-in-cost-calculator",
+    description: "Plan for the security deposit and first rent payment before move-in.",
+  },
+] as const;
+
+const calculatorLinks = [
+  { href: "/rent-referencing-calculator", label: "Rent Affordability Calculator" },
+  { href: "/guarantor-income-calculator", label: "Co-signer Income Calculator" },
+  { href: "/joint-tenant-affordability-calculator", label: "Roommate Affordability Calculator" },
+  { href: "/move-in-cost-calculator", label: "Move-In Cost Calculator" },
+  { href: "/rent-split-calculator", label: "Rent Split Calculator for Roommates" },
 ] as const;
 
 export default function GuidesPage() {
   return (
-    <div className="site-container space-y-10 py-10">
-      <section className="rounded-3xl border border-[#d8e5df] bg-[linear-gradient(135deg,#f8fbf9_0%,#edf6f1_100%)] p-6 shadow-[0_20px_60px_rgba(23,49,43,0.08)] md:p-8">
-        <p className="text-xs font-extrabold uppercase tracking-[0.12em] text-[#b6533f]">
-          Guide library
+    <PublicPageShell>
+      <PublicPageHero eyebrow="Guide library" title="Helpful guides for US renters">
+        <p>
+          Practical guides and calculators for apartment affordability, co-signer
+          support, move-in costs, security deposits, and roommate rent planning.
         </p>
-        <h1 className="mt-3 text-4xl font-extrabold leading-tight tracking-[-0.035em] text-[#17312b] md:text-5xl">
-          Renting Guides & Calculators
-        </h1>
-        <p className="mt-4 max-w-3xl text-lg leading-8 text-[#35534c]">
-          Helpful guides and calculators for estimating rent affordability,
-          move-in costs, guarantor or co-signer support, and rent splits.
-        </p>
-      </section>
+      </PublicPageHero>
 
-      <section className="grid gap-5 md:grid-cols-2">
-        {guideSections.map((section) => (
-          <article key={section.title} className="premium-card flex h-full flex-col p-5 md:p-6">
-            <h2 className="text-2xl font-extrabold tracking-[-0.02em] text-[#17312b]">
-              {section.title}
+      <section className="grid gap-4 md:grid-cols-2 lg:grid-cols-3">
+        {guideCards.map((guide) => (
+          <Link key={guide.href + guide.title} href={guide.href} className="premium-card flex h-full flex-col p-5 transition hover:-translate-y-0.5 hover:border-[#93c5fd]">
+            <h2 className="text-xl font-extrabold tracking-[-0.02em] text-[#0f1f3a]">
+              {guide.title}
             </h2>
-            <p className="mt-2 leading-7 text-[#5f746f]">{section.description}</p>
-            <div className="mt-5 grid gap-2">
-              {section.links.map((link) => (
-                <Link
-                  key={link.href}
-                  href={link.href}
-                  className="rounded-2xl border border-[#d7e5df] bg-[#fbfdfc] px-4 py-3 text-sm font-bold text-[#116a5b] transition hover:border-[#116a5b] hover:bg-[#e8f5ef] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#116a5b]"
-                >
-                  {link.label}
-                </Link>
-              ))}
-            </div>
-          </article>
+            <p className="mt-3 flex-1 text-sm leading-6 text-[#53657f]">
+              {guide.description}
+            </p>
+            <span className="mt-5 text-sm font-extrabold text-[#2563eb]">
+              Read guide
+            </span>
+          </Link>
         ))}
       </section>
 
+      <section className="rounded-[1.25rem] border border-[#d8e5f7] bg-white p-5 shadow-[0_16px_38px_rgba(15,31,58,0.08)]">
+        <h2 className="text-2xl font-black tracking-[-0.03em] text-[#0f1f3a]">
+          Calculators
+        </h2>
+        <div className="mt-5 flex flex-wrap gap-3">
+          {calculatorLinks.map((link) => (
+            <Link
+              key={link.href}
+              href={link.href}
+              className="rounded-full border border-[#bdd3f5] bg-[#eff6ff] px-4 py-2 text-sm font-extrabold text-[#1d4ed8] transition hover:border-[#2563eb] hover:bg-[#dbeafe]"
+            >
+              {link.label}
+            </Link>
+          ))}
+        </div>
+      </section>
+
       <DisclaimerBox>{estimateDisclaimer}</DisclaimerBox>
-    </div>
+    </PublicPageShell>
   );
 }

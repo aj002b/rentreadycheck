@@ -1,40 +1,75 @@
+"use client";
+
 import Link from "next/link";
+import { useState } from "react";
 import { siteConfig } from "@/lib/siteConfig";
 
-const navLinks = [
-  { href: "/rent-referencing-calculator", label: "Affordability" },
-  { href: "/guarantor-income-calculator", label: "Guarantor / Co-signer" },
-  { href: "/joint-tenant-affordability-calculator", label: "Joint Tenants" },
-  { href: "/move-in-cost-calculator", label: "Move-In Costs" },
-  { href: "/rent-split-calculator", label: "Rent Split" },
-  { href: "/about", label: "About" },
+const navItems = [
+  { label: "Readiness Score", href: "/#readiness-score" },
+  { label: "Calculators", href: "/rent-referencing-calculator" },
+  { label: "Move-In Budget", href: "/move-in-cost-calculator" },
+  { label: "Guides", href: "/guides" },
+  { label: "About", href: "/about" },
 ];
 
 export function Header() {
+  const [open, setOpen] = useState(false);
+
   return (
-    <header className="relative z-30 border-b border-[#d8e5df]/90 bg-white/90 backdrop-blur-xl md:sticky md:top-0">
-      <div className="site-container flex flex-col gap-3 py-3 md:flex-row md:items-center md:justify-between">
-        <Link
-          href="/"
-          className="shrink-0 text-[1.05rem] font-extrabold tracking-[-0.025em] text-[#10352f] focus:outline-none focus:ring-2 focus:ring-[#116a5b] focus:ring-offset-4"
-        >
+    <header className="app-header">
+      <div className="app-header__inner">
+        <Link href="/" className="app-header__logo" onClick={() => setOpen(false)}>
           {siteConfig.name}
         </Link>
-        <nav aria-label="Main navigation">
-          <ul className="flex flex-wrap gap-1 text-sm font-bold text-[#35534c] md:justify-end">
-            {navLinks.map((link) => (
-              <li key={link.href}>
-                <Link
-                  href={link.href}
-                  className="block rounded-full px-3 py-1.5 transition hover:bg-[#e8f5ef] hover:text-[#0f5f53] focus:outline-none focus:ring-2 focus:ring-[#116a5b]"
-                >
-                  {link.label}
-                </Link>
-              </li>
-            ))}
-          </ul>
+
+        <nav className="app-header__nav" aria-label="Main navigation">
+          {navItems.map((item) => (
+            <Link key={item.label} href={item.href} className="app-header__link">
+              {item.label}
+            </Link>
+          ))}
         </nav>
+
+        <Link href="/#readiness-score" className="app-header__cta">
+          Start My Check
+        </Link>
+
+        <button
+          type="button"
+          className="app-header__menu-button"
+          onClick={() => setOpen((value) => !value)}
+          aria-label={open ? "Close menu" : "Open menu"}
+          aria-expanded={open}
+        >
+          {open ? (
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+              <path d="M6 6l12 12M18 6L6 18" stroke="#0F172A" strokeWidth="2" strokeLinecap="round" />
+            </svg>
+          ) : (
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+              <path d="M4 6h16M4 12h16M4 18h16" stroke="#0F172A" strokeWidth="2" strokeLinecap="round" />
+            </svg>
+          )}
+        </button>
       </div>
+
+      {open ? (
+        <nav className="app-header__mobile-menu" aria-label="Mobile navigation">
+          {navItems.map((item) => (
+            <Link
+              key={item.label}
+              href={item.href}
+              className="app-header__mobile-link"
+              onClick={() => setOpen(false)}
+            >
+              {item.label}
+            </Link>
+          ))}
+          <Link href="/#readiness-score" className="app-header__mobile-cta" onClick={() => setOpen(false)}>
+            Start My Check
+          </Link>
+        </nav>
+      ) : null}
     </header>
   );
 }

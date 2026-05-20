@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { AdPlaceholder } from "@/components/AdPlaceholder";
+import { PublicPageHero, PublicPageShell } from "@/components/PublicPage";
 import { RelatedTools } from "@/components/RelatedTools";
 import { siteConfig } from "@/lib/siteConfig";
 
@@ -12,20 +13,14 @@ export const metadata: Metadata = {
 
 export default function PrivacyPolicyPage() {
   return (
-    <div className="mx-auto max-w-6xl space-y-10 px-4 py-10 sm:px-6 lg:px-8">
-      <section className="max-w-3xl">
-        <p className="text-sm font-bold text-[#d9654f]">
-          Last updated: {siteConfig.lastUpdated}
-        </p>
-        <h1 className="mt-3 text-4xl font-bold leading-tight text-[#17312b]">
-          Privacy Policy
-        </h1>
-        <p className="mt-4 text-lg leading-8 text-[#5f746f]">
+    <PublicPageShell>
+      <PublicPageHero eyebrow={`Last updated: ${siteConfig.lastUpdated}`} title="Privacy Policy">
+        <p>
           RentReadyCheck is an informational calculator website for renters.
           This page explains how the site is intended to handle calculator inputs
           and privacy-related questions.
         </p>
-      </section>
+      </PublicPageHero>
 
       <section className="prose prose-slate max-w-none space-y-8">
         <div>
@@ -58,13 +53,13 @@ export default function PrivacyPolicyPage() {
           <p>
             Users can contact the site owner with privacy questions through the{" "}
             <Link href="/contact">Contact page</Link>. Please do not send sensitive
-            financial, legal, or referencing documents unless specifically requested
+            financial, legal, or rental application documents unless specifically requested
             by an appropriate professional or agency.
           </p>
         </div>
       </section>
 
       <RelatedTools />
-    </div>
+    </PublicPageShell>
   );
 }

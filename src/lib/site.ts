@@ -4,42 +4,42 @@ export type FAQItem = {
 };
 
 export const estimateDisclaimer =
-  "This is only an estimate. Actual rental decisions can depend on credit history, employment status, landlord requirements, property manager rules, savings, guarantors or co-signers, and other factors.";
+  "Estimate only. Rental decisions vary by landlord, property manager, credit history, and application details.";
 
 export const tools = [
   {
     title: "Rent Affordability Calculator",
     href: "/rent-referencing-calculator",
-    description: "Check if your income may be enough before you apply.",
-    bestFor: "A quick country-aware rent affordability estimate.",
-    ctaLabel: "Check affordability",
+    description: "Compare monthly rent with gross monthly income before you apply.",
+    bestFor: "Checking common 2.5x rent and 3x rent examples.",
+    ctaLabel: "Check your score",
   },
   {
-    title: "Guarantor / Co-signer Calculator",
+    title: "Co-signer Income Calculator",
     href: "/guarantor-income-calculator",
-    description: "Estimate how much a guarantor or co-signer may need to earn.",
-    bestFor: "Checking whether extra support may meet an example threshold.",
-    ctaLabel: "Estimate support",
+    description: "Estimate whether a co-signer may help your rental application.",
+    bestFor: "Renters who may need extra application support.",
+    ctaLabel: "Estimate co-signer support",
   },
   {
-    title: "Joint Tenant Calculator",
+    title: "Roommate Affordability Calculator",
     href: "/joint-tenant-affordability-calculator",
-    description: "Combine incomes for couples, friends, or flatmates.",
-    bestFor: "Couples, friends, or flatmates applying together.",
-    ctaLabel: "Check joint income",
+    description: "Combine incomes for roommates applying for an apartment together.",
+    bestFor: "Roommates comparing household income with monthly rent.",
+    ctaLabel: "Check roommate income",
   },
   {
     title: "Move-In Cost Calculator",
     href: "/move-in-cost-calculator",
-    description: "Estimate deposit, first month's rent, and upfront costs.",
+    description: "Estimate security deposit, first month's rent, and setup costs.",
     bestFor: "Planning cash needed before move-in day.",
     ctaLabel: "Estimate costs",
   },
   {
-    title: "Rent Split Calculator",
+    title: "Rent Split Calculator for Roommates",
     href: "/rent-split-calculator",
     description: "Split rent equally, by income, or by room size.",
-    bestFor: "Housemates comparing fair monthly rent shares.",
+    bestFor: "Roommates comparing fair monthly rent shares.",
     ctaLabel: "Split rent",
   },
 ] as const;
