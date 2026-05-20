@@ -17,20 +17,6 @@ export type CountryConfig = {
 
 export const countries: CountryConfig[] = [
   {
-    code: "UK",
-    name: "United Kingdom",
-    currencyCode: "GBP",
-    currencySymbol: "£",
-    rentFrequencyLabel: "monthly",
-    affordabilityMethod: "Annual income multiplier",
-    applicantThresholds: [30, 36],
-    guarantorThreshold: 36,
-    supportPersonLabel: "guarantor",
-    note: "Uses example UK-style checks such as 30x and 36x monthly rent.",
-    disclaimer:
-      "Common UK checks may compare annual income against 30x to 36x monthly rent.",
-  },
-  {
     code: "US",
     name: "United States",
     currencyCode: "USD",
@@ -44,51 +30,9 @@ export const countries: CountryConfig[] = [
     disclaimer:
       "Many US landlords use monthly income requirements such as 2.5x to 3x monthly rent.",
   },
-  {
-    code: "CA",
-    name: "Canada",
-    currencyCode: "CAD",
-    currencySymbol: "$",
-    rentFrequencyLabel: "monthly",
-    affordabilityMethod: "Rent-to-income percentage",
-    applicantThresholds: [30, 35, 40],
-    guarantorThreshold: 30,
-    supportPersonLabel: "guarantor/co-signer",
-    note: "Uses rent-to-income examples such as 30%, 35%, and 40% of gross income.",
-    disclaimer:
-      "Canadian affordability is often discussed as rent compared with gross monthly income.",
-  },
-  {
-    code: "AU",
-    name: "Australia",
-    currencyCode: "AUD",
-    currencySymbol: "$",
-    rentFrequencyLabel: "weekly or monthly",
-    affordabilityMethod: "Rent-to-income percentage",
-    applicantThresholds: [25, 30, 35],
-    guarantorThreshold: 30,
-    supportPersonLabel: "guarantor",
-    note: "Uses rent-to-income examples and supports weekly rent.",
-    disclaimer:
-      "Australian rent is often advertised weekly, so this tool supports weekly or monthly rent input.",
-  },
-  {
-    code: "ROW",
-    name: "Other / Rest of world",
-    currencyCode: "USD",
-    currencySymbol: "$",
-    rentFrequencyLabel: "monthly",
-    affordabilityMethod: "Generic rent-to-income estimate",
-    applicantThresholds: [30, 35, 40],
-    guarantorThreshold: 30,
-    supportPersonLabel: "guarantor or co-signer",
-    note: "Uses a generic rent-to-income estimate when your country is not listed.",
-    disclaimer:
-      "This is a generic estimate only. It may not reflect rental rules, affordability checks, deposit rules, or application requirements in your country.",
-  },
 ];
 
-export const defaultCountryCode: CountryCode = "UK";
+export const defaultCountryCode: CountryCode = "US";
 
 export function getCountryConfig(countryCode: CountryCode): CountryConfig {
   return (

@@ -21,19 +21,17 @@ import {
   defaultCountryCode,
   getCountryConfig,
   type CountryCode,
-  type RentFrequency,
 } from "@/lib/countries";
 import { getCountryFromQueryParam, getDetectedCountry } from "@/lib/detectCountry";
 import { useEffect, useState } from "react";
 
-type DepositType = "fixed" | "weeks" | "months";
+type DepositType = "fixed" | "months";
 
 export function MoveInCostCalculator() {
   const [countryCode, setCountryCode] = useState<CountryCode>(defaultCountryCode);
   const [rentAmount, setRentAmount] = useState("");
-  const [rentFrequency, setRentFrequency] = useState<RentFrequency>("monthly");
-  const [depositType, setDepositType] = useState<DepositType>("weeks");
-  const [depositValue, setDepositValue] = useState("5");
+  const [depositType, setDepositType] = useState<DepositType>("months");
+  const [depositValue, setDepositValue] = useState("1");
   const [firstRentRequired, setFirstRentRequired] = useState("yes");
   const [feeAmount, setFeeAmount] = useState("");
   const [movingCost, setMovingCost] = useState("");
@@ -50,25 +48,15 @@ export function MoveInCostCalculator() {
   }, []);
 
   const country = getCountryConfig(countryCode);
-  const effectiveFrequency = country.code === "AU" ? rentFrequency : "monthly";
   const rent = safeNumber(rentAmount);
-  const monthlyRent = normalizeRentToMonthly(rent, effectiveFrequency);
-  const weeklyRent = (monthlyRent * 12) / 52;
+  const monthlyRent = normalizeRentToMonthly(rent, "monthly");
   const currency = (value: number) => formatCurrencyByCountry(value, country.code);
-  const feeLabel =
-    country.code === "UK"
-      ? "Holding deposit"
-      : country.code === "AU"
-        ? "Bond/holding deposit"
-        : "Application/admin fee";
-  const setupCostLabel =
-    country.code === "ROW" ? "Setup costs" : "Utilities/broadband setup";
+  const feeLabel = "Application fee";
+  const setupCostLabel = "Utilities setup";
   const deposit =
     depositType === "fixed"
       ? safeNumber(depositValue)
-      : depositType === "weeks"
-        ? weeklyRent * safeNumber(depositValue)
-        : monthlyRent * safeNumber(depositValue);
+      : monthlyRent * safeNumber(depositValue);
   const firstRent = firstRentRequired === "yes" ? monthlyRent : 0;
   const extras =
     safeNumber(feeAmount) +
@@ -95,10 +83,10 @@ export function MoveInCostCalculator() {
         : "Enter the rent amount";
   const description =
     monthlyRent > 0 && !negativeInput
-      ? "This adds the selected deposit, first rent payment if needed, and your optional moving costs."
+      ? "This adds the selected security deposit, first rent payment if needed, and your optional moving costs."
       : negativeInput
         ? "Rent and cost fields cannot be negative."
-        : "Add the rent amount to estimate deposit and first upfront costs.";
+        : "Add the rent amount to estimate security deposit and first upfront costs.";
 
   return (
     <CalculatorLayout
@@ -106,8 +94,8 @@ export function MoveInCostCalculator() {
         <section className="form-card space-y-4 p-4 sm:p-5">
           <FormSection
             step="Step 1"
-            title="Where are you renting?"
-            description="This changes currency, rent-frequency options, and local fee wording."
+            title="Apartment location"
+            description="United States examples use monthly rent, security deposit, and application fee wording."
             columns="grid-cols-1"
           >
             <CountrySelector country={country} onChange={setCountryCode} />
@@ -118,20 +106,17 @@ export function MoveInCostCalculator() {
             title="Rent details"
             description="Add the rent and whether the first rent payment is due upfront."
           >
-            <InputField id="rent-amount" label={country.code === "AU" ? "Rent amount" : "Monthly rent"} value={rentAmount} onChange={setRentAmount} prefix={country.currencySymbol} required />
-            {country.code === "AU" ? (
-              <SelectField id="rent-frequency" label="Rent frequency" value={rentFrequency} onChange={(value) => setRentFrequency(value as RentFrequency)} options={[{ label: "Weekly", value: "weekly" }, { label: "Monthly", value: "monthly" }]} />
-            ) : null}
+            <InputField id="rent-amount" label="Monthly rent" value={rentAmount} onChange={setRentAmount} prefix={country.currencySymbol} required />
             <SelectField id="first-rent" label="First rent payment required?" value={firstRentRequired} onChange={setFirstRentRequired} options={[{ label: "Yes", value: "yes" }, { label: "No", value: "no" }]} />
           </FormSection>
 
           <FormSection
             step="Step 3"
-            title="Deposit"
-            description="Choose the deposit style that matches the property listing."
+            title="Security deposit"
+            description="Choose the security deposit style that matches the apartment listing."
           >
-            <SelectField id="deposit-type" label="Deposit type" value={depositType} onChange={(value) => setDepositType(value as DepositType)} options={[{ label: "Fixed amount", value: "fixed" }, { label: "Weeks of rent", value: "weeks" }, { label: "Months of rent", value: "months" }]} />
-            <InputField id="deposit-value" label={depositType === "fixed" ? "Deposit amount" : depositType === "weeks" ? "Deposit weeks" : "Deposit months"} value={depositValue} onChange={setDepositValue} prefix={depositType === "fixed" ? country.currencySymbol : undefined} required />
+            <SelectField id="deposit-type" label="Security deposit type" value={depositType} onChange={(value) => setDepositType(value as DepositType)} options={[{ label: "Fixed amount", value: "fixed" }, { label: "Months of rent", value: "months" }]} />
+            <InputField id="deposit-value" label={depositType === "fixed" ? "Security deposit amount" : "Security deposit months"} value={depositValue} onChange={setDepositValue} prefix={depositType === "fixed" ? country.currencySymbol : undefined} required />
           </FormSection>
 
           <FormSection
@@ -153,8 +138,7 @@ export function MoveInCostCalculator() {
             {monthlyRent > 0 && !negativeInput ? (
               <div className="grid gap-3 sm:grid-cols-2">
                 <Metric label="Monthly rent estimate" value={currency(monthlyRent)} />
-                <Metric label="Weekly rent estimate" value={currency(weeklyRent)} />
-                <Metric label="Deposit" value={currency(deposit)} />
+                <Metric label="Security deposit" value={currency(deposit)} />
                 <Metric label="First rent payment" value={currency(firstRent)} />
                 <Metric label={feeLabel} value={currency(safeNumber(feeAmount))} />
                 <Metric label="Moving cost" value={currency(safeNumber(movingCost))} />
@@ -165,9 +149,10 @@ export function MoveInCostCalculator() {
             ) : null}
           </ResultCard>
           <HowEstimateWorks>
-            {country.code === "ROW"
-              ? "Move-in costs vary widely by country, city, landlord, and property manager. This is a generic planning estimate only."
-              : "The selected country changes the currency, rent frequency support, and wording for fees such as holding deposits, bonds, or application fees. The total is still a rough planning estimate."}
+            Move-in costs vary by landlord, property manager, apartment, and
+            application details. This US-focused estimate includes common items
+            like security deposit, first month's rent, application fees, moving
+            costs, utilities, and setup expenses.
           </HowEstimateWorks>
         </>
       }

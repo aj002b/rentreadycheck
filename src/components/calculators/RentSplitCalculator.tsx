@@ -67,7 +67,7 @@ export function RentSplitCalculator() {
           : 1;
     const percentage = totalWeight > 0 ? (weight / totalWeight) * 100 : 0;
     return {
-      name: activeNames[index] || `Tenant ${index + 1}`,
+      name: activeNames[index] || `Roommate ${index + 1}`,
       share: totalWeight > 0 ? rent * (percentage / 100) : 0,
       percentage,
     };
@@ -78,7 +78,7 @@ export function RentSplitCalculator() {
     (splitMethod === "room" && activeScores.some((score) => score <= 0));
 
   let title = "Enter rent to split";
-  let description = "Add monthly rent and choose a split method to estimate each tenant's share.";
+  let description = "Add monthly rent and choose a split method to estimate each roommate's share.";
   let tone: "positive" | "warning" | "neutral" = "neutral";
 
   if (negativeInput) {
@@ -88,20 +88,20 @@ export function RentSplitCalculator() {
   } else if (rent <= 0) {
     title = "Enter the monthly rent";
   } else if (missingRequiredWeights) {
-    title = splitMethod === "income" ? "Add each tenant's income" : "Add each room score";
+    title = splitMethod === "income" ? "Add each roommate's income" : "Add each room score";
     description =
       splitMethod === "income"
-        ? "Income-based splits need an income for every tenant."
-        : "Room-size splits need a positive room score for every tenant.";
+        ? "Income-based splits need an income for every roommate."
+        : "Room-size splits need a positive room score for every roommate.";
     tone = "warning";
   } else {
     title = "Estimated rent split";
     description =
       splitMethod === "equal"
-        ? "Each tenant pays the same monthly share."
+        ? "Each roommate pays the same monthly share."
         : splitMethod === "income"
-          ? "Each tenant pays a share based on their share of total income."
-          : "Each tenant pays a share based on the room size scores.";
+          ? "Each roommate pays a share based on their share of total income."
+          : "Each roommate pays a share based on the room size scores.";
     tone = "positive";
   }
 
@@ -122,8 +122,8 @@ export function RentSplitCalculator() {
         <section className="form-card space-y-4 p-4 sm:p-5">
           <FormSection
             step="Step 1"
-            title="Where are you renting?"
-            description="This changes the currency used in the split table."
+            title="Apartment location"
+            description="United States dollars are used in the split table."
             columns="grid-cols-1"
           >
             <CountrySelector country={country} onChange={setCountryCode} />
@@ -135,7 +135,7 @@ export function RentSplitCalculator() {
             description="Add the monthly rent and choose how many people are sharing."
           >
             <InputField id="monthly-rent" label="Monthly rent" value={monthlyRent} onChange={setMonthlyRent} prefix={country.currencySymbol} required />
-            <SelectField id="tenant-count" label="Number of tenants" value={tenantCount} onChange={setTenantCount} options={[{ label: "2 tenants", value: "2" }, { label: "3 tenants", value: "3" }, { label: "4 tenants", value: "4" }]} />
+            <SelectField id="tenant-count" label="Number of roommates" value={tenantCount} onChange={setTenantCount} options={[{ label: "2 roommates", value: "2" }, { label: "3 roommates", value: "3" }, { label: "4 roommates", value: "4" }]} />
           </FormSection>
 
           <FormSection
@@ -149,13 +149,13 @@ export function RentSplitCalculator() {
 
           <FormSection
             step="Step 4"
-            title="Tenant details"
+            title="Roommate details"
             description="Names are optional. Income or room scores are only needed for those split methods."
             columns="md:grid-cols-2"
           >
             {Array.from({ length: count }, (_, index) => (
-              <div key={index} className="rounded-2xl border border-[#d7e5df] bg-white p-4 shadow-[inset_0_1px_0_rgba(255,255,255,0.75)]">
-                <InputField id={`tenant-name-${index}`} label={`Tenant ${index + 1} name`} value={names[index]} onChange={(value) => updateList(setNames, names, index, value)} placeholder={`Tenant ${index + 1}`} type="text" />
+              <div key={index} className="rounded-2xl border border-[#d8e5f7] bg-white p-4 shadow-[inset_0_1px_0_rgba(255,255,255,0.75)]">
+                <InputField id={`tenant-name-${index}`} label={`Roommate ${index + 1} name`} value={names[index]} onChange={(value) => updateList(setNames, names, index, value)} placeholder={`Roommate ${index + 1}`} type="text" />
                 {splitMethod === "income" ? (
                   <div className="mt-4">
                     <InputField id={`tenant-income-${index}`} label="Annual income" value={incomes[index]} onChange={(value) => updateList(setIncomes, incomes, index, value)} prefix={country.currencySymbol} required />
@@ -175,11 +175,11 @@ export function RentSplitCalculator() {
         <>
           <ResultCard title={title} description={description} tone={tone} badgeLabel={rent > 0 && !negativeInput && !missingRequiredWeights ? "Estimated split" : "Add details"}>
             {rent > 0 && !negativeInput && !missingRequiredWeights ? (
-              <div className="overflow-x-auto rounded-2xl border border-[#dbe8e2] bg-white/82 shadow-[0_8px_18px_rgba(23,49,43,0.035)]">
+              <div className="overflow-x-auto rounded-2xl border border-[#d8e5f7] bg-white/82 shadow-[0_8px_18px_rgba(15,31,58,0.035)]">
                 <table className="w-full min-w-[420px] text-left text-sm">
-                  <thead className="border-b border-[#dbe8e2] text-[#5f746f]">
+                  <thead className="border-b border-[#d8e5f7] text-[#53657f]">
                     <tr>
-                      <th className="px-4 py-3">Tenant</th>
+                      <th className="px-4 py-3">Roommate</th>
                       <th className="px-4 py-3">Monthly share</th>
                       <th className="px-4 py-3">Percentage</th>
                     </tr>
@@ -187,7 +187,7 @@ export function RentSplitCalculator() {
                   <tbody>
                     {rows.map((row) => (
                       <tr key={row.name} className="border-b border-[#edf4f1] last:border-0">
-                        <td className="px-4 py-3 font-bold text-[#17312b]">{row.name}</td>
+                        <td className="px-4 py-3 font-bold text-[#0f1f3a]">{row.name}</td>
                         <td className="px-4 py-3">{currency(row.share)}</td>
                         <td className="px-4 py-3">{formatPercentage(row.percentage)}</td>
                       </tr>
@@ -198,9 +198,8 @@ export function RentSplitCalculator() {
             ) : null}
           </ResultCard>
           <HowEstimateWorks>
-            The selected country changes the currency display. The split method
-            controls whether shares are equal, income-weighted, or based on room
-            size scores.
+            The split method controls whether shares are equal, income-weighted,
+            or based on room size scores.
           </HowEstimateWorks>
         </>
       }

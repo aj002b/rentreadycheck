@@ -42,6 +42,17 @@ html {
   scroll-behavior: smooth;
 }
 
+#readiness-score,
+#how-it-works {
+  scroll-margin-top: 88px;
+}
+
+main {
+  background:
+    radial-gradient(circle at 16% 0%, rgba(219, 234, 254, 0.7), transparent 28rem),
+    linear-gradient(180deg, #ffffff 0%, #f8fbff 100%);
+}
+
 input,
 select,
 button {

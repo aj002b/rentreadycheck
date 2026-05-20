@@ -27,13 +27,13 @@ export function InputField({
 }: InputFieldProps) {
   return (
     <div>
-      <label htmlFor={id} className="block text-sm font-bold text-[#17312b]">
+      <label htmlFor={id} className="block text-sm font-bold text-[#0f1f3a]">
         {label}
         {required ? <span className="text-[#b84735]"> *</span> : null}
       </label>
       <div className="relative mt-2">
         {prefix ? (
-          <span className="pointer-events-none absolute left-3 top-1/2 -translate-y-1/2 text-[#5f746f]">
+          <span className="pointer-events-none absolute left-3 top-1/2 -translate-y-1/2 text-[#53657f]">
             {prefix}
           </span>
         ) : null}

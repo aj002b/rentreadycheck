@@ -1,48 +1,43 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { DisclaimerBox } from "@/components/DisclaimerBox";
+import { PublicPageHero, PublicPageShell } from "@/components/PublicPage";
 import { RelatedTools } from "@/components/RelatedTools";
 import { siteConfig } from "@/lib/siteConfig";
 
 export const metadata: Metadata = {
   title: "Contact",
   description:
-    "Contact RentReadyCheck for website questions. The site cannot provide individual financial, legal, tax, housing, or referencing advice.",
+    "Contact RentReadyCheck for website questions. The site cannot provide individual financial, legal, tax, or housing advice.",
 };
 
 export default function ContactPage() {
   return (
-    <div className="mx-auto max-w-6xl space-y-10 px-4 py-10 sm:px-6 lg:px-8">
-      <section className="max-w-3xl">
-        <p className="text-sm font-bold text-[#d9654f]">
-          Last updated: {siteConfig.lastUpdated}
-        </p>
-        <h1 className="mt-3 text-4xl font-bold leading-tight text-[#17312b]">
-          Contact
-        </h1>
-        <p className="mt-4 text-lg leading-8 text-[#5f746f]">
+    <PublicPageShell>
+      <PublicPageHero eyebrow={`Last updated: ${siteConfig.lastUpdated}`} title="Contact">
+        <p>
           Have a question about RentReadyCheck or spotted something on the site
           that needs attention? You can use the placeholder contact email below.
         </p>
-      </section>
+      </PublicPageHero>
 
-      <section className="rounded-xl border border-[#d7e5df] bg-white p-6 shadow-[0_10px_28px_rgba(23,49,43,0.05)]">
-        <h2 className="text-2xl font-bold text-[#17312b]">Email</h2>
-        <p className="mt-3 text-lg font-semibold text-[#116a5b]">
+      <section className="rounded-[1.25rem] border border-[#d8e5f7] bg-white p-6 shadow-[0_16px_38px_rgba(15,31,58,0.08)]">
+        <h2 className="text-2xl font-bold text-[#0f1f3a]">Email</h2>
+        <p className="mt-3 text-lg font-semibold text-[#2563eb]">
           <a href={`mailto:${siteConfig.contactEmail}`}>{siteConfig.contactEmail}</a>
         </p>
-        <p className="mt-4 max-w-3xl leading-7 text-[#5f746f]">
+        <p className="mt-4 max-w-3xl leading-7 text-[#53657f]">
           RentReadyCheck cannot provide individual financial, legal, tax,
-          housing, or referencing advice. For questions about a specific rental
-          application, please speak directly with the landlord, agent, property
-          manager, referencing provider, or a qualified adviser.
+          or housing advice. For questions about a specific rental application,
+          please speak directly with the landlord, property manager, or a
+          qualified adviser.
         </p>
       </section>
 
       <DisclaimerBox>
         The calculators on this site are rough estimate tools only. They do not
-        guarantee approval and should not be treated as financial, legal, tax,
-        housing, or referencing advice.
+        decide rental applications and should not be treated as financial,
+        legal, tax, or housing advice.
       </DisclaimerBox>
 
       <section className="prose prose-slate max-w-none">
@@ -54,6 +49,6 @@ export default function ContactPage() {
       </section>
 
       <RelatedTools />
-    </div>
+    </PublicPageShell>
   );
 }
