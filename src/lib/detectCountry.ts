@@ -7,25 +7,7 @@ export function getCountryFromQueryParam(value: string | null): CountryCode | nu
     return null;
   }
 
-  const countryMap: Record<string, CountryCode> = {
-    uk: "UK",
-    gb: "UK",
-    "united-kingdom": "UK",
-    us: "US",
-    usa: "US",
-    "united-states": "US",
-    ca: "CA",
-    canada: "CA",
-    au: "AU",
-    australia: "AU",
-    other: "ROW",
-    row: "ROW",
-    rest: "ROW",
-    world: "ROW",
-    "rest-of-world": "ROW",
-  };
-
-  return countryMap[normalized] ?? "ROW";
+  return ["us", "usa", "united-states"].includes(normalized) ? "US" : null;
 }
 
 export function getCountryFromLocale(locale: string): CountryCode {
@@ -35,28 +17,12 @@ export function getCountryFromLocale(locale: string): CountryCode {
     ?.trim()
     .toUpperCase();
 
-  if (region === "GB" || region === "UK") {
-    return "UK";
-  }
-
-  if (region === "US") {
-    return "US";
-  }
-
-  if (region === "CA") {
-    return "CA";
-  }
-
-  if (region === "AU") {
-    return "AU";
-  }
-
-  return "ROW";
+  return region === "US" ? "US" : "US";
 }
 
 export function getDetectedCountry(): CountryCode {
   if (typeof window === "undefined" || typeof navigator === "undefined") {
-    return "ROW";
+    return "US";
   }
 
   const browserLanguages =
@@ -64,13 +30,5 @@ export function getDetectedCountry(): CountryCode {
       ? navigator.languages
       : [navigator.language];
 
-  for (const locale of browserLanguages) {
-    const country = getCountryFromLocale(locale);
-
-    if (country !== "ROW") {
-      return country;
-    }
-  }
-
-  return "ROW";
+  return getCountryFromLocale(browserLanguages[0] ?? "en-US");
 }

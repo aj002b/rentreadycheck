@@ -23,7 +23,6 @@ import {
   defaultCountryCode,
   getCountryConfig,
   type CountryCode,
-  type RentFrequency,
 } from "@/lib/countries";
 import { getCountryFromQueryParam, getDetectedCountry } from "@/lib/detectCountry";
 import { useEffect, useState } from "react";
@@ -31,20 +30,18 @@ import { useEffect, useState } from "react";
 export function GuarantorIncomeCalculator() {
   const [countryCode, setCountryCode] = useState<CountryCode>(defaultCountryCode);
   const [rentAmount, setRentAmount] = useState("");
-  const [rentFrequency, setRentFrequency] = useState<RentFrequency>("monthly");
   const [supportPersonIncome, setSupportPersonIncome] = useState("");
   const [applicantIncome, setApplicantIncome] = useState("");
-  const [threshold, setThreshold] = useState("36");
+  const [threshold, setThreshold] = useState("3");
 
   const country = getCountryConfig(countryCode);
-  const effectiveFrequency = country.code === "AU" ? rentFrequency : "monthly";
-  const monthlyRent = normalizeRentToMonthly(safeNumber(rentAmount), effectiveFrequency);
+  const monthlyRent = normalizeRentToMonthly(safeNumber(rentAmount), "monthly");
   const supportIncome = safeNumber(supportPersonIncome);
   const applicant = safeNumber(applicantIncome);
   const selectedThreshold = safeNumber(threshold);
   const currency = (value: number) => formatCurrencyByCountry(value, country.code);
   const negativeInput = hasNegativeValue([rentAmount, supportPersonIncome, applicantIncome]);
-  const supportPersonLabel = country.supportPersonLabel;
+  const supportPersonLabel = "co-signer";
 
   useEffect(() => {
     const queryCountry = getCountryFromQueryParam(
@@ -56,48 +53,16 @@ export function GuarantorIncomeCalculator() {
 
   function handleCountryChange(nextCountryCode: CountryCode) {
     setCountryCode(nextCountryCode);
-    setThreshold(
-      nextCountryCode === "UK"
-        ? "36"
-        : nextCountryCode === "US"
-          ? "3"
-          : nextCountryCode === "AU"
-            ? "30"
-            : "30",
-    );
+    setThreshold("3");
   }
 
-  const thresholdOptions =
-    country.code === "UK"
-      ? [
-          { label: "30x monthly rent", value: "30" },
-          { label: "36x monthly rent", value: "36" },
-          { label: "40x monthly rent", value: "40" },
-        ]
-      : country.code === "US"
-        ? [
-            { label: "2.5x monthly rent", value: "2.5" },
-            { label: "3x monthly rent", value: "3" },
-            { label: "3.5x monthly rent", value: "3.5" },
-          ]
-        : country.code === "CA" || country.code === "ROW"
-          ? [
-              { label: "30% rent-to-income", value: "30" },
-              { label: "35% rent-to-income", value: "35" },
-              { label: "40% rent-to-income", value: "40" },
-            ]
-          : [
-              { label: "25% rent-to-income", value: "25" },
-              { label: "30% rent-to-income", value: "30" },
-              { label: "35% rent-to-income", value: "35" },
-            ];
+  const thresholdOptions = [
+    { label: "2.5x monthly rent", value: "2.5" },
+    { label: "3x monthly rent", value: "3" },
+    { label: "3.5x monthly rent", value: "3.5" },
+  ];
 
-  const required =
-    country.code === "UK"
-      ? monthlyRent * selectedThreshold
-      : country.code === "US"
-        ? monthlyRent * selectedThreshold * 12
-        : (monthlyRent * 12) / (selectedThreshold / 100);
+  const required = monthlyRent * selectedThreshold * 12;
   const difference = calculateDifference(supportIncome, required);
 
   let title = `Add rent and ${supportPersonLabel} income`;
@@ -148,8 +113,8 @@ export function GuarantorIncomeCalculator() {
         <section className="form-card space-y-4 p-4 sm:p-5">
           <FormSection
             step="Step 1"
-            title="Where are you renting?"
-            description="This changes the support-person wording, currency, and example thresholds."
+            title="Apartment location"
+            description="United States examples use co-signer income compared with monthly rent."
             columns="grid-cols-1"
           >
             <CountrySelector
@@ -164,16 +129,13 @@ export function GuarantorIncomeCalculator() {
             title="Rent details"
             description="Add the rent amount so the example requirement can be estimated."
           >
-            <InputField id="rent-amount" label={country.code === "AU" ? "Rent amount" : "Monthly rent"} value={rentAmount} onChange={setRentAmount} prefix={country.currencySymbol} required />
-            {country.code === "AU" ? (
-              <SelectField id="rent-frequency" label="Rent frequency" value={rentFrequency} onChange={(value) => setRentFrequency(value as RentFrequency)} options={[{ label: "Weekly", value: "weekly" }, { label: "Monthly", value: "monthly" }]} />
-            ) : null}
+            <InputField id="rent-amount" label="Monthly rent" value={rentAmount} onChange={setRentAmount} prefix={country.currencySymbol} required />
           </FormSection>
 
           <FormSection
             step="Step 3"
             title="Applicant income"
-            description="Optional comparison only. This does not replace the support-person estimate."
+            description="Optional comparison only. This does not replace the co-signer estimate."
             columns="grid-cols-1"
           >
             <InputField id="applicant-income" label="Applicant annual income" value={applicantIncome} onChange={setApplicantIncome} prefix={country.currencySymbol} helpText="Optional comparison only." />
@@ -181,7 +143,7 @@ export function GuarantorIncomeCalculator() {
 
           <FormSection
             step="Step 4"
-            title="Guarantor / co-signer support"
+            title="Co-signer support"
             description={`Compare the ${supportPersonLabel} income with a selected example threshold.`}
           >
             <InputField id="support-person-income" label={`${supportPersonLabel[0].toUpperCase()}${supportPersonLabel.slice(1)} annual income`} value={supportPersonIncome} onChange={setSupportPersonIncome} prefix={country.currencySymbol} required />
@@ -203,9 +165,9 @@ export function GuarantorIncomeCalculator() {
             ) : null}
           </ResultCard>
           <HowEstimateWorks>
-            {country.note} The selected country changes the currency and whether
-            this tool uses income multiples or rent-to-income examples.
-            {country.code === "ROW" ? ` ${country.disclaimer}` : ""}
+            This tool uses common US co-signer income examples such as 2.5x rent
+            or 3x rent. The landlord or property manager may still request their
+            own documents and credit review.
           </HowEstimateWorks>
         </>
       }
