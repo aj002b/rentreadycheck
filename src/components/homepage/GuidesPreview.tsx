@@ -35,7 +35,7 @@ const guides = [
 
 export default function GuidesPreview() {
   return (
-    <section id="guides" style={{ padding: '80px 24px' }}>
+    <section id="guides" style={{ padding: '72px 24px' }}>
       <div style={{ maxWidth: 1200, margin: '0 auto' }}>
         <h2
           style={{
@@ -52,7 +52,7 @@ export default function GuidesPreview() {
         <div
           style={{
             display: 'grid',
-            gridTemplateColumns: 'repeat(auto-fit, minmax(320px, 1fr))',
+            gridTemplateColumns: 'repeat(auto-fit, minmax(min(100%, 320px), 1fr))',
             gap: 18,
           }}
         >

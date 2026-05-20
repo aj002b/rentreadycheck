@@ -53,8 +53,8 @@ export default function HeroSection() {
           </p>
 
           <div style={{ display: 'flex', gap: 14, flexWrap: 'wrap', marginBottom: 28 }}>
-            <a href="#readiness-score" style={s.primaryBtn}>Start My Check</a>
-            <a href="#how-it-works" style={s.secondaryBtn}>See How It Works</a>
+            <a href="/#readiness-score" style={s.primaryBtn}>Start My Check</a>
+            <a href="/#how-it-works" style={s.secondaryBtn}>See How It Works</a>
           </div>
 
           <div style={{ display: 'flex', flexWrap: 'wrap', gap: 10, marginBottom: 20 }}>
@@ -83,8 +83,8 @@ export default function HeroSection() {
           align-items: flex-start;
           flex-wrap: wrap;
         }
-        .hero-left { flex: 1 1 420px; min-width: 300px; }
-        .hero-right { flex: 1 1 520px; min-width: 320px; max-width: 600px; }
+        .hero-left { flex: 1 1 400px; min-width: 300px; padding-top: 6px; }
+        .hero-right { flex: 1 1 560px; min-width: 320px; max-width: 640px; }
 
         @media (max-width: 960px) {
           .hero-grid { gap: 36px; }
@@ -92,7 +92,7 @@ export default function HeroSection() {
         }
         @media (max-width: 640px) {
           .hero-left,
-          .hero-right { min-width: 0; }
+          .hero-right { min-width: 0; width: 100%; }
         }
       `}</style>
     </section>

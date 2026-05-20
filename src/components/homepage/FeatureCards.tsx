@@ -5,7 +5,7 @@ const cards = [
     title: 'Rent Readiness Score & Rent Twin',
     desc: 'Get your score, see your renter type, and understand your strengths and watch-outs.',
     cta: 'Check your score',
-    href: '#readiness-score',
+    href: '/#readiness-score',
     icon: (
       <svg width="28" height="28" viewBox="0 0 28 28" fill="none">
         <circle cx="14" cy="14" r="12" stroke="#2563EB" strokeWidth="2" />
@@ -17,7 +17,7 @@ const cards = [
     title: 'Improve My Score Simulator',
     desc: 'See how small changes can improve your rent readiness estimate.',
     cta: 'Improve my score',
-    href: '#improve-my-score',
+    href: '/#improve-score',
     icon: (
       <svg width="28" height="28" viewBox="0 0 28 28" fill="none">
         <rect x="3" y="8" width="22" height="14" rx="3" stroke="#2563EB" strokeWidth="2" />
@@ -54,7 +54,7 @@ const cards = [
 
 export default function FeatureCards() {
   return (
-    <section id="calculators" style={{ background: '#F8FAFC', padding: '72px 24px' }}>
+    <section id="calculators" style={{ background: '#F8FAFC', padding: '68px 24px' }}>
       <div style={{ maxWidth: 1200, margin: '0 auto' }}>
         <h2
           style={{
@@ -76,18 +76,18 @@ export default function FeatureCards() {
           }}
         >
           {cards.map((c) => (
-              <a
+            <a
                 href={c.href}
                 key={c.title}
                 style={{
                   background: '#fff',
                   borderRadius: 20,
-                  padding: '28px 24px',
+                  padding: '24px',
                   border: '1px solid #E2E8F0',
                   boxShadow: '0 2px 12px rgba(0,0,0,0.04)',
                   display: 'flex',
                   flexDirection: 'column',
-                  minHeight: 245,
+                  minHeight: 230,
                   textDecoration: 'none',
                   transition: 'box-shadow 0.2s, transform 0.2s',
                 }}
@@ -102,8 +102,8 @@ export default function FeatureCards() {
             >
               <div
                 style={{
-                  width: 48,
-                  height: 48,
+                  width: 46,
+                  height: 46,
                   borderRadius: 14,
                   background: '#EFF6FF',
                   display: 'flex',
@@ -132,6 +132,7 @@ export default function FeatureCards() {
                   display: 'inline-flex',
                   alignItems: 'center',
                   gap: 6,
+                  minHeight: 34,
                 }}
               >
                 {c.cta}

@@ -59,21 +59,20 @@ export default function ImproveScoreSimulator() {
 
   return (
     <section
-      id="improve-my-score"
+      id="improve-score"
       style={{
         background: '#0B1220',
-        padding: '68px 24px',
+        padding: '54px 24px',
       }}
     >
-      <div style={{ maxWidth: 1200, margin: '0 auto' }}>
-        {/* Heading */}
-        <div style={{ textAlign: 'center', marginBottom: 34 }}>
+      <div style={{ maxWidth: 1120, margin: '0 auto' }}>
+        <div style={{ textAlign: 'center', marginBottom: 28 }}>
           <h2
             style={{
               fontSize: 'clamp(26px, 3.5vw, 38px)',
-              fontWeight: 700,
+              fontWeight: 800,
               color: '#fff',
-              margin: '0 0 12px',
+              margin: '0 0 10px',
             }}
           >
             See how small changes could improve your score
@@ -92,9 +91,8 @@ export default function ImproveScoreSimulator() {
           </p>
         </div>
 
-        <div className="sim-grid" style={{ display: 'grid', gridTemplateColumns: 'minmax(0, 1.45fr) minmax(280px, 0.75fr)', gap: 28, alignItems: 'stretch' }}>
-          {/* Controls */}
-          <div className="sim-controls" style={{ display: 'flex', flexDirection: 'column', gap: 22 }}>
+        <div className="sim-grid" style={{ display: 'grid', gridTemplateColumns: 'minmax(0, 1.35fr) minmax(260px, 0.7fr)', gap: 22, alignItems: 'stretch' }}>
+          <div className="sim-controls" style={{ display: 'flex', flexDirection: 'column', gap: 18 }}>
             {[
               { label: 'Monthly rent', val: rent, set: setRent, min: 600, max: 4000, prefix: '$' },
               { label: 'Savings', val: savings, set: setSavings, min: 0, max: 25000, prefix: '$' },
@@ -124,8 +122,8 @@ export default function ImproveScoreSimulator() {
             {/* Toggles */}
             <div style={{ display: 'flex', gap: 14, flexWrap: 'wrap' }}>
               {[
-                { label: 'Add a co-signer?', pts: '+8 pts', val: cosigner, set: setCosigner },
-                { label: 'Rent with a roommate?', pts: '+10 pts', val: roommate, set: setRoommate },
+                { label: 'Add a co-signer', pts: '+8 pts', val: cosigner, set: setCosigner },
+                { label: 'Rent with a roommate', pts: '+10 pts', val: roommate, set: setRoommate },
               ].map((t) => (
                 <button
                   type="button"
@@ -134,7 +132,7 @@ export default function ImproveScoreSimulator() {
                   aria-pressed={t.val}
                   style={{
                     flex: '1 1 180px',
-                    padding: '14px 18px',
+                    padding: '12px 16px',
                     borderRadius: 14,
                     border: `1.5px solid ${t.val ? '#2563EB' : '#475569'}`,
                     background: t.val ? 'rgba(37,99,235,0.12)' : 'transparent',
@@ -176,17 +174,16 @@ export default function ImproveScoreSimulator() {
                 e.currentTarget.style.borderColor = '#475569';
               }}
             >
-              Reset Changes
+              Reset changes
             </button>
           </div>
 
-          {/* Result panel */}
           <div
             className="sim-result"
             style={{
               background: '#111827',
               borderRadius: 20,
-              padding: 24,
+              padding: 22,
               border: '1px solid #334155',
             }}
           >
@@ -204,7 +201,6 @@ export default function ImproveScoreSimulator() {
                       height: '100%',
                       background: 'linear-gradient(90deg, #2563EB 0%, #06B6D4 100%)',
                       borderRadius: 999,
-                      transition: 'width 180ms ease',
                     }}
                   />
                 </div>

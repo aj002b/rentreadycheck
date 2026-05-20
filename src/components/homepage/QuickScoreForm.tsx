@@ -21,9 +21,9 @@ export function getHomeScoreLabel(score: number) {
 }
 
 export function getHomeRentTwin(score: number) {
-  if (score >= 85) return 'The Prepared Renter';
+  if (score >= 85) return 'Prepared Renter';
   if (score >= 70) return 'Nearly There Renter';
-  if (score >= 50) return 'The Savings Builder';
+  if (score >= 50) return 'Savings Builder';
   return 'High Support Needed Renter';
 }
 
@@ -134,7 +134,7 @@ export default function QuickScoreForm() {
           </p>
         </div>
 
-        <div className="qs-grid" style={{ display: 'grid', gridTemplateColumns: 'minmax(0, 1.1fr) minmax(220px, 0.9fr)', gap: 22, alignItems: 'start' }}>
+        <div className="qs-grid" style={{ display: 'grid', gridTemplateColumns: 'minmax(275px, 1fr) minmax(250px, 0.78fr)', gap: 22, alignItems: 'start' }}>
           <div>
             <div
               className="qs-fields"
@@ -210,6 +210,7 @@ export default function QuickScoreForm() {
                 style={{
                   background: '#2563EB',
                   color: '#fff',
+                  minHeight: 48,
                   padding: '13px 28px',
                   borderRadius: 12,
                   fontSize: 15,
@@ -240,19 +241,20 @@ export default function QuickScoreForm() {
                 background: '#F8FAFC',
                 border: '1px solid #DBEAFE',
                 borderRadius: 18,
-                padding: 20,
+                padding: 18,
+                minWidth: 0,
               }}
             >
-              <div style={{ display: 'flex', justifyContent: 'space-between', gap: 16, alignItems: 'flex-start', marginBottom: 14 }}>
-                <div>
+              <div style={{ display: 'grid', gap: 12, marginBottom: 14 }}>
+                <div style={{ display: 'flex', justifyContent: 'space-between', gap: 12, alignItems: 'center' }}>
                   <p style={{ fontSize: 11, fontWeight: 800, letterSpacing: 1.2, color: '#2563EB', margin: '0 0 4px', textTransform: 'uppercase' }}>
                     Rent Readiness Score
                   </p>
-                  <p style={{ fontSize: 34, fontWeight: 800, color: '#0F172A', margin: 0, lineHeight: 1 }}>
-                    {result.score} <span style={{ fontSize: 16, color: '#64748B', fontWeight: 700 }}>/ 100</span>
-                  </p>
+                  <span style={statusStyle}>{result.label}</span>
                 </div>
-                <span style={statusStyle}>{result.label}</span>
+                <p style={{ fontSize: 38, fontWeight: 850, color: '#0F172A', margin: 0, lineHeight: 1, letterSpacing: 0, whiteSpace: 'nowrap' }}>
+                  {result.score}<span style={{ fontSize: 22, color: '#64748B', fontWeight: 800 }}>/100</span>
+                </p>
               </div>
 
               <div
@@ -291,7 +293,7 @@ export default function QuickScoreForm() {
       </div>
 
       <style>{`
-        @media (max-width: 640px) {
+        @media (max-width: 760px) {
           .qs-grid {
             grid-template-columns: 1fr !important;
           }
@@ -302,6 +304,11 @@ export default function QuickScoreForm() {
           .qs-grid select,
           .qs-grid button {
             min-height: 44px;
+          }
+        }
+        @media (max-width: 420px) {
+          #readiness-score > div {
+            padding: 22px !important;
           }
         }
       `}</style>
@@ -318,6 +325,7 @@ const statusStyle: React.CSSProperties = {
   fontWeight: 800,
   padding: '6px 10px',
   whiteSpace: 'nowrap',
+  alignSelf: 'start',
 };
 
 const previewRowStyle: React.CSSProperties = {

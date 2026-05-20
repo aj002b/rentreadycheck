@@ -15,25 +15,42 @@ const steps = [
 
 export default function HowItWorksStrip() {
   return (
-    <section id="how-it-works" style={{ background: '#FFFFFF', padding: '34px 24px 56px' }}>
+    <section id="how-it-works" style={{ background: '#FFFFFF', padding: '40px 24px 60px' }}>
       <div
         style={{
           maxWidth: 1200,
           margin: '0 auto',
           border: '1px solid #DBEAFE',
-          borderRadius: 22,
-          background: '#F8FAFC',
-          padding: '24px',
+          borderRadius: 24,
+          background: 'linear-gradient(180deg, #FFFFFF 0%, #F8FBFF 100%)',
+          padding: '28px',
+          boxShadow: '0 18px 45px rgba(37,99,235,0.09)',
         }}
       >
-        <div className="hiw-strip">
-          <h2 style={{ color: '#0F172A', fontSize: 22, fontWeight: 800, lineHeight: 1.2, margin: 0 }}>
+        <div style={{ marginBottom: 22 }}>
+          <h2 style={{ color: '#0F172A', fontSize: 'clamp(24px, 3vw, 32px)', fontWeight: 850, lineHeight: 1.15, margin: '0 0 8px' }}>
             How RentReadyCheck works
           </h2>
+          <p style={{ color: '#64748B', fontSize: 15, lineHeight: 1.6, margin: 0 }}>
+            A quick estimate to help you understand your rent readiness before applying.
+          </p>
+        </div>
 
-          <div className="hiw-steps">
-            {steps.map((step, index) => (
-              <div key={step.title} style={{ display: 'flex', gap: 12, minWidth: 0 }}>
+        <div className="hiw-steps">
+          {steps.map((step, index) => (
+            <div
+              key={step.title}
+              style={{
+                background: '#FFFFFF',
+                border: '1px solid #E2E8F0',
+                borderRadius: 18,
+                boxShadow: '0 8px 24px rgba(15,23,42,0.04)',
+                display: 'flex',
+                gap: 14,
+                minWidth: 0,
+                padding: 18,
+              }}
+            >
                 <span
                   style={{
                     alignItems: 'center',
@@ -47,45 +64,30 @@ export default function HowItWorksStrip() {
                     height: 28,
                     justifyContent: 'center',
                     marginTop: 2,
-                    width: 28,
+                    width: 30,
                   }}
                 >
                   {index + 1}
                 </span>
                 <div>
-                  <h3 style={{ color: '#0F172A', fontSize: 14, fontWeight: 800, margin: '0 0 4px' }}>
+                  <h3 style={{ color: '#0F172A', fontSize: 15, fontWeight: 850, margin: '0 0 5px' }}>
                     {step.title}
                   </h3>
                   <p style={{ color: '#64748B', fontSize: 13, lineHeight: 1.45, margin: 0 }}>{step.text}</p>
                 </div>
-              </div>
-            ))}
-          </div>
+            </div>
+          ))}
         </div>
       </div>
 
       <style>{`
-        .hiw-strip {
-          align-items: center;
-          display: grid;
-          gap: 22px;
-          grid-template-columns: 230px 1fr;
-        }
-
         .hiw-steps {
           display: grid;
-          gap: 18px;
+          gap: 16px;
           grid-template-columns: repeat(3, minmax(0, 1fr));
         }
 
         @media (max-width: 900px) {
-          .hiw-strip {
-            align-items: start;
-            grid-template-columns: 1fr;
-          }
-        }
-
-        @media (max-width: 640px) {
           .hiw-steps {
             grid-template-columns: 1fr;
           }
