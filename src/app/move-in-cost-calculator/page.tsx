@@ -5,14 +5,13 @@ import { DisclaimerBox } from "@/components/DisclaimerBox";
 import { FAQJsonLd } from "@/components/FAQJsonLd";
 import { FAQSection } from "@/components/FAQSection";
 import { PublicPageHero, PublicPageShell } from "@/components/PublicPage";
-import { RelatedTools } from "@/components/RelatedTools";
 import { MoveInCostCalculator } from "@/components/calculators/MoveInCostCalculator";
 import type { FAQItem } from "@/lib/site";
 
 export const metadata: Metadata = {
-  title: "Move-In Cost Calculator",
+  title: "Move-In Cost Calculator for Apartment Renters | RentReadyCheck",
   description:
-    "Estimate US apartment move-in costs including security deposit, first month's rent, application fee, moving costs, furniture, utilities, and setup expenses.",
+    "Estimate apartment move-in costs including security deposit, first month’s rent, fees, moving costs, utilities, furniture, and savings gap.",
 };
 
 const faqs: FAQItem[] = [
@@ -23,16 +22,30 @@ const faqs: FAQItem[] = [
   { question: "Does this include every moving cost?", answer: "No. It is a planning estimate, so you may still need to add storage, cleaning, insurance, travel, or other personal costs." },
 ];
 
+const relatedTools = [
+  { label: "Rent Readiness Score", href: "/rent-readiness-score/" },
+  { label: "Rent Affordability Calculator", href: "/rent-referencing-calculator" },
+  { label: "Co-signer Income Calculator", href: "/guarantor-income-calculator" },
+  { label: "Roommate Affordability Calculator", href: "/joint-tenant-affordability-calculator" },
+  { label: "Rent Split Calculator", href: "/rent-split-calculator" },
+];
+
 export default function MoveInCostPage() {
   return (
     <>
       <FAQJsonLd items={faqs} />
       <PublicPageShell>
-        <PublicPageHero title="Move-In Cost Calculator">
+        <PublicPageHero
+          eyebrow="MOVE-IN COST CALCULATOR"
+          title="Estimate your apartment move-in costs"
+        >
           <p>
-            Estimate the security deposit, first month&apos;s rent, application fee,
-            and other upfront costs you may need before moving into an apartment.
+            Add rent, deposits, fees, moving costs, utilities, and setup expenses
+            to estimate how much cash you may need before move-in day.
           </p>
+          <Link href="#move-in-cost-form" className="btn-primary mt-6">
+            Estimate my costs
+          </Link>
         </PublicPageHero>
         <MoveInCostCalculator />
         <section className="prose prose-slate max-w-none space-y-8">
@@ -74,7 +87,20 @@ export default function MoveInCostPage() {
         </section>
         <FAQSection items={faqs} />
         <DisclaimerBox />
-        <RelatedTools currentPath="/move-in-cost-calculator" />
+        <section className="space-y-4">
+          <h2 className="text-2xl font-bold text-[#0f1f3a]">Related tools</h2>
+          <div className="grid gap-3 sm:grid-cols-2 lg:grid-cols-5">
+            {relatedTools.map((tool) => (
+              <Link
+                key={tool.href}
+                href={tool.href}
+                className="rounded-2xl border border-[#d8e5f7] bg-white p-4 text-sm font-extrabold text-[#0f1f3a] shadow-[0_12px_28px_rgba(15,31,58,0.07)] transition hover:-translate-y-0.5 hover:border-[#93c5fd] hover:text-[#2563eb]"
+              >
+                {tool.label}
+              </Link>
+            ))}
+          </div>
+        </section>
       </PublicPageShell>
     </>
   );
