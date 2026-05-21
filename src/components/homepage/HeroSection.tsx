@@ -54,7 +54,7 @@ export default function HeroSection() {
           </p>
 
           <div style={{ display: 'flex', gap: 14, flexWrap: 'wrap', marginBottom: 28 }}>
-            <Link href="/rent-readiness-score" style={s.primaryBtn}>Start My Check</Link>
+            <Link href="/rent-readiness-score/" style={s.primaryBtn}>Start My Check</Link>
             <a href="#how-it-works" style={s.secondaryBtn}>See How It Works</a>
           </div>
 
