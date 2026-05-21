@@ -28,9 +28,9 @@ const cards = [
     ),
   },
   {
-    title: 'Pre-Move Budget Builder',
+    title: 'Move-In Cost Calculator',
     desc: 'Plan security deposit, first month\'s rent, moving costs, utilities, and setup expenses.',
-    cta: 'Build my budget',
+    cta: 'Estimate move-in costs',
     href: '/move-in-cost-calculator',
     icon: (
       <svg width="28" height="28" viewBox="0 0 28 28" fill="none">
