@@ -6,7 +6,6 @@ import { siteConfig } from "@/lib/siteConfig";
 
 const navItems = [
   { label: "Readiness Score", href: "/rent-readiness-score/" },
-  { label: "Move-In Costs", href: "/move-in-cost-calculator" },
   { label: "Guides", href: "/guides" },
   { label: "About", href: "/about" },
 ];
@@ -46,7 +45,7 @@ export function Header() {
               aria-controls="calculator-menu"
               onClick={() => setToolsOpen((value) => !value)}
             >
-              Calculators
+              Tools
               <svg width="14" height="14" viewBox="0 0 16 16" fill="none" aria-hidden="true">
                 <path d="M4 6l4 4 4-4" stroke="currentColor" strokeWidth="1.7" strokeLinecap="round" strokeLinejoin="round" />
               </svg>
@@ -73,7 +72,7 @@ export function Header() {
           ))}
         </nav>
 
-        <Link href="/rent-readiness-score/" className="app-header__cta">
+        <Link href="/rent-readiness-score/#score-form" className="app-header__cta">
           Start My Check
         </Link>
 
@@ -109,7 +108,7 @@ export function Header() {
             </Link>
           ))}
           <div className="app-header__mobile-tools" aria-label="Calculator links">
-            <p className="app-header__mobile-tools-label">Calculators</p>
+            <p className="app-header__mobile-tools-label">Tools</p>
             {calculatorLinks.map((item) => (
               <Link
                 key={item.href}
@@ -121,7 +120,7 @@ export function Header() {
               </Link>
             ))}
           </div>
-          <Link href="/rent-readiness-score/" className="app-header__mobile-cta" onClick={() => setOpen(false)}>
+          <Link href="/rent-readiness-score/#score-form" className="app-header__mobile-cta" onClick={() => setOpen(false)}>
             Start My Check
           </Link>
         </nav>
