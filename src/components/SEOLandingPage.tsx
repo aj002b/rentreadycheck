@@ -19,15 +19,15 @@ export function SEOLandingPageView({ page }: { page: SEOLandingPage }) {
       />
       <FAQJsonLd items={page.faqs} />
       <div className="site-container space-y-10 py-10">
-        <section className="grid gap-6 rounded-3xl border border-[#d8e5df] bg-[linear-gradient(135deg,#f8fbf9_0%,#edf6f1_100%)] p-6 shadow-[0_20px_60px_rgba(23,49,43,0.08)] md:grid-cols-[1fr_0.72fr] md:items-center md:p-8">
+        <section className="grid gap-6 rounded-3xl border border-[#d8e5f7] bg-[linear-gradient(135deg,#ffffff_0%,#eef6ff_100%)] p-6 shadow-[0_24px_60px_rgba(37,99,235,0.12)] md:grid-cols-[1fr_0.72fr] md:items-center md:p-8">
           <div>
-            <p className="text-xs font-extrabold uppercase tracking-[0.12em] text-[#b6533f]">
+            <p className="text-xs font-extrabold uppercase tracking-[0.12em] text-[#2563eb]">
               Rent guide
             </p>
-            <h1 className="mt-3 text-4xl font-extrabold leading-tight tracking-[-0.035em] text-[#17312b] md:text-5xl">
+            <h1 className="mt-3 text-4xl font-extrabold leading-tight tracking-[-0.035em] text-[#0f1f3a] md:text-5xl">
               {page.h1}
             </h1>
-            <p className="mt-4 max-w-3xl text-lg leading-8 text-[#35534c]">
+            <p className="mt-4 max-w-3xl text-lg leading-8 text-[#334765]">
               {page.intro}
             </p>
             <div className="mt-6">
@@ -36,20 +36,20 @@ export function SEOLandingPageView({ page }: { page: SEOLandingPage }) {
               </Link>
             </div>
           </div>
-          <div className="rounded-2xl border border-[#d7e5df] bg-white/88 p-5 shadow-[0_18px_44px_rgba(23,49,43,0.09)]">
-            <h2 className="text-lg font-extrabold text-[#17312b]">
+          <div className="rounded-2xl border border-[#d8e5f7] bg-white/90 p-5 shadow-[0_18px_44px_rgba(15,31,58,0.08)]">
+            <h2 className="text-lg font-extrabold text-[#0f1f3a]">
               Quick examples
             </h2>
             <div className="mt-4 space-y-3">
               {page.highlights.map((item) => (
                 <div
                   key={item.label}
-                  className="rounded-xl border border-[#e1ece7] bg-[#fbfdfc] p-3"
+                  className="rounded-xl border border-[#d8e5f7] bg-[#f8fbff] p-3"
                 >
-                  <p className="text-xs font-bold uppercase tracking-[0.08em] text-[#5f746f]">
+                  <p className="text-xs font-bold uppercase tracking-[0.08em] text-[#53657f]">
                     {item.label}
                   </p>
-                  <p className="mt-1 font-extrabold text-[#17312b]">
+                  <p className="mt-1 font-extrabold text-[#0f1f3a]">
                     {item.value}
                   </p>
                 </div>
@@ -62,19 +62,19 @@ export function SEOLandingPageView({ page }: { page: SEOLandingPage }) {
           <article className="premium-card p-6 md:p-8">
             <div className="prose prose-slate max-w-none">
               {page.comparisonRows?.length ? (
-                <section className="not-prose mb-8 overflow-hidden rounded-2xl border border-[#d7e5df] bg-[#fbfdfc]">
-                  <div className="border-b border-[#d7e5df] px-4 py-3 md:px-5">
-                    <h2 className="text-xl font-extrabold tracking-[-0.02em] text-[#17312b]">
+                <section className="not-prose mb-8 overflow-hidden rounded-2xl border border-[#d8e5f7] bg-[#f8fbff] shadow-[0_10px_28px_rgba(15,31,58,0.05)]">
+                  <div className="border-b border-[#d8e5f7] px-4 py-3 md:px-5">
+                    <h2 className="text-xl font-extrabold tracking-[-0.02em] text-[#0f1f3a]">
                       Example comparison
                     </h2>
-                    <p className="mt-1 text-sm leading-6 text-[#5f746f]">
+                    <p className="mt-1 text-sm leading-6 text-[#53657f]">
                       These figures are rough examples only. Use the full
-                      calculator for your country, rent, and income.
+                      calculator for your own rent, income, and situation.
                     </p>
                   </div>
                   <div className="overflow-x-auto">
                     <table className="w-full min-w-[42rem] text-left text-sm">
-                      <thead className="bg-white text-[#35534c]">
+                      <thead className="bg-white text-[#334765]">
                         <tr>
                           <th className="px-4 py-3 font-extrabold md:px-5">
                             Example
@@ -87,16 +87,16 @@ export function SEOLandingPageView({ page }: { page: SEOLandingPage }) {
                           </th>
                         </tr>
                       </thead>
-                      <tbody className="divide-y divide-[#e1ece7]">
+                      <tbody className="divide-y divide-[#d8e5f7] bg-white/70">
                         {page.comparisonRows.map((row) => (
                           <tr key={row.label}>
-                            <td className="px-4 py-3 font-bold text-[#17312b] md:px-5">
+                            <td className="px-4 py-3 font-bold text-[#0f1f3a] md:px-5">
                               {row.label}
                             </td>
-                            <td className="px-4 py-3 text-[#35534c] md:px-5">
+                            <td className="px-4 py-3 text-[#334765] md:px-5">
                               {row.value}
                             </td>
-                            <td className="px-4 py-3 text-[#5f746f] md:px-5">
+                            <td className="px-4 py-3 text-[#53657f] md:px-5">
                               {row.note}
                             </td>
                           </tr>
@@ -108,32 +108,32 @@ export function SEOLandingPageView({ page }: { page: SEOLandingPage }) {
               ) : null}
               {page.sections.map((section) => (
                 <section key={section.heading} className="not-prose mb-8 last:mb-0">
-                  <h2 className="text-2xl font-extrabold tracking-[-0.02em] text-[#17312b]">
+                  <h2 className="text-2xl font-extrabold tracking-[-0.02em] text-[#0f1f3a]">
                     {section.heading}
                   </h2>
-                  <p className="mt-3 leading-7 text-[#5f746f]">{section.body}</p>
+                  <p className="mt-3 leading-7 text-[#53657f]">{section.body}</p>
                 </section>
               ))}
             </div>
-            <div className="mt-8 rounded-2xl border border-[#d7e5df] bg-[#fbfdfc] p-5">
-              <h2 className="text-xl font-extrabold text-[#17312b]">
+            <div className="mt-8 rounded-2xl border border-[#d8e5f7] bg-[#eff6ff] p-5 shadow-[0_10px_28px_rgba(15,31,58,0.05)]">
+              <h2 className="text-xl font-extrabold text-[#0f1f3a]">
                 Helpful next step
               </h2>
-              <p className="mt-2 leading-7 text-[#5f746f]">
+              <p className="mt-2 leading-7 text-[#53657f]">
                 For your own numbers, use the{" "}
                 <Link
                   href={page.primaryLink.href}
-                  className="font-bold text-[#116a5b] underline-offset-4 hover:underline"
+                  className="font-bold text-[#2563eb] underline-offset-4 hover:underline"
                 >
                   relevant RentReadyCheck calculator
                 </Link>
-                . It can show country-aware estimates and keeps everything in
+                . It can show rough estimates and keeps everything in
                 your browser.
               </p>
             </div>
             {page.relatedLinks?.length ? (
-              <div className="mt-6 rounded-2xl border border-[#d7e5df] bg-white/75 p-5">
-                <h2 className="text-lg font-extrabold text-[#17312b]">
+              <div className="mt-6 rounded-2xl border border-[#d8e5f7] bg-white p-5 shadow-[0_10px_28px_rgba(15,31,58,0.05)]">
+                <h2 className="text-lg font-extrabold text-[#0f1f3a]">
                   Related guides
                 </h2>
                 <div className="mt-3 flex flex-wrap gap-2">
@@ -141,7 +141,7 @@ export function SEOLandingPageView({ page }: { page: SEOLandingPage }) {
                     <Link
                       key={link.href}
                       href={link.href}
-                      className="rounded-full border border-[#c7ddd5] bg-[#e8f5ef] px-3 py-1.5 text-sm font-bold text-[#116a5b] transition hover:border-[#116a5b] hover:bg-[#dcefe7]"
+                      className="rounded-full border border-[#bdd3f5] bg-[#eff6ff] px-3 py-1.5 text-sm font-bold text-[#1d4ed8] transition hover:border-[#2563eb] hover:bg-[#dbeafe]"
                     >
                       {link.label}
                     </Link>
