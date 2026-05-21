@@ -5,7 +5,7 @@ import { useState } from "react";
 import { siteConfig } from "@/lib/siteConfig";
 
 const navItems = [
-  { label: "Readiness Score", href: "/#readiness-score" },
+  { label: "Readiness Score", href: "/rent-readiness-score/" },
   { label: "Calculators", href: "/rent-referencing-calculator" },
   { label: "Move-In Budget", href: "/move-in-cost-calculator" },
   { label: "Guides", href: "/guides" },
@@ -30,7 +30,7 @@ export function Header() {
           ))}
         </nav>
 
-        <Link href="/#readiness-score" className="app-header__cta">
+        <Link href="/rent-readiness-score/" className="app-header__cta">
           Start My Check
         </Link>
 
@@ -65,7 +65,7 @@ export function Header() {
               {item.label}
             </Link>
           ))}
-          <Link href="/#readiness-score" className="app-header__mobile-cta" onClick={() => setOpen(false)}>
+          <Link href="/rent-readiness-score/" className="app-header__mobile-cta" onClick={() => setOpen(false)}>
             Start My Check
           </Link>
         </nav>
