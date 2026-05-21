@@ -6,7 +6,6 @@ import {
   FormSection,
   HowEstimateWorks,
 } from "@/components/CalculatorLayout";
-import { CountrySelector } from "@/components/CountrySelector";
 import { InputField } from "@/components/InputField";
 import { AnimatedStatCard } from "@/components/Motion";
 import { ResultCard } from "@/components/ResultCard";
@@ -22,19 +21,16 @@ import {
 import {
   defaultCountryCode,
   getCountryConfig,
-  type CountryCode,
 } from "@/lib/countries";
-import { getCountryFromQueryParam, getDetectedCountry } from "@/lib/detectCountry";
-import { useEffect, useState } from "react";
+import { useState } from "react";
 
 export function GuarantorIncomeCalculator() {
-  const [countryCode, setCountryCode] = useState<CountryCode>(defaultCountryCode);
   const [rentAmount, setRentAmount] = useState("");
   const [supportPersonIncome, setSupportPersonIncome] = useState("");
   const [applicantIncome, setApplicantIncome] = useState("");
   const [threshold, setThreshold] = useState("3");
 
-  const country = getCountryConfig(countryCode);
+  const country = getCountryConfig(defaultCountryCode);
   const monthlyRent = normalizeRentToMonthly(safeNumber(rentAmount), "monthly");
   const supportIncome = safeNumber(supportPersonIncome);
   const applicant = safeNumber(applicantIncome);
@@ -42,19 +38,6 @@ export function GuarantorIncomeCalculator() {
   const currency = (value: number) => formatCurrencyByCountry(value, country.code);
   const negativeInput = hasNegativeValue([rentAmount, supportPersonIncome, applicantIncome]);
   const supportPersonLabel = "co-signer";
-
-  useEffect(() => {
-    const queryCountry = getCountryFromQueryParam(
-      new URLSearchParams(window.location.search).get("country"),
-    );
-
-    handleCountryChange(queryCountry ?? getDetectedCountry());
-  }, []);
-
-  function handleCountryChange(nextCountryCode: CountryCode) {
-    setCountryCode(nextCountryCode);
-    setThreshold("3");
-  }
 
   const thresholdOptions = [
     { label: "2.5x monthly rent", value: "2.5" },
@@ -101,7 +84,7 @@ export function GuarantorIncomeCalculator() {
   const hasResult = monthlyRent > 0 && supportIncome > 0 && !negativeInput;
 
   useCalculatorResultTracking({
-    calculatorName: "Guarantor / Co-signer Calculator",
+    calculatorName: "Co-signer Income Calculator",
     selectedCountry: country.code,
     resultSignal: badgeLabel,
     enabled: hasResult,
@@ -113,15 +96,14 @@ export function GuarantorIncomeCalculator() {
         <section className="form-card space-y-4 p-4 sm:p-5">
           <FormSection
             step="Step 1"
-            title="Apartment location"
+            title="US apartment example"
             description="United States examples use co-signer income compared with monthly rent."
             columns="grid-cols-1"
           >
-            <CountrySelector
-              country={country}
-              onChange={handleCountryChange}
-              calculatorName="Guarantor / Co-signer Calculator"
-            />
+            <p className="rounded-lg border border-[#d8e5f7] bg-[#f8fbff] px-3 py-2 text-sm leading-6 text-[#53657f]">
+              This calculator uses US dollar inputs and common co-signer income
+              examples such as 2.5x to 3.5x monthly rent.
+            </p>
           </FormSection>
 
           <FormSection

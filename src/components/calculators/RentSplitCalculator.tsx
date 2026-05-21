@@ -6,7 +6,6 @@ import {
   FormSection,
   HowEstimateWorks,
 } from "@/components/CalculatorLayout";
-import { CountrySelector } from "@/components/CountrySelector";
 import { InputField } from "@/components/InputField";
 import { ResultCard } from "@/components/ResultCard";
 import { SelectField } from "@/components/SelectField";
@@ -20,15 +19,12 @@ import {
 import {
   defaultCountryCode,
   getCountryConfig,
-  type CountryCode,
 } from "@/lib/countries";
-import { getCountryFromQueryParam, getDetectedCountry } from "@/lib/detectCountry";
-import { useEffect, useState } from "react";
+import { useState } from "react";
 
 type SplitMethod = "equal" | "income" | "room";
 
 export function RentSplitCalculator() {
-  const [countryCode, setCountryCode] = useState<CountryCode>(defaultCountryCode);
   const [monthlyRent, setMonthlyRent] = useState("");
   const [splitMethod, setSplitMethod] = useState<SplitMethod>("equal");
   const [tenantCount, setTenantCount] = useState("2");
@@ -36,15 +32,7 @@ export function RentSplitCalculator() {
   const [incomes, setIncomes] = useState(["", "", "", ""]);
   const [roomScores, setRoomScores] = useState(["1", "1", "1", "1"]);
 
-  useEffect(() => {
-    const queryCountry = getCountryFromQueryParam(
-      new URLSearchParams(window.location.search).get("country"),
-    );
-
-    setCountryCode(queryCountry ?? getDetectedCountry());
-  }, []);
-
-  const country = getCountryConfig(countryCode);
+  const country = getCountryConfig(defaultCountryCode);
   const rent = safeNumber(monthlyRent);
   const count = safeNumber(tenantCount);
   const activeNames = names.slice(0, count);
@@ -132,15 +120,13 @@ export function RentSplitCalculator() {
         <section className="form-card space-y-4 p-4 sm:p-5">
           <FormSection
             step="Step 1"
-            title="Apartment location"
+            title="US apartment example"
             description="United States dollars are used in the split table."
             columns="grid-cols-1"
           >
-            <CountrySelector
-              country={country}
-              onChange={setCountryCode}
-              calculatorName="Rent Split Calculator"
-            />
+            <p className="rounded-lg border border-[#d8e5f7] bg-[#f8fbff] px-3 py-2 text-sm leading-6 text-[#53657f]">
+              This calculator uses US dollar inputs for roommate rent planning.
+            </p>
           </FormSection>
 
           <FormSection
