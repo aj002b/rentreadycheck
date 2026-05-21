@@ -6,6 +6,7 @@ const baseUrl = "https://rentreadycheck.com";
 
 const routes = [
   { path: "/", priority: 1 },
+  { path: "/rent-readiness-score", priority: 0.9 },
   { path: "/rent-referencing-calculator", priority: 0.8 },
   { path: "/guarantor-income-calculator", priority: 0.8 },
   { path: "/joint-tenant-affordability-calculator", priority: 0.8 },

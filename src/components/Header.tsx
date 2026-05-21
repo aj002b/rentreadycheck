@@ -5,15 +5,23 @@ import { useState } from "react";
 import { siteConfig } from "@/lib/siteConfig";
 
 const navItems = [
-  { label: "Readiness Score", href: "/#readiness-score" },
-  { label: "Calculators", href: "/rent-referencing-calculator" },
+  { label: "Readiness Score", href: "/rent-readiness-score/" },
   { label: "Move-In Budget", href: "/move-in-cost-calculator" },
   { label: "Guides", href: "/guides" },
   { label: "About", href: "/about" },
 ];
 
+const calculatorLinks = [
+  { label: "Rent Affordability Calculator", href: "/rent-referencing-calculator" },
+  { label: "Co-signer Income Calculator", href: "/guarantor-income-calculator" },
+  { label: "Roommate Affordability Calculator", href: "/joint-tenant-affordability-calculator" },
+  { label: "Move-In Cost Calculator", href: "/move-in-cost-calculator" },
+  { label: "Rent Split Calculator", href: "/rent-split-calculator" },
+];
+
 export function Header() {
   const [open, setOpen] = useState(false);
+  const [toolsOpen, setToolsOpen] = useState(false);
 
   return (
     <header className="app-header">
@@ -23,14 +31,49 @@ export function Header() {
         </Link>
 
         <nav className="app-header__nav" aria-label="Main navigation">
-          {navItems.map((item) => (
+          <Link href="/rent-readiness-score/" className="app-header__link">
+            Readiness Score
+          </Link>
+          <div
+            className="app-header__dropdown"
+            onMouseEnter={() => setToolsOpen(true)}
+            onMouseLeave={() => setToolsOpen(false)}
+          >
+            <button
+              type="button"
+              className="app-header__dropdown-button"
+              aria-expanded={toolsOpen}
+              aria-controls="calculator-menu"
+              onClick={() => setToolsOpen((value) => !value)}
+            >
+              Calculators
+              <svg width="14" height="14" viewBox="0 0 16 16" fill="none" aria-hidden="true">
+                <path d="M4 6l4 4 4-4" stroke="currentColor" strokeWidth="1.7" strokeLinecap="round" strokeLinejoin="round" />
+              </svg>
+            </button>
+            {toolsOpen ? (
+              <div id="calculator-menu" className="app-header__dropdown-menu">
+                {calculatorLinks.map((item) => (
+                  <Link
+                    key={item.href}
+                    href={item.href}
+                    className="app-header__dropdown-link"
+                    onClick={() => setToolsOpen(false)}
+                  >
+                    {item.label}
+                  </Link>
+                ))}
+              </div>
+            ) : null}
+          </div>
+          {navItems.slice(1).map((item) => (
             <Link key={item.label} href={item.href} className="app-header__link">
               {item.label}
             </Link>
           ))}
         </nav>
 
-        <Link href="/#readiness-score" className="app-header__cta">
+        <Link href="/rent-readiness-score/" className="app-header__cta">
           Start My Check
         </Link>
 
@@ -65,7 +108,20 @@ export function Header() {
               {item.label}
             </Link>
           ))}
-          <Link href="/#readiness-score" className="app-header__mobile-cta" onClick={() => setOpen(false)}>
+          <div className="app-header__mobile-tools" aria-label="Calculator links">
+            <p className="app-header__mobile-tools-label">Calculators</p>
+            {calculatorLinks.map((item) => (
+              <Link
+                key={item.href}
+                href={item.href}
+                className="app-header__mobile-tool-link"
+                onClick={() => setOpen(false)}
+              >
+                {item.label}
+              </Link>
+            ))}
+          </div>
+          <Link href="/rent-readiness-score/" className="app-header__mobile-cta" onClick={() => setOpen(false)}>
             Start My Check
           </Link>
         </nav>
