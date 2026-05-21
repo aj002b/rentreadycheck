@@ -7,7 +7,7 @@ export type CreditConfidence =
   | "Prefer not to say";
 export type MoveInTimeframe =
   | "This month"
-  | "1-3 months"
+  | "1–3 months"
   | "3+ months"
   | "Just exploring";
 
@@ -29,13 +29,44 @@ export type ReadinessCategoryKey =
   | "support"
   | "flexibility";
 
+export type ReadinessCategoryScores = {
+  income: {
+    points: number;
+    max: 40;
+    note: string;
+  };
+  savings: {
+    points: number;
+    max: 25;
+    note: string;
+  };
+  debt: {
+    points: number;
+    max: 15;
+    note: string;
+  };
+  support: {
+    points: number;
+    max: 10;
+    note: string;
+  };
+  flexibility: {
+    points: number;
+    max: 10;
+    note: string;
+  };
+};
+
 export type ReadinessScoreResult = {
   score: number;
+  totalScore: number;
   label: string;
+  scoreLabel: string;
   rentTwin: {
     title: string;
     explanation: string;
   };
+  rentTwinDescription: string;
   topNextStep: string;
   supportingActions: string[];
   strengths: string[];
@@ -49,32 +80,16 @@ export type ReadinessScoreResult = {
   debtRatio: number;
   suggestedRentTarget: number;
   weakestCategory: ReadinessCategoryKey;
-  categories: {
-    income: {
-      points: number;
-      max: 40;
-      note: string;
-    };
-    savings: {
-      points: number;
-      max: 25;
-      note: string;
-    };
-    debt: {
-      points: number;
-      max: 15;
-      note: string;
-    };
-    support: {
-      points: number;
-      max: 10;
-      note: string;
-    };
-    flexibility: {
-      points: number;
-      max: 10;
-      note: string;
-    };
+  categories: ReadinessCategoryScores;
+  categoryScores: ReadinessCategoryScores;
+  keyNumbers: {
+    grossMonthlyIncome: number;
+    rentMultiple: number;
+    rentToIncomePercent: number;
+    estimatedMoveInNeed: number;
+    savingsGap: number;
+    savingsSurplus: number;
+    debtRatio: number;
   };
 };
 
@@ -82,6 +97,10 @@ const clamp = (value: number, min: number, max: number) =>
   Math.max(min, Math.min(max, value));
 
 const roundToHundred = (value: number) => Math.ceil(value / 100) * 100;
+
+function safeNonNegative(value: number) {
+  return Number.isFinite(value) ? Math.max(0, value) : 0;
+}
 
 export function getReadinessLabel(score: number) {
   if (score >= 85) return "Rent Ready";
@@ -237,18 +256,23 @@ function getNextSteps(
 export function calculateReadinessScore(
   input: ReadinessScoreInput,
 ): ReadinessScoreResult {
-  const grossMonthlyIncome = input.annualIncome > 0 ? input.annualIncome / 12 : 0;
+  const monthlyRent = safeNonNegative(input.monthlyRent);
+  const annualIncome = safeNonNegative(input.annualIncome);
+  const savings = safeNonNegative(input.savings);
+  const monthlyDebt = safeNonNegative(input.monthlyDebt);
+
+  const grossMonthlyIncome = annualIncome > 0 ? annualIncome / 12 : 0;
   const rentMultiple =
-    input.monthlyRent > 0 && grossMonthlyIncome > 0
-      ? grossMonthlyIncome / input.monthlyRent
+    monthlyRent > 0 && grossMonthlyIncome > 0
+      ? grossMonthlyIncome / monthlyRent
       : 0;
   const rentToIncomePercent =
-    grossMonthlyIncome > 0 ? input.monthlyRent / grossMonthlyIncome : 0;
-  const estimatedMoveInNeed = input.monthlyRent * 3;
-  const savingsGap = Math.max(estimatedMoveInNeed - input.savings, 0);
-  const savingsSurplus = Math.max(input.savings - estimatedMoveInNeed, 0);
+    grossMonthlyIncome > 0 && monthlyRent > 0 ? monthlyRent / grossMonthlyIncome : 0;
+  const estimatedMoveInNeed = monthlyRent * 3;
+  const savingsGap = Math.max(estimatedMoveInNeed - savings, 0);
+  const savingsSurplus = Math.max(savings - estimatedMoveInNeed, 0);
   const debtRatio =
-    grossMonthlyIncome > 0 ? input.monthlyDebt / grossMonthlyIncome : 1;
+    grossMonthlyIncome > 0 ? monthlyDebt / grossMonthlyIncome : 1;
 
   let incomePoints = 5;
   if (rentMultiple >= 3) incomePoints = 40;
@@ -257,9 +281,10 @@ export function calculateReadinessScore(
   else if (rentMultiple >= 1.5) incomePoints = 12;
 
   let savingsPoints = 4;
-  if (input.savings >= estimatedMoveInNeed) savingsPoints = 25;
-  else if (input.savings >= input.monthlyRent * 2) savingsPoints = 18;
-  else if (input.savings >= input.monthlyRent) savingsPoints = 10;
+  if (monthlyRent <= 0) savingsPoints = 4;
+  else if (savings >= estimatedMoveInNeed) savingsPoints = 25;
+  else if (savings >= monthlyRent * 2) savingsPoints = 18;
+  else if (savings >= monthlyRent) savingsPoints = 10;
 
   let debtPoints = 3;
   if (debtRatio <= 0.1) debtPoints = 15;
@@ -283,7 +308,7 @@ export function calculateReadinessScore(
     input.moveInTimeframe === "3+ months" ||
     input.moveInTimeframe === "Just exploring"
       ? 2
-      : input.moveInTimeframe === "1-3 months"
+      : input.moveInTimeframe === "1–3 months"
         ? 1
         : 0;
   const flexibilityPoints = roommatePoints + creditPoints + timeframePoints;
@@ -320,7 +345,7 @@ export function calculateReadinessScore(
     rentMultiple >= 2.5
       ? "Income looks close to common 2.5x or 3x rent examples."
       : null,
-    input.savings >= input.monthlyRent * 2
+    monthlyRent > 0 && savings >= monthlyRent * 2
       ? "Savings may cover a basic move-in buffer."
       : null,
     debtRatio <= 0.2 ? "Monthly debt looks manageable." : null,
@@ -337,7 +362,7 @@ export function calculateReadinessScore(
 
   const watchOuts = [
     rentMultiple < 2.5 ? "Rent may be high compared with income." : null,
-    input.savings < estimatedMoveInNeed
+    monthlyRent > 0 && savings < estimatedMoveInNeed
       ? "Savings buffer could be stronger."
       : null,
     debtRatio > 0.2 ? "Monthly debt may reduce flexibility." : null,
@@ -358,10 +383,66 @@ export function calculateReadinessScore(
       ? watchOuts.slice(0, 4)
       : ["Rental decisions can still vary by landlord and property manager rules."];
 
+  const categories = {
+    income: {
+      points: incomePoints,
+      max: 40,
+      note:
+        rentMultiple >= 3
+          ? "Income is at or above a common 3x rent example."
+          : "Compare this rent with common 2.5x and 3x income examples.",
+    },
+    savings: {
+      points: savingsPoints,
+      max: 25,
+      note:
+        savingsGap > 0
+          ? "A larger move-in buffer could improve this category."
+          : "Savings may cover the estimated move-in buffer.",
+    },
+    debt: {
+      points: debtPoints,
+      max: 15,
+      note:
+        debtRatio <= 0.2
+          ? "Debt payments look manageable compared with income."
+          : "Debt payments may reduce monthly flexibility.",
+    },
+    support: {
+      points: supportPoints,
+      max: 10,
+      note:
+        input.cosigner === "Yes"
+          ? "Co-signer support is included in this estimate."
+          : "This estimate does not include confirmed co-signer support.",
+    },
+    flexibility: {
+      points: flexibilityPoints,
+      max: 10,
+      note:
+        "Roommate choice, credit confidence, and timing shape this category.",
+    },
+  } satisfies ReadinessCategoryScores;
+
+  const label = getReadinessLabel(score);
+  const rentTwin = getRentTwin(input, score, weakestCategory, rentMultiple);
+  const keyNumbers = {
+    grossMonthlyIncome,
+    rentMultiple,
+    rentToIncomePercent,
+    estimatedMoveInNeed,
+    savingsGap,
+    savingsSurplus,
+    debtRatio,
+  };
+
   return {
     score,
-    label: getReadinessLabel(score),
-    rentTwin: getRentTwin(input, score, weakestCategory, rentMultiple),
+    totalScore: score,
+    label,
+    scoreLabel: label,
+    rentTwin,
+    rentTwinDescription: rentTwin.explanation,
     topNextStep,
     supportingActions,
     strengths: safeStrengths,
@@ -375,45 +456,8 @@ export function calculateReadinessScore(
     debtRatio,
     suggestedRentTarget,
     weakestCategory,
-    categories: {
-      income: {
-        points: incomePoints,
-        max: 40,
-        note:
-          rentMultiple >= 3
-            ? "Income is at or above a common 3x rent example."
-            : "Compare this rent with common 2.5x and 3x income examples.",
-      },
-      savings: {
-        points: savingsPoints,
-        max: 25,
-        note:
-          savingsGap > 0
-            ? "A larger move-in buffer could improve this category."
-            : "Savings may cover the estimated move-in buffer.",
-      },
-      debt: {
-        points: debtPoints,
-        max: 15,
-        note:
-          debtRatio <= 0.2
-            ? "Debt payments look manageable compared with income."
-            : "Debt payments may reduce monthly flexibility.",
-      },
-      support: {
-        points: supportPoints,
-        max: 10,
-        note:
-          input.cosigner === "Yes"
-            ? "Co-signer support is included in this estimate."
-            : "This estimate does not include confirmed co-signer support.",
-      },
-      flexibility: {
-        points: flexibilityPoints,
-        max: 10,
-        note:
-          "Roommate choice, credit confidence, and timing shape this category.",
-      },
-    },
+    categories,
+    categoryScores: categories,
+    keyNumbers,
   };
 }

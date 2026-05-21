@@ -53,7 +53,7 @@ export default function HeroSection() {
           </p>
 
           <div style={{ display: 'flex', gap: 14, flexWrap: 'wrap', marginBottom: 28 }}>
-            <a href="#readiness-score" style={s.primaryBtn}>Start My Check</a>
+            <a href="/rent-readiness-score" style={s.primaryBtn}>Start My Check</a>
             <a href="#how-it-works" style={s.secondaryBtn}>See How It Works</a>
           </div>
 

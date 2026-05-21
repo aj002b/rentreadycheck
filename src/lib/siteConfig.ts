@@ -10,6 +10,7 @@ export const siteConfig = {
 
 export const publicRoutes = [
   "/",
+  "/rent-readiness-score",
   "/rent-referencing-calculator",
   "/guarantor-income-calculator",
   "/joint-tenant-affordability-calculator",

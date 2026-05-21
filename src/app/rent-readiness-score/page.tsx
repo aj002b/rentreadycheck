@@ -1,5 +1,7 @@
 import type { Metadata } from "next";
+import { FAQJsonLd } from "@/components/FAQJsonLd";
 import { RentReadinessAssessment } from "@/components/RentReadinessAssessment";
+import { rentReadinessFaqs } from "@/lib/rentReadinessFaqs";
 
 export const metadata: Metadata = {
   title: {
@@ -10,5 +12,10 @@ export const metadata: Metadata = {
 };
 
 export default function RentReadinessScorePage() {
-  return <RentReadinessAssessment />;
+  return (
+    <>
+      <FAQJsonLd items={rentReadinessFaqs} />
+      <RentReadinessAssessment />
+    </>
+  );
 }

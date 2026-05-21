@@ -11,6 +11,7 @@ import {
   type ReadinessScoreResult,
   type RoommateOption,
 } from "@/lib/readinessScore";
+import { rentReadinessFaqs } from "@/lib/rentReadinessFaqs";
 
 type FormValues = {
   monthlyRent: string;
@@ -31,7 +32,7 @@ const defaults: FormValues = {
   cosigner: "No" as CosignerOption,
   roommate: "No" as RoommateOption,
   creditConfidence: "Average" as CreditConfidence,
-  moveInTimeframe: "1-3 months" as MoveInTimeframe,
+  moveInTimeframe: "1–3 months" as MoveInTimeframe,
 };
 
 const relatedTools = [
@@ -162,6 +163,7 @@ function Field({
           type="number"
           value={value}
           onChange={(event) => onChange(event.target.value)}
+          aria-label={label}
           aria-invalid={Boolean(error)}
         />
       </div>
@@ -315,11 +317,11 @@ function EmptyResultCard() {
         Live summary
       </p>
       <h2 className="mt-3 text-3xl font-black tracking-[-0.03em] text-[#0f1f3a]">
-        Your score dashboard will appear here
+        Complete the form to see your Rent Readiness Score.
       </h2>
       <p className="mt-3 leading-7 text-[#53657f]">
-        Complete the guided assessment and calculate your estimate to see your
-        score, Rent Twin, watch-outs, and next best step.
+        Calculate your estimate to see your score, Rent Twin, watch-outs, and
+        next best step.
       </p>
       <div className="mt-6 rounded-[22px] border border-dashed border-[#bdd3f5] bg-white p-5">
         <div className="h-4 rounded-full bg-[#e2e8f0]" />
@@ -332,7 +334,13 @@ function EmptyResultCard() {
   );
 }
 
-function CategoryBreakdown({ result }: { result: ReadinessScoreResult }) {
+function CategoryBreakdown({
+  result,
+  input,
+}: {
+  result: ReadinessScoreResult;
+  input: ReadinessScoreInput;
+}) {
   const categories = [
     {
       title: "Income strength",
@@ -362,15 +370,15 @@ function CategoryBreakdown({ result }: { result: ReadinessScoreResult }) {
       title: "Application support",
       points: result.categories.support.points,
       max: result.categories.support.max,
-      metric: `${result.categories.support.points}/10 support points`,
+      metric: `Co-signer: ${input.cosigner}`,
       note: result.categories.support.note,
     },
     {
       title: "Flexibility",
       points: result.categories.flexibility.points,
       max: result.categories.flexibility.max,
-      metric: `${result.categories.flexibility.points}/10 flexibility points`,
-      note: result.categories.flexibility.note,
+      metric: `Roommate: ${input.roommate}`,
+      note: `${result.categories.flexibility.note} Credit: ${input.creditConfidence}. Timing: ${input.moveInTimeframe}.`,
     },
   ];
 
@@ -516,6 +524,59 @@ function RelatedTools() {
             <p className="mt-3 leading-7 text-[#53657f]">{tool.description}</p>
           </Link>
         ))}
+      </div>
+    </section>
+  );
+}
+
+function RentReadinessFaq() {
+  const [openIndex, setOpenIndex] = useState(0);
+
+  return (
+    <section className="site-container py-12">
+      <div className="max-w-3xl">
+        <h2 className="text-3xl font-black tracking-[-0.03em] text-[#0f1f3a]">
+          Rent Readiness Score FAQ
+        </h2>
+      </div>
+      <div className="mt-7 overflow-hidden rounded-[26px] border border-[#d8e5f7] bg-white shadow-[0_14px_34px_rgba(15,31,58,0.06)]">
+        {rentReadinessFaqs.map((faq, index) => {
+          const isOpen = openIndex === index;
+          const panelId = `rent-readiness-faq-${index}`;
+
+          return (
+            <div
+              key={faq.question}
+              className={index === 0 ? "" : "border-t border-[#d8e5f7]"}
+            >
+              <h3>
+                <button
+                  type="button"
+                  className="flex w-full items-center justify-between gap-4 px-5 py-5 text-left text-lg font-black text-[#0f1f3a] transition hover:bg-[#f8fbff] sm:px-6"
+                  aria-expanded={isOpen}
+                  aria-controls={panelId}
+                  onClick={() => setOpenIndex(isOpen ? -1 : index)}
+                >
+                  <span>{faq.question}</span>
+                  <span
+                    className="flex h-8 w-8 shrink-0 items-center justify-center rounded-full bg-[#eff6ff] text-[#2563eb]"
+                    aria-hidden="true"
+                  >
+                    {isOpen ? "-" : "+"}
+                  </span>
+                </button>
+              </h3>
+              <div
+                id={panelId}
+                role="region"
+                hidden={!isOpen}
+                className="px-5 pb-5 leading-7 text-[#53657f] sm:px-6"
+              >
+                {faq.answer}
+              </div>
+            </div>
+          );
+        })}
       </div>
     </section>
   );
@@ -673,7 +734,7 @@ export function RentReadinessAssessment() {
                     label="Move-in timeframe"
                     options={[
                       "This month",
-                      "1-3 months",
+                      "1–3 months",
                       "3+ months",
                       "Just exploring",
                     ] as const}
@@ -735,7 +796,7 @@ export function RentReadinessAssessment() {
 
       {hasCalculated && result ? (
         <>
-          <CategoryBreakdown result={result} />
+          <CategoryBreakdown result={result} input={input} />
           <StrengthsAndWatchOuts result={result} />
           <NextSteps result={result} />
         </>
@@ -743,6 +804,7 @@ export function RentReadinessAssessment() {
 
       <HowEstimated />
       <RelatedTools />
+      <RentReadinessFaq />
 
       <section className="site-container pb-16">
         <aside className="rounded-[24px] border border-[#bdd3f5] bg-[#eff6ff] p-5 leading-7 text-[#334765]">

@@ -5,7 +5,7 @@ const cards = [
     title: 'Rent Readiness Score & Rent Twin',
     desc: 'Get your score, see your renter type, and understand your strengths and watch-outs.',
     cta: 'Check your score',
-    href: '#readiness-score',
+    href: '/rent-readiness-score',
     icon: (
       <svg width="28" height="28" viewBox="0 0 28 28" fill="none">
         <circle cx="14" cy="14" r="12" stroke="#2563EB" strokeWidth="2" />
