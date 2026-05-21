@@ -6,7 +6,6 @@ import {
   FormSection,
   HowEstimateWorks,
 } from "@/components/CalculatorLayout";
-import { CountrySelector } from "@/components/CountrySelector";
 import { InputField } from "@/components/InputField";
 import { AnimatedStatCard } from "@/components/Motion";
 import { ResultCard } from "@/components/ResultCard";
@@ -25,13 +24,10 @@ import {
 import {
   defaultCountryCode,
   getCountryConfig,
-  type CountryCode,
 } from "@/lib/countries";
-import { getCountryFromQueryParam, getDetectedCountry } from "@/lib/detectCountry";
-import { useEffect, useState } from "react";
+import { useState } from "react";
 
 export function JointTenantCalculator() {
-  const [countryCode, setCountryCode] = useState<CountryCode>(defaultCountryCode);
   const [rentAmount, setRentAmount] = useState("");
   const [tenant1, setTenant1] = useState("");
   const [tenant2, setTenant2] = useState("");
@@ -39,7 +35,7 @@ export function JointTenantCalculator() {
   const [tenant4, setTenant4] = useState("");
   const [threshold, setThreshold] = useState("3");
 
-  const country = getCountryConfig(countryCode);
+  const country = getCountryConfig(defaultCountryCode);
   const rent = safeNumber(rentAmount);
   const monthlyRent = normalizeRentToMonthly(rent, "monthly");
   const incomes = [tenant1, tenant2, tenant3, tenant4].map(safeNumber);
@@ -48,19 +44,6 @@ export function JointTenantCalculator() {
   const currency = (value: number) => formatCurrencyByCountry(value, country.code);
   const rentPercentage = calculateRentToIncomePercentage(monthlyRent, combinedIncome);
   const negativeInput = hasNegativeValue([rentAmount, tenant1, tenant2, tenant3, tenant4]);
-
-  useEffect(() => {
-    const queryCountry = getCountryFromQueryParam(
-      new URLSearchParams(window.location.search).get("country"),
-    );
-
-    handleCountryChange(queryCountry ?? getDetectedCountry());
-  }, []);
-
-  function handleCountryChange(nextCountryCode: CountryCode) {
-    setCountryCode(nextCountryCode);
-    setThreshold("3");
-  }
 
   const thresholdOptions = [
     { label: "2.5x monthly rent", value: "2.5" },
@@ -106,7 +89,7 @@ export function JointTenantCalculator() {
     !negativeInput;
 
   useCalculatorResultTracking({
-    calculatorName: "Joint Tenant Calculator",
+    calculatorName: "Roommate Affordability Calculator",
     selectedCountry: country.code,
     resultSignal: result.title,
     enabled: hasResult,
@@ -118,15 +101,14 @@ export function JointTenantCalculator() {
         <section className="form-card space-y-4 p-4 sm:p-5">
           <FormSection
             step="Step 1"
-            title="Apartment location"
+            title="US apartment example"
             description="United States examples use gross monthly income compared with monthly rent."
             columns="grid-cols-1"
           >
-            <CountrySelector
-              country={country}
-              onChange={handleCountryChange}
-              calculatorName="Joint Tenant Calculator"
-            />
+            <p className="rounded-lg border border-[#d8e5f7] bg-[#f8fbff] px-3 py-2 text-sm leading-6 text-[#53657f]">
+              This calculator uses US dollar inputs and common roommate
+              affordability examples such as 2.5x to 3x monthly rent.
+            </p>
           </FormSection>
 
           <FormSection
