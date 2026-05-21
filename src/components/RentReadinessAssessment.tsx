@@ -39,26 +39,31 @@ const relatedTools = [
   {
     title: "Rent Affordability Calculator",
     description: "Compare income with a monthly apartment target.",
+    cta: "Check affordability",
     href: "/rent-referencing-calculator",
   },
   {
     title: "Co-signer Income Calculator",
     description: "Estimate what support income may look like.",
+    cta: "Estimate support",
     href: "/guarantor-income-calculator",
   },
   {
     title: "Roommate Affordability Calculator",
     description: "See how shared rent can change affordability.",
+    cta: "Check roommate income",
     href: "/joint-tenant-affordability-calculator",
   },
   {
     title: "Move-In Cost Calculator",
     description: "Plan security deposit, first month, and setup costs.",
+    cta: "Estimate move-in costs",
     href: "/move-in-cost-calculator",
   },
   {
     title: "Rent Split Calculator",
     description: "Split apartment rent clearly with a roommate.",
+    cta: "Split rent",
     href: "/rent-split-calculator",
   },
 ];
@@ -522,6 +527,9 @@ function RelatedTools() {
               {tool.title}
             </h3>
             <p className="mt-2 leading-6 text-[#53657f]">{tool.description}</p>
+            <span className="mt-auto inline-flex pt-4 text-sm font-black text-[#2563eb]">
+              {tool.cta}
+            </span>
           </Link>
         ))}
       </div>

@@ -4,59 +4,46 @@ import Link from 'next/link';
 
 const cards = [
   {
-    title: 'Rent Readiness Score & Rent Twin',
-    desc: 'Get your score, see your renter type, and understand your strengths and watch-outs.',
-    cta: 'Check your score',
+    title: 'Rent Readiness Score',
+    desc: 'Get your score, Rent Twin, watch-outs, and next best step before applying.',
+    cta: 'Start my check',
     href: '/rent-readiness-score/',
-    icon: (
-      <svg width="28" height="28" viewBox="0 0 28 28" fill="none">
-        <circle cx="14" cy="14" r="12" stroke="#2563EB" strokeWidth="2" />
-        <path d="M10 14l2.5 2.5L18 11" stroke="#2563EB" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
-      </svg>
-    ),
   },
   {
-    title: 'Improve My Score Simulator',
-    desc: 'See how small changes can improve your rent readiness estimate.',
-    cta: 'Improve my score',
-    href: '/#improve-score',
-    icon: (
-      <svg width="28" height="28" viewBox="0 0 28 28" fill="none">
-        <rect x="3" y="8" width="22" height="14" rx="3" stroke="#2563EB" strokeWidth="2" />
-        <path d="M9 15l3-3 3 3 4-4" stroke="#2563EB" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
-      </svg>
-    ),
+    title: 'Rent Affordability Calculator',
+    desc: 'Compare rent with monthly income using common US apartment affordability examples.',
+    cta: 'Check affordability',
+    href: '/rent-referencing-calculator',
   },
   {
-    title: 'Pre-Move Budget Builder',
-    desc: 'Plan security deposit, first month\'s rent, moving costs, utilities, and setup expenses.',
-    cta: 'Build my budget',
+    title: 'Co-signer Income Calculator',
+    desc: 'Estimate what extra support income may look like for a rental application.',
+    cta: 'Estimate support',
+    href: '/guarantor-income-calculator',
+  },
+  {
+    title: 'Roommate Affordability Calculator',
+    desc: 'See how shared rent and combined income may change affordability.',
+    cta: 'Check roommate income',
+    href: '/joint-tenant-affordability-calculator',
+  },
+  {
+    title: 'Move-In Cost Calculator',
+    desc: 'Estimate security deposit, first month’s rent, moving costs, and setup expenses.',
+    cta: 'Estimate move-in costs',
     href: '/move-in-cost-calculator',
-    icon: (
-      <svg width="28" height="28" viewBox="0 0 28 28" fill="none">
-        <rect x="4" y="6" width="20" height="16" rx="3" stroke="#2563EB" strokeWidth="2" />
-        <path d="M4 11h20" stroke="#2563EB" strokeWidth="2" />
-        <circle cx="9" cy="17" r="1.5" fill="#2563EB" />
-      </svg>
-    ),
   },
   {
-    title: 'Savings & Deposit Planner',
-    desc: 'Set a move-in goal, track your savings gap, and estimate when you may be ready.',
-    cta: 'Start planning',
-    href: '/how-much-should-i-save-before-moving-out',
-    icon: (
-      <svg width="28" height="28" viewBox="0 0 28 28" fill="none">
-        <circle cx="14" cy="14" r="10" stroke="#2563EB" strokeWidth="2" />
-        <path d="M14 8v6l4 3" stroke="#2563EB" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
-      </svg>
-    ),
+    title: 'Rent Split Calculator',
+    desc: 'Split apartment rent fairly with roommates by amount, room, or income.',
+    cta: 'Split rent',
+    href: '/rent-split-calculator',
   },
 ];
 
 export default function FeatureCards() {
   return (
-    <section id="calculators" style={{ background: '#F8FAFC', padding: '68px 24px' }}>
+    <section id="calculators" style={{ background: '#F8FAFC', padding: '64px 24px' }}>
       <div style={{ maxWidth: 1200, margin: '0 auto' }}>
         <h2
           style={{
@@ -64,32 +51,45 @@ export default function FeatureCards() {
             fontWeight: 700,
             color: '#0F172A',
             textAlign: 'center',
-            margin: '0 0 48px',
+            margin: '0 0 12px',
           }}
         >
-          Everything you need to get rent ready
+          RentReadyCheck tools
         </h2>
+        <p
+          style={{
+            color: '#53657F',
+            fontSize: 16,
+            lineHeight: 1.7,
+            margin: '0 auto 34px',
+            maxWidth: 780,
+            textAlign: 'center',
+          }}
+        >
+          Use these free tools to estimate rent affordability, co-signer support,
+          move-in costs, and roommate rent planning before you apply.
+        </p>
 
         <div
           style={{
             display: 'grid',
-            gridTemplateColumns: 'repeat(auto-fit, minmax(260px, 1fr))',
-            gap: 24,
+            gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))',
+            gap: 18,
           }}
         >
-          {cards.map((c) => (
+          {cards.map((c, index) => (
             <Link
                 href={c.href}
                 key={c.title}
                 style={{
                   background: '#fff',
-                  borderRadius: 20,
-                  padding: '24px',
-                  border: '1px solid #E2E8F0',
-                  boxShadow: '0 2px 12px rgba(0,0,0,0.04)',
+                  borderRadius: 22,
+                  padding: '22px',
+                  border: '1px solid #D8E5F7',
+                  boxShadow: '0 14px 34px rgba(15,31,58,0.06)',
                   display: 'flex',
                   flexDirection: 'column',
-                  minHeight: 230,
+                  minHeight: 216,
                   textDecoration: 'none',
                   transition: 'box-shadow 0.2s, transform 0.2s',
                 }}
@@ -101,20 +101,23 @@ export default function FeatureCards() {
                 e.currentTarget.style.boxShadow = '0 2px 12px rgba(0,0,0,0.04)';
                 e.currentTarget.style.transform = 'translateY(0)';
               }}
-            >
-              <div
-                style={{
-                  width: 46,
-                  height: 46,
+              >
+                <div
+                  style={{
+                  width: 44,
+                  height: 44,
                   borderRadius: 14,
                   background: '#EFF6FF',
                   display: 'flex',
                   alignItems: 'center',
                   justifyContent: 'center',
-                  marginBottom: 18,
+                  marginBottom: 16,
+                  color: '#2563EB',
+                  fontSize: 15,
+                  fontWeight: 800,
                 }}
               >
-                {c.icon}
+                {String(index + 1).padStart(2, '0')}
               </div>
 
               <h3 style={{ fontSize: 17, fontWeight: 700, color: '#0F172A', margin: '0 0 10px' }}>

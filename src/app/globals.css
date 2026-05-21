@@ -225,6 +225,70 @@ button {
   color: #2563eb;
 }
 
+.app-header__dropdown {
+  position: relative;
+}
+
+.app-header__dropdown-button {
+  align-items: center;
+  background: transparent;
+  border: 0;
+  color: #334155;
+  cursor: pointer;
+  display: inline-flex;
+  font-size: 14px;
+  font-weight: 500;
+  gap: 5px;
+  padding: 0;
+  transition: color 0.15s ease;
+}
+
+.app-header__dropdown-button:hover,
+.app-header__dropdown-button[aria-expanded="true"] {
+  color: #2563eb;
+}
+
+.app-header__dropdown-menu {
+  background: #ffffff;
+  border: 1px solid #bfdbfe;
+  border-radius: 18px;
+  box-shadow: 0 18px 42px rgba(15, 31, 58, 0.12);
+  display: grid;
+  gap: 4px;
+  left: 50%;
+  min-width: 300px;
+  padding: 10px;
+  position: absolute;
+  top: calc(100% + 18px);
+  transform: translateX(-50%);
+}
+
+.app-header__dropdown-menu::before {
+  content: "";
+  height: 20px;
+  left: 0;
+  position: absolute;
+  right: 0;
+  top: -20px;
+}
+
+.app-header__dropdown-link {
+  border-radius: 12px;
+  color: #0f1f3a;
+  font-size: 14px;
+  font-weight: 700;
+  padding: 11px 12px;
+  text-decoration: none;
+  transition:
+    background 0.15s ease,
+    color 0.15s ease;
+}
+
+.app-header__dropdown-link:hover {
+  background: #eff6ff;
+  color: #1d4ed8;
+}
+
 .app-header__cta,
 .app-header__mobile-cta {
   background: #2563eb;
@@ -266,6 +330,35 @@ button {
   font-weight: 500;
   padding: 14px 0;
   text-decoration: none;
+}
+
+.app-header__mobile-tools {
+  border-bottom: 1px solid #e2e8f0;
+  padding: 12px 0 14px;
+}
+
+.app-header__mobile-tools-label {
+  color: #2563eb;
+  font-size: 12px;
+  font-weight: 800;
+  letter-spacing: 0.12em;
+  margin: 0 0 8px;
+  text-transform: uppercase;
+}
+
+.app-header__mobile-tool-link {
+  border-radius: 12px;
+  color: #334155;
+  display: block;
+  font-size: 15px;
+  font-weight: 600;
+  padding: 9px 10px;
+  text-decoration: none;
+}
+
+.app-header__mobile-tool-link:hover {
+  background: #eff6ff;
+  color: #1d4ed8;
 }
 
 .app-header__mobile-cta {
