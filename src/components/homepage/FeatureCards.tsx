@@ -1,5 +1,7 @@
 'use client';
 
+import Link from 'next/link';
+
 const cards = [
   {
     title: 'Rent Readiness Score & Rent Twin',
@@ -76,7 +78,7 @@ export default function FeatureCards() {
           }}
         >
           {cards.map((c) => (
-              <a
+              <Link
                 href={c.href}
                 key={c.title}
                 style={{
@@ -139,7 +141,7 @@ export default function FeatureCards() {
                   <path d="M3 8h10m0 0L9 4m4 4L9 12" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
                 </svg>
               </span>
-            </a>
+            </Link>
           ))}
         </div>
       </div>
