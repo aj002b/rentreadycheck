@@ -7,7 +7,7 @@ import { siteConfig } from "@/lib/siteConfig";
 const navItems = [
   { label: "Readiness Score", href: "/rent-readiness-score/" },
   { label: "Calculators", href: "/rent-referencing-calculator" },
-  { label: "Move-In Budget", href: "/move-in-cost-calculator" },
+  { label: "Move-In Costs", href: "/move-in-cost-calculator" },
   { label: "Guides", href: "/guides" },
   { label: "About", href: "/about" },
 ];

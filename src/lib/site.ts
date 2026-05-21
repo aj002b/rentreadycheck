@@ -33,7 +33,7 @@ export const tools = [
     href: "/move-in-cost-calculator",
     description: "Estimate deposit, first month's rent, and upfront costs.",
     bestFor: "Planning cash needed before move-in day.",
-    ctaLabel: "Estimate costs",
+    ctaLabel: "Estimate move-in costs",
   },
   {
     title: "Rent Split Calculator",
