@@ -245,15 +245,15 @@ function ResultDashboard({ result }: { result: ReadinessScoreResult }) {
   return (
     <section
       aria-live="polite"
-      className="premium-card-strong overflow-hidden p-6 sm:p-7"
+      className="premium-card-strong overflow-hidden p-5 sm:p-6"
     >
       <div className="flex flex-wrap items-start justify-between gap-4">
         <div>
           <p className="text-sm font-black uppercase tracking-[0.16em] text-[#2563eb]">
             Rent Readiness Score
           </p>
-          <div className="mt-3 flex items-end gap-2">
-            <span className="text-6xl font-black leading-none tracking-[-0.04em] text-[#0f1f3a]">
+          <div className="mt-2 flex items-end gap-2">
+            <span className="text-5xl font-black leading-none tracking-[-0.04em] text-[#0f1f3a] sm:text-6xl">
               {result.score}
             </span>
             <span className="pb-2 text-xl font-extrabold text-[#53657f]">
@@ -266,11 +266,11 @@ function ResultDashboard({ result }: { result: ReadinessScoreResult }) {
         </span>
       </div>
 
-      <div className="mt-6">
+      <div className="mt-5">
         <ProgressBar score={result.score} />
       </div>
 
-      <div className="mt-6 rounded-[22px] border border-[#d8e5f7] bg-white p-5">
+      <div className="mt-5 rounded-[20px] border border-[#d8e5f7] bg-white p-4">
         <p className="text-sm font-black uppercase tracking-[0.14em] text-[#7b8ca8]">
           Your Rent Twin
         </p>
@@ -282,7 +282,7 @@ function ResultDashboard({ result }: { result: ReadinessScoreResult }) {
         </p>
       </div>
 
-      <div className="mt-5 rounded-[22px] border border-[#bfdbfe] bg-[#eff6ff] p-5">
+      <div className="mt-4 rounded-[20px] border border-[#bfdbfe] bg-[#eff6ff] p-4">
         <p className="text-sm font-black uppercase tracking-[0.14em] text-[#1d4ed8]">
           Top next step
         </p>
@@ -291,11 +291,11 @@ function ResultDashboard({ result }: { result: ReadinessScoreResult }) {
         </p>
       </div>
 
-      <div className="mt-5 grid gap-3 sm:grid-cols-2">
+      <div className="mt-4 grid gap-3 sm:grid-cols-2">
         {keyNumbers.map((item) => (
           <div
             key={item.label}
-            className="rounded-2xl border border-[#d8e5f7] bg-white p-4"
+            className="rounded-2xl border border-[#d8e5f7] bg-white p-3.5"
           >
             <p className="text-xs font-black uppercase tracking-[0.12em] text-[#7b8ca8]">
               {item.label}
@@ -312,22 +312,22 @@ function ResultDashboard({ result }: { result: ReadinessScoreResult }) {
 
 function EmptyResultCard() {
   return (
-    <aside className="premium-card-strong p-6 sm:p-7">
+    <aside className="premium-card-strong p-5 sm:p-6">
       <p className="text-sm font-black uppercase tracking-[0.16em] text-[#2563eb]">
         Live summary
       </p>
-      <h2 className="mt-3 text-3xl font-black tracking-[-0.03em] text-[#0f1f3a]">
+      <h2 className="mt-2 text-2xl font-black tracking-[-0.03em] text-[#0f1f3a]">
         Complete the form to see your Rent Readiness Score.
       </h2>
       <p className="mt-3 leading-7 text-[#53657f]">
         Calculate your estimate to see your score, Rent Twin, watch-outs, and
         next best step.
       </p>
-      <div className="mt-6 rounded-[22px] border border-dashed border-[#bdd3f5] bg-white p-5">
-        <div className="h-4 rounded-full bg-[#e2e8f0]" />
+      <div className="mt-5 rounded-[20px] border border-dashed border-[#bdd3f5] bg-white p-4">
+        <div className="h-3 rounded-full bg-[#e2e8f0]" />
         <div className="mt-4 grid gap-3 sm:grid-cols-2">
-          <div className="h-20 rounded-2xl bg-[#f1f7ff]" />
-          <div className="h-20 rounded-2xl bg-[#f1f7ff]" />
+          <div className="h-14 rounded-2xl bg-[#f1f7ff]" />
+          <div className="h-14 rounded-2xl bg-[#f1f7ff]" />
         </div>
       </div>
     </aside>
@@ -383,7 +383,7 @@ function CategoryBreakdown({
   ];
 
   return (
-    <section className="site-container py-12">
+    <section className="site-container py-10">
       <div className="max-w-3xl">
         <h2 className="text-3xl font-black tracking-[-0.03em] text-[#0f1f3a]">
           Category breakdown
@@ -393,11 +393,11 @@ function CategoryBreakdown({
           small change may help.
         </p>
       </div>
-      <div className="mt-7 grid gap-4 md:grid-cols-2 xl:grid-cols-5">
+      <div className="mt-6 grid gap-4 md:grid-cols-2 xl:grid-cols-5">
         {categories.map((category) => (
           <article
             key={category.title}
-            className="flex min-h-[230px] flex-col rounded-[24px] border border-[#d8e5f7] bg-white p-5 shadow-[0_14px_34px_rgba(15,31,58,0.06)]"
+            className="flex min-h-[200px] flex-col rounded-[22px] border border-[#d8e5f7] bg-white p-4 shadow-[0_14px_34px_rgba(15,31,58,0.06)]"
           >
             <div className="flex items-start justify-between gap-3">
               <h3 className="text-lg font-black leading-6 text-[#0f1f3a]">
@@ -407,10 +407,10 @@ function CategoryBreakdown({
                 {category.points}/{category.max}
               </span>
             </div>
-            <p className="mt-5 text-xl font-black text-[#2563eb]">
+            <p className="mt-4 text-lg font-black text-[#2563eb]">
               {category.metric}
             </p>
-            <p className="mt-3 leading-7 text-[#53657f]">{category.note}</p>
+            <p className="mt-2 leading-6 text-[#53657f]">{category.note}</p>
           </article>
         ))}
       </div>
@@ -420,12 +420,12 @@ function CategoryBreakdown({
 
 function StrengthsAndWatchOuts({ result }: { result: ReadinessScoreResult }) {
   return (
-    <section className="site-container grid gap-5 py-8 lg:grid-cols-2">
-      <article className="rounded-[26px] border border-[#d8e5f7] bg-white p-6 shadow-[0_14px_34px_rgba(15,31,58,0.06)]">
+    <section className="site-container grid gap-5 py-6 lg:grid-cols-2">
+      <article className="rounded-[24px] border border-[#d8e5f7] bg-white p-5 shadow-[0_14px_34px_rgba(15,31,58,0.06)]">
         <h2 className="text-2xl font-black tracking-[-0.02em] text-[#0f1f3a]">
           Strengths
         </h2>
-        <ul className="mt-5 space-y-3">
+        <ul className="mt-4 space-y-2.5">
           {result.strengths.map((strength) => (
             <li key={strength} className="flex gap-3 leading-7 text-[#334765]">
               <span className="mt-2 h-2.5 w-2.5 shrink-0 rounded-full bg-[#2563eb]" />
@@ -435,11 +435,11 @@ function StrengthsAndWatchOuts({ result }: { result: ReadinessScoreResult }) {
         </ul>
       </article>
 
-      <article className="rounded-[26px] border border-[#d8e5f7] bg-white p-6 shadow-[0_14px_34px_rgba(15,31,58,0.06)]">
+      <article className="rounded-[24px] border border-[#d8e5f7] bg-white p-5 shadow-[0_14px_34px_rgba(15,31,58,0.06)]">
         <h2 className="text-2xl font-black tracking-[-0.02em] text-[#0f1f3a]">
           Watch-outs
         </h2>
-        <ul className="mt-5 space-y-3">
+        <ul className="mt-4 space-y-2.5">
           {result.watchOuts.map((watchOut) => (
             <li key={watchOut} className="flex gap-3 leading-7 text-[#334765]">
               <span className="mt-2 h-2.5 w-2.5 shrink-0 rounded-full bg-[#38bdf8]" />
@@ -454,15 +454,15 @@ function StrengthsAndWatchOuts({ result }: { result: ReadinessScoreResult }) {
 
 function NextSteps({ result }: { result: ReadinessScoreResult }) {
   return (
-    <section className="site-container py-8">
-      <article className="rounded-[28px] border border-[#bdd3f5] bg-[linear-gradient(135deg,#eff6ff_0%,#ffffff_58%,#f0f9ff_100%)] p-6 shadow-[0_22px_55px_rgba(37,99,235,0.11)] sm:p-8">
+    <section className="site-container py-6">
+      <article className="rounded-[26px] border border-[#bdd3f5] bg-[linear-gradient(135deg,#eff6ff_0%,#ffffff_58%,#f0f9ff_100%)] p-5 shadow-[0_22px_55px_rgba(37,99,235,0.11)] sm:p-6">
         <p className="text-sm font-black uppercase tracking-[0.16em] text-[#2563eb]">
           Your next best step
         </p>
-        <h2 className="mt-3 max-w-3xl text-3xl font-black tracking-[-0.03em] text-[#0f1f3a]">
+        <h2 className="mt-2 max-w-3xl text-2xl font-black tracking-[-0.03em] text-[#0f1f3a] sm:text-3xl">
           {result.topNextStep}
         </h2>
-        <div className="mt-6 grid gap-3 md:grid-cols-3">
+        <div className="mt-5 grid gap-3 md:grid-cols-3">
           {result.supportingActions.map((action) => (
             <div
               key={action}
@@ -479,20 +479,20 @@ function NextSteps({ result }: { result: ReadinessScoreResult }) {
 
 function HowEstimated() {
   return (
-    <section className="site-container py-12">
+    <section className="site-container py-10">
       <div className="max-w-3xl">
         <h2 className="text-3xl font-black tracking-[-0.03em] text-[#0f1f3a]">
           How your score is estimated
         </h2>
       </div>
-      <div className="mt-7 grid gap-4 md:grid-cols-2 lg:grid-cols-4">
+      <div className="mt-6 grid gap-4 md:grid-cols-2 lg:grid-cols-4">
         {estimateCards.map((card) => (
           <article
             key={card.title}
-            className="rounded-[24px] border border-[#d8e5f7] bg-white p-5 shadow-[0_14px_34px_rgba(15,31,58,0.06)]"
+            className="rounded-[22px] border border-[#d8e5f7] bg-white p-4 shadow-[0_14px_34px_rgba(15,31,58,0.06)]"
           >
             <h3 className="text-lg font-black text-[#0f1f3a]">{card.title}</h3>
-            <p className="mt-3 leading-7 text-[#53657f]">{card.copy}</p>
+            <p className="mt-2 leading-6 text-[#53657f]">{card.copy}</p>
           </article>
         ))}
       </div>
@@ -502,7 +502,7 @@ function HowEstimated() {
 
 function RelatedTools() {
   return (
-    <section className="site-container py-12">
+    <section className="site-container py-8">
       <div className="max-w-3xl">
         <h2 className="text-3xl font-black tracking-[-0.03em] text-[#0f1f3a]">
           Related tools
@@ -511,17 +511,17 @@ function RelatedTools() {
           Use these calculators to compare a specific part of your rental plan.
         </p>
       </div>
-      <div className="mt-7 grid gap-4 md:grid-cols-2 lg:grid-cols-5">
+      <div className="mt-5 grid gap-4 md:grid-cols-2 lg:grid-cols-5">
         {relatedTools.map((tool) => (
           <Link
             key={tool.href}
             href={tool.href}
-            className="group rounded-[24px] border border-[#d8e5f7] bg-white p-5 text-left no-underline shadow-[0_14px_34px_rgba(15,31,58,0.06)] transition hover:-translate-y-0.5 hover:border-[#93c5fd]"
+            className="group flex min-h-[150px] flex-col rounded-[22px] border border-[#d8e5f7] bg-white p-4 text-left no-underline shadow-[0_14px_34px_rgba(15,31,58,0.06)] transition hover:-translate-y-0.5 hover:border-[#93c5fd]"
           >
             <h3 className="text-lg font-black leading-6 text-[#0f1f3a] group-hover:text-[#1d4ed8]">
               {tool.title}
             </h3>
-            <p className="mt-3 leading-7 text-[#53657f]">{tool.description}</p>
+            <p className="mt-2 leading-6 text-[#53657f]">{tool.description}</p>
           </Link>
         ))}
       </div>
@@ -533,13 +533,13 @@ function RentReadinessFaq() {
   const [openIndex, setOpenIndex] = useState(0);
 
   return (
-    <section className="site-container py-12">
+    <section className="site-container py-8">
       <div className="max-w-3xl">
         <h2 className="text-3xl font-black tracking-[-0.03em] text-[#0f1f3a]">
           Rent Readiness Score FAQ
         </h2>
       </div>
-      <div className="mt-7 overflow-hidden rounded-[26px] border border-[#d8e5f7] bg-white shadow-[0_14px_34px_rgba(15,31,58,0.06)]">
+      <div className="mt-5 overflow-hidden rounded-[24px] border border-[#d8e5f7] bg-white shadow-[0_14px_34px_rgba(15,31,58,0.06)]">
         {rentReadinessFaqs.map((faq, index) => {
           const isOpen = openIndex === index;
           const panelId = `rent-readiness-faq-${index}`;
@@ -552,7 +552,7 @@ function RentReadinessFaq() {
               <h3>
                 <button
                   type="button"
-                  className="flex w-full items-center justify-between gap-4 px-5 py-5 text-left text-lg font-black text-[#0f1f3a] transition hover:bg-[#f8fbff] sm:px-6"
+                  className="flex w-full items-center justify-between gap-4 px-5 py-4 text-left text-base font-black text-[#0f1f3a] transition hover:bg-[#f8fbff] sm:px-6"
                   aria-expanded={isOpen}
                   aria-controls={panelId}
                   onClick={() => setOpenIndex(isOpen ? -1 : index)}
@@ -622,21 +622,21 @@ export function RentReadinessAssessment() {
 
   return (
     <>
-      <section className="bg-[linear-gradient(180deg,#f8fbff_0%,#ffffff_100%)] py-14 sm:py-18">
+      <section className="bg-[linear-gradient(180deg,#f8fbff_0%,#ffffff_100%)] py-10 sm:py-12 lg:py-14">
         <div className="site-container">
           <div className="max-w-4xl">
             <p className="text-sm font-black uppercase tracking-[0.18em] text-[#2563eb]">
               RENT READINESS SCORE
             </p>
-            <h1 className="mt-5 max-w-3xl text-4xl font-black leading-tight tracking-[-0.04em] text-[#0f1f3a] sm:text-6xl">
+            <h1 className="mt-4 max-w-3xl text-4xl font-black leading-tight tracking-[-0.04em] text-[#0f1f3a] sm:text-5xl lg:text-6xl">
               Check your rent readiness before you apply
             </h1>
-            <p className="mt-5 max-w-3xl text-lg leading-8 text-[#53657f]">
+            <p className="mt-4 max-w-3xl text-lg leading-8 text-[#53657f]">
               Answer a few questions to estimate your apartment affordability,
               move-in savings buffer, debt pressure, co-signer support, and next
               best step.
             </p>
-            <div className="mt-7 flex flex-wrap gap-3">
+            <div className="mt-6 flex flex-wrap gap-3">
               {[
                 "Free estimate",
                 "No sign-up required",
@@ -648,17 +648,17 @@ export function RentReadinessAssessment() {
                 </span>
               ))}
             </div>
-            <a href="#score-form" className="btn-primary mt-8">
+            <a href="#score-form" className="btn-primary mt-7">
               Start the check
             </a>
           </div>
         </div>
       </section>
 
-      <section id="score-form" className="site-container scroll-mt-24 py-12">
-        <div className="grid gap-7 lg:grid-cols-[minmax(0,1.08fr)_minmax(360px,0.92fr)] lg:items-start">
+      <section id="score-form" className="site-container scroll-mt-24 py-8 lg:py-10">
+        <div className="grid gap-6 lg:grid-cols-[minmax(0,0.6fr)_minmax(340px,0.4fr)] lg:items-start">
           <form
-            className="form-card p-5 sm:p-7"
+            className="form-card p-5 sm:p-6"
             onSubmit={(event) => {
               event.preventDefault();
               calculate();
@@ -672,18 +672,18 @@ export function RentReadinessAssessment() {
               <h2 className="mt-2 text-3xl font-black tracking-[-0.03em] text-[#0f1f3a]">
                 Start with the basics
               </h2>
-              <p className="mt-3 leading-7 text-[#53657f]">
+              <p className="mt-2 leading-7 text-[#53657f]">
                 Use rough numbers. This estimate is designed to help you
                 understand your position before applying.
               </p>
             </div>
 
-            <div className="mt-7 space-y-6">
-              <div className="rounded-[24px] border border-[#d8e5f7] bg-white p-5">
+            <div className="mt-6 space-y-5">
+              <div className="rounded-[22px] border border-[#d8e5f7] bg-white p-4 sm:p-5">
                 <h3 className="text-xl font-black text-[#0f1f3a]">
                   Apartment target
                 </h3>
-                <div className="mt-5 grid gap-5 md:grid-cols-2">
+                <div className="mt-4 grid gap-4 md:grid-cols-2">
                   <Field
                     label="Monthly rent"
                     value={values.monthlyRent}
@@ -699,11 +699,11 @@ export function RentReadinessAssessment() {
                 </div>
               </div>
 
-              <div className="rounded-[24px] border border-[#d8e5f7] bg-white p-5">
+              <div className="rounded-[22px] border border-[#d8e5f7] bg-white p-4 sm:p-5">
                 <h3 className="text-xl font-black text-[#0f1f3a]">
                   Income and debt
                 </h3>
-                <div className="mt-5 grid gap-5 md:grid-cols-2">
+                <div className="mt-4 grid gap-4 md:grid-cols-2">
                   <Field
                     label="Annual income"
                     value={values.annualIncome}
@@ -719,11 +719,11 @@ export function RentReadinessAssessment() {
                 </div>
               </div>
 
-              <div className="rounded-[24px] border border-[#d8e5f7] bg-white p-5">
+              <div className="rounded-[22px] border border-[#d8e5f7] bg-white p-4 sm:p-5">
                 <h3 className="text-xl font-black text-[#0f1f3a]">
                   Move-in readiness
                 </h3>
-                <div className="mt-5 grid gap-5 md:grid-cols-2">
+                <div className="mt-4 grid gap-4 md:grid-cols-2">
                   <Field
                     label="Savings available for move-in"
                     value={values.savings}
@@ -744,11 +744,11 @@ export function RentReadinessAssessment() {
                 </div>
               </div>
 
-              <div className="rounded-[24px] border border-[#d8e5f7] bg-white p-5">
+              <div className="rounded-[22px] border border-[#d8e5f7] bg-white p-4 sm:p-5">
                 <h3 className="text-xl font-black text-[#0f1f3a]">
                   Application support
                 </h3>
-                <div className="mt-5 grid gap-5 md:grid-cols-2">
+                <div className="mt-4 grid gap-4 md:grid-cols-2">
                   <OptionGroup
                     label="Co-signer available?"
                     options={["No", "Yes", "Not sure"] as const}
@@ -770,7 +770,7 @@ export function RentReadinessAssessment() {
               </div>
             </div>
 
-            <div className="mt-7 flex flex-col gap-3 sm:flex-row">
+            <div className="mt-6 flex flex-col gap-3 sm:flex-row">
               <button type="submit" className="btn-primary min-h-12 sm:flex-1">
                 Calculate My Score
               </button>
@@ -802,11 +802,11 @@ export function RentReadinessAssessment() {
         </>
       ) : null}
 
-      <HowEstimated />
       <RelatedTools />
       <RentReadinessFaq />
+      <HowEstimated />
 
-      <section className="site-container pb-16">
+      <section className="site-container pb-12 pt-4">
         <aside className="rounded-[24px] border border-[#bdd3f5] bg-[#eff6ff] p-5 leading-7 text-[#334765]">
           <strong className="text-[#0f1f3a]">Estimate disclaimer: </strong>
           This is an estimate only. Rental decisions can depend on landlord or
