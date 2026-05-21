@@ -20,7 +20,7 @@ const guideCards = [
   },
   {
     title: "Do I need a co-signer?",
-    href: "/guarantor-income-calculator",
+    href: "/do-i-need-a-cosigner-for-an-apartment",
     description: "Learn when extra support may help an apartment application.",
   },
   {
@@ -30,17 +30,17 @@ const guideCards = [
   },
   {
     title: "Can I rent with bad credit?",
-    href: "/disclaimer",
+    href: "/can-i-rent-with-bad-credit",
     description: "See why credit history is only one part of a rental application.",
   },
   {
     title: "Rental application fees",
-    href: "/move-in-cost-calculator",
+    href: "/rental-application-fees-explained",
     description: "Estimate application fees alongside other move-in costs.",
   },
   {
     title: "Security deposit basics",
-    href: "/move-in-cost-calculator",
+    href: "/security-deposit-basics",
     description: "Plan for the security deposit and first rent payment before move-in.",
   },
 ] as const;
@@ -50,7 +50,7 @@ const calculatorLinks = [
   { href: "/guarantor-income-calculator", label: "Co-signer Income Calculator" },
   { href: "/joint-tenant-affordability-calculator", label: "Roommate Affordability Calculator" },
   { href: "/move-in-cost-calculator", label: "Move-In Cost Calculator" },
-  { href: "/rent-split-calculator", label: "Rent Split Calculator for Roommates" },
+  { href: "/rent-split-calculator", label: "Rent Split Calculator" },
 ] as const;
 
 export default function GuidesPage() {
