@@ -45,7 +45,14 @@ export function InputField({
           value={value}
           onChange={(event) => onChange(event.target.value)}
           placeholder={placeholder}
-          aria-describedby={helpText ? `${id}-help` : undefined}
+          required={required}
+          aria-required={required || undefined}
+          aria-invalid={error ? true : undefined}
+          aria-describedby={
+            [helpText ? `${id}-help` : "", error ? `${id}-error` : ""]
+              .filter(Boolean)
+              .join(" ") || undefined
+          }
           className={`field-control ${
             prefix ? "pl-8" : ""
           } ${error ? "!border-[#b84735] !ring-[#f1c0b6]" : ""}`}
@@ -56,7 +63,7 @@ export function InputField({
           {helpText}
         </p>
       ) : null}
-      {error ? <p className="mt-1.5 text-xs font-semibold text-[#b84735]">{error}</p> : null}
+      {error ? <p id={`${id}-error`} role="alert" className="mt-1.5 text-xs font-semibold text-[#b84735]">{error}</p> : null}
     </div>
   );
 }

@@ -36,8 +36,8 @@ export function CookieNotice() {
             </svg>
           </span>
           <p className="max-w-3xl text-sm leading-6 text-[#334155]">
-            RentReadyCheck does not intentionally store calculator inputs. We may
-            add analytics or advertising cookies in the future; read the{" "}
+            RentReadyCheck never sends the amounts you enter. We use cookie-free,
+            anonymous analytics to see which pages and tools are used; read the{" "}
             <Link href="/privacy-policy" className="font-bold text-[#2563eb] underline underline-offset-2">
               Privacy Policy
             </Link>{" "}
