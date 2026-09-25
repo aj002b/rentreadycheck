@@ -605,12 +605,12 @@ export const seoLandingPages: SEOLandingPage[] = [
   },
   {
     slug: "what-is-30-times-rent",
-    title: "What Is 2.5x Monthly Rent? | RentReadyCheck",
+    title: "What Is 30 Times Rent? (2.5x Monthly Rent Explained) | RentReadyCheck",
     description:
-      "Learn how a 2.5x monthly rent example works for apartment affordability planning.",
-    h1: "What is 2.5x monthly rent?",
+      "30 times rent means annual income of 30x monthly rent, the same as 2.5x monthly rent. See how to calculate it with examples.",
+    h1: "What is 30 times rent?",
     intro:
-      "Some apartments use a 2.5x monthly rent example when comparing rent with gross monthly income. This is only one planning benchmark, not an approval promise.",
+      "30 times rent means your gross annual income is at least 30 times the monthly rent, which works out to 2.5x monthly rent. Some apartments use it when comparing rent with income. It is only one planning benchmark, not an approval promise.",
     primaryLink: {
       href: "/rent-referencing-calculator",
       label: "Check affordability",
@@ -618,7 +618,7 @@ export const seoLandingPages: SEOLandingPage[] = [
     highlights: [
       { label: "Formula", value: "Monthly rent x 2.5" },
       { label: "Example", value: "1,200 rent = 3,000 monthly income" },
-      { label: "Best used as", value: "A rough starting point" },
+      { label: "Annual view", value: "Monthly rent x 30" },
     ],
     sections: [
       {
@@ -657,12 +657,12 @@ export const seoLandingPages: SEOLandingPage[] = [
   },
   {
     slug: "what-is-36-times-rent",
-    title: "What Is 3x Monthly Rent? | RentReadyCheck",
+    title: "What Is 36 Times Rent? (3x Monthly Rent Explained) | RentReadyCheck",
     description:
-      "Understand 3x monthly rent, how to calculate it, and why it is often used as an apartment affordability example.",
-    h1: "What is 3x monthly rent?",
+      "36 times rent means annual income of 36x monthly rent, the same as 3x monthly rent. Learn how to calculate it and why landlords use it.",
+    h1: "What is 36 times rent?",
     intro:
-      "3x monthly rent is an affordability example that compares gross monthly income with monthly rent. It is common in apartment screening conversations, but it is not a universal rule.",
+      "36 times rent means your gross annual income is at least 36 times the monthly rent, the same as the 3x monthly rent rule. It is an affordability example that compares gross monthly income with monthly rent. It is common in apartment screening conversations, but it is not a universal rule.",
     primaryLink: {
       href: "/rent-referencing-calculator",
       label: "Check affordability",

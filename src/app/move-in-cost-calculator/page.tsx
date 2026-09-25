@@ -9,7 +9,7 @@ import { MoveInCostCalculator } from "@/components/calculators/MoveInCostCalcula
 import type { FAQItem } from "@/lib/site";
 
 export const metadata: Metadata = {
-  title: "Move-In Cost Calculator for Apartment Renters | RentReadyCheck",
+  title: "Move-In Cost Calculator for Apartment Renters",
   description:
     "Estimate apartment move-in costs including security deposit, first month’s rent, fees, moving costs, utilities, furniture, and savings gap.",
 };
