@@ -6,6 +6,7 @@ import HomeFAQSection from "@/components/homepage/HomeFAQSection";
 import HeroSection from "@/components/homepage/HeroSection";
 import HowItWorksStrip from "@/components/homepage/HowItWorksStrip";
 import ImproveScoreSimulator from "@/components/homepage/ImproveScoreSimulator";
+import { siteConfig } from "@/lib/siteConfig";
 
 export const metadata: Metadata = {
   title: {
@@ -18,6 +19,10 @@ export const metadata: Metadata = {
     description:
       "Get a free Rent Readiness Score, estimate apartment affordability, plan move-in costs, and see how to improve before applying.",
     type: "website",
+    locale: "en_US",
+    url: "./",
+    siteName: siteConfig.name,
+    images: [siteConfig.ogImage],
   },
 };
 

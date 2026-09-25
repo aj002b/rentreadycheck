@@ -18,18 +18,20 @@ export const metadata: Metadata = {
   authors: [{ name: siteConfig.name }],
   creator: siteConfig.name,
   publisher: siteConfig.name,
+  alternates: {
+    // Resolved per route, so each page canonicalises to its own URL.
+    canonical: "./",
+  },
   openGraph: {
     type: "website",
-    locale: "en_GB",
-    url: siteConfig.domain,
+    locale: "en_US",
+    url: "./",
     siteName: siteConfig.name,
-    title: "Rent Affordability Calculator | RentReadyCheck",
-    description: siteConfig.description,
+    images: [siteConfig.ogImage],
   },
   twitter: {
-    card: "summary",
-    title: "Rent Affordability Calculator | RentReadyCheck",
-    description: siteConfig.description,
+    card: "summary_large_image",
+    images: [siteConfig.ogImage.url],
   },
   robots: {
     index: true,
