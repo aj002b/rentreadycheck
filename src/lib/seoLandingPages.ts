@@ -103,6 +103,8 @@ function createRentAmountPage(amount: number): SEOLandingPage {
       { href: "/rent-to-income-ratio-explained", label: "3x rent rule" },
       { href: "/do-i-need-a-cosigner-for-an-apartment", label: "Do I need a co-signer?" },
       { href: "/move-in-cost-calculator", label: "Move-in cost calculator" },
+      { href: "/how-much-rent-can-i-afford-on-50000-a-year", label: "Rent on $50,000 a year" },
+      { href: "/how-much-rent-can-i-afford-making-20-an-hour", label: "Rent on $20 an hour" },
     ],
     faqs: [
       {
