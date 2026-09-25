@@ -13,7 +13,7 @@ The site is fully client-side. There is no database, login, payment flow, extern
 - Rent split calculator
 - About, Disclaimer, Privacy Policy, and Contact pages
 - FAQ JSON-LD, sitemap, robots, Open Graph metadata, and custom 404 page
-- Static export support for GitHub Pages
+- Static export, deployed on Vercel
 
 ## Local Development
 
@@ -34,26 +34,15 @@ npm run start
 The project is configured with `output: "export"`, so the static site is generated in the `out` folder.
 The `start` script serves that exported folder locally for a quick production preview.
 
-## GitHub Pages Deployment
+## Deployment
 
-This repo includes a GitHub Actions workflow at `.github/workflows/deploy.yml`.
+The site is hosted on Vercel at `https://rentreadycheck.com`.
 
-To deploy:
+- Every push to `main` deploys to production.
+- Every pull request gets its own preview URL from Vercel.
+- The site uses Vercel Web Analytics, which only records traffic on Vercel.
 
-1. Push the project to GitHub.
-2. In the GitHub repo, go to `Settings` -> `Pages`.
-3. Set the source to `GitHub Actions`.
-4. Push to the `main` branch.
-
-The workflow runs `npm ci`, builds the static site, and deploys the `out` folder.
-
-The GitHub Pages workflow is configured for the production domain:
-
-```text
-https://rentreadycheck.com
-```
-
-The custom domain is stored in `public/CNAME`. If you deploy to a different domain later, update `public/CNAME`, `NEXT_PUBLIC_SITE_URL` in `.github/workflows/deploy.yml`, and the domain fallback in `src/lib/siteConfig.ts`.
+If the domain changes, update it in Vercel and in the domain fallback in `src/lib/siteConfig.ts` (or set `NEXT_PUBLIC_SITE_URL` in the Vercel project settings).
 
 ## Editing Calculator Thresholds
 
