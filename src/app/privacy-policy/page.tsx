@@ -8,7 +8,7 @@ import { siteConfig } from "@/lib/siteConfig";
 export const metadata: Metadata = {
   title: "Privacy Policy",
   description:
-    "Read the RentReadyCheck privacy policy, including how calculator inputs are handled and future analytics or advertising cookie use.",
+    "Read the RentReadyCheck privacy policy, including how calculator inputs are handled and how anonymous usage analytics are collected.",
 };
 
 export default function PrivacyPolicyPage() {
@@ -41,11 +41,25 @@ export default function PrivacyPolicyPage() {
         </div>
         <AdPlaceholder />
         <div>
-          <h2>Cookies and future services</h2>
+          <h2>Analytics</h2>
           <p>
-            The site may use analytics and advertising cookies in the future to
-            understand usage and support the running of the website. If those tools
-            are added, this policy should be updated to explain what is used and why.
+            The site uses{" "}
+            <a href="https://vercel.com/docs/analytics/privacy-policy" rel="noopener noreferrer" target="_blank">
+              Vercel Web Analytics
+            </a>{" "}
+            to understand how many people visit and which pages and tools are used.
+            It records page views and general details such as referring site, country,
+            browser, and device type. Vercel Web Analytics does not use cookies.
+          </p>
+          <p>
+            When a calculator shows a result, the site also records an anonymous event
+            with the calculator name, the page, and the result category (for example
+            &ldquo;Strong signal&rdquo;). The amounts you type in, such as rent,
+            income, savings, or debt, are never sent.
+          </p>
+          <p>
+            The site does not currently use advertising cookies. If that changes, this
+            policy will be updated first.
           </p>
         </div>
         <div>

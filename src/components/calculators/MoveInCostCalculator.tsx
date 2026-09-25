@@ -59,6 +59,7 @@ function toNumber(value: string) {
 export function MoveInCostCalculator() {
   const [inputs, setInputs] = useState<MoveInInputs>(initialInputs);
   const [hasCalculated, setHasCalculated] = useState(false);
+  const [rentError, setRentError] = useState("");
 
   const result = useMemo(() => {
     const monthlyRent = toNumber(inputs.monthlyRent);
@@ -122,6 +123,7 @@ export function MoveInCostCalculator() {
   function handleReset() {
     setInputs(initialInputs);
     setHasCalculated(false);
+    setRentError("");
   }
 
   const savingsLabel = result.savingsGap > 0 ? "Savings gap" : "Savings surplus";
@@ -136,6 +138,12 @@ export function MoveInCostCalculator() {
           className="form-card space-y-4 p-4 sm:p-5"
           onSubmit={(event) => {
             event.preventDefault();
+            if (!(Number(inputs.monthlyRent) > 0)) {
+              setRentError("Enter a monthly rent above $0.");
+              setHasCalculated(false);
+              return;
+            }
+            setRentError("");
             setHasCalculated(true);
           }}
         >
@@ -151,6 +159,7 @@ export function MoveInCostCalculator() {
               onChange={(value) => updateInput("monthlyRent", value)}
               prefix="$"
               required
+              error={rentError}
             />
             <InputField
               id="security-deposit"
