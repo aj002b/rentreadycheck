@@ -19,9 +19,29 @@ const guideCards = [
     description: "Understand how gross monthly income can be compared with monthly rent.",
   },
   {
+    title: "What is 30 times rent?",
+    href: "/what-is-30-times-rent",
+    description: "See how the 30x annual (2.5x monthly) rent rule is calculated.",
+  },
+  {
+    title: "What is 36 times rent?",
+    href: "/what-is-36-times-rent",
+    description: "See how the 36x annual (3x monthly) rent rule is calculated.",
+  },
+  {
     title: "Do I need a co-signer?",
     href: "/do-i-need-a-cosigner-for-an-apartment",
     description: "Learn when extra support may help an apartment application.",
+  },
+  {
+    title: "How much does a co-signer need to earn?",
+    href: "/how-much-does-a-guarantor-need-to-earn",
+    description: "Estimate the income a co-signer may need for a given rent.",
+  },
+  {
+    title: "Can roommates combine income for rent?",
+    href: "/can-flatmates-combine-income-for-rent",
+    description: "Learn how shared leases can look at combined roommate income.",
   },
   {
     title: "How much should I save before moving?",
@@ -45,8 +65,14 @@ const guideCards = [
   },
 ] as const;
 
+const incomeByRentLinks = [800, 1000, 1200, 1500, 2000].map((amount) => ({
+  href: `/how-much-income-to-rent-${amount}`,
+  label: `$${amount.toLocaleString("en-US")} rent`,
+}));
+
 const calculatorLinks = [
   { href: "/rent-referencing-calculator", label: "Rent Affordability Calculator" },
+  { href: "/us-rent-affordability-calculator", label: "US Rent Affordability Guide" },
   { href: "/guarantor-income-calculator", label: "Co-signer Income Calculator" },
   { href: "/joint-tenant-affordability-calculator", label: "Roommate Affordability Calculator" },
   { href: "/move-in-cost-calculator", label: "Move-In Cost Calculator" },
@@ -77,6 +103,23 @@ export default function GuidesPage() {
             </span>
           </Link>
         ))}
+      </section>
+
+      <section className="rounded-[1.25rem] border border-[#d8e5f7] bg-white p-5 shadow-[0_16px_38px_rgba(15,31,58,0.08)]">
+        <h2 className="text-2xl font-black tracking-[-0.03em] text-[#0f1f3a]">
+          How much income do you need to rent…
+        </h2>
+        <div className="mt-5 flex flex-wrap gap-3">
+          {incomeByRentLinks.map((link) => (
+            <Link
+              key={link.href}
+              href={link.href}
+              className="rounded-full border border-[#bdd3f5] bg-[#eff6ff] px-4 py-2 text-sm font-extrabold text-[#1d4ed8] transition hover:border-[#2563eb] hover:bg-[#dbeafe]"
+            >
+              {link.label}
+            </Link>
+          ))}
+        </div>
       </section>
 
       <section className="rounded-[1.25rem] border border-[#d8e5f7] bg-white p-5 shadow-[0_16px_38px_rgba(15,31,58,0.08)]">
