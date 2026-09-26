@@ -108,11 +108,11 @@ function buildFaqs(page: IncomeRentPage, annual: number, monthly: number): FAQIt
         page.payType === "hourly"
           ? `At 40 hours a week for 52 weeks, ${page.label} is about ${formatUSD(annual)} a year, or ${formatUSD(monthly)} a month before tax.`
           : `${page.label} is about ${formatUSD(monthly)} a month before tax.`
-      } Common rules of thumb point to about ${formatUSD(thirty)} (30% of gross income), ${formatUSD(threeX)} (3x rent) or ${formatUSD(twoHalf)} (2.5x rent) a month. Landlord requirements vary, and your debts, savings and local rents matter too.`,
+      } A 3x or 2.5x landlord income check points to rent of up to about ${formatUSD(threeX)} or ${formatUSD(twoHalf)} a month. The 30% budgeting guideline points to about ${formatUSD(thirty)} a month for total housing costs, including utilities, so the rent that fits it is lower if you pay utilities separately. Landlord requirements vary, and your debts, savings and local rents matter too.`,
     },
     {
       question: `Is ${page.label} enough for ${formatUSD(rent)} rent?`,
-      answer: `${formatUSD(rent)} is ${share.toFixed(1)}% of ${formatUSD(monthly)} gross monthly income. ${withinText}${aboveText}. A landlord using 3x would look for about ${formatUSD(rent * 36)} a year. Whether an application is accepted depends on the landlord, your credit, debts and rental history.`,
+      answer: `${formatUSD(rent)} is ${share.toFixed(1)}% of ${formatUSD(monthly)} gross monthly income. ${withinText}${aboveText}; keep in mind the 30% guideline is meant to cover utilities as well as rent. A landlord using 3x would look for about ${formatUSD(rent * 36)} a year. Whether an application is accepted depends on the landlord, your credit, debts and rental history.`,
     },
     {
       question: "Do these numbers use take-home pay?",
@@ -125,7 +125,7 @@ function buildFaqs(page: IncomeRentPage, annual: number, monthly: number): FAQIt
     const halfTime = annualGrossIncome({ payType: "hourly", amount: page.amount, hoursPerWeek: 30 }) / 12;
     faqs.push({
       question: `What if I work part time at ${formatHourly(page.amount)} an hour?`,
-      answer: `At 30 hours a week, ${formatHourly(page.amount)} an hour is about ${formatUSD(halfTime)} a month before tax, which points to about ${formatUSD(halfTime / 3)} a month under 3x or ${formatUSD(halfTime * 0.3)} under the 30% rule. Change the hours in the calculator above to match your schedule. If your hours vary, landlords may look at an average from recent pay stubs.`,
+      answer: `At 30 hours a week, ${formatHourly(page.amount)} an hour is about ${formatUSD(halfTime)} a month before tax, which points to about ${formatUSD(halfTime / 3)} a month under 3x or ${formatUSD(halfTime * 0.3)} for total housing costs under the 30% guideline. Change the hours in the calculator above to match your schedule. If your hours vary, landlords may look at an average from recent pay stubs.`,
     });
   } else {
     faqs.push({
@@ -138,7 +138,7 @@ function buildFaqs(page: IncomeRentPage, annual: number, monthly: number): FAQIt
   faqs.push({
     question: "Will I need a co-signer?",
     answer:
-      "It depends on the landlord. Some ask for a co-signer (sometimes called a guarantor) when income is below their threshold, credit history is limited, or you're a first-time renter. Others may accept a larger deposit or proof of savings instead. Ask the landlord or property manager what they accept.",
+      "It depends on the landlord. Some ask for a co-signer (sometimes called a guarantor) when income is below their threshold, credit history is limited, or you're a first-time renter. Others may consider proof of savings or other alternatives. What landlords can ask for, including deposits, varies by state and city, so ask the landlord or property manager what alternatives they accept.",
   });
 
   return faqs;
@@ -194,7 +194,7 @@ export function IncomeRentPageView({ page }: { page: IncomeRentPage }) {
 
           <div className="mt-6 grid gap-3 sm:grid-cols-3">
             {[
-              { label: "30% of gross income", value: thirty, note: "Budgeting guideline" },
+              { label: "30% for housing costs", value: thirty, note: "Rent plus utilities, not rent alone" },
               { label: "3x monthly rent", value: threeX, note: "Common landlord check" },
               { label: "2.5x monthly rent", value: twoHalf, note: "More lenient check" },
             ].map((item) => (
@@ -240,10 +240,12 @@ export function IncomeRentPageView({ page }: { page: IncomeRentPage }) {
             <Section id="rules" title={`What each rule says for ${page.label}`}>
               <p>
                 The three rules give different answers because they measure different things.
-                The 30% rule is a budgeting guideline: US housing agencies generally describe
-                households spending more than 30% of income on housing as cost-burdened. The 3x
-                and 2.5x rules are screening checks some landlords and property managers use when
-                reviewing applications.
+                The 3x and 2.5x rules are screening checks some landlords and property managers
+                use, comparing your income with the rent alone. The 30% rule is a budgeting
+                guideline for total housing costs: US housing agencies generally describe
+                households spending more than 30% of income on housing, including utilities, as
+                cost-burdened. If you pay utilities or other required housing costs on top of
+                rent, the rent that fits a 30% budget is lower than the figure below.
               </p>
               <DataTable
                 caption={`Maximum rent for ${page.label} under each rule`}
@@ -271,7 +273,7 @@ export function IncomeRentPageView({ page }: { page: IncomeRentPage }) {
                 </p>
                 <DataTable
                   caption={`Rent estimates at ${formatHourly(page.amount)} an hour by weekly hours`}
-                  headers={["Hours / week", "Gross / month", "30% rule", "3x rule"]}
+                  headers={["Hours / week", "Gross / month", "30% housing costs", "3x rent"]}
                   rows={[20, 30, 40].map((hours) => {
                     const m = annualGrossIncome({ payType: "hourly", amount: page.amount, hoursPerWeek: hours }) / 12;
                     return [
@@ -310,7 +312,7 @@ export function IncomeRentPageView({ page }: { page: IncomeRentPage }) {
                 />
                 <p>
                   Each extra $5,000 a year in salary adds about {formatUSD(5000 / 12 / 3)} a month
-                  to the 3x figure and {formatUSD((5000 / 12) * 0.3)} to the 30% figure.
+                  to the 3x figure and {formatUSD((5000 / 12) * 0.3)} to the 30% housing-cost figure.
                 </p>
               </Section>
             )}
@@ -325,8 +327,8 @@ export function IncomeRentPageView({ page }: { page: IncomeRentPage }) {
                 caption="Example upfront costs at different rent levels"
                 headers={["Rent level", "First month", "Deposit (1 month)", "Subtotal"]}
                 rows={[
-                  [`30% rule (${formatUSD(thirty)})`, formatUSD(thirty), formatUSD(thirty), <strong key="a">{formatUSD(thirty * 2)}</strong>],
-                  [`3x rule (${formatUSD(threeX)})`, formatUSD(threeX), formatUSD(threeX), <strong key="b">{formatUSD(threeX * 2)}</strong>],
+                  [`Rent at the 30% figure (${formatUSD(thirty)})`, formatUSD(thirty), formatUSD(thirty), <strong key="a">{formatUSD(thirty * 2)}</strong>],
+                  [`Rent at the 3x figure (${formatUSD(threeX)})`, formatUSD(threeX), formatUSD(threeX), <strong key="b">{formatUSD(threeX * 2)}</strong>],
                 ]}
               />
               <p>
@@ -388,12 +390,14 @@ export function IncomeRentPageView({ page }: { page: IncomeRentPage }) {
                 <li><strong>Existing debt:</strong> car, student loan and card payments reduce what&apos;s left for rent, even if the income rule looks fine.</li>
                 <li><strong>Rental history and references</strong> from previous landlords.</li>
                 <li><strong>Employment:</strong> how long you&apos;ve been in your job, or proof of an offer letter.</li>
-                <li><strong>Savings:</strong> some landlords accept extra savings or a larger deposit when income is borderline.</li>
+                <li><strong>Savings:</strong> some landlords may consider proof of savings when income is below their requirement.</li>
                 <li><strong>Location:</strong> rents and typical requirements differ a lot between cities and states.</li>
               </ul>
               <p>
-                If your income is below a landlord&apos;s requirement, options can include a
-                co-signer, a roommate, or a lower-rent place. Read{" "}
+                If your income is below a landlord&apos;s requirement, options can include
+                proof of savings, a co-signer where the landlord accepts one, a roommate, or a
+                lower-rent place. What landlords can ask for varies by state and city, so ask
+                the property manager which alternatives they accept. Read{" "}
                 <Link href="/do-i-need-a-cosigner-for-an-apartment/" className="inline-block py-1.5 font-bold text-[#2563eb] hover:underline">
                   do I need a co-signer?
                 </Link>{" "}

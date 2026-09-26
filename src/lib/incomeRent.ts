@@ -40,7 +40,7 @@ export type RentRule = {
 export const rentRules: RentRule[] = [
   {
     id: "30%",
-    name: "30% of gross income",
+    name: "30% for housing costs",
     formula: "Monthly gross income × 0.30",
     maxRent: (monthlyGross) => monthlyGross * 0.3,
     incomeNeeded: (monthlyRent) => (monthlyRent / 0.3) * 12,

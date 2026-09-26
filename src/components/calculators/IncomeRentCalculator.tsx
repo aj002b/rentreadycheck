@@ -204,8 +204,10 @@ export function IncomeRentCalculator({
           </p>
         )}
         <p className="text-xs leading-5 text-[#53657f]">
-          Rules of thumb only. Landlords set their own requirements and may also look at
-          credit, debt, rental history and local rules.
+          The 30% guideline is for total housing costs, such as rent plus utilities, so the
+          rent that fits it is lower if you pay utilities separately. Rules of thumb only.
+          Landlords set their own requirements and may also look at credit, debt, rental
+          history and local rules.
         </p>
       </section>
     </div>
