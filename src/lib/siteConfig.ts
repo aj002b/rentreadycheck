@@ -30,6 +30,8 @@ export const publicRoutes = [
   { path: "/how-much-income-to-rent-1200", priority: 0.65 },
   { path: "/how-much-income-to-rent-1500", priority: 0.65 },
   { path: "/how-much-income-to-rent-2000", priority: 0.65 },
+  { path: "/how-much-rent-can-i-afford-on-50000-a-year", priority: 0.7 },
+  { path: "/how-much-rent-can-i-afford-making-20-an-hour", priority: 0.7 },
   { path: "/rent-to-income-ratio-explained", priority: 0.65 },
   { path: "/what-is-30-times-rent", priority: 0.65 },
   { path: "/what-is-36-times-rent", priority: 0.65 },

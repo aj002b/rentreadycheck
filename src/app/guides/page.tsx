@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { DisclaimerBox } from "@/components/DisclaimerBox";
 import { PublicPageHero, PublicPageShell } from "@/components/PublicPage";
+import { incomeRentPages } from "@/lib/incomeRentPages";
 import { estimateDisclaimer } from "@/lib/site";
 
 export const metadata: Metadata = {
@@ -65,6 +66,11 @@ const guideCards = [
   },
 ] as const;
 
+const rentByIncomeLinks = incomeRentPages.map((page) => ({
+  href: `/${page.slug}`,
+  label: page.label,
+}));
+
 const incomeByRentLinks = [800, 1000, 1200, 1500, 2000].map((amount) => ({
   href: `/how-much-income-to-rent-${amount}`,
   label: `$${amount.toLocaleString("en-US")} rent`,
@@ -103,6 +109,23 @@ export default function GuidesPage() {
             </span>
           </Link>
         ))}
+      </section>
+
+      <section className="rounded-[1.25rem] border border-[#d8e5f7] bg-white p-5 shadow-[0_16px_38px_rgba(15,31,58,0.08)]">
+        <h2 className="text-2xl font-black tracking-[-0.03em] text-[#0f1f3a]">
+          How much rent can you afford on…
+        </h2>
+        <div className="mt-5 flex flex-wrap gap-3">
+          {rentByIncomeLinks.map((link) => (
+            <Link
+              key={link.href}
+              href={link.href}
+              className="rounded-full border border-[#bdd3f5] bg-[#eff6ff] px-4 py-2 text-sm font-extrabold text-[#1d4ed8] transition hover:border-[#2563eb] hover:bg-[#dbeafe]"
+            >
+              {link.label}
+            </Link>
+          ))}
+        </div>
       </section>
 
       <section className="rounded-[1.25rem] border border-[#d8e5f7] bg-white p-5 shadow-[0_16px_38px_rgba(15,31,58,0.08)]">
