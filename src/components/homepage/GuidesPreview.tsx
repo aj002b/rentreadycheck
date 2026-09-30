@@ -1,5 +1,7 @@
 'use client';
 
+import Link from 'next/link';
+
 const guides = [
   {
     title: 'What is the 3x rent rule?',
@@ -9,7 +11,7 @@ const guides = [
   {
     title: 'Do I need a co-signer?',
     desc: 'When a co-signer can strengthen your rental application and how it works.',
-    href: '/guides',
+    href: '/do-i-need-a-cosigner-for-an-apartment',
   },
   {
     title: 'How much should I save before moving?',
@@ -19,17 +21,17 @@ const guides = [
   {
     title: 'Can I rent with bad credit?',
     desc: 'Options and strategies for renters with lower credit scores.',
-    href: '/disclaimer',
+    href: '/can-i-rent-with-bad-credit',
   },
   {
     title: 'Rental application fees',
     desc: 'What to expect when paying for rental application processing.',
-    href: '/move-in-cost-calculator',
+    href: '/rental-application-fees-explained',
   },
   {
     title: 'Security deposit basics',
     desc: 'How much to set aside and what to know about getting your deposit back.',
-    href: '/move-in-cost-calculator',
+    href: '/security-deposit-basics',
   },
 ];
 
@@ -57,7 +59,7 @@ export default function GuidesPreview() {
           }}
         >
           {guides.map((g) => (
-            <a
+            <Link
               key={g.title}
               href={g.href}
               style={{
@@ -109,7 +111,7 @@ export default function GuidesPreview() {
                   {g.desc}
                 </p>
               </div>
-            </a>
+            </Link>
           ))}
         </div>
       </div>
