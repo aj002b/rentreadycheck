@@ -5,7 +5,6 @@ import GuidesPreview from "@/components/homepage/GuidesPreview";
 import HomeFAQSection from "@/components/homepage/HomeFAQSection";
 import HeroSection from "@/components/homepage/HeroSection";
 import HowItWorksStrip from "@/components/homepage/HowItWorksStrip";
-import ImproveScoreSimulator from "@/components/homepage/ImproveScoreSimulator";
 import { siteConfig } from "@/lib/siteConfig";
 
 export const metadata: Metadata = {
@@ -61,7 +60,6 @@ export default function HomePage() {
       <HeroSection />
       <HowItWorksStrip />
       <FeatureCards />
-      <ImproveScoreSimulator />
       <GuidesPreview />
       <HomeFAQSection />
     </>
