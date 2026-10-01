@@ -15,6 +15,7 @@ import {
   formatPercentage,
   hasNegativeValue,
   safeNumber,
+  splitRentByWeights,
 } from "@/lib/calculations";
 import {
   defaultCountryCode,
@@ -47,20 +48,21 @@ export function RentSplitCalculator() {
         ? activeScores.reduce((sum, score) => sum + score, 0)
         : count;
 
-  const rows = Array.from({ length: count }, (_, index) => {
-    const weight =
-      splitMethod === "income"
-        ? activeIncomes[index]
-        : splitMethod === "room"
-          ? activeScores[index]
-          : 1;
-    const percentage = totalWeight > 0 ? (weight / totalWeight) * 100 : 0;
-    return {
-      name: activeNames[index] || `Roommate ${index + 1}`,
-      share: totalWeight > 0 ? rent * (percentage / 100) : 0,
-      percentage,
-    };
-  });
+  const weights = Array.from({ length: count }, (_, index) =>
+    splitMethod === "income"
+      ? activeIncomes[index]
+      : splitMethod === "room"
+        ? activeScores[index]
+        : 1,
+  );
+  // Whole-dollar shares that add up to the rent exactly.
+  const shares = splitRentByWeights(rent, weights);
+
+  const rows = weights.map((weight, index) => ({
+    name: activeNames[index] || `Roommate ${index + 1}`,
+    share: shares[index],
+    percentage: totalWeight > 0 ? (weight / totalWeight) * 100 : 0,
+  }));
 
   const missingRequiredWeights =
     (splitMethod === "income" && activeIncomes.some((income) => income <= 0)) ||
@@ -185,8 +187,8 @@ export function RentSplitCalculator() {
                     </tr>
                   </thead>
                   <tbody>
-                    {rows.map((row) => (
-                      <tr key={row.name} className="border-b border-[#edf4f1] last:border-0">
+                    {rows.map((row, index) => (
+                      <tr key={index} className="border-b border-[#edf4f1] last:border-0">
                         <td className="px-4 py-3 font-bold text-[#0f1f3a]">{row.name}</td>
                         <td className="px-4 py-3">{currency(row.share)}</td>
                         <td className="px-4 py-3">{formatPercentage(row.percentage)}</td>

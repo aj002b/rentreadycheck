@@ -424,7 +424,7 @@ button {
 
 .app-footer__bottom {
   border-top: 1px solid #334155;
-  color: #64748b;
+  color: #94a3b8;
   font-size: 12px;
   padding-top: 20px;
   text-align: center;
@@ -432,42 +432,6 @@ button {
 
 .app-footer__bottom p {
   margin: 0;
-}
-
-input[type="range"] {
-  appearance: none;
-  border-radius: 3px;
-  cursor: pointer;
-  height: 6px;
-  outline: none;
-  width: 100%;
-}
-
-input[type="range"]::-webkit-slider-thumb {
-  appearance: none;
-  background: #ffffff;
-  border: 3px solid #3b82f6;
-  border-radius: 50%;
-  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
-  cursor: pointer;
-  height: 22px;
-  margin-top: -8px;
-  transition: transform 0.15s ease;
-  width: 22px;
-}
-
-input[type="range"]::-webkit-slider-thumb:hover {
-  transform: scale(1.12);
-}
-
-input[type="range"]::-moz-range-thumb {
-  background: #ffffff;
-  border: 3px solid #3b82f6;
-  border-radius: 50%;
-  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
-  cursor: pointer;
-  height: 22px;
-  width: 22px;
 }
 
 @media (max-width: 768px) {
@@ -479,4 +443,42 @@ input[type="range"]::-moz-range-thumb {
   .app-header__menu-button {
     display: flex;
   }
+}
+
+/* Keyboard focus: a visible ring on anything that doesn't define its own.
+   In the base layer so component and utility focus styles still win. */
+@layer base {
+  a:focus-visible,
+  button:focus-visible,
+  summary:focus-visible,
+  select:focus-visible,
+  input:focus-visible {
+    outline: 2px solid #2563eb;
+    outline-offset: 2px;
+  }
+
+  .app-footer a:focus-visible {
+    outline-color: #93c5fd;
+  }
+}
+
+main:focus {
+  outline: none;
+}
+
+.skip-link {
+  background: #0f172a;
+  border-radius: 0 0 12px 0;
+  color: #ffffff;
+  font-weight: 700;
+  left: 0;
+  padding: 12px 18px;
+  position: absolute;
+  top: 0;
+  transform: translateY(-120%);
+  z-index: 100;
+}
+
+.skip-link:focus {
+  transform: translateY(0);
 }

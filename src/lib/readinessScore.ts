@@ -498,7 +498,6 @@ export function calculateQuickReadinessScore(input: {
   savings: number;
   monthlyDebt: number;
   hasCosigner: boolean;
-  hasRoommate?: boolean;
 }): ReadinessScoreResult {
   return calculateReadinessScore({
     ...quickScoreAssumptions,
@@ -507,7 +506,6 @@ export function calculateQuickReadinessScore(input: {
     savings: input.savings,
     monthlyDebt: input.monthlyDebt,
     cosigner: input.hasCosigner ? "Yes" : "No",
-    roommate: input.hasRoommate ? "Yes" : quickScoreAssumptions.roommate,
   });
 }
 

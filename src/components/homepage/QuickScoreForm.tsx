@@ -45,7 +45,6 @@ export default function QuickScoreForm() {
     border: '1px solid #CBD5E1',
     fontSize: 14,
     color: '#0F172A',
-    outline: 'none',
     boxSizing: 'border-box',
     background: '#fff',
     transition: 'border-color 0.15s',
@@ -98,7 +97,7 @@ export default function QuickScoreForm() {
                         top: '50%',
                         transform: 'translateY(-50%)',
                         fontSize: 14,
-                        color: '#94A3B8',
+                        color: '#64748B',
                         pointerEvents: 'none',
                       }}
                     >
@@ -166,7 +165,7 @@ export default function QuickScoreForm() {
               <p style={{ fontSize: 12, color: '#64748B', margin: 0, lineHeight: 1.5 }}>
                 No account. No saved personal data.
               </p>
-              <p style={{ fontSize: 11, color: '#94A3B8', margin: 0, lineHeight: 1.45 }}>
+              <p style={{ fontSize: 12, color: '#475569', margin: 0, lineHeight: 1.45 }}>
                 Estimate only. Rental decisions vary by landlord, property manager, credit history, and application details.
               </p>
             </div>

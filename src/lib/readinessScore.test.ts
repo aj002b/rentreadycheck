@@ -160,10 +160,9 @@ describe("calculateQuickReadinessScore", () => {
     expect(result.topNextStep).toBe(full.topNextStep);
   });
 
-  it("applies co-signer and roommate toggles with the full assessment's points", () => {
+  it("applies the co-signer answer with the full assessment's points", () => {
     const baseScore = calculateQuickReadinessScore(quick).score;
     expect(calculateQuickReadinessScore({ ...quick, hasCosigner: true }).score).toBe(baseScore + 10);
-    expect(calculateQuickReadinessScore({ ...quick, hasRoommate: true }).score).toBe(baseScore + 4);
   });
 });
 

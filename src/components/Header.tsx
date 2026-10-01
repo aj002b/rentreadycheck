@@ -1,7 +1,7 @@
 "use client";
 
 import Link from "next/link";
-import { useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { siteConfig } from "@/lib/siteConfig";
 
 const navItems = [
@@ -21,6 +21,48 @@ const calculatorLinks = [
 export function Header() {
   const [open, setOpen] = useState(false);
   const [toolsOpen, setToolsOpen] = useState(false);
+  const toolsRef = useRef<HTMLDivElement>(null);
+  const toolsButtonRef = useRef<HTMLButtonElement>(null);
+  const menuButtonRef = useRef<HTMLButtonElement>(null);
+  // Set when the mouse opened the menu, so the click that follows the hover
+  // keeps it open instead of toggling it shut.
+  const openedByHover = useRef(false);
+
+  useEffect(() => {
+    if (!toolsOpen && !open) {
+      return;
+    }
+
+    function handleKeyDown(event: KeyboardEvent) {
+      if (event.key !== "Escape") {
+        return;
+      }
+
+      if (toolsOpen) {
+        setToolsOpen(false);
+        toolsButtonRef.current?.focus();
+      }
+
+      if (open) {
+        setOpen(false);
+        menuButtonRef.current?.focus();
+      }
+    }
+
+    function handlePointerDown(event: PointerEvent) {
+      if (toolsOpen && !toolsRef.current?.contains(event.target as Node)) {
+        setToolsOpen(false);
+      }
+    }
+
+    document.addEventListener("keydown", handleKeyDown);
+    document.addEventListener("pointerdown", handlePointerDown);
+
+    return () => {
+      document.removeEventListener("keydown", handleKeyDown);
+      document.removeEventListener("pointerdown", handlePointerDown);
+    };
+  }, [toolsOpen, open]);
 
   return (
     <header className="app-header">
@@ -34,16 +76,40 @@ export function Header() {
             Readiness Score
           </Link>
           <div
+            ref={toolsRef}
             className="app-header__dropdown"
-            onMouseEnter={() => setToolsOpen(true)}
-            onMouseLeave={() => setToolsOpen(false)}
+            onPointerEnter={(event) => {
+              if (event.pointerType === "mouse") {
+                openedByHover.current = !toolsOpen;
+                setToolsOpen(true);
+              }
+            }}
+            onPointerLeave={(event) => {
+              if (event.pointerType === "mouse") {
+                openedByHover.current = false;
+                setToolsOpen(false);
+              }
+            }}
+            onBlur={(event) => {
+              // Close when keyboard focus moves out of the menu.
+              if (!event.currentTarget.contains(event.relatedTarget as Node | null)) {
+                setToolsOpen(false);
+              }
+            }}
           >
             <button
+              ref={toolsButtonRef}
               type="button"
               className="app-header__dropdown-button"
               aria-expanded={toolsOpen}
               aria-controls="calculator-menu"
-              onClick={() => setToolsOpen((value) => !value)}
+              onClick={() => {
+                if (openedByHover.current) {
+                  openedByHover.current = false;
+                  return;
+                }
+                setToolsOpen((value) => !value);
+              }}
             >
               Tools
               <svg width="14" height="14" viewBox="0 0 16 16" fill="none" aria-hidden="true">
@@ -77,6 +143,7 @@ export function Header() {
         </Link>
 
         <button
+          ref={menuButtonRef}
           type="button"
           className="app-header__menu-button"
           onClick={() => setOpen((value) => !value)}
