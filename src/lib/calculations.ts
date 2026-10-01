@@ -272,3 +272,45 @@ export function calculateDifference(actual: number, required: number): number {
 export function hasNegativeValue(values: Array<string | number>): boolean {
   return values.some((value) => safeNumber(value) < 0);
 }
+
+export type SignalResult = {
+  title: string;
+  description: string;
+  tone: "positive" | "neutral" | "warning";
+};
+
+const LOWEST_ROOMMATE_THRESHOLD = 2.5;
+
+// Roommate result for the threshold the user picked (e.g. 3 = 3x monthly rent).
+export function getRoommateThresholdResult(
+  monthlyRent: number,
+  combinedAnnualIncome: number,
+  selectedThreshold: number,
+): SignalResult {
+  const thresholdLabel = `${selectedThreshold}x monthly rent`;
+
+  if (combinedAnnualIncome >= monthlyRent * selectedThreshold * 12) {
+    return {
+      title: "Strong signal",
+      description: `Combined gross income meets the selected ${thresholdLabel} example.`,
+      tone: "positive",
+    };
+  }
+
+  if (
+    selectedThreshold > LOWEST_ROOMMATE_THRESHOLD &&
+    combinedAnnualIncome >= monthlyRent * LOWEST_ROOMMATE_THRESHOLD * 12
+  ) {
+    return {
+      title: "Possible signal",
+      description: `Combined income is below the selected ${thresholdLabel} example, but meets a lower 2.5x example some property managers use.`,
+      tone: "neutral",
+    };
+  }
+
+  return {
+    title: "May need support",
+    description: `Combined income is below the selected ${thresholdLabel} example. A co-signer, lower rent, or another roommate may help.`,
+    tone: "warning",
+  };
+}

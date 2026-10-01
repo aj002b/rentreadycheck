@@ -193,13 +193,39 @@ function getRentTwin(
   };
 }
 
+type NextStepCategory = "income" | "savings" | "debt" | "none";
+
+// The next step targets a real shortfall in income, savings or debt. Support
+// and flexibility are left out: answering "No" to a co-signer scores 0 there,
+// which would otherwise make "ask about a co-signer" the advice for everyone.
+function getNextStepCategory(points: {
+  income: number;
+  savings: number;
+  debt: number;
+}): NextStepCategory {
+  const shortfalls = (
+    [
+      ["income", points.income / 40],
+      ["savings", points.savings / 25],
+      ["debt", points.debt / 15],
+    ] as const
+  ).filter(([, share]) => share < 1);
+
+  if (shortfalls.length === 0) {
+    return "none";
+  }
+
+  return shortfalls.reduce((weakest, current) =>
+    current[1] < weakest[1] ? current : weakest,
+  )[0];
+}
+
 function getNextSteps(
-  input: ReadinessScoreInput,
-  weakestCategory: ReadinessCategoryKey,
+  category: NextStepCategory,
   savingsGap: number,
   suggestedRentTarget: number,
 ) {
-  if (weakestCategory === "savings" && savingsGap > 0) {
+  if (category === "savings" && savingsGap > 0) {
     return {
       topNextStep: `Save $${roundToHundred(savingsGap).toLocaleString()} more before applying.`,
       supportingActions: [
@@ -210,18 +236,18 @@ function getNextSteps(
     };
   }
 
-  if (weakestCategory === "income") {
+  if (category === "income") {
     return {
       topNextStep: `Consider apartments closer to $${suggestedRentTarget.toLocaleString()}/month.`,
       supportingActions: [
         "Compare the target with a roommate option.",
-        "Check whether a co-signer could help.",
+        "Ask the property manager whether they accept a co-signer.",
         "Use the Rent Affordability Calculator.",
       ],
     };
   }
 
-  if (weakestCategory === "debt") {
+  if (category === "debt") {
     return {
       topNextStep: "Reduce monthly debt pressure where possible.",
       supportingActions: [
@@ -232,23 +258,12 @@ function getNextSteps(
     };
   }
 
-  if (weakestCategory === "support" && input.cosigner !== "Yes") {
-    return {
-      topNextStep: "Ask whether a co-signer could help.",
-      supportingActions: [
-        "Review co-signer income expectations.",
-        "Gather application documents early.",
-        "Ask the property manager about application requirements.",
-      ],
-    };
-  }
-
   return {
-    topNextStep: "Compare rent with a roommate option.",
+    topNextStep: "Gather your application documents before applying.",
     supportingActions: [
-      "Check how shared rent changes your monthly budget.",
       "Prepare proof of income and ID documents.",
-      "Build a move-in buffer before applying.",
+      "Ask the property manager about application requirements.",
+      "Compare a few apartments before choosing.",
     ],
   };
 }
@@ -335,8 +350,11 @@ export function calculateReadinessScore(
     Math.floor((grossMonthlyIncome / 3) / 50) * 50,
   );
   const { topNextStep, supportingActions } = getNextSteps(
-    input,
-    weakestCategory,
+    getNextStepCategory({
+      income: incomePoints,
+      savings: savingsPoints,
+      debt: debtPoints,
+    }),
     savingsGap,
     suggestedRentTarget,
   );
@@ -460,4 +478,35 @@ export function calculateReadinessScore(
     categoryScores: categories,
     keyNumbers,
   };
+}
+
+// Answers assumed for the questions the short homepage form doesn't ask. The
+// full assessment starts from these same values, so both show the same score
+// for the same rent, income, savings, debt and co-signer answers.
+export const quickScoreAssumptions = {
+  roommate: "No",
+  creditConfidence: "Average",
+  moveInTimeframe: "1–3 months",
+} as const satisfies Pick<
+  ReadinessScoreInput,
+  "roommate" | "creditConfidence" | "moveInTimeframe"
+>;
+
+export function calculateQuickReadinessScore(input: {
+  monthlyRent: number;
+  annualIncome: number;
+  savings: number;
+  monthlyDebt: number;
+  hasCosigner: boolean;
+  hasRoommate?: boolean;
+}): ReadinessScoreResult {
+  return calculateReadinessScore({
+    ...quickScoreAssumptions,
+    monthlyRent: input.monthlyRent,
+    annualIncome: input.annualIncome,
+    savings: input.savings,
+    monthlyDebt: input.monthlyDebt,
+    cosigner: input.hasCosigner ? "Yes" : "No",
+    roommate: input.hasRoommate ? "Yes" : quickScoreAssumptions.roommate,
+  });
 }

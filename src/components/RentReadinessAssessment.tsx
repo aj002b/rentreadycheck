@@ -4,6 +4,7 @@ import Link from "next/link";
 import { useMemo, useState } from "react";
 import {
   calculateReadinessScore,
+  quickScoreAssumptions,
   type CosignerOption,
   type CreditConfidence,
   type MoveInTimeframe,
@@ -30,9 +31,9 @@ const defaults: FormValues = {
   savings: "5000",
   monthlyDebt: "250",
   cosigner: "No" as CosignerOption,
-  roommate: "No" as RoommateOption,
-  creditConfidence: "Average" as CreditConfidence,
-  moveInTimeframe: "1–3 months" as MoveInTimeframe,
+  roommate: quickScoreAssumptions.roommate as RoommateOption,
+  creditConfidence: quickScoreAssumptions.creditConfidence as CreditConfidence,
+  moveInTimeframe: quickScoreAssumptions.moveInTimeframe as MoveInTimeframe,
 };
 
 const relatedTools = [

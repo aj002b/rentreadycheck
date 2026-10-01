@@ -16,6 +16,7 @@ import {
   calculateRentToIncomePercentage,
   formatCurrencyByCountry,
   formatPercentage,
+  getRoommateThresholdResult,
   hasNegativeValue,
   normalizeRentToMonthly,
   safeNumber,
@@ -54,27 +55,11 @@ export function JointTenantCalculator() {
   const required = monthlyRent * selectedThreshold * 12;
   const difference = calculateDifference(combinedIncome, required);
 
-  const thresholdLabel = `${selectedThreshold}x monthly rent`;
-  const lowestThreshold = 2.5;
-  let result: { title: string; description: string; tone: "positive" | "neutral" | "warning" } =
-    combinedIncome >= required
-      ? {
-          title: "Strong signal",
-          description: `Combined gross income meets the selected ${thresholdLabel} example.`,
-          tone: "positive",
-        }
-      : selectedThreshold > lowestThreshold &&
-          combinedIncome >= monthlyRent * lowestThreshold * 12
-        ? {
-            title: "Possible signal",
-            description: `Combined income is below the selected ${thresholdLabel} example, but meets a lower 2.5x example some property managers use.`,
-            tone: "neutral",
-          }
-        : {
-            title: "May need support",
-            description: `Combined income is below the selected ${thresholdLabel} example. A co-signer, lower rent, or another roommate may help.`,
-            tone: "warning",
-          };
+  let result = getRoommateThresholdResult(
+    monthlyRent,
+    combinedIncome,
+    selectedThreshold,
+  );
 
   if (negativeInput) {
     result = {

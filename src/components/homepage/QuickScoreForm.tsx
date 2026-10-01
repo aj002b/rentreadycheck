@@ -1,87 +1,24 @@
 'use client';
 
+import Link from 'next/link';
 import { useState, useCallback, useMemo } from 'react';
-
-type HomeScoreResult = {
-  score: number;
-  label: string;
-  rentTwin: string;
-  nextStep: string;
-};
-
-function clampScore(score: number) {
-  return Math.max(0, Math.min(100, Math.round(score)));
-}
-
-export function getHomeScoreLabel(score: number) {
-  if (score >= 85) return 'Rent Ready';
-  if (score >= 70) return 'Nearly There';
-  if (score >= 50) return 'Needs Preparation';
-  return 'High Support Needed';
-}
-
-export function getHomeRentTwin(score: number) {
-  if (score >= 85) return 'Prepared Renter';
-  if (score >= 70) return 'Nearly There Renter';
-  if (score >= 50) return 'Savings Builder';
-  return 'High Support Needed Renter';
-}
-
-export function calculateHomePreviewScore(input: {
-  monthlyRent: number;
-  annualIncome: number;
-  savings: number;
-  monthlyDebt: number;
-  hasCosigner: boolean;
-  hasRoommate?: boolean;
-}): HomeScoreResult {
-  const grossMonthlyIncome = input.annualIncome / 12;
-  const rentMultiple = input.monthlyRent > 0 ? grossMonthlyIncome / input.monthlyRent : 0;
-  const estimatedMoveInNeed = input.monthlyRent * 3;
-  const savingsRatio = estimatedMoveInNeed > 0 ? input.savings / estimatedMoveInNeed : 0;
-  const debtRatio = grossMonthlyIncome > 0 ? input.monthlyDebt / grossMonthlyIncome : 1;
-
-  const incomePoints = Math.min(38, Math.max(0, (rentMultiple / 3.2) * 38));
-  const savingsPoints = Math.min(28, Math.max(0, savingsRatio * 28));
-  const debtPoints = Math.max(0, 22 - debtRatio * 80);
-  const cosignerPoints = input.hasCosigner ? 8 : 0;
-  const roommatePoints = input.hasRoommate ? 10 : 0;
-
-  const score = clampScore(incomePoints + savingsPoints + debtPoints + cosignerPoints + roommatePoints);
-  const savingsGap = Math.max(0, Math.ceil((estimatedMoveInNeed - input.savings) / 100) * 100);
-
-  let nextStep = 'Compare apartments before applying.';
-  if (score < 85 && savingsGap > 0) {
-    nextStep = `Save $${savingsGap.toLocaleString()} more before applying.`;
-  } else if (rentMultiple < 3) {
-    nextStep = 'Consider a lower monthly rent target before applying.';
-  } else if (debtRatio > 0.15) {
-    nextStep = 'Lower monthly debt payments before applying.';
-  }
-
-  return {
-    score,
-    label: getHomeScoreLabel(score),
-    rentTwin: getHomeRentTwin(score),
-    nextStep,
-  };
-}
+import { calculateQuickReadinessScore } from '@/lib/readinessScore';
 
 export default function QuickScoreForm() {
   const [rent, setRent] = useState('1800');
   const [income, setIncome] = useState('72000');
-  const [savings, setSavings] = useState('4800');
+  const [savings, setSavings] = useState('5000');
   const [debt, setDebt] = useState('250');
   const [cosigner, setCosigner] = useState('No');
   const [submittedValues, setSubmittedValues] = useState({
     monthlyRent: 1800,
     annualIncome: 72000,
-    savings: 4800,
+    savings: 5000,
     monthlyDebt: 250,
     hasCosigner: false,
   });
 
-  const result = useMemo(() => calculateHomePreviewScore(submittedValues), [submittedValues]);
+  const result = useMemo(() => calculateQuickReadinessScore(submittedValues), [submittedValues]);
 
   const handleCalculate = useCallback(() => {
     setSubmittedValues({
@@ -280,13 +217,20 @@ export default function QuickScoreForm() {
               <div style={{ display: 'grid', gap: 10 }}>
                 <div style={previewRowStyle}>
                   <span style={previewLabelStyle}>Rent Twin</span>
-                  <strong style={previewValueStyle}>{result.rentTwin}</strong>
+                  <strong style={previewValueStyle}>{result.rentTwin.title}</strong>
                 </div>
                 <div style={previewRowStyle}>
                   <span style={previewLabelStyle}>Top next step</span>
-                  <strong style={previewValueStyle}>{result.nextStep}</strong>
+                  <strong style={previewValueStyle}>{result.topNextStep}</strong>
                 </div>
               </div>
+              <p style={{ fontSize: 12, color: '#475569', margin: '12px 0 0', lineHeight: 1.5 }}>
+                Quick estimate assuming no roommate, average credit and a move in 1–3 months.{' '}
+                <Link href="/rent-readiness-score/#score-form" style={{ color: '#1D4ED8', fontWeight: 700 }}>
+                  Change these in the full assessment
+                </Link>
+                .
+              </p>
             </div>
           </div>
         </div>
