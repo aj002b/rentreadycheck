@@ -17,7 +17,7 @@ export default function ContactPage() {
       <PublicPageHero eyebrow={`Last updated: ${siteConfig.lastUpdated}`} title="Contact">
         <p>
           Have a question about RentReadyCheck or spotted something on the site
-          that needs attention? You can use the placeholder contact email below.
+          that needs attention? Email us at the address below.
         </p>
       </PublicPageHero>
 
