@@ -510,3 +510,110 @@ export function calculateQuickReadinessScore(input: {
     roommate: input.hasRoommate ? "Yes" : quickScoreAssumptions.roommate,
   });
 }
+
+export type ScoreImprovement = {
+  id: "savings-next" | "savings-full" | "rent" | "debt" | "cosigner";
+  action: string;
+  detail: string;
+  newScore: number;
+  gain: number;
+  newLabel: string;
+};
+
+const roundUpTo = (value: number, step: number) => Math.ceil(value / step) * step;
+const roundDownTo = (value: number, step: number) => Math.floor(value / step) * step;
+const dollars = (value: number) => `$${Math.round(value).toLocaleString("en-US")}`;
+
+// "What if" changes worked out from the person's own answers. Each one is
+// re-scored with the full formula, so side effects are included (a lower rent
+// also lowers the move-in savings needed, for example).
+export function getScoreImprovements(input: ReadinessScoreInput): ScoreImprovement[] {
+  const base = calculateReadinessScore(input);
+  const monthlyRent = safeNonNegative(input.monthlyRent);
+  const savings = safeNonNegative(input.savings);
+  const monthlyDebt = safeNonNegative(input.monthlyDebt);
+  const { grossMonthlyIncome, rentMultiple, debtRatio } = base;
+
+  if (monthlyRent <= 0 || grossMonthlyIncome <= 0) {
+    return [];
+  }
+
+  const candidates: Array<Omit<ScoreImprovement, "newScore" | "gain" | "newLabel"> & {
+    changed: Partial<ReadinessScoreInput>;
+  }> = [];
+
+  // Savings: the next milestone (1, 2 or 3 months of rent), and the full
+  // three-month buffer when that is a different amount.
+  const savingsTargets = [1, 2, 3]
+    .map((months) => monthlyRent * months)
+    .filter((target) => target > savings);
+  if (savingsTargets.length > 0) {
+    const nextAmount = roundUpTo(savingsTargets[0] - savings, 50);
+    candidates.push({
+      id: "savings-next",
+      action: `Save ${dollars(nextAmount)} more`,
+      detail: `Brings your savings to about ${dollars(savings + nextAmount)}.`,
+      changed: { savings: savings + nextAmount },
+    });
+
+    const fullAmount = roundUpTo(savingsTargets[savingsTargets.length - 1] - savings, 50);
+    if (fullAmount !== nextAmount) {
+      candidates.push({
+        id: "savings-full",
+        action: `Save ${dollars(fullAmount)} more`,
+        detail: `Covers the full estimated move-in buffer of three months' rent.`,
+        changed: { savings: savings + fullAmount },
+      });
+    }
+  }
+
+  // Rent: the highest rent that reaches the next income-multiple step.
+  const nextMultiple = [1.5, 2, 2.5, 3].find((step) => rentMultiple < step);
+  if (nextMultiple) {
+    const rentTarget = roundDownTo(grossMonthlyIncome / nextMultiple, 25);
+    if (rentTarget > 0 && rentTarget < monthlyRent) {
+      candidates.push({
+        id: "rent",
+        action: `Look at apartments around ${dollars(rentTarget)}/month`,
+        detail: `${dollars(monthlyRent - rentTarget)} a month less than your target, which puts your income at ${nextMultiple}x the rent.`,
+        changed: { monthlyRent: rentTarget },
+      });
+    }
+  }
+
+  // Debt: the highest monthly payment that reaches the next debt step.
+  const nextDebtShare = [0.3, 0.2, 0.1].find((step) => debtRatio > step);
+  if (nextDebtShare) {
+    const debtTarget = roundDownTo(grossMonthlyIncome * nextDebtShare, 10);
+    if (debtTarget < monthlyDebt) {
+      candidates.push({
+        id: "debt",
+        action: `Lower monthly debt payments to ${dollars(debtTarget)} or less`,
+        detail: `${dollars(monthlyDebt - debtTarget)} a month less than now, about ${Math.round(nextDebtShare * 100)}% of your gross monthly income.`,
+        changed: { monthlyDebt: debtTarget },
+      });
+    }
+  }
+
+  if (input.cosigner !== "Yes") {
+    candidates.push({
+      id: "cosigner",
+      action: "Have a co-signer confirmed",
+      detail:
+        "Only counts where the landlord accepts co-signers, so ask the property manager first.",
+      changed: { cosigner: "Yes" },
+    });
+  }
+
+  return candidates
+    .map(({ changed, ...item }) => {
+      const result = calculateReadinessScore({ ...input, ...changed });
+      return {
+        ...item,
+        newScore: result.score,
+        gain: result.score - base.score,
+        newLabel: result.label,
+      };
+    })
+    .filter((item) => item.gain > 0);
+}
