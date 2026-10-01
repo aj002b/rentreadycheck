@@ -24,6 +24,14 @@ npm run dev
 
 Open `http://localhost:3000`.
 
+## Tests
+
+```bash
+npm test
+```
+
+Unit tests for the calculator and scoring logic live next to the code in `src/lib/*.test.ts`. GitHub Actions runs lint, tests and the build on every pull request (`.github/workflows/ci.yml`).
+
 ## Production Build
 
 ```bash

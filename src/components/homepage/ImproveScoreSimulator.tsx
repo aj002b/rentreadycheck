@@ -1,12 +1,12 @@
 'use client';
 
 import { useState, useMemo, useCallback } from 'react';
-import { calculateHomePreviewScore } from './QuickScoreForm';
+import { calculateQuickReadinessScore } from '@/lib/readinessScore';
 
 const BASELINE = {
   monthlyRent: 1800,
   annualIncome: 72000,
-  savings: 4800,
+  savings: 5000,
   monthlyDebt: 250,
   hasCosigner: false,
   hasRoommate: false,
@@ -29,7 +29,7 @@ export default function ImproveScoreSimulator() {
 
   const newResult = useMemo(
     () =>
-      calculateHomePreviewScore({
+      calculateQuickReadinessScore({
         monthlyRent: rent,
         annualIncome: BASELINE.annualIncome,
         savings,
@@ -40,7 +40,26 @@ export default function ImproveScoreSimulator() {
     [rent, savings, debt, cosigner, roommate]
   );
 
-  const baseResult = useMemo(() => calculateHomePreviewScore(BASELINE), []);
+  const baseResult = useMemo(() => calculateQuickReadinessScore(BASELINE), []);
+
+  // Points each toggle is worth with the current slider values.
+  const toggleGain = useCallback(
+    (key: 'hasCosigner' | 'hasRoommate') => {
+      const values = {
+        monthlyRent: rent,
+        annualIncome: BASELINE.annualIncome,
+        savings,
+        monthlyDebt: debt,
+        hasCosigner: cosigner,
+        hasRoommate: roommate,
+      };
+      return (
+        calculateQuickReadinessScore({ ...values, [key]: true }).score -
+        calculateQuickReadinessScore({ ...values, [key]: false }).score
+      );
+    },
+    [rent, savings, debt, cosigner, roommate]
+  );
   const change = newResult.score - baseResult.score;
   const position = newResult.score >= 85 ? 'Great Position' : newResult.label;
 
@@ -122,8 +141,8 @@ export default function ImproveScoreSimulator() {
             {/* Toggles */}
             <div style={{ display: 'flex', gap: 14, flexWrap: 'wrap' }}>
               {[
-                { label: 'Add a co-signer', pts: '+8 pts', val: cosigner, set: setCosigner },
-                { label: 'Rent with a roommate', pts: '+10 pts', val: roommate, set: setRoommate },
+                { label: 'Add a co-signer', pts: `+${toggleGain('hasCosigner')} pts`, val: cosigner, set: setCosigner },
+                { label: 'Rent with a roommate', pts: `+${toggleGain('hasRoommate')} pts`, val: roommate, set: setRoommate },
               ].map((t) => (
                 <button
                   type="button"
