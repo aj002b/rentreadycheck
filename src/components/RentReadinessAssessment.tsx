@@ -2,6 +2,7 @@
 
 import Link from "next/link";
 import { useMemo, useState } from "react";
+import { ScoreGauge } from "@/components/ScoreGauge";
 import {
   calculateReadinessScore,
   getScoreImprovements,
@@ -216,23 +217,6 @@ function OptionGroup<T extends string>({
   );
 }
 
-function ProgressBar({ score }: { score: number }) {
-  return (
-    <div>
-      <div className="mb-2 flex items-center justify-between text-sm font-bold text-[#334765]">
-        <span>Readiness progress</span>
-        <span>{score}%</span>
-      </div>
-      <div className="h-4 overflow-hidden rounded-full bg-[#e2e8f0]">
-        <div
-          className="h-full rounded-full bg-[linear-gradient(90deg,#2563eb_0%,#14b8a6_100%)] transition-[width] duration-200"
-          style={{ width: `${score}%` }}
-        />
-      </div>
-    </div>
-  );
-}
-
 function ResultDashboard({ result }: { result: ReadinessScoreResult }) {
   const keyNumbers = [
     { label: "Income multiple", value: `${result.rentMultiple.toFixed(1)}x` },
@@ -254,27 +238,20 @@ function ResultDashboard({ result }: { result: ReadinessScoreResult }) {
       aria-live="polite"
       className="premium-card-strong overflow-hidden p-5 sm:p-6"
     >
-      <div className="flex flex-wrap items-start justify-between gap-4">
-        <div>
-          <p className="text-sm font-black uppercase tracking-[0.16em] text-[#2563eb]">
-            Rent Readiness Score
-          </p>
-          <div className="mt-2 flex items-end gap-2">
-            <span className="text-5xl font-black leading-none tracking-[-0.04em] text-[#0f1f3a] sm:text-6xl">
-              {result.score}
-            </span>
-            <span className="pb-2 text-xl font-extrabold text-[#53657f]">
-              /100
-            </span>
-          </div>
-        </div>
+      <div className="flex flex-wrap items-center justify-between gap-4">
+        <p className="text-sm font-black uppercase tracking-[0.16em] text-[#2563eb]">
+          Rent Readiness Score
+        </p>
         <span className="rounded-full border border-[#bdd3f5] bg-white px-4 py-2 text-sm font-black text-[#1d4ed8]">
           {result.label}
         </span>
       </div>
 
-      <div className="mt-5">
-        <ProgressBar score={result.score} />
+      <div className="mt-4">
+        <ScoreGauge score={result.score} label={result.label} size="lg" />
+        <p className="sr-only">
+          Score {result.score} out of 100, {result.label}
+        </p>
       </div>
 
       <div className="mt-5 rounded-[20px] border border-[#d8e5f7] bg-white p-4">

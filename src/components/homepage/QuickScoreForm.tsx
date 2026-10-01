@@ -2,6 +2,7 @@
 
 import Link from 'next/link';
 import { useState, useMemo } from 'react';
+import { ScoreGauge } from '@/components/ScoreGauge';
 import { calculateQuickReadinessScore } from '@/lib/readinessScore';
 
 export default function QuickScoreForm() {
@@ -180,34 +181,13 @@ export default function QuickScoreForm() {
                   </p>
                   {hasBasics ? <span style={statusStyle}>{result.label}</span> : null}
                 </div>
-                <p
-                  aria-live="polite"
-                  aria-atomic="true"
-                  style={{ fontSize: 38, fontWeight: 850, color: '#0F172A', margin: 0, lineHeight: 1, letterSpacing: 0, whiteSpace: 'nowrap' }}
-                >
-                  {hasBasics ? result.score : '–'}
-                  <span style={{ fontSize: 22, color: '#64748B', fontWeight: 800 }}>/100</span>
-                </p>
               </div>
 
-              <div
-                style={{
-                  height: 10,
-                  borderRadius: 999,
-                  background: '#E2E8F0',
-                  overflow: 'hidden',
-                  marginBottom: 16,
-                }}
-              >
-                <div
-                  style={{
-                    width: `${hasBasics ? result.score : 0}%`,
-                    height: '100%',
-                    borderRadius: 999,
-                    background: 'linear-gradient(90deg, #2563EB 0%, #0EA5E9 100%)',
-                    transition: 'width 180ms ease',
-                  }}
-                />
+              <div style={{ marginBottom: 16 }}>
+                <ScoreGauge score={hasBasics ? result.score : null} label={result.label} />
+                <p className="sr-only" aria-live="polite" aria-atomic="true">
+                  {hasBasics ? `Score ${result.score} out of 100, ${result.label}` : ''}
+                </p>
               </div>
 
               {hasBasics ? (
