@@ -5,6 +5,7 @@ import {
   getRoommateThresholdResult,
   hasNegativeValue,
   safeNumber,
+  splitRentByWeights,
 } from "@/lib/calculations";
 import { getCountryConfig } from "@/lib/countries";
 
@@ -83,5 +84,41 @@ describe("getRoommateThresholdResult", () => {
 
   it("names the selected threshold in the description", () => {
     expect(getRoommateThresholdResult(2000, 50000, 3.5).description).toContain("3.5x monthly rent");
+  });
+});
+
+describe("splitRentByWeights", () => {
+  const sum = (values: number[]) => values.reduce((total, value) => total + value, 0);
+
+  it("splits evenly when the rent divides cleanly", () => {
+    expect(splitRentByWeights(1800, [1, 1])).toEqual([900, 900]);
+  });
+
+  it("always adds up to the rent when it does not divide cleanly", () => {
+    // Regression: three equal shares of $1,000 displayed as $333 each ($999).
+    const shares = splitRentByWeights(1000, [1, 1, 1]);
+    expect(shares).toEqual([334, 333, 333]);
+    expect(sum(shares)).toBe(1000);
+  });
+
+  it("splits in proportion to income or room weights", () => {
+    expect(splitRentByWeights(2000, [60000, 40000])).toEqual([1200, 800]);
+    const shares = splitRentByWeights(2150, [1.5, 1.25, 1]);
+    expect(sum(shares)).toBe(2150);
+    expect(shares[0]).toBeGreaterThan(shares[1]);
+    expect(shares[1]).toBeGreaterThan(shares[2]);
+  });
+
+  it("adds up for every rent and group size", () => {
+    for (const rent of [999, 1000, 1234, 2501, 3333]) {
+      for (const weights of [[1, 1], [1, 1, 1], [1, 1, 1, 1], [3, 2, 2], [52000, 48000, 31000, 75500]]) {
+        expect(sum(splitRentByWeights(rent, weights))).toBe(rent);
+      }
+    }
+  });
+
+  it("returns zero shares for no rent or no weights", () => {
+    expect(splitRentByWeights(0, [1, 1])).toEqual([0, 0]);
+    expect(splitRentByWeights(1500, [0, 0])).toEqual([0, 0]);
   });
 });

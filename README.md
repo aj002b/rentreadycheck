@@ -6,14 +6,18 @@ The site is fully client-side. There is no database, login, payment flow, extern
 
 ## Features
 
-- Country-aware rent affordability calculator for the United Kingdom, United States, Canada, and Australia
-- Guarantor / co-signer income calculator
-- Joint tenant affordability calculator
+- Rent Readiness Score: a quick score on the homepage and a full assessment, both using the same formula, with suggestions for what could raise the score
+- Rent affordability calculator for US renters (2.5x and 3x monthly rent examples)
+- Co-signer income calculator
+- Roommate affordability calculator
 - Move-in cost calculator
-- Rent split calculator
-- About, Disclaimer, Privacy Policy, and Contact pages
-- FAQ JSON-LD, sitemap, robots, Open Graph metadata, and custom 404 page
+- Rent split calculator (equal, by income, or by room size)
+- "How much rent can I afford on…" pages by salary and hourly pay, each with a pre-filled calculator
+- Renter guides, plus About, Disclaimer, Privacy Policy, and Contact pages
+- Per-page canonical tags, FAQ and breadcrumb JSON-LD, sitemap, robots, Open Graph metadata, and a custom 404 page
 - Static export, deployed on Vercel
+
+The site is US-focused. Some URLs still use UK terms (`guarantor`, `joint-tenant`, `rent-referencing`, `flatmates`) from an earlier version; the page content uses US terms.
 
 ## Local Development
 
@@ -61,7 +65,7 @@ src/lib/countries.ts
 src/lib/calculations.ts
 ```
 
-Update `src/lib/countries.ts` when you want to change country wording, currencies, or common example thresholds. Update `src/lib/calculations.ts` when you want to change formulas.
+Update `src/lib/countries.ts` when you want to change the US wording or example thresholds. Update `src/lib/calculations.ts` when you want to change formulas.
 
 ## Adding A New Calculator
 

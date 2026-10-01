@@ -38,13 +38,6 @@ export function formatPercentage(value: number): string {
   return `${value.toFixed(1)}%`;
 }
 
-export function calculateRequiredIncome(
-  monthlyRent: number,
-  multiplier: number,
-): number {
-  return monthlyRent * multiplier;
-}
-
 export function calculateAnnualMultiplierRequirement(
   monthlyRent: number,
   multiplier: number,
@@ -313,4 +306,33 @@ export function getRoommateThresholdResult(
     description: `Combined income is below the selected ${thresholdLabel} example. A co-signer, lower rent, or another roommate may help.`,
     tone: "warning",
   };
+}
+
+// Splits rent into whole-dollar shares that always add up to the rent.
+// Leftover dollars from rounding go to the largest fractional remainders.
+export function splitRentByWeights(rent: number, weights: number[]): number[] {
+  const total = Math.round(rent);
+  const weightSum = weights.reduce((sum, weight) => sum + Math.max(weight, 0), 0);
+
+  if (!(total > 0) || !(weightSum > 0)) {
+    return weights.map(() => 0);
+  }
+
+  const exact = weights.map((weight) => (total * Math.max(weight, 0)) / weightSum);
+  const shares = exact.map(Math.floor);
+  let leftover = total - shares.reduce((sum, share) => sum + share, 0);
+
+  const byRemainder = exact
+    .map((value, index) => ({ index, remainder: value - Math.floor(value) }))
+    .sort((a, b) => b.remainder - a.remainder || a.index - b.index);
+
+  for (const { index } of byRemainder) {
+    if (leftover <= 0) {
+      break;
+    }
+    shares[index] += 1;
+    leftover -= 1;
+  }
+
+  return shares;
 }
