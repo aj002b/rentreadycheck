@@ -1,7 +1,7 @@
 'use client';
 
 import Link from 'next/link';
-import { useState, useCallback, useMemo } from 'react';
+import { useState, useMemo } from 'react';
 import { calculateQuickReadinessScore } from '@/lib/readinessScore';
 
 export default function QuickScoreForm() {
@@ -10,25 +10,20 @@ export default function QuickScoreForm() {
   const [savings, setSavings] = useState('5000');
   const [debt, setDebt] = useState('250');
   const [cosigner, setCosigner] = useState('No');
-  const [submittedValues, setSubmittedValues] = useState({
-    monthlyRent: 1800,
-    annualIncome: 72000,
-    savings: 5000,
-    monthlyDebt: 250,
-    hasCosigner: false,
-  });
 
-  const result = useMemo(() => calculateQuickReadinessScore(submittedValues), [submittedValues]);
-
-  const handleCalculate = useCallback(() => {
-    setSubmittedValues({
+  // The score updates as you type, so there is no separate calculate step.
+  const values = useMemo(
+    () => ({
       monthlyRent: Number(rent) || 0,
       annualIncome: Number(income) || 0,
       savings: Number(savings) || 0,
       monthlyDebt: Number(debt) || 0,
       hasCosigner: cosigner === 'Yes',
-    });
-  }, [rent, income, savings, debt, cosigner]);
+    }),
+    [rent, income, savings, debt, cosigner],
+  );
+  const hasBasics = values.monthlyRent > 0 && values.annualIncome > 0;
+  const result = useMemo(() => calculateQuickReadinessScore(values), [values]);
 
   const labelStyle: React.CSSProperties = {
     fontSize: 12,
@@ -66,7 +61,7 @@ export default function QuickScoreForm() {
             Get your score in 30 seconds
           </h2>
           <p style={{ fontSize: 14, color: '#64748B', margin: 0, lineHeight: 1.55 }}>
-            Enter a few details to see a quick readiness estimate.
+            Change any number and your estimate updates straight away.
           </p>
         </div>
 
@@ -140,9 +135,8 @@ export default function QuickScoreForm() {
                 gap: 10,
               }}
             >
-              <button
-                type="button"
-                onClick={handleCalculate}
+              <Link
+                href="/rent-readiness-score/#score-form"
                 style={{
                   background: '#2563EB',
                   color: '#fff',
@@ -151,17 +145,15 @@ export default function QuickScoreForm() {
                   borderRadius: 12,
                   fontSize: 15,
                   fontWeight: 600,
-                  border: 'none',
-                  cursor: 'pointer',
-                  width: '100%',
+                  display: 'flex',
+                  alignItems: 'center',
+                  justifyContent: 'center',
+                  textDecoration: 'none',
                   boxShadow: '0 2px 8px rgba(37,99,235,0.25)',
-                  transition: 'background 0.2s',
                 }}
-                onMouseEnter={(e) => (e.currentTarget.style.background = '#1D4ED8')}
-                onMouseLeave={(e) => (e.currentTarget.style.background = '#2563EB')}
               >
-                Calculate My Score
-              </button>
+                Get my full assessment
+              </Link>
               <p style={{ fontSize: 12, color: '#64748B', margin: 0, lineHeight: 1.5 }}>
                 No account. No saved personal data.
               </p>
@@ -186,10 +178,15 @@ export default function QuickScoreForm() {
                   <p style={{ fontSize: 11, fontWeight: 800, letterSpacing: 1.2, color: '#2563EB', margin: '0 0 4px', textTransform: 'uppercase' }}>
                     Rent Readiness Score
                   </p>
-                  <span style={statusStyle}>{result.label}</span>
+                  {hasBasics ? <span style={statusStyle}>{result.label}</span> : null}
                 </div>
-                <p style={{ fontSize: 38, fontWeight: 850, color: '#0F172A', margin: 0, lineHeight: 1, letterSpacing: 0, whiteSpace: 'nowrap' }}>
-                  {result.score}<span style={{ fontSize: 22, color: '#64748B', fontWeight: 800 }}>/100</span>
+                <p
+                  aria-live="polite"
+                  aria-atomic="true"
+                  style={{ fontSize: 38, fontWeight: 850, color: '#0F172A', margin: 0, lineHeight: 1, letterSpacing: 0, whiteSpace: 'nowrap' }}
+                >
+                  {hasBasics ? result.score : '–'}
+                  <span style={{ fontSize: 22, color: '#64748B', fontWeight: 800 }}>/100</span>
                 </p>
               </div>
 
@@ -204,7 +201,7 @@ export default function QuickScoreForm() {
               >
                 <div
                   style={{
-                    width: `${result.score}%`,
+                    width: `${hasBasics ? result.score : 0}%`,
                     height: '100%',
                     borderRadius: 999,
                     background: 'linear-gradient(90deg, #2563EB 0%, #0EA5E9 100%)',
@@ -213,16 +210,36 @@ export default function QuickScoreForm() {
                 />
               </div>
 
-              <div style={{ display: 'grid', gap: 10 }}>
-                <div style={previewRowStyle}>
-                  <span style={previewLabelStyle}>Rent Twin</span>
-                  <strong style={previewValueStyle}>{result.rentTwin.title}</strong>
+              {hasBasics ? (
+                <div style={{ display: 'grid', gap: 10 }}>
+                  <div style={{ display: 'grid', gridTemplateColumns: 'repeat(2, minmax(0, 1fr))', gap: 10 }}>
+                    <div style={previewRowStyle}>
+                      <span style={previewLabelStyle}>Income vs rent</span>
+                      <strong style={previewValueStyle}>{result.rentMultiple.toFixed(1)}x rent</strong>
+                    </div>
+                    <div style={previewRowStyle}>
+                      <span style={previewLabelStyle}>Move-in savings</span>
+                      <strong style={previewValueStyle}>
+                        {result.savingsGap > 0
+                          ? `$${Math.round(result.savingsGap).toLocaleString('en-US')} short`
+                          : 'Covered'}
+                      </strong>
+                    </div>
+                  </div>
+                  <div style={previewRowStyle}>
+                    <span style={previewLabelStyle}>Rent Twin</span>
+                    <strong style={previewValueStyle}>{result.rentTwin.title}</strong>
+                  </div>
+                  <div style={previewRowStyle}>
+                    <span style={previewLabelStyle}>Top next step</span>
+                    <strong style={previewValueStyle}>{result.topNextStep}</strong>
+                  </div>
                 </div>
-                <div style={previewRowStyle}>
-                  <span style={previewLabelStyle}>Top next step</span>
-                  <strong style={previewValueStyle}>{result.topNextStep}</strong>
-                </div>
-              </div>
+              ) : (
+                <p style={{ fontSize: 14, color: '#475569', margin: 0, lineHeight: 1.5 }}>
+                  Enter your monthly rent and annual income to see your score.
+                </p>
+              )}
               <p style={{ fontSize: 12, color: '#475569', margin: '12px 0 0', lineHeight: 1.5 }}>
                 Quick estimate assuming no roommate, average credit and a move in 1–3 months.{' '}
                 <Link href="/rent-readiness-score/#score-form" style={{ color: '#1D4ED8', fontWeight: 700 }}>
