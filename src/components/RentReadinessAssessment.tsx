@@ -4,6 +4,7 @@ import Link from "next/link";
 import { useMemo, useState } from "react";
 import {
   calculateReadinessScore,
+  getScoreImprovements,
   quickScoreAssumptions,
   type CosignerOption,
   type CreditConfidence,
@@ -483,6 +484,63 @@ function NextSteps({ result }: { result: ReadinessScoreResult }) {
   );
 }
 
+function ScoreImprovements({
+  result,
+  input,
+}: {
+  result: ReadinessScoreResult;
+  input: ReadinessScoreInput;
+}) {
+  const improvements = getScoreImprovements(input);
+
+  if (improvements.length === 0) {
+    return null;
+  }
+
+  return (
+    <section className="site-container py-6" aria-labelledby="score-improvements-heading">
+      <article className="rounded-[24px] border border-[#d8e5f7] bg-white p-5 shadow-[0_14px_34px_rgba(15,31,58,0.06)] sm:p-6">
+        <h2
+          id="score-improvements-heading"
+          className="text-2xl font-black tracking-[-0.02em] text-[#0f1f3a]"
+        >
+          What could raise your score
+        </h2>
+        <p className="mt-2 max-w-3xl leading-7 text-[#53657f]">
+          Based on your answers. Each line changes one thing and shows your
+          score now and after.
+        </p>
+        <ul className="mt-5 divide-y divide-[#e6eef9] border-y border-[#e6eef9]">
+          {improvements.map((item) => (
+            <li
+              key={item.id}
+              className="flex flex-col gap-2 py-4 sm:flex-row sm:items-center sm:justify-between sm:gap-6"
+            >
+              <div className="min-w-0">
+                <p className="font-black leading-6 text-[#0f1f3a]">{item.action}</p>
+                <p className="mt-1 text-sm leading-6 text-[#53657f]">{item.detail}</p>
+              </div>
+              <p className="flex shrink-0 items-center gap-2 font-black text-[#0f1f3a]">
+                <span className="text-[#53657f]">{result.score}</span>
+                <span aria-hidden="true">→</span>
+                <span className="sr-only">to</span>
+                <span className="text-xl">{item.newScore}</span>
+                <span className="rounded-full bg-[#eff6ff] px-2.5 py-1 text-sm text-[#1d4ed8]">
+                  +{item.gain}
+                </span>
+              </p>
+            </li>
+          ))}
+        </ul>
+        <p className="mt-4 text-sm leading-6 text-[#53657f]">
+          These show how the estimate changes, not whether an application
+          will be accepted. Landlord requirements vary.
+        </p>
+      </article>
+    </section>
+  );
+}
+
 function HowEstimated() {
   return (
     <section className="site-container py-10">
@@ -808,6 +866,7 @@ export function RentReadinessAssessment() {
           <CategoryBreakdown result={result} input={input} />
           <StrengthsAndWatchOuts result={result} />
           <NextSteps result={result} />
+          <ScoreImprovements result={result} input={input} />
         </>
       ) : null}
 

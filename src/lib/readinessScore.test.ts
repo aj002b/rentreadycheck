@@ -3,6 +3,7 @@ import {
   calculateQuickReadinessScore,
   calculateReadinessScore,
   getReadinessLabel,
+  getScoreImprovements,
   quickScoreAssumptions,
   type ReadinessScoreInput,
 } from "@/lib/readinessScore";
@@ -163,5 +164,69 @@ describe("calculateQuickReadinessScore", () => {
     const baseScore = calculateQuickReadinessScore(quick).score;
     expect(calculateQuickReadinessScore({ ...quick, hasCosigner: true }).score).toBe(baseScore + 10);
     expect(calculateQuickReadinessScore({ ...quick, hasRoommate: true }).score).toBe(baseScore + 4);
+  });
+});
+
+describe("getScoreImprovements", () => {
+  const find = (overrides: Partial<ReadinessScoreInput>, id: string) =>
+    getScoreImprovements({ ...base, ...overrides }).find((item) => item.id === id);
+
+  it("shows the savings needed to reach the next step, with the new score", () => {
+    const item = find({ savings: 5000 }, "savings-next");
+    expect(item?.action).toBe("Save $400 more");
+    expect(item?.gain).toBe(7);
+    expect(item?.newScore).toBe(score({ savings: 5000 }).score + 7);
+  });
+
+  it("offers both the next milestone and the full buffer when they differ", () => {
+    const items = getScoreImprovements({ ...base, savings: 0 });
+    expect(items.find((item) => item.id === "savings-next")?.action).toBe("Save $1,800 more");
+    expect(items.find((item) => item.id === "savings-full")?.action).toBe("Save $5,400 more");
+  });
+
+  it("suggests a rent that reaches the next income step and re-scores savings too", () => {
+    const item = find({ annualIncome: 40000, savings: 5000 }, "rent");
+    expect(item?.action).toBe("Look at apartments around $1,650/month");
+    // Income 12 -> 22 points, and $5,000 now covers three months of $1,650.
+    expect(item?.gain).toBe(17);
+  });
+
+  it("suggests a debt payment that reaches the next debt step", () => {
+    const item = find({ monthlyDebt: 2500 }, "debt");
+    expect(item?.action).toBe("Lower monthly debt payments to $1,800 or less");
+    expect(item?.gain).toBe(4);
+  });
+
+  it("leaves out changes that are already maxed", () => {
+    const items = getScoreImprovements({ ...base, savings: 9000, monthlyDebt: 0, cosigner: "Yes" });
+    expect(items).toEqual([]);
+  });
+
+  it("qualifies the co-signer option and only offers it without one", () => {
+    const item = find({}, "cosigner");
+    expect(item?.gain).toBe(10);
+    expect(item?.detail).toContain("where the landlord accepts co-signers");
+    expect(find({ cosigner: "Yes" }, "cosigner")).toBeUndefined();
+  });
+
+  it("every suggestion's new score matches a full re-score and is higher", () => {
+    for (const annualIncome of [25000, 40000, 60000, 90000]) {
+      for (const savings of [0, 2000, 4000, 6000]) {
+        for (const monthlyDebt of [0, 600, 1500, 3000]) {
+          const input = { ...base, annualIncome, savings, monthlyDebt };
+          const baseScore = calculateReadinessScore(input).score;
+          for (const item of getScoreImprovements(input)) {
+            expect(item.gain).toBeGreaterThan(0);
+            expect(item.newScore).toBe(baseScore + item.gain);
+            expect(item.newScore).toBeLessThanOrEqual(100);
+          }
+        }
+      }
+    }
+  });
+
+  it("returns nothing for missing rent or income", () => {
+    expect(getScoreImprovements({ ...base, monthlyRent: 0 })).toEqual([]);
+    expect(getScoreImprovements({ ...base, annualIncome: 0 })).toEqual([]);
   });
 });
