@@ -2,7 +2,6 @@
 
 import Link from "next/link";
 import { useEffect, useRef, useState } from "react";
-import { siteConfig } from "@/lib/siteConfig";
 
 const navItems = [
   { label: "Readiness Score", href: "/rent-readiness-score/" },
@@ -68,7 +67,7 @@ export function Header() {
     <header className="app-header">
       <div className="app-header__inner">
         <Link href="/" className="app-header__logo" onClick={() => setOpen(false)}>
-          {siteConfig.name}
+          RentReady<span>Check</span>
         </Link>
 
         <nav className="app-header__nav" aria-label="Main navigation">
@@ -152,11 +151,11 @@ export function Header() {
         >
           {open ? (
             <svg width="24" height="24" viewBox="0 0 24 24" fill="none" aria-hidden="true">
-              <path d="M6 6l12 12M18 6L6 18" stroke="#0F172A" strokeWidth="2" strokeLinecap="round" />
+              <path d="M6 6l12 12M18 6L6 18" stroke="currentColor" strokeWidth="2" strokeLinecap="round" />
             </svg>
           ) : (
             <svg width="24" height="24" viewBox="0 0 24 24" fill="none" aria-hidden="true">
-              <path d="M4 6h16M4 12h16M4 18h16" stroke="#0F172A" strokeWidth="2" strokeLinecap="round" />
+              <path d="M4 6h16M4 12h16M4 18h16" stroke="currentColor" strokeWidth="2" strokeLinecap="round" />
             </svg>
           )}
         </button>

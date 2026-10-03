@@ -1,5 +1,3 @@
-'use client';
-
 import Link from 'next/link';
 
 const guides = [
@@ -37,80 +35,18 @@ const guides = [
 
 export default function GuidesPreview() {
   return (
-    <section id="guides" style={{ padding: '72px 24px' }}>
-      <div style={{ maxWidth: 1200, margin: '0 auto' }}>
-        <h2
-          style={{
-            fontSize: 'clamp(26px, 3.5vw, 38px)',
-            fontWeight: 700,
-            color: '#0F172A',
-            textAlign: 'center',
-            margin: '0 0 48px',
-          }}
-        >
-          Helpful guides for US renters
-        </h2>
+    <section id="guides" className="home-section">
+      <div className="site-container">
+        <div className="home-section__head">
+          <h2>Helpful guides for US renters</h2>
+        </div>
 
-        <div
-          style={{
-            display: 'grid',
-            gridTemplateColumns: 'repeat(auto-fit, minmax(min(100%, 320px), 1fr))',
-            gap: 18,
-          }}
-        >
+        <div className="home-rows">
           {guides.map((g) => (
-            <Link
-              key={g.title}
-              href={g.href}
-              style={{
-                background: '#fff',
-                borderRadius: 16,
-                padding: '22px 24px',
-                border: '1px solid #E2E8F0',
-                textDecoration: 'none',
-                display: 'flex',
-                gap: 14,
-                alignItems: 'flex-start',
-                transition: 'box-shadow 0.2s, border-color 0.2s',
-              }}
-              onMouseEnter={(e) => {
-                e.currentTarget.style.boxShadow = '0 4px 16px rgba(0,0,0,0.06)';
-                e.currentTarget.style.borderColor = '#DBEAFE';
-              }}
-              onMouseLeave={(e) => {
-                e.currentTarget.style.boxShadow = 'none';
-                e.currentTarget.style.borderColor = '#E2E8F0';
-              }}
-            >
-              <div
-                style={{
-                  width: 40,
-                  height: 40,
-                  borderRadius: 12,
-                  background: '#EFF6FF',
-                  display: 'flex',
-                  alignItems: 'center',
-                  justifyContent: 'center',
-                  flexShrink: 0,
-                }}
-              >
-                <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
-                  <path
-                    d="M3 4a1.5 1.5 0 011.5-1.5H8L10 4l2-1.5h3.5A1.5 1.5 0 0117 4v12a1.5 1.5 0 01-1.5 1.5H4.5A1.5 1.5 0 013 16V4z"
-                    stroke="#2563EB"
-                    strokeWidth="1.5"
-                  />
-                  <path d="M10 4v13" stroke="#2563EB" strokeWidth="1.5" />
-                </svg>
-              </div>
-              <div>
-                <h3 style={{ fontSize: 15, fontWeight: 700, color: '#0F172A', margin: '0 0 4px' }}>
-                  {g.title}
-                </h3>
-                <p style={{ fontSize: 13, color: '#64748B', margin: 0, lineHeight: 1.5 }}>
-                  {g.desc}
-                </p>
-              </div>
+            <Link key={g.title} href={g.href}>
+              <h3>{g.title}</h3>
+              <span className="home-rows__cta">Read →</span>
+              <p>{g.desc}</p>
             </Link>
           ))}
         </div>

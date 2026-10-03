@@ -97,22 +97,22 @@ export default function GuidesPage() {
 
       <section className="grid gap-4 md:grid-cols-2 lg:grid-cols-3">
         {guideCards.map((guide) => (
-          <Link key={guide.href + guide.title} href={guide.href} className="premium-card flex h-full flex-col p-5 transition hover:-translate-y-0.5 hover:border-[#93c5fd]">
-            <h2 className="text-xl font-extrabold tracking-[-0.02em] text-[#0f1f3a]">
+          <Link key={guide.href + guide.title} href={guide.href} className="premium-card group flex h-full flex-col p-5 transition hover:border-accent">
+            <h2 className="text-xl font-bold text-ink group-hover:text-accent">
               {guide.title}
             </h2>
-            <p className="mt-3 flex-1 text-sm leading-6 text-[#53657f]">
+            <p className="mt-3 flex-1 text-sm leading-6 text-muted">
               {guide.description}
             </p>
-            <span className="mt-5 text-sm font-extrabold text-[#2563eb]">
-              Read guide
+            <span className="mt-5 text-sm font-semibold text-accent">
+              Read guide →
             </span>
           </Link>
         ))}
       </section>
 
-      <section className="rounded-[1.25rem] border border-[#d8e5f7] bg-white p-5 shadow-[0_16px_38px_rgba(15,31,58,0.08)]">
-        <h2 className="text-2xl font-black tracking-[-0.03em] text-[#0f1f3a]">
+      <section>
+        <h2 className="text-2xl font-extrabold text-ink">
           How much rent can you afford on…
         </h2>
         <div className="mt-5 flex flex-wrap gap-3">
@@ -120,7 +120,7 @@ export default function GuidesPage() {
             <Link
               key={link.href}
               href={link.href}
-              className="rounded-full border border-[#bdd3f5] bg-[#eff6ff] px-4 py-2 text-sm font-extrabold text-[#1d4ed8] transition hover:border-[#2563eb] hover:bg-[#dbeafe]"
+              className="chip-link"
             >
               {link.label}
             </Link>
@@ -128,8 +128,8 @@ export default function GuidesPage() {
         </div>
       </section>
 
-      <section className="rounded-[1.25rem] border border-[#d8e5f7] bg-white p-5 shadow-[0_16px_38px_rgba(15,31,58,0.08)]">
-        <h2 className="text-2xl font-black tracking-[-0.03em] text-[#0f1f3a]">
+      <section>
+        <h2 className="text-2xl font-extrabold text-ink">
           How much income do you need to rent…
         </h2>
         <div className="mt-5 flex flex-wrap gap-3">
@@ -137,7 +137,7 @@ export default function GuidesPage() {
             <Link
               key={link.href}
               href={link.href}
-              className="rounded-full border border-[#bdd3f5] bg-[#eff6ff] px-4 py-2 text-sm font-extrabold text-[#1d4ed8] transition hover:border-[#2563eb] hover:bg-[#dbeafe]"
+              className="chip-link"
             >
               {link.label}
             </Link>
@@ -145,8 +145,8 @@ export default function GuidesPage() {
         </div>
       </section>
 
-      <section className="rounded-[1.25rem] border border-[#d8e5f7] bg-white p-5 shadow-[0_16px_38px_rgba(15,31,58,0.08)]">
-        <h2 className="text-2xl font-black tracking-[-0.03em] text-[#0f1f3a]">
+      <section>
+        <h2 className="text-2xl font-extrabold text-ink">
           Calculators
         </h2>
         <div className="mt-5 flex flex-wrap gap-3">
@@ -154,7 +154,7 @@ export default function GuidesPage() {
             <Link
               key={link.href}
               href={link.href}
-              className="rounded-full border border-[#bdd3f5] bg-[#eff6ff] px-4 py-2 text-sm font-extrabold text-[#1d4ed8] transition hover:border-[#2563eb] hover:bg-[#dbeafe]"
+              className="chip-link"
             >
               {link.label}
             </Link>

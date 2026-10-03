@@ -36,7 +36,7 @@ export default function MoveInCostPage() {
       <FAQJsonLd items={faqs} />
       <PublicPageShell>
         <PublicPageHero
-          eyebrow="MOVE-IN COST CALCULATOR"
+          eyebrow="Move-In Cost Calculator"
           title="Estimate your apartment move-in costs"
         >
           <p>
@@ -88,13 +88,13 @@ export default function MoveInCostPage() {
         <FAQSection items={faqs} />
         <DisclaimerBox />
         <section className="space-y-4">
-          <h2 className="text-2xl font-bold text-[#0f1f3a]">Related tools</h2>
+          <h2 className="text-2xl font-bold text-ink">Related tools</h2>
           <div className="grid gap-3 sm:grid-cols-2 lg:grid-cols-5">
             {relatedTools.map((tool) => (
               <Link
                 key={tool.href}
                 href={tool.href}
-                className="rounded-2xl border border-[#d8e5f7] bg-white p-4 text-sm font-extrabold text-[#0f1f3a] shadow-[0_12px_28px_rgba(15,31,58,0.07)] transition hover:-translate-y-0.5 hover:border-[#93c5fd] hover:text-[#2563eb]"
+                className="rounded-xl border border-rule bg-white p-4 text-sm font-bold text-ink transition hover:-translate-y-0.5 hover:border-rule-strong hover:text-accent"
               >
                 {tool.label}
               </Link>

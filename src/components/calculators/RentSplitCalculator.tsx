@@ -126,7 +126,7 @@ export function RentSplitCalculator() {
             description="United States dollars are used in the split table."
             columns="grid-cols-1"
           >
-            <p className="rounded-lg border border-[#d8e5f7] bg-[#f8fbff] px-3 py-2 text-sm leading-6 text-[#53657f]">
+            <p className="rounded-lg border border-rule bg-paper px-3 py-2 text-sm leading-6 text-muted">
               This calculator uses US dollar inputs for roommate rent planning.
             </p>
           </FormSection>
@@ -156,7 +156,7 @@ export function RentSplitCalculator() {
             columns="md:grid-cols-2"
           >
             {Array.from({ length: count }, (_, index) => (
-              <div key={index} className="rounded-2xl border border-[#d8e5f7] bg-white p-4 shadow-[inset_0_1px_0_rgba(255,255,255,0.75)]">
+              <div key={index} className="rounded-xl border border-rule bg-white p-4">
                 <InputField id={`tenant-name-${index}`} label={`Roommate ${index + 1} name`} value={names[index]} onChange={(value) => updateList(setNames, names, index, value)} placeholder={`Roommate ${index + 1}`} type="text" />
                 {splitMethod === "income" ? (
                   <div className="mt-4">
@@ -177,9 +177,9 @@ export function RentSplitCalculator() {
         <>
           <ResultCard title={title} description={description} tone={tone} badgeLabel={hasResult ? "Estimated split" : "Add details"}>
             {hasResult ? (
-              <div className="overflow-x-auto rounded-2xl border border-[#d8e5f7] bg-white/82 shadow-[0_8px_18px_rgba(15,31,58,0.035)]">
+              <div className="overflow-x-auto rounded-xl border border-rule bg-surface">
                 <table className="w-full min-w-[420px] text-left text-sm">
-                  <thead className="border-b border-[#d8e5f7] text-[#53657f]">
+                  <thead className="border-b border-rule text-muted">
                     <tr>
                       <th className="px-4 py-3">Roommate</th>
                       <th className="px-4 py-3">Monthly share</th>
@@ -188,8 +188,8 @@ export function RentSplitCalculator() {
                   </thead>
                   <tbody>
                     {rows.map((row, index) => (
-                      <tr key={index} className="border-b border-[#edf4f1] last:border-0">
-                        <td className="px-4 py-3 font-bold text-[#0f1f3a]">{row.name}</td>
+                      <tr key={index} className="border-b border-paper last:border-0">
+                        <td className="px-4 py-3 font-bold text-ink">{row.name}</td>
                         <td className="px-4 py-3">{currency(row.share)}</td>
                         <td className="px-4 py-3">{formatPercentage(row.percentage)}</td>
                       </tr>

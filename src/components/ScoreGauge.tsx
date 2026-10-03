@@ -12,11 +12,12 @@ const RADIUS = 84;
 // Score boundaries between labels, marked as ticks on the dial.
 const THRESHOLDS = [50, 70, 85];
 
-function levelColor(score: number) {
-  if (score >= 85) return "#0d9488";
-  if (score >= 70) return "#2563eb";
-  if (score >= 50) return "#d97706";
-  return "#dc2626";
+// Colours for each score band: the dial stroke, plus a soft/text pair for chips.
+export function scoreLevel(score: number) {
+  if (score >= 85) return { stroke: "#0e6b4a", soft: "var(--good-soft)", text: "var(--good)" };
+  if (score >= 70) return { stroke: "#2447d6", soft: "var(--accent-soft)", text: "var(--accent-dark)" };
+  if (score >= 50) return { stroke: "#b26a00", soft: "var(--warn-soft)", text: "var(--warn)" };
+  return { stroke: "#a2382b", soft: "var(--bad-soft)", text: "var(--bad)" };
 }
 
 function pointOnArc(score: number, radius: number) {
@@ -62,7 +63,7 @@ export function ScoreGauge({
     return () => controls.stop();
   }, [target, reduceMotion]);
 
-  const color = levelColor(target);
+  const color = scoreLevel(target).stroke;
   const knob = pointOnArc(shown, RADIUS);
 
   return (
@@ -77,7 +78,7 @@ export function ScoreGauge({
             : `Rent readiness score ${score} out of 100${label ? `, ${label}` : ""}`
         }
       >
-        <path d={ARC} fill="none" stroke="#e2e8f0" strokeWidth="14" strokeLinecap="round" />
+        <path d={ARC} fill="none" stroke="var(--track)" strokeWidth="14" strokeLinecap="round" />
         {score !== null ? (
           <>
             <path
@@ -111,7 +112,7 @@ export function ScoreGauge({
               y1={inner.y}
               x2={outer.x}
               y2={outer.y}
-              stroke="#94a3b8"
+              stroke="var(--rule-strong)"
               strokeWidth="2"
               strokeLinecap="round"
             />
@@ -121,10 +122,10 @@ export function ScoreGauge({
 
       <div className="absolute inset-x-0 bottom-0 flex flex-col items-center" aria-hidden="true">
         <p
-          className={`font-black leading-none tracking-[-0.03em] text-[#0f1f3a] ${size === "lg" ? "text-6xl" : "text-5xl"}`}
+          className={`font-extrabold leading-none tracking-[-0.04em] text-ink [font-variant-numeric:tabular-nums] ${size === "lg" ? "text-6xl" : "text-5xl"}`}
         >
           {score === null ? "–" : Math.round(shown)}
-          <span className={`font-extrabold text-[#64748b] ${size === "lg" ? "text-2xl" : "text-xl"}`}>
+          <span className={`font-semibold tracking-normal text-muted ${size === "lg" ? "text-2xl" : "text-xl"}`}>
             /100
           </span>
         </p>

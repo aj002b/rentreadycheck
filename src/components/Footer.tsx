@@ -15,7 +15,9 @@ export function Footer() {
       <div className="app-footer__inner">
         <div className="app-footer__top">
           <div className="app-footer__brand">
-            <p className="app-footer__name">{siteConfig.name}</p>
+            <p className="app-footer__name">
+              RentReady<span>Check</span>
+            </p>
             <p className="app-footer__copy">
               Free US rent readiness tools to estimate affordability, co-signer support,
               move-in costs, and roommate rent planning before you apply.

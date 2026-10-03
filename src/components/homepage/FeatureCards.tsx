@@ -1,5 +1,3 @@
-'use client';
-
 import Link from 'next/link';
 
 const cards = [
@@ -43,108 +41,22 @@ const cards = [
 
 export default function FeatureCards() {
   return (
-    <section id="calculators" style={{ background: '#F8FAFC', padding: '64px 24px' }}>
-      <div style={{ maxWidth: 1200, margin: '0 auto' }}>
-        <h2
-          style={{
-            fontSize: 'clamp(26px, 3.5vw, 38px)',
-            fontWeight: 700,
-            color: '#0F172A',
-            textAlign: 'center',
-            margin: '0 0 12px',
-          }}
-        >
-          RentReadyCheck tools
-        </h2>
-        <p
-          style={{
-            color: '#53657F',
-            fontSize: 16,
-            lineHeight: 1.7,
-            margin: '0 auto 34px',
-            maxWidth: 780,
-            textAlign: 'center',
-          }}
-        >
-          Use these free tools to estimate rent affordability, co-signer support,
-          move-in costs, and roommate rent planning before you apply.
-        </p>
+    <section id="calculators" className="home-section">
+      <div className="site-container">
+        <div className="home-section__head">
+          <h2>RentReadyCheck tools</h2>
+          <p>
+            Use these free tools to estimate rent affordability, co-signer support,
+            move-in costs, and roommate rent planning before you apply.
+          </p>
+        </div>
 
-        <div
-          style={{
-            display: 'grid',
-            gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))',
-            gap: 18,
-          }}
-        >
-          {cards.map((c, index) => (
-            <Link
-                href={c.href}
-                key={c.title}
-                style={{
-                  background: '#fff',
-                  borderRadius: 22,
-                  padding: '22px',
-                  border: '1px solid #D8E5F7',
-                  boxShadow: '0 14px 34px rgba(15,31,58,0.06)',
-                  display: 'flex',
-                  flexDirection: 'column',
-                  minHeight: 216,
-                  textDecoration: 'none',
-                  transition: 'box-shadow 0.2s, transform 0.2s',
-                }}
-              onMouseEnter={(e) => {
-                e.currentTarget.style.boxShadow = '0 8px 30px rgba(0,0,0,0.08)';
-                e.currentTarget.style.transform = 'translateY(-2px)';
-              }}
-              onMouseLeave={(e) => {
-                e.currentTarget.style.boxShadow = '0 2px 12px rgba(0,0,0,0.04)';
-                e.currentTarget.style.transform = 'translateY(0)';
-              }}
-              >
-                <div
-                  style={{
-                  width: 44,
-                  height: 44,
-                  borderRadius: 14,
-                  background: '#EFF6FF',
-                  display: 'flex',
-                  alignItems: 'center',
-                  justifyContent: 'center',
-                  marginBottom: 16,
-                  color: '#2563EB',
-                  fontSize: 15,
-                  fontWeight: 800,
-                }}
-              >
-                {String(index + 1).padStart(2, '0')}
-              </div>
-
-              <h3 style={{ fontSize: 17, fontWeight: 700, color: '#0F172A', margin: '0 0 10px' }}>
-                {c.title}
-              </h3>
-
-              <p style={{ fontSize: 14, color: '#64748B', margin: '0 0 20px', lineHeight: 1.6, flex: 1 }}>
-                {c.desc}
-              </p>
-
-              <span
-                style={{
-                  fontSize: 14,
-                  fontWeight: 600,
-                  color: '#2563EB',
-                  textDecoration: 'none',
-                  display: 'inline-flex',
-                  alignItems: 'center',
-                  gap: 6,
-                  minHeight: 34,
-                }}
-              >
-                {c.cta}
-                <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
-                  <path d="M3 8h10m0 0L9 4m4 4L9 12" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
-                </svg>
-              </span>
+        <div className="home-rows">
+          {cards.map((c) => (
+            <Link href={c.href} key={c.title}>
+              <h3>{c.title}</h3>
+              <span className="home-rows__cta">{c.cta} →</span>
+              <p>{c.desc}</p>
             </Link>
           ))}
         </div>

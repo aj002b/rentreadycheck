@@ -29,68 +29,30 @@ export default function FAQSection() {
   const [open, setOpen] = useState<number | null>(null);
 
   return (
-    <section id="faq" style={{ background: '#F8FAFC', padding: '80px 24px' }}>
-      <div style={{ maxWidth: 760, margin: '0 auto' }}>
-        <h2
-          style={{
-            fontSize: 'clamp(26px, 3.5vw, 38px)',
-            fontWeight: 700,
-            color: '#0F172A',
-            textAlign: 'center',
-            margin: '0 0 48px',
-          }}
-        >
-          Frequently asked questions
-        </h2>
+    <section id="faq" className="home-section">
+      <div className="site-container">
+        <div className="home-section__head">
+          <h2>Frequently asked questions</h2>
+        </div>
 
-        <div>
+        <div className="faq-list">
           {items.map((item, i) => (
-            <div key={i} style={{ borderBottom: '1px solid #E2E8F0' }}>
+            <div key={i} className="faq-list__item">
               <button
+                className="faq-list__button"
                 onClick={() => setOpen(open === i ? null : i)}
                 aria-expanded={open === i}
-                style={{
-                  width: '100%',
-                  padding: '20px 0',
-                  background: 'none',
-                  border: 'none',
-                  cursor: 'pointer',
-                  display: 'flex',
-                  justifyContent: 'space-between',
-                  alignItems: 'center',
-                  textAlign: 'left',
-                  gap: 16,
-                }}
               >
-                <span style={{ fontSize: 15, fontWeight: 600, color: '#0F172A', lineHeight: 1.4 }}>
-                  {item.q}
-                </span>
+                <span>{item.q}</span>
                 <span
-                  style={{
-                    fontSize: 22,
-                    color: '#2563EB',
-                    fontWeight: 300,
-                    flexShrink: 0,
-                    transition: 'transform 0.2s',
-                    transform: open === i ? 'rotate(45deg)' : 'none',
-                    lineHeight: 1,
-                  }}
+                  className="faq-list__icon"
+                  aria-hidden="true"
+                  style={{ transform: open === i ? 'rotate(45deg)' : 'none' }}
                 >
                   +
                 </span>
               </button>
-              {open === i && (
-                <div
-                  style={{
-                    padding: '0 0 20px',
-                    fontSize: 14,
-                    color: '#64748B',
-                    lineHeight: 1.7,
-                  }}
-                >
-                  {item.a}
-                </div>
-              )}
+              {open === i && <div className="faq-list__answer">{item.a}</div>}
             </div>
           ))}
         </div>

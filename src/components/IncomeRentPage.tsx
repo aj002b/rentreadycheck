@@ -29,11 +29,11 @@ const relatedLinks = [
 
 function Section({ id, title, children }: { id: string; title: string; children: ReactNode }) {
   return (
-    <section aria-labelledby={id} className="premium-card p-5 sm:p-6 md:p-8">
-      <h2 id={id} className="text-2xl font-extrabold tracking-[-0.02em] text-[#0f1f3a]">
+    <section aria-labelledby={id}>
+      <h2 id={id} className="text-2xl font-bold text-ink">
         {title}
       </h2>
-      <div className="mt-4 space-y-4 leading-7 text-[#334765]">{children}</div>
+      <div className="mt-4 space-y-4 leading-7 text-ink-2">{children}</div>
     </section>
   );
 }
@@ -48,32 +48,32 @@ function DataTable({
   rows: Array<Array<ReactNode>>;
 }) {
   return (
-    <div className="overflow-x-auto rounded-xl border border-[#d8e5f7]">
+    <div className="overflow-x-auto rounded-xl border border-rule">
       <table className="w-full text-left text-[13px] sm:text-sm">
         <caption className="sr-only">{caption}</caption>
-        <thead className="bg-[#f8fbff] text-[#334765]">
+        <thead className="bg-paper text-muted">
           <tr>
             {headers.map((header, index) => (
               <th
                 key={header}
                 scope="col"
-                className={`px-3 py-3 font-extrabold sm:px-4 ${index > 0 ? "text-right" : ""}`}
+                className={`px-3 py-3 font-semibold sm:px-4 ${index > 0 ? "text-right" : ""}`}
               >
                 {header}
               </th>
             ))}
           </tr>
         </thead>
-        <tbody className="divide-y divide-[#e6eef9] bg-white">
+        <tbody className="divide-y divide-rule bg-white [font-variant-numeric:tabular-nums]">
           {rows.map((row, rowIndex) => (
             <tr key={rowIndex}>
               {row.map((cell, index) =>
                 index === 0 ? (
-                  <th key={index} scope="row" className="px-3 py-3 font-bold text-[#0f1f3a] sm:px-4">
+                  <th key={index} scope="row" className="px-3 py-3 font-semibold text-ink sm:px-4">
                     {cell}
                   </th>
                 ) : (
-                  <td key={index} className="px-3 py-3 text-right text-[#334765] sm:px-4">
+                  <td key={index} className="px-3 py-3 text-right text-ink-2 sm:px-4">
                     {cell}
                   </td>
                 ),
@@ -174,23 +174,23 @@ export function IncomeRentPageView({ page }: { page: IncomeRentPage }) {
       />
       <FAQJsonLd items={faqs} />
 
-      <div className="site-container space-y-8 py-8 sm:space-y-10 sm:py-10">
-        <nav aria-label="Breadcrumb" className="text-sm text-[#53657f]">
+      <div className="site-container space-y-10 pb-14 sm:space-y-12">
+        <section className="page-band py-8 md:py-12">
+        <nav aria-label="Breadcrumb" className="text-sm text-muted">
           <ol className="flex flex-wrap gap-1.5">
             <li><Link href="/" className="inline-block py-1 hover:underline">Home</Link> /</li>
             <li><Link href="/guides/" className="inline-block py-1 hover:underline">Guides</Link> /</li>
-            <li aria-current="page" className="py-1 font-bold text-[#334765]">{page.label}</li>
+            <li aria-current="page" className="py-1 font-semibold text-ink-2">{page.label}</li>
           </ol>
         </nav>
 
-        <section className="rounded-3xl border border-[#d8e5f7] bg-[linear-gradient(135deg,#ffffff_0%,#eef6ff_100%)] p-5 shadow-[0_24px_60px_rgba(37,99,235,0.12)] sm:p-6 md:p-8">
-          <p className="text-xs font-extrabold uppercase tracking-[0.12em] text-[#2563eb]">
+          <p className="mt-5 text-sm font-medium text-muted">
             Rent affordability by income
           </p>
-          <h1 className="mt-3 text-3xl font-extrabold leading-tight tracking-[-0.035em] text-[#0f1f3a] sm:text-4xl md:text-5xl">
+          <h1 className="mt-3 max-w-4xl text-3xl font-extrabold leading-[1.08] tracking-[-0.035em] text-ink sm:text-4xl md:text-[3rem]">
             {h1}
           </h1>
-          <p className="mt-4 max-w-3xl text-lg leading-8 text-[#334765]">{page.intro}</p>
+          <p className="mt-4 max-w-3xl text-lg leading-8 text-ink-2">{page.intro}</p>
 
           <div className="mt-6 grid gap-3 sm:grid-cols-3">
             {[
@@ -198,17 +198,17 @@ export function IncomeRentPageView({ page }: { page: IncomeRentPage }) {
               { label: "3x monthly rent", value: threeX, note: "Common landlord check" },
               { label: "2.5x monthly rent", value: twoHalf, note: "More lenient check" },
             ].map((item) => (
-              <div key={item.label} className="rounded-2xl border border-[#d8e5f7] bg-white p-4">
-                <p className="text-sm font-bold text-[#53657f]">{item.label}</p>
-                <p className="mt-1 text-2xl font-extrabold text-[#0f1f3a]">
+              <div key={item.label} className="rounded-xl bg-white p-4">
+                <p className="text-sm font-semibold text-muted">{item.label}</p>
+                <p className="mt-1 text-2xl font-extrabold text-ink [font-variant-numeric:tabular-nums]">
                   {formatUSD(item.value)}
-                  <span className="text-base font-bold text-[#53657f]"> /mo</span>
+                  <span className="text-base font-medium text-muted"> /mo</span>
                 </p>
-                <p className="mt-1 text-xs text-[#53657f]">{item.note}</p>
+                <p className="mt-1 text-xs text-muted">{item.note}</p>
               </div>
             ))}
           </div>
-          <p className="mt-4 rounded-xl border border-[#fde68a] bg-[#fffbeb] p-3 text-sm leading-6 text-[#713f12]">
+          <p className="mt-4 rounded-lg bg-warn-soft p-3 text-sm leading-6 text-warn">
             <strong>Before tax:</strong> all figures use gross income, which is what landlords
             usually check.
             {page.payType === "hourly"
@@ -219,10 +219,10 @@ export function IncomeRentPageView({ page }: { page: IncomeRentPage }) {
 
         <section aria-labelledby="calculator-heading" className="space-y-4">
           <div>
-            <h2 id="calculator-heading" className="text-2xl font-extrabold tracking-[-0.02em] text-[#0f1f3a]">
+            <h2 id="calculator-heading" className="text-2xl font-bold text-ink">
               Try your own numbers
             </h2>
-            <p className="mt-2 leading-7 text-[#53657f]">
+            <p className="mt-2 leading-7 text-muted">
               Pre-filled with {page.label}. Change your pay
               {page.payType === "hourly" ? ", hours or weeks" : ""}, or add a rent you&apos;re
               looking at to see how it compares.
@@ -335,7 +335,7 @@ export function IncomeRentPageView({ page }: { page: IncomeRentPage }) {
                 On top of that, budget for application fees, moving costs, utility and internet
                 setup, renters insurance and basic furniture. Some landlords also ask for last
                 month&apos;s rent or pet deposits upfront. The{" "}
-                <Link href="/move-in-cost-calculator/" className="inline-block py-1.5 font-bold text-[#2563eb] hover:underline">
+                <Link href="/move-in-cost-calculator/" className="inline-block py-1.5 font-bold text-accent hover:underline">
                   move-in cost calculator
                 </Link>{" "}
                 adds these up for you.
@@ -372,11 +372,11 @@ export function IncomeRentPageView({ page }: { page: IncomeRentPage }) {
               <p>
                 Splitting by income means each person pays the same share of their pay. Use
                 the{" "}
-                <Link href="/joint-tenant-affordability-calculator/" className="inline-block py-1.5 font-bold text-[#2563eb] hover:underline">
+                <Link href="/joint-tenant-affordability-calculator/" className="inline-block py-1.5 font-bold text-accent hover:underline">
                   roommate affordability calculator
                 </Link>{" "}
                 or the{" "}
-                <Link href="/rent-split-calculator/" className="inline-block py-1.5 font-bold text-[#2563eb] hover:underline">
+                <Link href="/rent-split-calculator/" className="inline-block py-1.5 font-bold text-accent hover:underline">
                   rent split calculator
                 </Link>{" "}
                 for your exact numbers.
@@ -398,7 +398,7 @@ export function IncomeRentPageView({ page }: { page: IncomeRentPage }) {
                 proof of savings, a co-signer where the landlord accepts one, a roommate, or a
                 lower-rent place. What landlords can ask for varies by state and city, so ask
                 the property manager which alternatives they accept. Read{" "}
-                <Link href="/do-i-need-a-cosigner-for-an-apartment/" className="inline-block py-1.5 font-bold text-[#2563eb] hover:underline">
+                <Link href="/do-i-need-a-cosigner-for-an-apartment/" className="inline-block py-1.5 font-bold text-accent hover:underline">
                   do I need a co-signer?
                 </Link>{" "}
                 for more.
@@ -409,14 +409,14 @@ export function IncomeRentPageView({ page }: { page: IncomeRentPage }) {
           <aside className="space-y-5">
             <DisclaimerBox>{estimateDisclaimer}</DisclaimerBox>
             {compare.length ? (
-              <nav aria-labelledby="compare-heading" className="rounded-2xl border border-[#d8e5f7] bg-white p-5">
-                <h2 id="compare-heading" className="text-lg font-extrabold text-[#0f1f3a]">
+              <nav aria-labelledby="compare-heading" className="rounded-xl border border-rule bg-white p-5">
+                <h2 id="compare-heading" className="text-lg font-bold text-ink">
                   Compare other incomes
                 </h2>
                 <ul className="mt-2 space-y-0.5">
                   {compare.map((item) => (
                     <li key={item.slug}>
-                      <Link href={`/${item.slug}/`} className="inline-block py-1.5 font-bold text-[#2563eb] hover:underline">
+                      <Link href={`/${item.slug}/`} className="inline-block py-1.5 font-bold text-accent hover:underline">
                         Rent on {item.label}
                       </Link>
                     </li>
@@ -424,14 +424,14 @@ export function IncomeRentPageView({ page }: { page: IncomeRentPage }) {
                 </ul>
               </nav>
             ) : null}
-            <nav aria-labelledby="related-heading" className="rounded-2xl border border-[#d8e5f7] bg-white p-5">
-              <h2 id="related-heading" className="text-lg font-extrabold text-[#0f1f3a]">
+            <nav aria-labelledby="related-heading" className="rounded-xl border border-rule bg-white p-5">
+              <h2 id="related-heading" className="text-lg font-bold text-ink">
                 Related guides
               </h2>
               <ul className="mt-2 space-y-0.5">
                 {relatedLinks.map((link) => (
                   <li key={link.href}>
-                    <Link href={link.href} className="inline-block py-1.5 font-bold text-[#2563eb] hover:underline">
+                    <Link href={link.href} className="inline-block py-1.5 font-bold text-accent hover:underline">
                       {link.label}
                     </Link>
                   </li>

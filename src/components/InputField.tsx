@@ -27,13 +27,13 @@ export function InputField({
 }: InputFieldProps) {
   return (
     <div>
-      <label htmlFor={id} className="block text-sm font-bold text-[#0f1f3a]">
+      <label htmlFor={id} className="block text-sm font-semibold text-ink">
         {label}
-        {required ? <span className="text-[#b84735]"> *</span> : null}
+        {required ? <span className="text-bad"> *</span> : null}
       </label>
       <div className="relative mt-2">
         {prefix ? (
-          <span className="pointer-events-none absolute left-3 top-1/2 -translate-y-1/2 text-[#53657f]">
+          <span className="pointer-events-none absolute left-3 top-1/2 -translate-y-1/2 text-muted">
             {prefix}
           </span>
         ) : null}
@@ -55,15 +55,15 @@ export function InputField({
           }
           className={`field-control ${
             prefix ? "pl-8" : ""
-          } ${error ? "!border-[#b84735] !ring-[#f1c0b6]" : ""}`}
+          } ${error ? "!border-bad" : ""}`}
         />
       </div>
       {helpText ? (
-        <p id={`${id}-help`} className="mt-1.5 text-xs leading-5 text-[#748882]">
+        <p id={`${id}-help`} className="mt-1.5 text-xs leading-5 text-muted">
           {helpText}
         </p>
       ) : null}
-      {error ? <p id={`${id}-error`} role="alert" className="mt-1.5 text-xs font-semibold text-[#b84735]">{error}</p> : null}
+      {error ? <p id={`${id}-error`} role="alert" className="mt-1.5 text-xs font-semibold text-bad">{error}</p> : null}
     </div>
   );
 }

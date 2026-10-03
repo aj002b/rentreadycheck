@@ -294,26 +294,26 @@ export function MoveInCostCalculator() {
       }
       result={
         <section className="space-y-4">
-          <div className="rounded-2xl border border-[#bfdbfe] bg-[linear-gradient(180deg,#eff6ff_0%,#ffffff_100%)] p-5 shadow-[0_20px_45px_rgba(37,99,235,0.14)]">
-            <p className="text-xs font-extrabold uppercase tracking-[0.12em] text-[#2563eb]">
+          <div className="rounded-xl border border-rule bg-surface p-5">
+            <p className="text-xs font-bold text-accent">
               Result dashboard
             </p>
-            <h2 className="mt-3 text-2xl font-black tracking-[-0.02em] text-[#0f1f3a]">
+            <h2 className="mt-3 text-2xl font-bold text-ink">
               Estimated move-in cash needed
             </h2>
-            <p className="mt-2 text-4xl font-black tracking-[-0.04em] text-[#1d4ed8]">
+            <p className="mt-2 text-4xl font-bold text-accent-dark">
               {currency.format(result.totalMoveInCost)}
             </p>
-            <div className="mt-4 rounded-2xl border border-[#d8e5f7] bg-white p-4">
-              <p className="text-sm font-bold text-[#53657f]">{savingsLabel}</p>
+            <div className="mt-4 rounded-xl border border-rule bg-white p-4">
+              <p className="text-sm font-bold text-muted">{savingsLabel}</p>
               <p
-                className={`mt-1 text-2xl font-black ${
-                  result.savingsGap > 0 ? "text-[#b84735]" : "text-[#15803d]"
+                className={`mt-1 text-2xl font-bold ${
+                  result.savingsGap > 0 ? "text-bad" : "text-good"
                 }`}
               >
                 {currency.format(savingsValue)}
               </p>
-              <p className="mt-2 text-sm leading-6 text-[#53657f]">
+              <p className="mt-2 text-sm leading-6 text-muted">
                 {hasCalculated
                   ? getSavingsMessage(result.savingsGap)
                   : "Add your details and calculate to compare estimated move-in costs with current savings."}
@@ -337,8 +337,8 @@ export function MoveInCostCalculator() {
             />
           </div>
 
-          <div className="rounded-2xl border border-[#d8e5f7] bg-white p-5 shadow-[0_12px_28px_rgba(15,31,58,0.07)]">
-            <h3 className="text-lg font-extrabold text-[#0f1f3a]">
+          <div className="rounded-xl border border-rule bg-white p-5">
+            <h3 className="text-lg font-bold text-ink">
               Detailed breakdown
             </h3>
             <dl className="mt-4 space-y-3 text-sm">
@@ -364,13 +364,13 @@ export function MoveInCostCalculator() {
             </dl>
           </div>
 
-          <div className="rounded-2xl border border-[#d8e5f7] bg-white p-5 shadow-[0_12px_28px_rgba(15,31,58,0.07)]">
-            <h3 className="text-lg font-extrabold text-[#0f1f3a]">
+          <div className="rounded-xl border border-rule bg-white p-5">
+            <h3 className="text-lg font-bold text-ink">
               Personalized tips
             </h3>
-            <ul className="mt-4 space-y-3 text-sm leading-6 text-[#53657f]">
+            <ul className="mt-4 space-y-3 text-sm leading-6 text-muted">
               {getTips(result).map((tip) => (
-                <li key={tip} className="rounded-xl bg-[#f8fbff] p-3">
+                <li key={tip} className="rounded-xl bg-paper p-3">
                   {tip}
                 </li>
               ))}
@@ -384,9 +384,9 @@ export function MoveInCostCalculator() {
 
 function BreakdownRow({ label, value }: { label: string; value: number }) {
   return (
-    <div className="flex items-center justify-between gap-4 border-b border-[#eef3fb] pb-3 last:border-b-0 last:pb-0">
-      <dt className="font-semibold text-[#53657f]">{label}</dt>
-      <dd className="shrink-0 font-extrabold text-[#0f1f3a]">
+    <div className="flex items-center justify-between gap-4 border-b border-paper pb-3 last:border-b-0 last:pb-0">
+      <dt className="font-semibold text-muted">{label}</dt>
+      <dd className="shrink-0 font-bold text-ink">
         {currency.format(value)}
       </dd>
     </div>

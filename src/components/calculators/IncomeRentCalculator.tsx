@@ -128,7 +128,7 @@ export function IncomeRentCalculator({
           helpText="Monthly rent for a specific apartment"
           error={rentError}
         />
-        <p id={`${resultsId}-note`} className="text-xs leading-5 text-[#53657f]">
+        <p id={`${resultsId}-note`} className="text-xs leading-5 text-muted">
           Uses gross income before tax. Results update as you type.
         </p>
       </form>
@@ -137,7 +137,7 @@ export function IncomeRentCalculator({
         aria-labelledby={`${resultsId}-heading`}
         className="premium-card space-y-4 p-4 sm:p-5"
       >
-        <h3 id={`${resultsId}-heading`} className="text-lg font-extrabold text-[#0f1f3a]">
+        <h3 id={`${resultsId}-heading`} className="text-lg font-bold text-ink">
           Your estimate
         </h3>
         <p className="sr-only" aria-live="polite">
@@ -150,19 +150,19 @@ export function IncomeRentCalculator({
         {hasIncome ? (
           <>
             <dl className="grid grid-cols-2 gap-3 text-sm">
-              <div className="rounded-xl border border-[#d8e5f7] bg-[#f8fbff] p-3">
-                <dt className="font-bold text-[#53657f]">Gross per year</dt>
-                <dd className="mt-1 text-lg font-extrabold text-[#0f1f3a]">{formatUSD(annual)}</dd>
+              <div className="rounded-xl border border-rule bg-paper p-3">
+                <dt className="font-bold text-muted">Gross per year</dt>
+                <dd className="mt-1 text-lg font-bold text-ink">{formatUSD(annual)}</dd>
               </div>
-              <div className="rounded-xl border border-[#d8e5f7] bg-[#f8fbff] p-3">
-                <dt className="font-bold text-[#53657f]">Gross per month</dt>
-                <dd className="mt-1 text-lg font-extrabold text-[#0f1f3a]">{formatUSD(monthly)}</dd>
+              <div className="rounded-xl border border-rule bg-paper p-3">
+                <dt className="font-bold text-muted">Gross per month</dt>
+                <dd className="mt-1 text-lg font-bold text-ink">{formatUSD(monthly)}</dd>
               </div>
             </dl>
             <table className="w-full text-left text-sm">
               <caption className="sr-only">Maximum monthly rent under each rule</caption>
               <thead>
-                <tr className="border-b border-[#d8e5f7] text-[#53657f]">
+                <tr className="border-b border-rule text-muted">
                   <th scope="col" className="py-2 font-bold">Rule</th>
                   <th scope="col" className="py-2 text-right font-bold">Max rent / month</th>
                   {hasRent ? (
@@ -170,16 +170,16 @@ export function IncomeRentCalculator({
                   ) : null}
                 </tr>
               </thead>
-              <tbody className="divide-y divide-[#e6eef9]">
+              <tbody className="divide-y divide-rule">
                 {rentRules.map((rule) => {
                   const max = rule.maxRent(monthly);
                   const fits = rentValue <= Math.round(max);
                   return (
                     <tr key={rule.id}>
-                      <th scope="row" className="py-2.5 font-bold text-[#0f1f3a]">{rule.name}</th>
-                      <td className="py-2.5 text-right font-extrabold text-[#0f1f3a]">{formatUSD(max)}</td>
+                      <th scope="row" className="py-2.5 font-bold text-ink">{rule.name}</th>
+                      <td className="py-2.5 text-right font-bold text-ink">{formatUSD(max)}</td>
                       {hasRent ? (
-                        <td className={`py-2.5 text-right font-bold ${fits ? "text-[#15803d]" : "text-[#b84735]"}`}>
+                        <td className={`py-2.5 text-right font-bold ${fits ? "text-good" : "text-bad"}`}>
                           {fits ? "Within" : "Above"}
                         </td>
                       ) : null}
@@ -189,7 +189,7 @@ export function IncomeRentCalculator({
               </tbody>
             </table>
             {hasRent ? (
-              <p className="rounded-xl bg-[#eff6ff] p-3 text-sm leading-6 text-[#334765]">
+              <p className="rounded-xl bg-accent-soft p-3 text-sm leading-6 text-ink-2">
                 {formatUSD(rentValue)} rent is{" "}
                 <strong>{((rentValue / monthly) * 100).toFixed(1)}%</strong> of your gross monthly
                 income. A 3x example would look for about{" "}
@@ -199,11 +199,11 @@ export function IncomeRentCalculator({
             ) : null}
           </>
         ) : (
-          <p className="text-sm leading-6 text-[#53657f]">
+          <p className="text-sm leading-6 text-muted">
             Enter your pay to see estimates.
           </p>
         )}
-        <p className="text-xs leading-5 text-[#53657f]">
+        <p className="text-xs leading-5 text-muted">
           The 30% guideline is for total housing costs, such as rent plus utilities, so the
           rent that fits it is lower if you pay utilities separately. Rules of thumb only.
           Landlords set their own requirements and may also look at credit, debt, rental

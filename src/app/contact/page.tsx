@@ -21,12 +21,12 @@ export default function ContactPage() {
         </p>
       </PublicPageHero>
 
-      <section className="rounded-[1.25rem] border border-[#d8e5f7] bg-white p-6 shadow-[0_16px_38px_rgba(15,31,58,0.08)]">
-        <h2 className="text-2xl font-bold text-[#0f1f3a]">Email</h2>
-        <p className="mt-3 text-lg font-semibold text-[#2563eb]">
+      <section className="rounded-xl border border-rule bg-white p-6">
+        <h2 className="text-2xl font-bold text-ink">Email</h2>
+        <p className="mt-3 text-lg font-semibold text-accent">
           <a href={`mailto:${siteConfig.contactEmail}`}>{siteConfig.contactEmail}</a>
         </p>
-        <p className="mt-4 max-w-3xl leading-7 text-[#53657f]">
+        <p className="mt-4 max-w-3xl leading-7 text-muted">
           RentReadyCheck cannot provide individual financial, legal, tax,
           or housing advice. For questions about a specific rental application,
           please speak directly with the landlord, property manager, or a

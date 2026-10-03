@@ -2,7 +2,7 @@ import type { ReactNode } from "react";
 
 export function PublicPageShell({ children }: { children: ReactNode }) {
   return (
-    <div className="site-container space-y-10 py-10 sm:py-12">
+    <div className="site-container space-y-12 pb-14">
       {children}
     </div>
   );
@@ -18,14 +18,12 @@ export function PublicPageHero({
   children: ReactNode;
 }) {
   return (
-    <section className="rounded-[1.5rem] border border-[#d8e5f7] bg-[linear-gradient(135deg,#ffffff_0%,#eef6ff_100%)] p-6 shadow-[0_24px_60px_rgba(37,99,235,0.12)] md:p-8">
-      <p className="text-xs font-extrabold uppercase tracking-[0.12em] text-[#2563eb]">
-        {eyebrow}
-      </p>
-      <h1 className="mt-3 max-w-4xl text-4xl font-black leading-tight tracking-[-0.03em] text-[#0f1f3a] md:text-5xl">
+    <section className="page-band py-10 md:py-14">
+      <p className="text-sm font-medium text-muted">{eyebrow}</p>
+      <h1 className="mt-3 max-w-4xl text-4xl font-extrabold leading-[1.06] tracking-[-0.035em] text-ink md:text-[3.25rem]">
         {title}
       </h1>
-      <div className="mt-4 max-w-3xl text-lg leading-8 text-[#334765]">
+      <div className="mt-4 max-w-3xl text-lg leading-8 text-ink-2">
         {children}
       </div>
     </section>

@@ -100,7 +100,7 @@ export function GuarantorIncomeCalculator() {
             description="United States examples use co-signer income compared with monthly rent."
             columns="grid-cols-1"
           >
-            <p className="rounded-lg border border-[#d8e5f7] bg-[#f8fbff] px-3 py-2 text-sm leading-6 text-[#53657f]">
+            <p className="rounded-lg border border-rule bg-paper px-3 py-2 text-sm leading-6 text-muted">
               This calculator uses US dollar inputs and common co-signer income
               examples such as 2.5x to 3.5x monthly rent.
             </p>

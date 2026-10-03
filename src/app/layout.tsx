@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { Plus_Jakarta_Sans } from "next/font/google";
 import { Analytics } from "@vercel/analytics/next";
 import { CookieNotice } from "@/components/CookieNotice";
 import { Footer } from "@/components/Footer";
@@ -6,6 +7,12 @@ import { Header } from "@/components/Header";
 import { AdPlaceholder } from "@/components/AdPlaceholder";
 import { siteConfig } from "@/lib/siteConfig";
 import "./globals.css";
+
+const jakarta = Plus_Jakarta_Sans({
+  subsets: ["latin"],
+  variable: "--font-jakarta",
+  display: "swap",
+});
 
 export const metadata: Metadata = {
   metadataBase: new URL(siteConfig.domain),
@@ -45,7 +52,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className="h-full antialiased">
+    <html lang="en" className={`${jakarta.variable} h-full antialiased`}>
       <body className="flex min-h-full flex-col">
         <a href="#main-content" className="skip-link">
           Skip to main content
