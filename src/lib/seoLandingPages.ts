@@ -30,24 +30,26 @@ export type SEOLandingPage = {
   faqs: FAQItem[];
 };
 
-function formatWholeNumber(value: number): string {
-  return new Intl.NumberFormat("en", {
+function formatDollars(value: number): string {
+  return new Intl.NumberFormat("en-US", {
+    style: "currency",
+    currency: "USD",
     maximumFractionDigits: 0,
   }).format(Math.round(value));
 }
 
 function createRentAmountPage(amount: number): SEOLandingPage {
-  const formattedAmount = formatWholeNumber(amount);
-  const annualAt25x = amount * 2.5 * 12;
-  const annualAt3x = amount * 3 * 12;
-  const annualAt35x = amount * 3.5 * 12;
+  const rent = formatDollars(amount);
+  const annualAt25x = formatDollars(amount * 2.5 * 12);
+  const annualAt3x = formatDollars(amount * 3 * 12);
+  const annualAt35x = formatDollars(amount * 3.5 * 12);
 
   return {
     slug: `how-much-income-to-rent-${amount}`,
-    title: `How Much Income Do You Need to Rent ${formattedAmount}? | RentReadyCheck`,
-    description: `Estimate how much income US apartment renters may need for ${formattedAmount} monthly rent using common 2.5x, 3x, and 3.5x examples.`,
-    h1: `How much income do you need to rent ${formattedAmount}?`,
-    intro: `A ${formattedAmount} monthly rent can point to different income targets depending on the apartment, property manager, and full rental application. These examples give a rough US planning guide before you run your own numbers.`,
+    title: `How Much Income Do You Need for ${rent} Rent? | RentReadyCheck`,
+    description: `Estimate how much income US apartment renters may need for ${rent} monthly rent using common 2.5x, 3x, and 3.5x examples.`,
+    h1: `How much income do you need for ${rent} monthly rent?`,
+    intro: `A ${rent} monthly rent can point to different income targets depending on the apartment, property manager, and full rental application. These examples give a rough US planning guide before you run your own numbers.`,
     primaryLink: {
       href: `/rent-referencing-calculator?rent=${amount}`,
       label: "Check rent affordability",
@@ -55,38 +57,38 @@ function createRentAmountPage(amount: number): SEOLandingPage {
     highlights: [
       {
         label: "2.5x rent example",
-        value: `${formatWholeNumber(annualAt25x)} annual income`,
+        value: `${annualAt25x} annual income`,
       },
       {
         label: "3x rent example",
-        value: `${formatWholeNumber(annualAt3x)} annual income`,
+        value: `${annualAt3x} annual income`,
       },
       {
         label: "3.5x rent example",
-        value: `${formatWholeNumber(annualAt35x)} annual income`,
+        value: `${annualAt35x} annual income`,
       },
     ],
     comparisonRows: [
       {
         label: "2.5x monthly rent",
-        value: `${formattedAmount} x 2.5 x 12 = ${formatWholeNumber(annualAt25x)} annual income`,
+        value: `${rent} x 2.5 x 12 = ${annualAt25x} annual income`,
         note: "A possible apartment affordability example.",
       },
       {
         label: "3x monthly rent",
-        value: `${formattedAmount} x 3 x 12 = ${formatWholeNumber(annualAt3x)} annual income`,
+        value: `${rent} x 3 x 12 = ${annualAt3x} annual income`,
         note: "A common US apartment affordability example.",
       },
       {
         label: "3.5x monthly rent",
-        value: `${formattedAmount} x 3.5 x 12 = ${formatWholeNumber(annualAt35x)} annual income`,
+        value: `${rent} x 3.5 x 12 = ${annualAt35x} annual income`,
         note: "A stricter planning example.",
       },
     ],
     sections: [
       {
-        heading: `Quick answer for ${formattedAmount} monthly rent`,
-        body: `As a rough guide, ${formattedAmount} monthly rent points to ${formatWholeNumber(annualAt25x)} annual income at 2.5x rent, ${formatWholeNumber(annualAt3x)} at 3x rent, and ${formatWholeNumber(annualAt35x)} at 3.5x rent.`,
+        heading: `Quick answer for ${rent} monthly rent`,
+        body: `As a rough guide, ${rent} monthly rent points to ${annualAt25x} annual income at 2.5x rent, ${annualAt3x} at 3x rent, and ${annualAt35x} at 3.5x rent.`,
       },
       {
         heading: "Why the estimate can vary",
@@ -108,13 +110,13 @@ function createRentAmountPage(amount: number): SEOLandingPage {
     ],
     faqs: [
       {
-        question: `Is ${formattedAmount} rent affordable?`,
+        question: `Is ${rent} rent affordable?`,
         answer:
           "It depends on income, debts, savings, credit history, move-in costs, and the property manager's screening policy. These examples are planning signals only.",
       },
       {
-        question: `How much annual income is 3x ${formattedAmount} rent?`,
-        answer: `A 3x monthly rent example is ${formatWholeNumber(annualAt3x)} annual income because ${formattedAmount} multiplied by 3 and then by 12 equals ${formatWholeNumber(annualAt3x)}.`,
+        question: `How much annual income is 3x ${rent} rent?`,
+        answer: `A 3x monthly rent example is ${annualAt3x} annual income because ${rent} multiplied by 3 and then by 12 equals ${annualAt3x}.`,
       },
       {
         question: "Can roommates combine income?",
@@ -133,10 +135,10 @@ function createRentAmountPage(amount: number): SEOLandingPage {
 export const seoLandingPages: SEOLandingPage[] = [
   {
     slug: "us-rent-affordability-calculator",
-    title: "Rent Affordability Calculator for US Renters | RentReadyCheck",
+    title: "How US Rent Affordability Is Estimated: 2.5x and 3x Rent | RentReadyCheck",
     description:
-      "Estimate apartment affordability using common US gross monthly income examples such as 2.5x rent and 3x rent.",
-    h1: "Rent Affordability Calculator",
+      "How US apartment applications often compare gross monthly income with rent, with 2.5x and 3x rent examples and a link to the full calculator.",
+    h1: "How US rent affordability is estimated",
     intro:
       "US apartment applications often compare gross monthly income with monthly rent. This guide explains common 2.5x to 3x rent examples and links to the full rent affordability calculator.",
     primaryLink: {
@@ -150,13 +152,13 @@ export const seoLandingPages: SEOLandingPage[] = [
     ],
     comparisonRows: [
       {
-        label: "1,500 rent at 2.5x",
-        value: "3,750 monthly income, or 45,000 annually",
+        label: "$1,500 rent at 2.5x",
+        value: "$3,750 monthly income, or $45,000 annually",
         note: "A possible income multiple example.",
       },
       {
-        label: "1,500 rent at 3x",
-        value: "4,500 monthly income, or 54,000 annually",
+        label: "$1,500 rent at 3x",
+        value: "$4,500 monthly income, or $54,000 annually",
         note: "A common apartment screening example.",
       },
       {
@@ -169,7 +171,7 @@ export const seoLandingPages: SEOLandingPage[] = [
       {
         heading: "How apartment affordability is often estimated",
         body:
-          "Many property managers use monthly income examples, such as gross monthly income being 2.5x or 3x the monthly rent. For 1,500 monthly rent, a 3x example points to 4,500 gross monthly income.",
+          "Many property managers use monthly income examples, such as gross monthly income being 2.5x or 3x the monthly rent. For $1,500 monthly rent, a 3x example points to $4,500 gross monthly income.",
       },
       {
         heading: "When a co-signer may help",
@@ -183,7 +185,7 @@ export const seoLandingPages: SEOLandingPage[] = [
       },
     ],
     relatedLinks: [
-      { href: "/how-much-income-to-rent-1500", label: "Income for 1,500 rent" },
+      { href: "/how-much-income-to-rent-1500", label: "Income for $1,500 rent" },
       { href: "/do-i-need-a-cosigner-for-an-apartment", label: "Co-signer guide" },
       { href: "/move-in-cost-calculator", label: "Move-in cost calculator" },
     ],

@@ -7,7 +7,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
   // trailingSlash is on, so list the slash-terminated URLs to avoid redirects.
   return publicRoutes.map((route) => ({
     url: `${siteConfig.domain}${route.path === "/" ? "/" : `${route.path}/`}`,
-    lastModified: new Date("2026-09-25"),
+    lastModified: new Date(route.lastModified),
     changeFrequency: route.path === "/" ? "weekly" : "monthly",
     priority: route.priority,
   }));
