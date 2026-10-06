@@ -4,6 +4,7 @@ import { BreadcrumbJsonLd } from "@/components/BreadcrumbJsonLd";
 import { DisclaimerBox } from "@/components/DisclaimerBox";
 import { FAQJsonLd } from "@/components/FAQJsonLd";
 import { FAQSection } from "@/components/FAQSection";
+import { CalculationSources } from "@/components/CalculationSources";
 import { IncomeRentCalculator } from "@/components/calculators/IncomeRentCalculator";
 import {
   annualGrossIncome,
@@ -441,6 +442,7 @@ export function IncomeRentPageView({ page }: { page: IncomeRentPage }) {
           </aside>
         </div>
 
+        <CalculationSources housingCosts />
         <FAQSection items={faqs} />
       </div>
     </>

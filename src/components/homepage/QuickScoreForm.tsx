@@ -4,6 +4,7 @@ import Link from 'next/link';
 import { useState, useMemo } from 'react';
 import { ScoreGauge, scoreLevel } from '@/components/ScoreGauge';
 import { calculateQuickReadinessScore } from '@/lib/readinessScore';
+import { useCalculatorEngagementTracking } from '@/lib/analytics';
 
 export default function QuickScoreForm() {
   const [rent, setRent] = useState('1800');
@@ -26,6 +27,7 @@ export default function QuickScoreForm() {
   const hasBasics = values.monthlyRent > 0 && values.annualIncome > 0;
   const result = useMemo(() => calculateQuickReadinessScore(values), [values]);
   const level = scoreLevel(result.score);
+  const markInteraction = useCalculatorEngagementTracking('Quick Rent Readiness Score', hasBasics);
 
   const moneyFields = [
     { id: 'quick-rent', label: 'Monthly rent', val: rent, set: setRent },
@@ -35,7 +37,7 @@ export default function QuickScoreForm() {
   ];
 
   return (
-    <div id="readiness-score" className="quick-score">
+    <div id="readiness-score" className="quick-score" onChangeCapture={markInteraction}>
       <h2>Get your score in 30 seconds</h2>
       <p className="quick-score__intro">
         Change any number and your estimate updates straight away.
@@ -137,6 +139,7 @@ export default function QuickScoreForm() {
             </Link>
             .
           </p>
+          <p className="quick-score__fine mt-3"><Link href="/how-we-calculate/" className="text-link">How we calculate the score</Link></p>
         </div>
       </div>
     </div>

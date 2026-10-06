@@ -33,6 +33,11 @@ export default function AboutPage() {
           </p>
         </div>
         <div>
+          <h2>Who maintains RentReadyCheck</h2>
+          <p>RentReadyCheck is maintained by the developer behind the public <a href="https://github.com/aj002b/rentreadycheck">aj002b/rentreadycheck project</a>. You can inspect the calculation code and its tests, or send a correction through our <Link href="/contact/">contact page</Link>.</p>
+          <p>Our <Link href="/how-we-calculate/">calculation methodology</Link> explains the income formulas, moving-cost assumptions, and weights in the Rent Readiness Score.</p>
+        </div>
+        <div>
           <h2>What the site does not do</h2>
           <p>
             RentReadyCheck does not provide financial, legal, or housing advice.

@@ -5,6 +5,9 @@ import { DisclaimerBox } from "@/components/DisclaimerBox";
 import { FAQJsonLd } from "@/components/FAQJsonLd";
 import { FAQSection } from "@/components/FAQSection";
 import { RelatedTools } from "@/components/RelatedTools";
+import { RentReferencingCalculator } from "@/components/calculators/RentReferencingCalculator";
+import { MoveInCostCalculator } from "@/components/calculators/MoveInCostCalculator";
+import { CalculationSources } from "@/components/CalculationSources";
 import type { SEOLandingPage } from "@/lib/seoLandingPages";
 import { estimateDisclaimer } from "@/lib/site";
 
@@ -46,6 +49,22 @@ export function SEOLandingPageView({ page }: { page: SEOLandingPage }) {
             </dl>
           </div>
         </section>
+
+        {page.rentAmount !== undefined ? (
+          <section id="calculator" className="scroll-mt-24 space-y-5" aria-labelledby="calculator-heading">
+            <h2 id="calculator-heading" className="text-2xl font-bold text-ink">Check your income against this rent</h2>
+            <p className="text-ink-2">The rent is filled in as an example. Enter your annual income before tax to see your own comparison.</p>
+            <RentReferencingCalculator initialRent={String(page.rentAmount)} />
+          </section>
+        ) : null}
+        {page.moveInExample ? (
+          <section id="calculator" className="scroll-mt-24 space-y-5" aria-labelledby="calculator-heading">
+            <h2 id="calculator-heading" className="text-2xl font-bold text-ink">Edit the example to build your savings target</h2>
+            <p className="text-ink-2">These are hypothetical costs. Replace them with your listing, moving quotes, and the savings buffer you want to keep.</p>
+            <MoveInCostCalculator defaults={{ monthlyRent: "1200", securityDeposit: "1200", movingCost: "300", utilitySetup: "150", furnitureBasics: "400", emergencyBuffer: "1000" }} />
+            <a className="text-link" href="/renter-move-in-checklist.txt" download>Download the move-in planning checklist</a>
+          </section>
+        ) : null}
 
         <section className="grid gap-10 lg:grid-cols-[1fr_19rem] lg:gap-16">
           <article className="min-w-0">
@@ -146,6 +165,8 @@ export function SEOLandingPageView({ page }: { page: SEOLandingPage }) {
           </aside>
         </section>
 
+        {page.rentAmount !== undefined ? <CalculationSources housingCosts /> : null}
+        {page.moveInExample ? <p className="text-sm text-muted">The worked budget is an illustrative example created by RentReadyCheck. <Link href="/how-we-calculate/" className="text-link">See how move-in totals are calculated</Link>. Reviewed 7 October 2026.</p> : null}
         <FAQSection items={page.faqs} />
         <RelatedTools />
       </div>

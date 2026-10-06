@@ -2,6 +2,8 @@
 
 import { motion, useReducedMotion } from "framer-motion";
 import type { ReactNode } from "react";
+import { ShareTool } from "@/components/ShareTool";
+import { useCalculatorEngagementTracking } from "@/lib/analytics";
 
 const easeOut = [0.22, 1, 0.36, 1] as const;
 
@@ -9,17 +11,24 @@ export function CalculatorLayout({
   form,
   result,
   children,
+  calculatorName = "",
+  resultReady = false,
 }: {
   form: ReactNode;
   result: ReactNode;
   children?: ReactNode;
+  calculatorName?: string;
+  resultReady?: boolean;
 }) {
   const reduceMotion = useReducedMotion();
+  const markInteraction = useCalculatorEngagementTracking(calculatorName, resultReady);
 
   return (
     <div className="space-y-6">
       <div className="grid gap-8 lg:grid-cols-[minmax(0,1.08fr)_minmax(360px,0.82fr)] lg:items-start">
         <motion.div
+          onChangeCapture={markInteraction}
+          onSubmitCapture={markInteraction}
           className="space-y-5"
           initial={reduceMotion ? false : { opacity: 0, y: 10 }}
           animate={{ opacity: 1, y: 0 }}
@@ -34,6 +43,7 @@ export function CalculatorLayout({
           transition={{ duration: reduceMotion ? 0 : 0.25, ease: easeOut, delay: reduceMotion ? 0 : 0.06 }}
         >
           {result}
+          <ShareTool />
         </motion.div>
       </div>
       {children}

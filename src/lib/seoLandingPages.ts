@@ -28,6 +28,8 @@ export type SEOLandingPage = {
     label: string;
   }>;
   faqs: FAQItem[];
+  rentAmount?: number;
+  moveInExample?: boolean;
 };
 
 function formatDollars(value: number): string {
@@ -43,45 +45,47 @@ function createRentAmountPage(amount: number): SEOLandingPage {
   const annualAt25x = formatDollars(amount * 2.5 * 12);
   const annualAt3x = formatDollars(amount * 3 * 12);
   const annualAt35x = formatDollars(amount * 3.5 * 12);
+  const monthlyAt3x = formatDollars(amount * 3);
 
   return {
     slug: `how-much-income-to-rent-${amount}`,
     title: `How Much Income Do You Need for ${rent} Rent? | RentReadyCheck`,
-    description: `Estimate how much income US apartment renters may need for ${rent} monthly rent using common 2.5x, 3x, and 3.5x examples.`,
+    description: `${rent} rent requires ${monthlyAt3x} gross monthly income (${annualAt3x} a year) under a 3x check. Compare income rules and try the prefilled calculator.`,
     h1: `How much income do you need for ${rent} monthly rent?`,
-    intro: `A ${rent} monthly rent can point to different income targets depending on the apartment, property manager, and full rental application. These examples give a rough US planning guide before you run your own numbers.`,
+    intro: `For ${rent} monthly rent, a landlord using a 3x income check would look for ${monthlyAt3x} gross monthly income, or ${annualAt3x} a year before tax. At 2.5x, the annual figure is ${annualAt25x}. Compare the examples below and enter your income in the calculator; the property manager sets the actual requirements.`,
+    rentAmount: amount,
     primaryLink: {
-      href: `/rent-referencing-calculator?rent=${amount}`,
-      label: "Check rent affordability",
+      href: "#calculator",
+      label: "Check your income against this rent",
     },
     highlights: [
       {
         label: "2.5x rent example",
-        value: `${annualAt25x} annual income`,
+        value: `${formatDollars(amount * 2.5)}/month · ${annualAt25x}/year`,
       },
       {
         label: "3x rent example",
-        value: `${annualAt3x} annual income`,
+        value: `${monthlyAt3x}/month · ${annualAt3x}/year`,
       },
       {
         label: "3.5x rent example",
-        value: `${annualAt35x} annual income`,
+        value: `${formatDollars(amount * 3.5)}/month · ${annualAt35x}/year`,
       },
     ],
     comparisonRows: [
       {
         label: "2.5x monthly rent",
-        value: `${rent} x 2.5 x 12 = ${annualAt25x} annual income`,
+        value: `${formatDollars(amount * 2.5)} monthly / ${annualAt25x} yearly`,
         note: "A possible apartment affordability example.",
       },
       {
         label: "3x monthly rent",
-        value: `${rent} x 3 x 12 = ${annualAt3x} annual income`,
+        value: `${monthlyAt3x} monthly / ${annualAt3x} yearly`,
         note: "A common US apartment affordability example.",
       },
       {
         label: "3.5x monthly rent",
-        value: `${rent} x 3.5 x 12 = ${annualAt35x} annual income`,
+        value: `${formatDollars(amount * 3.5)} monthly / ${annualAt35x} yearly`,
         note: "A stricter planning example.",
       },
     ],
@@ -89,6 +93,14 @@ function createRentAmountPage(amount: number): SEOLandingPage {
       {
         heading: `Quick answer for ${rent} monthly rent`,
         body: `As a rough guide, ${rent} monthly rent points to ${annualAt25x} annual income at 2.5x rent, ${annualAt3x} at 3x rent, and ${annualAt35x} at 3.5x rent.`,
+      },
+      {
+        heading: "What if you meet the income check but your budget is tight?",
+        body: `At ${monthlyAt3x} gross monthly income, ${rent} rent uses one third of income before taxes. A 30% housing-cost comparison would leave ${formatDollars(amount * 0.9)} for rent and utilities combined. Passing a 3x check and having a comfortable monthly budget are different questions: account for taxes, utilities, debt payments, transport, and other bills.`,
+      },
+      {
+        heading: "A two-roommate example",
+        body: `If the property considers combined income, two renters each earning ${formatDollars(amount * 3 * 6)} a year would together reach the ${annualAt3x} 3x example. With an equal split, each pays ${formatDollars(amount / 2)} in monthly rent. Ask whether the landlord assesses the group or each renter separately, then agree how to split the actual bills.`,
       },
       {
         heading: "Why the estimate can vary",
@@ -822,31 +834,32 @@ export const seoLandingPages: SEOLandingPage[] = [
       "Estimate how much to save before moving out in the US, including security deposit, first month's rent, application fees, moving costs, furniture, utilities, and a safety buffer.",
     h1: "How much should I save before moving out?",
     intro:
-      "Before moving out, it helps to estimate upfront costs as well as monthly rent. A realistic US savings target usually includes the security deposit, first month's rent, application fees, moving costs, utility setup, furniture, and an emergency buffer.",
+      "Add the cash due before move-in, moving and setup costs, and the emergency savings you want to keep. In the worked example below, $1,200 rent plus a $1,200 deposit, $850 in moving and setup costs, and a $1,000 buffer totals $4,250. This is a hypothetical budget you can edit, not a universal savings target.",
+    moveInExample: true,
     primaryLink: {
-      href: "/move-in-cost-calculator",
-      label: "Estimate costs",
+      href: "#calculator",
+      label: "Build your move-in budget",
     },
     highlights: [
-      { label: "Common costs", value: "Security deposit" },
-      { label: "Also plan for", value: "First rent and application fees" },
-      { label: "Helpful buffer", value: "Emergency savings if possible" },
+      { label: "Example rent + deposit", value: "$2,400" },
+      { label: "Example moving + setup", value: "$850" },
+      { label: "Example total with $1,000 buffer", value: "$4,250" },
     ],
     comparisonRows: [
       {
-        label: "Security deposit",
-        value: "Often tied to monthly rent",
-        note: "The amount can vary by property and local rules.",
+        label: "First month's rent + deposit",
+        value: "$1,200 + $1,200 = $2,400",
+        note: "Example assumes a one-month deposit; confirm the actual amount and timing.",
       },
       {
-        label: "First month's rent",
-        value: "Often due before move-in",
-        note: "Some leases may also include prorated rent.",
+        label: "Moving + utility setup + basics",
+        value: "$300 + $150 + $400 = $850",
+        note: "Hypothetical costs; add internet, insurance, fees, and other costs if needed.",
       },
       {
-        label: "Setup buffer",
-        value: "Moving, utilities, and basics",
-        note: "Small purchases can add up quickly in the first week.",
+        label: "Total including example emergency buffer",
+        value: "$2,400 + $850 + $1,000 = $4,250",
+        note: "The buffer is illustrative. Keep required costs and savings you retain separate.",
       },
     ],
     sections: [

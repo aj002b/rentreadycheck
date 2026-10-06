@@ -37,6 +37,11 @@ export default function RentSplitPage() {
         <RentSplitCalculator />
         <section className="prose prose-slate max-w-none space-y-8">
           <div>
+            <h2>Compare three splits for $1,800 rent</h2>
+            <p>For two roommates earning $36,000 and $54,000 a year, an equal split is $900 each. An income-based split is $720 and $1,080 because their shares of combined income are 40% and 60%. Room scores of 1 and 1.5 also give a $720 / $1,080 split, for a different reason: each room&apos;s share of the total score.</p>
+            <p>Try the methods above and agree which costs are shared before moving. <Link href="/how-we-calculate/">See the rent split formulas</Link>.</p>
+          </div>
+          <div>
             <h2>Best ways to split rent fairly</h2>
             <p>
               A fair rent split depends on the household. Equal splits are quick and
@@ -73,6 +78,7 @@ export default function RentSplitPage() {
             </p>
           </div>
         </section>
+        <p className="text-sm text-muted">Worked examples created by RentReadyCheck. Reviewed 7 October 2026.</p>
         <FAQSection items={faqs} />
         <DisclaimerBox />
         <RelatedTools currentPath="/rent-split-calculator" />

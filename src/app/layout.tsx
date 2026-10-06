@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import { Plus_Jakarta_Sans } from "next/font/google";
-import { Analytics } from "@vercel/analytics/next";
+import { SiteAnalytics } from "@/components/SiteAnalytics";
 import { CookieNotice } from "@/components/CookieNotice";
 import { Footer } from "@/components/Footer";
 import { Header } from "@/components/Header";
@@ -66,7 +66,7 @@ export default function RootLayout({
         </div>
         <Footer />
         <CookieNotice />
-        <Analytics />
+        <SiteAnalytics />
       </body>
     </html>
   );

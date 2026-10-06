@@ -6,7 +6,7 @@ import { AnimatedStatCard } from "@/components/Motion";
 import { SelectField } from "@/components/SelectField";
 import { useMemo, useState } from "react";
 
-type MoveInInputs = {
+export type MoveInInputs = {
   monthlyRent: string;
   securityDeposit: string;
   firstMonthDue: "yes" | "no";
@@ -56,8 +56,8 @@ function toNumber(value: string) {
   return Number.isFinite(number) && number > 0 ? number : 0;
 }
 
-export function MoveInCostCalculator() {
-  const [inputs, setInputs] = useState<MoveInInputs>(initialInputs);
+export function MoveInCostCalculator({ defaults }: { defaults?: Partial<MoveInInputs> }) {
+  const [inputs, setInputs] = useState<MoveInInputs>(() => ({ ...initialInputs, ...defaults }));
   const [hasCalculated, setHasCalculated] = useState(false);
   const [rentError, setRentError] = useState("");
 
@@ -132,6 +132,8 @@ export function MoveInCostCalculator() {
 
   return (
     <CalculatorLayout
+      calculatorName="Move-In Cost Calculator"
+      resultReady={hasCalculated && !rentError}
       form={
         <form
           id="move-in-cost-form"

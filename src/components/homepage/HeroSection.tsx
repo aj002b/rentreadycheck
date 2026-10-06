@@ -1,4 +1,5 @@
 import QuickScoreForm from './QuickScoreForm';
+import Link from 'next/link';
 
 const assurances = [
   '100% free to use',
@@ -20,11 +21,11 @@ export default function HeroSection() {
     <section className="home-hero">
       <div className="site-container home-hero__grid">
         <div className="home-hero__copy">
-          <h1>Get your Rent Readiness Score before you apply</h1>
+          <h1>Work out what rent you can afford before you apply</h1>
 
           <p className="home-hero__sub">
-            Estimate your apartment affordability, move-in costs, co-signer support,
-            and next best step before you submit a rental application.
+            Compare rent with your income, plan your move-in costs, and find a fair
+            rent split with roommates. Start with a quick Rent Readiness Score.
           </p>
 
           <ul className="home-hero__assure">
@@ -39,6 +40,11 @@ export default function HeroSection() {
           <p className="home-hero__note">
             Built for US renters. Uses common apartment affordability examples. Results are estimates only.
           </p>
+          <nav aria-label="Popular rent calculators" className="mt-6 flex flex-wrap gap-3">
+            <Link href="/rent-referencing-calculator/" className="chip-link">Check affordability</Link>
+            <Link href="/move-in-cost-calculator/" className="chip-link">Plan move-in costs</Link>
+            <Link href="/rent-split-calculator/" className="chip-link">Split rent fairly</Link>
+          </nav>
         </div>
 
         <QuickScoreForm />
