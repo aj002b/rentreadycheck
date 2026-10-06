@@ -9,14 +9,14 @@ import { siteConfig } from "@/lib/siteConfig";
 
 export const metadata: Metadata = {
   title: {
-    absolute: "Rent Readiness Score for US Renters | RentReadyCheck",
+    absolute: "Rent Affordability & Move-In Cost Calculators | RentReadyCheck",
   },
   description:
-    "Get a free Rent Readiness Score, estimate apartment affordability, plan move-in costs, and see how to improve before applying.",
+    "Free US rent calculators: compare rent with income, estimate move-in costs, and split rent with roommates. No account required.",
   openGraph: {
-    title: "Rent Readiness Score for US Renters | RentReadyCheck",
+    title: "Rent Affordability & Move-In Cost Calculators | RentReadyCheck",
     description:
-      "Get a free Rent Readiness Score, estimate apartment affordability, plan move-in costs, and see how to improve before applying.",
+      "Compare rent with income, plan the cash needed to move, and split rent with roommates using free US calculators.",
     type: "website",
     locale: "en_US",
     url: "./",

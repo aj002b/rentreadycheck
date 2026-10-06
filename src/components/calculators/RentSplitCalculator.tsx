@@ -118,6 +118,8 @@ export function RentSplitCalculator() {
 
   return (
     <CalculatorLayout
+      calculatorName="Rent Split Calculator"
+      resultReady={hasResult}
       form={
         <section className="form-card space-y-4 p-4 sm:p-5">
           <FormSection

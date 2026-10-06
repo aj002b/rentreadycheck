@@ -61,9 +61,9 @@ export default function MoveInCostPage() {
           <div>
             <h2>How security deposits are calculated</h2>
             <p>
-              Upfront security deposits may be fixed amounts or based on monthly
-              rent. This calculator lets you choose the deposit type so the estimate
-              better matches the apartment listing.
+              Security deposits may be fixed amounts or based on monthly rent.
+              Enter the actual dollar amount from the apartment listing or property
+              manager. The calculator adds that amount to the other costs you enter.
             </p>
           </div>
           <AdPlaceholder />
@@ -85,6 +85,7 @@ export default function MoveInCostPage() {
             </p>
           </div>
         </section>
+        <p className="text-sm leading-6 text-muted"><Link href="/how-much-should-i-save-before-moving-out/" className="text-link">Try a worked $4,250 moving budget</Link>, or <a href="/renter-move-in-checklist.txt" download className="text-link">download the move-in planning checklist</a>. <Link href="/how-we-calculate/" className="text-link">See how costs are added</Link>.</p>
         <FAQSection items={faqs} />
         <DisclaimerBox />
         <section className="space-y-4">

@@ -12,6 +12,8 @@ import {
   type PayType,
 } from "@/lib/incomeRent";
 import { safeNumber } from "@/lib/calculations";
+import { ShareTool } from "@/components/ShareTool";
+import { useCalculatorEngagementTracking } from "@/lib/analytics";
 
 const payTypeOptions = [
   { label: "Yearly salary", value: "yearly" },
@@ -63,10 +65,12 @@ export function IncomeRentCalculator({
   const monthly = annual / 12;
   const hasIncome = annual > 0;
   const hasRent = hasIncome && rentValue > 0 && !rentError;
+  const markInteraction = useCalculatorEngagementTracking("Rent Affordability by Income", hasIncome && !rentError);
 
   return (
     <div className="grid grid-cols-1 gap-6 lg:grid-cols-2 lg:items-start">
       <form
+        onChangeCapture={markInteraction}
         className="form-card space-y-4 p-4 sm:p-5"
         onSubmit={(event) => event.preventDefault()}
         aria-describedby={`${resultsId}-note`}
@@ -209,6 +213,7 @@ export function IncomeRentCalculator({
           Landlords set their own requirements and may also look at credit, debt, rental
           history and local rules.
         </p>
+        <ShareTool />
       </section>
     </div>
   );

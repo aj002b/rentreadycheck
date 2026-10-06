@@ -32,8 +32,8 @@ function Stat({ label, value }: { label: string; value: string }) {
   return <AnimatedStatCard label={label} value={value} />;
 }
 
-export function RentReferencingCalculator() {
-  const [rentAmount, setRentAmount] = useState("");
+export function RentReferencingCalculator({ initialRent = "" }: { initialRent?: string }) {
+  const [rentAmount, setRentAmount] = useState(initialRent);
   const [income1, setIncome1] = useState("");
   const [income2, setIncome2] = useState("");
   const [income3, setIncome3] = useState("");
@@ -131,6 +131,8 @@ export function RentReferencingCalculator() {
 
   return (
     <CalculatorLayout
+      calculatorName="Rent Affordability Calculator"
+      resultReady={showStats}
       form={
         <section className="form-card space-y-4 p-4 sm:p-5">
           <FormSection

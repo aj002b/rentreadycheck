@@ -61,6 +61,7 @@ export default function PrivacyPolicyPage() {
             The site does not currently use advertising cookies. If that changes, this
             policy will be updated first.
           </p>
+          <p>After you change an input or calculate and see a valid estimate, we record a calculator usage event with the tool name and page. Sharing records whether the tool link was copied or shared. Shared links contain the page and general campaign labels, without your calculator inputs. Analytics URLs retain general campaign labels and remove other query parameters and fragments.</p>
         </div>
         <div>
           <h2>Privacy questions</h2>

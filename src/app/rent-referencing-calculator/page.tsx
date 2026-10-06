@@ -7,6 +7,7 @@ import { FAQSection } from "@/components/FAQSection";
 import { PublicPageHero, PublicPageShell } from "@/components/PublicPage";
 import { RelatedTools } from "@/components/RelatedTools";
 import { RentReferencingCalculator } from "@/components/calculators/RentReferencingCalculator";
+import { CalculationSources } from "@/components/CalculationSources";
 import type { FAQItem } from "@/lib/site";
 
 export const metadata: Metadata = {
@@ -92,6 +93,7 @@ export default function RentReferencingPage() {
           </div>
         </section>
 
+        <CalculationSources />
         <FAQSection items={faqs} />
         <DisclaimerBox />
         <RelatedTools currentPath="/rent-referencing-calculator" />

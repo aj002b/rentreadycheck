@@ -1,7 +1,7 @@
 "use client";
 
 import { track } from "@vercel/analytics";
-import { useEffect, useRef } from "react";
+import { useCallback, useEffect, useRef, useState } from "react";
 import type { CountryCode } from "@/lib/countries";
 
 type AnalyticsProperties = {
@@ -9,6 +9,7 @@ type AnalyticsProperties = {
   selected_country?: CountryCode | string;
   page_path?: string;
   result_signal?: string;
+  share_method?: "native" | "copy";
 };
 
 export function getPagePath() {
@@ -17,6 +18,25 @@ export function getPagePath() {
   }
 
   return window.location.pathname;
+}
+
+// One use event per mounted calculator, only after an input change or submission
+// and a valid estimate is visible. Prefilled examples do not count as usage.
+export function useCalculatorEngagementTracking(calculatorName: string, resultReady: boolean) {
+  const [interacted, setInteracted] = useState(false);
+  const tracked = useRef(false);
+  const markInteraction = useCallback(() => setInteracted(true), []);
+
+  useEffect(() => {
+    if (!calculatorName || !interacted || !resultReady || tracked.current) return;
+    const timer = window.setTimeout(() => {
+      trackRentReadyEvent("calculator_used", { calculator_name: calculatorName });
+      tracked.current = true;
+    }, 600);
+    return () => window.clearTimeout(timer);
+  }, [calculatorName, interacted, resultReady]);
+
+  return markInteraction;
 }
 
 export function trackRentReadyEvent(
