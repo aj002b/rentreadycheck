@@ -6,6 +6,7 @@ import { FAQJsonLd } from "@/components/FAQJsonLd";
 import { FAQSection } from "@/components/FAQSection";
 import { PublicPageHero, PublicPageShell } from "@/components/PublicPage";
 import { MoveInCostCalculator } from "@/components/calculators/MoveInCostCalculator";
+import { WebApplicationJsonLd } from "@/components/WebApplicationJsonLd";
 import type { FAQItem } from "@/lib/site";
 
 export const metadata: Metadata = {
@@ -34,6 +35,11 @@ export default function MoveInCostPage() {
   return (
     <>
       <FAQJsonLd items={faqs} />
+      <WebApplicationJsonLd
+        name="Move-In Cost Calculator"
+        description="Add up security deposit, first month's rent, fees, moving and setup costs before renting an apartment."
+        path="/move-in-cost-calculator/"
+      />
       <PublicPageShell>
         <PublicPageHero
           eyebrow="Move-In Cost Calculator"

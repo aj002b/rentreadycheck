@@ -7,6 +7,7 @@ import { FAQSection } from "@/components/FAQSection";
 import { PublicPageHero, PublicPageShell } from "@/components/PublicPage";
 import { RelatedTools } from "@/components/RelatedTools";
 import { GuarantorIncomeCalculator } from "@/components/calculators/GuarantorIncomeCalculator";
+import { WebApplicationJsonLd } from "@/components/WebApplicationJsonLd";
 import type { FAQItem } from "@/lib/site";
 
 export const metadata: Metadata = {
@@ -27,6 +28,11 @@ export default function GuarantorPage() {
   return (
     <>
       <FAQJsonLd items={faqs} />
+      <WebApplicationJsonLd
+        name="Co-signer Income Calculator"
+        description="Estimate the income a co-signer may need for a US apartment rental application."
+        path="/guarantor-income-calculator/"
+      />
       <PublicPageShell>
         <PublicPageHero title="Co-signer Income Calculator">
           <p>

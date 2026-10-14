@@ -3,6 +3,7 @@ import Link from "next/link";
 import { DisclaimerBox } from "@/components/DisclaimerBox";
 import { PublicPageHero, PublicPageShell } from "@/components/PublicPage";
 import { incomeRentPages } from "@/lib/incomeRentPages";
+import { rentAmounts } from "@/lib/seoLandingPages";
 import { estimateDisclaimer } from "@/lib/site";
 
 export const metadata: Metadata = {
@@ -71,7 +72,7 @@ const rentByIncomeLinks = incomeRentPages.map((page) => ({
   label: page.label,
 }));
 
-const incomeByRentLinks = [800, 1000, 1200, 1500, 2000].map((amount) => ({
+const incomeByRentLinks = rentAmounts.map((amount) => ({
   href: `/how-much-income-to-rent-${amount}`,
   label: `$${amount.toLocaleString("en-US")} rent`,
 }));

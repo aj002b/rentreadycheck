@@ -1,3 +1,4 @@
+import { getIncomeRentPage, nearestIncomeRentSlug } from "@/lib/incomeRentPages";
 import type { FAQItem } from "@/lib/site";
 
 export type SEOLandingPage = {
@@ -40,7 +41,19 @@ function formatDollars(value: number): string {
   }).format(Math.round(value));
 }
 
+// "How much income do you need for $X rent?" pages. Add new amounts here and
+// to publicRoutes.
+export const rentAmounts = [
+  800, 900, 1000, 1100, 1200, 1300, 1400, 1500, 1600, 1800, 2000, 2200, 2500, 3000,
+];
+
 function createRentAmountPage(amount: number): SEOLandingPage {
+  const index = rentAmounts.indexOf(amount);
+  const nearbyRents = [rentAmounts[index - 1], rentAmounts[index + 1]].filter(Boolean);
+  // Income pages closest to what a 3x check asks for at this rent.
+  const incomePages = (["yearly", "hourly"] as const)
+    .map((payType) => getIncomeRentPage(nearestIncomeRentSlug(payType, amount * 36)))
+    .filter((page) => page !== undefined);
   const rent = formatDollars(amount);
   const annualAt25x = formatDollars(amount * 2.5 * 12);
   const annualAt3x = formatDollars(amount * 3 * 12);
@@ -117,8 +130,11 @@ function createRentAmountPage(amount: number): SEOLandingPage {
       { href: "/rent-to-income-ratio-explained", label: "3x rent rule" },
       { href: "/do-i-need-a-cosigner-for-an-apartment", label: "Do I need a co-signer?" },
       { href: "/move-in-cost-calculator", label: "Move-in cost calculator" },
-      { href: "/how-much-rent-can-i-afford-on-50000-a-year", label: "Rent on $50,000 a year" },
-      { href: "/how-much-rent-can-i-afford-making-20-an-hour", label: "Rent on $20 an hour" },
+      ...incomePages.map((page) => ({ href: `/${page.slug}`, label: `Rent on ${page.label}` })),
+      ...nearbyRents.map((rentAmount) => ({
+        href: `/how-much-income-to-rent-${rentAmount}`,
+        label: `Income for ${formatDollars(rentAmount)} rent`,
+      })),
     ],
     faqs: [
       {
@@ -143,6 +159,8 @@ function createRentAmountPage(amount: number): SEOLandingPage {
     ],
   };
 }
+
+export const rentAmountPages: SEOLandingPage[] = rentAmounts.map(createRentAmountPage);
 
 export const seoLandingPages: SEOLandingPage[] = [
   {
@@ -219,11 +237,7 @@ export const seoLandingPages: SEOLandingPage[] = [
       },
     ],
   },
-  createRentAmountPage(800),
-  createRentAmountPage(1000),
-  createRentAmountPage(1200),
-  createRentAmountPage(1500),
-  createRentAmountPage(2000),
+  ...rentAmountPages,
   {
     slug: "rent-to-income-ratio-explained",
     title: "What Is the 3x Rent Rule? | RentReadyCheck",

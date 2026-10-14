@@ -8,12 +8,13 @@ import { PublicPageHero, PublicPageShell } from "@/components/PublicPage";
 import { RelatedTools } from "@/components/RelatedTools";
 import { RentReferencingCalculator } from "@/components/calculators/RentReferencingCalculator";
 import { CalculationSources } from "@/components/CalculationSources";
+import { WebApplicationJsonLd } from "@/components/WebApplicationJsonLd";
 import type { FAQItem } from "@/lib/site";
 
 export const metadata: Metadata = {
-  title: "Rent Affordability Calculator",
+  title: "Rent Affordability Calculator: 3x Rent Rule",
   description:
-    "Estimate US apartment affordability using common gross monthly income examples such as 2.5x rent and 3x rent.",
+    "Free 3x rent calculator. Compare monthly rent with gross income using the 2.5x and 3x rent checks many US landlords use.",
 };
 
 const faqs: FAQItem[] = [
@@ -30,6 +31,11 @@ export default function RentReferencingPage() {
   return (
     <>
       <FAQJsonLd items={faqs} />
+      <WebApplicationJsonLd
+        name="Rent Affordability Calculator"
+        description="Compare monthly rent with gross income using the 2.5x and 3x rent checks many US landlords use."
+        path="/rent-referencing-calculator/"
+      />
       <PublicPageShell>
         <PublicPageHero title="Rent Affordability Calculator">
           <p>

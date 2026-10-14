@@ -7,12 +7,13 @@ import { FAQSection } from "@/components/FAQSection";
 import { PublicPageHero, PublicPageShell } from "@/components/PublicPage";
 import { RelatedTools } from "@/components/RelatedTools";
 import { RentSplitCalculator } from "@/components/calculators/RentSplitCalculator";
+import { WebApplicationJsonLd } from "@/components/WebApplicationJsonLd";
 import type { FAQItem } from "@/lib/site";
 
 export const metadata: Metadata = {
   title: "Rent Split Calculator for Roommates",
   description:
-    "Split monthly apartment rent equally, by roommate income, or by room size score for 2, 3, or 4 roommates.",
+    "Free rent splitter for roommates. Split monthly apartment rent equally, by income, or by room size for 2, 3, or 4 people.",
 };
 
 const faqs: FAQItem[] = [
@@ -27,6 +28,11 @@ export default function RentSplitPage() {
   return (
     <>
       <FAQJsonLd items={faqs} />
+      <WebApplicationJsonLd
+        name="Rent Split Calculator"
+        description="Split monthly rent equally, by roommate income, or by room size for two to four roommates."
+        path="/rent-split-calculator/"
+      />
       <PublicPageShell>
         <PublicPageHero title="Rent Split Calculator for Roommates">
           <p>

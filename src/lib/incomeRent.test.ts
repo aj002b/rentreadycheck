@@ -1,6 +1,7 @@
 import { describe, expect, it } from "vitest";
 import { annualGrossIncome, formatHourly, formatUSD, getRule, rentRules } from "@/lib/incomeRent";
 import { incomeRentPages } from "@/lib/incomeRentPages";
+import { rentAmountPages } from "@/lib/seoLandingPages";
 import { publicRoutes } from "@/lib/siteConfig";
 
 describe("annualGrossIncome", () => {
@@ -95,6 +96,31 @@ describe("income rent pages", () => {
         const figure = formatUSD(rule.maxRent(monthlyGross));
         expect(page.intro).toContain(figure);
         expect(page.description).toContain(figure);
+      }
+    }
+  });
+});
+
+describe("rent amount pages", () => {
+  it("have unique slugs, titles and descriptions", () => {
+    for (const key of ["slug", "title", "description"] as const) {
+      const values = rentAmountPages.map((page) => page[key]);
+      expect(new Set(values).size).toBe(values.length);
+    }
+  });
+
+  it("are all listed in the sitemap routes", () => {
+    const paths = publicRoutes.map((route) => route.path as string);
+    for (const page of rentAmountPages) {
+      expect(paths).toContain(`/${page.slug}`);
+    }
+  });
+
+  it("only link to related pages that exist", () => {
+    const paths = publicRoutes.map((route) => route.path as string);
+    for (const page of rentAmountPages) {
+      for (const link of page.relatedLinks ?? []) {
+        expect(paths).toContain(link.href);
       }
     }
   });

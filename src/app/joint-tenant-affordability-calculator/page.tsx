@@ -7,6 +7,7 @@ import { FAQSection } from "@/components/FAQSection";
 import { PublicPageHero, PublicPageShell } from "@/components/PublicPage";
 import { RelatedTools } from "@/components/RelatedTools";
 import { JointTenantCalculator } from "@/components/calculators/JointTenantCalculator";
+import { WebApplicationJsonLd } from "@/components/WebApplicationJsonLd";
 import type { FAQItem } from "@/lib/site";
 
 export const metadata: Metadata = {
@@ -27,6 +28,11 @@ export default function JointTenantPage() {
   return (
     <>
       <FAQJsonLd items={faqs} />
+      <WebApplicationJsonLd
+        name="Roommate Affordability Calculator"
+        description="Combine roommate incomes and compare them with monthly rent for a shared apartment."
+        path="/joint-tenant-affordability-calculator/"
+      />
       <PublicPageShell>
         <PublicPageHero title="Roommate Affordability Calculator">
           <p>
