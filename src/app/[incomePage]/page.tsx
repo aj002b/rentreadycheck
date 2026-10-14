@@ -1,20 +1,27 @@
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import { IncomeRentPageView } from "@/components/IncomeRentPage";
+import { SEOLandingPageView } from "@/components/SEOLandingPage";
 import { getIncomeRentPage, incomeRentPages } from "@/lib/incomeRentPages";
+import { rentAmountPages } from "@/lib/seoLandingPages";
 
-// Generates one static page per entry in incomeRentPages. Named routes
+// Generates one static page per entry in incomeRentPages ("rent on this
+// income") and rentAmountPages ("income for this rent"). Named routes
 // elsewhere in src/app take precedence over this catch-all segment.
 export const dynamicParams = false;
 
 type Props = { params: Promise<{ incomePage: string }> };
 
+function findPage(slug: string) {
+  return getIncomeRentPage(slug) ?? rentAmountPages.find((page) => page.slug === slug);
+}
+
 export function generateStaticParams() {
-  return incomeRentPages.map((page) => ({ incomePage: page.slug }));
+  return [...incomeRentPages, ...rentAmountPages].map((page) => ({ incomePage: page.slug }));
 }
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
-  const page = getIncomeRentPage((await params).incomePage);
+  const page = findPage((await params).incomePage);
 
   if (!page) {
     return {};
@@ -27,11 +34,11 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 }
 
 export default async function IncomeRentRoute({ params }: Props) {
-  const page = getIncomeRentPage((await params).incomePage);
+  const page = findPage((await params).incomePage);
 
   if (!page) {
     notFound();
   }
 
-  return <IncomeRentPageView page={page} />;
+  return "payType" in page ? <IncomeRentPageView page={page} /> : <SEOLandingPageView page={page} />;
 }
