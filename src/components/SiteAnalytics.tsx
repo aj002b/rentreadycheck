@@ -3,6 +3,7 @@
 import { Analytics } from "@vercel/analytics/next";
 import type { BeforeSendEvent } from "@vercel/analytics";
 import { analyticsUrl } from "@/lib/trafficUrls";
+import { GoogleAnalytics } from "@/components/GoogleAnalytics";
 
 function beforeSend(event: BeforeSendEvent) {
   const url = analyticsUrl(event.url);
@@ -10,5 +11,5 @@ function beforeSend(event: BeforeSendEvent) {
 }
 
 export function SiteAnalytics() {
-  return <Analytics beforeSend={beforeSend} />;
+  return <><Analytics beforeSend={beforeSend} /><GoogleAnalytics /></>;
 }

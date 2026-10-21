@@ -3,6 +3,7 @@
 import { track } from "@vercel/analytics";
 import { useCallback, useEffect, useRef, useState } from "react";
 import type { CountryCode } from "@/lib/countries";
+import { trackGoogleAnalyticsEvent } from "@/lib/googleAnalytics";
 
 type AnalyticsProperties = {
   calculator_name?: string;
@@ -43,6 +44,7 @@ export function trackRentReadyEvent(
   eventName: string,
   properties: AnalyticsProperties = {},
 ) {
+  trackGoogleAnalyticsEvent(eventName, properties);
   track(eventName, {
     ...properties,
     page_path: properties.page_path ?? getPagePath(),
