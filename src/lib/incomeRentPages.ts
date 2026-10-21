@@ -50,9 +50,9 @@ const handWrittenPages: IncomeRentPageBase[] = [
     payType: "hourly",
     amount: 20,
     label: "$20 an hour",
-    title: "How Much Rent Can I Afford Making $20 an Hour? | RentReadyCheck",
+    title: "Rent on $20 an Hour: Affordability Calculator | RentReadyCheck",
     description:
-      "At $20 an hour full time (40 hours, 52 weeks), landlord 3x and 2.5x checks point to about $1,156–$1,387 a month in rent, and the 30% guideline to $1,040 for rent plus utilities. Includes part-time examples.",
+      "At $20/hour full time, compare $1,156 rent at 3x, $1,387 at 2.5x and $1,040 for housing at 30%. Uses 40h/week, 52 weeks, before tax. Try the calculator.",
     intro:
       "At $20 an hour, 40 hours a week for 52 weeks, you earn about $41,600 a year, or $3,467 a month before tax. Landlord income checks of 3x and 2.5x rent point to about $1,156 to $1,387 a month, while the 30% budgeting guideline points to about $1,040 a month for total housing costs, including utilities. Your hours matter a lot, so this page also shows part-time examples and lets you change the hours and weeks.",
     exampleRent: 1200,

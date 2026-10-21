@@ -1,0 +1,121 @@
+[
+  {
+    "url": "https://rentreadycheck.com/disclaimer",
+    "status": 200,
+    "redirects": 1,
+    "final": "https://rentreadycheck.com/disclaimer/",
+    "error": null
+  },
+  {
+    "url": "https://rentreadycheck.com/contact",
+    "status": 200,
+    "redirects": 1,
+    "final": "https://rentreadycheck.com/contact/",
+    "error": null
+  },
+  {
+    "url": "https://rentreadycheck.com/about",
+    "status": 200,
+    "redirects": 1,
+    "final": "https://rentreadycheck.com/about/",
+    "error": null
+  },
+  {
+    "url": "https://rentreadycheck.com/rental-application-fees-explained",
+    "status": 200,
+    "redirects": 1,
+    "final": "https://rentreadycheck.com/rental-application-fees-explained/",
+    "error": null
+  },
+  {
+    "url": "https://rentreadycheck.com/security-deposit-basics",
+    "status": 200,
+    "redirects": 1,
+    "final": "https://rentreadycheck.com/security-deposit-basics/",
+    "error": null
+  },
+  {
+    "url": "https://rentreadycheck.com/can-i-rent-with-bad-credit",
+    "status": 200,
+    "redirects": 1,
+    "final": "https://rentreadycheck.com/can-i-rent-with-bad-credit/",
+    "error": null
+  },
+  {
+    "url": "https://rentreadycheck.com/rent-referencing-calculator",
+    "status": 200,
+    "redirects": 1,
+    "final": "https://rentreadycheck.com/rent-referencing-calculator/",
+    "error": null
+  },
+  {
+    "url": "https://rentreadycheck.com/guarantor-income-calculator",
+    "status": 200,
+    "redirects": 1,
+    "final": "https://rentreadycheck.com/guarantor-income-calculator/",
+    "error": null
+  },
+  {
+    "url": "https://rentreadycheck.com/rent-to-income-ratio-explained",
+    "status": 200,
+    "redirects": 1,
+    "final": "https://rentreadycheck.com/rent-to-income-ratio-explained/",
+    "error": null
+  },
+  {
+    "url": "https://rentreadycheck.com/do-i-need-a-cosigner-for-an-apartment",
+    "status": 200,
+    "redirects": 1,
+    "final": "https://rentreadycheck.com/do-i-need-a-cosigner-for-an-apartment/",
+    "error": null
+  },
+  {
+    "url": "https://rentreadycheck.com/how-much-should-i-save-before-moving-out",
+    "status": 200,
+    "redirects": 1,
+    "final": "https://rentreadycheck.com/how-much-should-i-save-before-moving-out/",
+    "error": null
+  },
+  {
+    "url": "https://rentreadycheck.com/joint-tenant-affordability-calculator",
+    "status": 200,
+    "redirects": 1,
+    "final": "https://rentreadycheck.com/joint-tenant-affordability-calculator/",
+    "error": null
+  },
+  {
+    "url": "https://rentreadycheck.com/move-in-cost-calculator",
+    "status": 200,
+    "redirects": 1,
+    "final": "https://rentreadycheck.com/move-in-cost-calculator/",
+    "error": null
+  },
+  {
+    "url": "https://rentreadycheck.com/rent-split-calculator",
+    "status": 200,
+    "redirects": 1,
+    "final": "https://rentreadycheck.com/rent-split-calculator/",
+    "error": null
+  },
+  {
+    "url": "https://rentreadycheck.com/how-much-income-to-rent-1200",
+    "status": 200,
+    "redirects": 1,
+    "final": "https://rentreadycheck.com/how-much-income-to-rent-1200/",
+    "error": null
+  },
+  {
+    "url": "https://rentreadycheck.com/us-rent-affordability-calculator",
+    "status": 200,
+    "redirects": 1,
+    "final": "https://rentreadycheck.com/us-rent-affordability-calculator/",
+    "error": null
+  },
+  {
+    "url": "https://rentreadycheck.com/uk-rent-affordability-calculator",
+    "status": 404,
+    "redirects": 1,
+    "final": "https://rentreadycheck.com/uk-rent-affordability-calculator/",
+    "error": null
+  }
+]

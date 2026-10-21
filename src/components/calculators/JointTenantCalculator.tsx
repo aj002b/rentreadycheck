@@ -96,6 +96,8 @@ export function JointTenantCalculator() {
 
   return (
     <CalculatorLayout
+      calculatorName="Roommate Affordability Calculator"
+      resultReady={hasResult}
       form={
         <section className="form-card space-y-4 p-4 sm:p-5">
           <FormSection

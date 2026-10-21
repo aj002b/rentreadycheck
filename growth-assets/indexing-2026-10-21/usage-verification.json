@@ -1,0 +1,26 @@
+{
+  "environment": "Local development, Vercel debug mode; no analytics requests sent to the server",
+  "readinessInvalidSubmissionUsageEvents": 0,
+  "readinessValidAndRepeatSubmissionsUsageEvents": 1,
+  "threeToolsUsageEvents": 3,
+  "logs": [
+    {
+      "level": "log",
+      "message": "%c[Vercel Web Analytics]%c [event] calculator_used color: rgb(120, 120, 120) color: inherit Object /_vercel/insights/event",
+      "timestamp": "2026-10-21T19:31:04.651Z",
+      "url": "webpack-internal:///(app-pages-browser)/./node_modules/next/dist/next-devtools/shared/forward-logs-shared.js"
+    },
+    {
+      "level": "log",
+      "message": "%c[Vercel Web Analytics]%c [event] calculator_used color: rgb(120, 120, 120) color: inherit Object /_vercel/insights/event",
+      "timestamp": "2026-10-21T19:31:20.503Z",
+      "url": "webpack-internal:///(app-pages-browser)/./node_modules/next/dist/next-devtools/shared/forward-logs-shared.js"
+    },
+    {
+      "level": "log",
+      "message": "%c[Vercel Web Analytics]%c [event] calculator_used color: rgb(120, 120, 120) color: inherit Object /_vercel/insights/event",
+      "timestamp": "2026-10-21T19:31:32.132Z",
+      "url": "webpack-internal:///(app-pages-browser)/./node_modules/next/dist/next-devtools/shared/forward-logs-shared.js"
+    }
+  ]
+}

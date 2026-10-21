@@ -63,7 +63,7 @@ function createRentAmountPage(amount: number): SEOLandingPage {
   return {
     slug: `how-much-income-to-rent-${amount}`,
     title: `How Much Income Do You Need for ${rent} Rent? | RentReadyCheck`,
-    description: `${rent} rent requires ${monthlyAt3x} gross monthly income (${annualAt3x} a year) under a 3x check. Compare income rules and try the prefilled calculator.`,
+    description: `For ${rent} rent, a 3x check asks for ${monthlyAt3x}/month (${annualAt3x}/year) before tax. Use the free calculator to compare 2.5x and 3x income checks.`,
     h1: `How much income do you need for ${rent} monthly rent?`,
     intro: `For ${rent} monthly rent, a landlord using a 3x income check would look for ${monthlyAt3x} gross monthly income, or ${annualAt3x} a year before tax. At 2.5x, the annual figure is ${annualAt25x}. Compare the examples below and enter your income in the calculator; the property manager sets the actual requirements.`,
     rentAmount: amount,

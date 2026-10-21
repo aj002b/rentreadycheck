@@ -192,6 +192,11 @@ export function IncomeRentPageView({ page }: { page: IncomeRentPage }) {
             {h1}
           </h1>
           <p className="mt-4 max-w-3xl text-lg leading-8 text-ink-2">{page.intro}</p>
+          {page.payType === "hourly" && page.amount === 20 ? (
+            <a href="#calculator" className="btn-primary mt-6">
+              Check your hours and rent
+            </a>
+          ) : null}
 
           <div className="mt-6 grid gap-3 sm:grid-cols-3">
             {[
@@ -218,7 +223,7 @@ export function IncomeRentPageView({ page }: { page: IncomeRentPage }) {
           </p>
         </section>
 
-        <section aria-labelledby="calculator-heading" className="space-y-4">
+        <section id="calculator" aria-labelledby="calculator-heading" className="scroll-mt-24 space-y-4">
           <div>
             <h2 id="calculator-heading" className="text-2xl font-bold text-ink">
               Try your own numbers
