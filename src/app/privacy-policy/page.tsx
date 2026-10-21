@@ -52,10 +52,25 @@ export default function PrivacyPolicyPage() {
             browser, and device type. Vercel Web Analytics does not use cookies.
           </p>
           <p>
-            When a calculator shows a result, the site also records an anonymous event
+            When a calculator shows a result, Vercel also records a usage event
             with the calculator name, the page, and the result category (for example
             &ldquo;Strong signal&rdquo;). The amounts you type in, such as rent,
             income, savings, or debt, are never sent.
+          </p>
+          <p>
+            If you choose &ldquo;Allow Google Analytics&rdquo;, we also use Google Analytics
+            to measure page visits, calculator use, tool-card clicks and sharing.
+            Google Analytics uses cookies to recognise browser visits and receives
+            general device, referring-site and page information. We do not load its
+            tag or send it events before you allow it. Calculator amounts and result
+            categories are not sent to Google Analytics.
+          </p>
+          <p>
+            Choose &ldquo;No thanks&rdquo; to keep Google Analytics off. Use
+            &ldquo;Privacy settings&rdquo; in the footer to change your choice at any
+            time. Withdrawing permission stops Google Analytics collection and clears
+            this site&apos;s Google Analytics cookies. It does not remove data already
+            collected. Your preference is saved in this browser&apos;s local storage.
           </p>
           <p>
             The site does not currently use advertising cookies. If that changes, this

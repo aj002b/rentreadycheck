@@ -1,5 +1,6 @@
 import Link from "next/link";
 import { siteConfig } from "@/lib/siteConfig";
+import { AnalyticsSettingsButton } from "@/components/CookieNotice";
 
 const links = [
   { label: "Guides", href: "/guides" },
@@ -31,6 +32,7 @@ export function Footer() {
                 {link.label}
               </Link>
             ))}
+            <AnalyticsSettingsButton />
           </nav>
         </div>
 
