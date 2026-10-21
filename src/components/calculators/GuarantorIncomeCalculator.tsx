@@ -92,6 +92,8 @@ export function GuarantorIncomeCalculator() {
 
   return (
     <CalculatorLayout
+      calculatorName="Co-signer Income Calculator"
+      resultReady={hasResult}
       form={
         <section className="form-card space-y-4 p-4 sm:p-5">
           <FormSection

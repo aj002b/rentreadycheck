@@ -1,0 +1,2162 @@
+[
+  {
+    "url": "https://rentreadycheck.com/",
+    "status": 200,
+    "redirects": 0,
+    "final": "https://rentreadycheck.com/",
+    "error": null,
+    "canonicals": [
+      "https://rentreadycheck.com/"
+    ],
+    "robots": [
+      "index, follow"
+    ],
+    "h1": 1,
+    "title": "Rent Affordability & Move-In Cost Calculators | RentReadyCheck",
+    "links": [
+      "/",
+      "/rent-readiness-score/",
+      "/guides/",
+      "/about/",
+      "/rent-readiness-score/#score-form",
+      "/rent-referencing-calculator/",
+      "/move-in-cost-calculator/",
+      "/rent-split-calculator/",
+      "/rent-readiness-score/#score-form",
+      "/rent-readiness-score/#score-form",
+      "/how-we-calculate/",
+      "/rent-readiness-score/",
+      "/rent-referencing-calculator/",
+      "/guarantor-income-calculator/",
+      "/joint-tenant-affordability-calculator/",
+      "/move-in-cost-calculator/",
+      "/rent-split-calculator/",
+      "/rent-to-income-ratio-explained/",
+      "/do-i-need-a-cosigner-for-an-apartment/",
+      "/how-much-should-i-save-before-moving-out/",
+      "/can-i-rent-with-bad-credit/",
+      "/rental-application-fees-explained/",
+      "/security-deposit-basics/",
+      "/guides/",
+      "/about/",
+      "/how-we-calculate/",
+      "/disclaimer/",
+      "/privacy-policy/",
+      "/contact/"
+    ]
+  },
+  {
+    "url": "https://rentreadycheck.com/rent-readiness-score/",
+    "status": 200,
+    "redirects": 0,
+    "final": "https://rentreadycheck.com/rent-readiness-score/",
+    "error": null,
+    "canonicals": [
+      "https://rentreadycheck.com/rent-readiness-score/"
+    ],
+    "robots": [
+      "index, follow"
+    ],
+    "h1": 1,
+    "title": "Rental Score Calculator: Rent Readiness Score | RentReadyCheck",
+    "links": [
+      "/",
+      "/rent-readiness-score/",
+      "/guides/",
+      "/about/",
+      "/rent-readiness-score/#score-form",
+      "/rent-referencing-calculator/",
+      "/guarantor-income-calculator/",
+      "/joint-tenant-affordability-calculator/",
+      "/move-in-cost-calculator/",
+      "/rent-split-calculator/",
+      "/guides/",
+      "/about/",
+      "/how-we-calculate/",
+      "/disclaimer/",
+      "/privacy-policy/",
+      "/contact/"
+    ]
+  },
+  {
+    "url": "https://rentreadycheck.com/rent-referencing-calculator/",
+    "status": 200,
+    "redirects": 0,
+    "final": "https://rentreadycheck.com/rent-referencing-calculator/",
+    "error": null,
+    "canonicals": [
+      "https://rentreadycheck.com/rent-referencing-calculator/"
+    ],
+    "robots": [
+      "index, follow"
+    ],
+    "h1": 1,
+    "title": "Rent Affordability Calculator: 3x Rent Rule | RentReadyCheck",
+    "links": [
+      "/",
+      "/rent-readiness-score/",
+      "/guides/",
+      "/about/",
+      "/rent-readiness-score/#score-form",
+      "/joint-tenant-affordability-calculator/",
+      "/guarantor-income-calculator/",
+      "/move-in-cost-calculator/",
+      "/how-we-calculate/",
+      "/guarantor-income-calculator/",
+      "/joint-tenant-affordability-calculator/",
+      "/move-in-cost-calculator/",
+      "/guides/",
+      "/about/",
+      "/how-we-calculate/",
+      "/disclaimer/",
+      "/privacy-policy/",
+      "/contact/"
+    ]
+  },
+  {
+    "url": "https://rentreadycheck.com/us-rent-affordability-calculator/",
+    "status": 200,
+    "redirects": 0,
+    "final": "https://rentreadycheck.com/us-rent-affordability-calculator/",
+    "error": null,
+    "canonicals": [
+      "https://rentreadycheck.com/us-rent-affordability-calculator/"
+    ],
+    "robots": [
+      "index, follow"
+    ],
+    "h1": 1,
+    "title": "How US Rent Affordability Is Estimated: 2.5x and 3x Rent | RentReadyCheck",
+    "links": [
+      "/",
+      "/rent-readiness-score/",
+      "/guides/",
+      "/about/",
+      "/rent-readiness-score/#score-form",
+      "/rent-referencing-calculator/",
+      "/rent-referencing-calculator/",
+      "/how-much-income-to-rent-1500/",
+      "/do-i-need-a-cosigner-for-an-apartment/",
+      "/move-in-cost-calculator/",
+      "/rent-referencing-calculator/",
+      "/guarantor-income-calculator/",
+      "/joint-tenant-affordability-calculator/",
+      "/guides/",
+      "/about/",
+      "/how-we-calculate/",
+      "/disclaimer/",
+      "/privacy-policy/",
+      "/contact/"
+    ]
+  },
+  {
+    "url": "https://rentreadycheck.com/guarantor-income-calculator/",
+    "status": 200,
+    "redirects": 0,
+    "final": "https://rentreadycheck.com/guarantor-income-calculator/",
+    "error": null,
+    "canonicals": [
+      "https://rentreadycheck.com/guarantor-income-calculator/"
+    ],
+    "robots": [
+      "index, follow"
+    ],
+    "h1": 1,
+    "title": "Co-signer Income Calculator | RentReadyCheck",
+    "links": [
+      "/",
+      "/rent-readiness-score/",
+      "/guides/",
+      "/about/",
+      "/rent-readiness-score/#score-form",
+      "/rent-referencing-calculator/",
+      "/joint-tenant-affordability-calculator/",
+      "/rent-referencing-calculator/",
+      "/joint-tenant-affordability-calculator/",
+      "/move-in-cost-calculator/",
+      "/guides/",
+      "/about/",
+      "/how-we-calculate/",
+      "/disclaimer/",
+      "/privacy-policy/",
+      "/contact/"
+    ]
+  },
+  {
+    "url": "https://rentreadycheck.com/joint-tenant-affordability-calculator/",
+    "status": 200,
+    "redirects": 0,
+    "final": "https://rentreadycheck.com/joint-tenant-affordability-calculator/",
+    "error": null,
+    "canonicals": [
+      "https://rentreadycheck.com/joint-tenant-affordability-calculator/"
+    ],
+    "robots": [
+      "index, follow"
+    ],
+    "h1": 1,
+    "title": "Roommate Affordability Calculator | RentReadyCheck",
+    "links": [
+      "/",
+      "/rent-readiness-score/",
+      "/guides/",
+      "/about/",
+      "/rent-readiness-score/#score-form",
+      "/rent-split-calculator/",
+      "/guarantor-income-calculator/",
+      "/rent-referencing-calculator/",
+      "/guarantor-income-calculator/",
+      "/move-in-cost-calculator/",
+      "/guides/",
+      "/about/",
+      "/how-we-calculate/",
+      "/disclaimer/",
+      "/privacy-policy/",
+      "/contact/"
+    ]
+  },
+  {
+    "url": "https://rentreadycheck.com/move-in-cost-calculator/",
+    "status": 200,
+    "redirects": 0,
+    "final": "https://rentreadycheck.com/move-in-cost-calculator/",
+    "error": null,
+    "canonicals": [
+      "https://rentreadycheck.com/move-in-cost-calculator/"
+    ],
+    "robots": [
+      "index, follow"
+    ],
+    "h1": 1,
+    "title": "Move-In Cost Calculator for Apartment Renters | RentReadyCheck",
+    "links": [
+      "/",
+      "/rent-readiness-score/",
+      "/guides/",
+      "/about/",
+      "/rent-readiness-score/#score-form",
+      "/rent-referencing-calculator/",
+      "/rent-split-calculator/",
+      "/how-much-should-i-save-before-moving-out/",
+      "/renter-move-in-checklist.txt",
+      "/how-we-calculate/",
+      "/rent-readiness-score/",
+      "/rent-referencing-calculator/",
+      "/guarantor-income-calculator/",
+      "/joint-tenant-affordability-calculator/",
+      "/rent-split-calculator/",
+      "/guides/",
+      "/about/",
+      "/how-we-calculate/",
+      "/disclaimer/",
+      "/privacy-policy/",
+      "/contact/"
+    ]
+  },
+  {
+    "url": "https://rentreadycheck.com/rent-split-calculator/",
+    "status": 200,
+    "redirects": 0,
+    "final": "https://rentreadycheck.com/rent-split-calculator/",
+    "error": null,
+    "canonicals": [
+      "https://rentreadycheck.com/rent-split-calculator/"
+    ],
+    "robots": [
+      "index, follow"
+    ],
+    "h1": 1,
+    "title": "Rent Split Calculator for Roommates | RentReadyCheck",
+    "links": [
+      "/",
+      "/rent-readiness-score/",
+      "/guides/",
+      "/about/",
+      "/rent-readiness-score/#score-form",
+      "/how-we-calculate/",
+      "/joint-tenant-affordability-calculator/",
+      "/move-in-cost-calculator/",
+      "/rent-referencing-calculator/",
+      "/guarantor-income-calculator/",
+      "/joint-tenant-affordability-calculator/",
+      "/guides/",
+      "/about/",
+      "/how-we-calculate/",
+      "/disclaimer/",
+      "/privacy-policy/",
+      "/contact/"
+    ]
+  },
+  {
+    "url": "https://rentreadycheck.com/guides/",
+    "status": 200,
+    "redirects": 0,
+    "final": "https://rentreadycheck.com/guides/",
+    "error": null,
+    "canonicals": [
+      "https://rentreadycheck.com/guides/"
+    ],
+    "robots": [
+      "index, follow"
+    ],
+    "h1": 1,
+    "title": "Helpful Guides for US Renters | RentReadyCheck",
+    "links": [
+      "/",
+      "/rent-readiness-score/",
+      "/guides/",
+      "/about/",
+      "/rent-readiness-score/#score-form",
+      "/rent-to-income-ratio-explained/",
+      "/what-is-30-times-rent/",
+      "/what-is-36-times-rent/",
+      "/do-i-need-a-cosigner-for-an-apartment/",
+      "/how-much-does-a-guarantor-need-to-earn/",
+      "/can-flatmates-combine-income-for-rent/",
+      "/how-much-should-i-save-before-moving-out/",
+      "/can-i-rent-with-bad-credit/",
+      "/rental-application-fees-explained/",
+      "/security-deposit-basics/",
+      "/how-much-rent-can-i-afford-on-30000-a-year/",
+      "/how-much-rent-can-i-afford-on-35000-a-year/",
+      "/how-much-rent-can-i-afford-on-40000-a-year/",
+      "/how-much-rent-can-i-afford-on-45000-a-year/",
+      "/how-much-rent-can-i-afford-on-50000-a-year/",
+      "/how-much-rent-can-i-afford-on-60000-a-year/",
+      "/how-much-rent-can-i-afford-on-70000-a-year/",
+      "/how-much-rent-can-i-afford-on-75000-a-year/",
+      "/how-much-rent-can-i-afford-on-80000-a-year/",
+      "/how-much-rent-can-i-afford-on-100000-a-year/",
+      "/how-much-rent-can-i-afford-making-15-an-hour/",
+      "/how-much-rent-can-i-afford-making-17-an-hour/",
+      "/how-much-rent-can-i-afford-making-18-an-hour/",
+      "/how-much-rent-can-i-afford-making-20-an-hour/",
+      "/how-much-rent-can-i-afford-making-22-an-hour/",
+      "/how-much-rent-can-i-afford-making-25-an-hour/",
+      "/how-much-rent-can-i-afford-making-30-an-hour/",
+      "/how-much-income-to-rent-800/",
+      "/how-much-income-to-rent-900/",
+      "/how-much-income-to-rent-1000/",
+      "/how-much-income-to-rent-1100/",
+      "/how-much-income-to-rent-1200/",
+      "/how-much-income-to-rent-1300/",
+      "/how-much-income-to-rent-1400/",
+      "/how-much-income-to-rent-1500/",
+      "/how-much-income-to-rent-1600/",
+      "/how-much-income-to-rent-1800/",
+      "/how-much-income-to-rent-2000/",
+      "/how-much-income-to-rent-2200/",
+      "/how-much-income-to-rent-2500/",
+      "/how-much-income-to-rent-3000/",
+      "/rent-referencing-calculator/",
+      "/us-rent-affordability-calculator/",
+      "/guarantor-income-calculator/",
+      "/joint-tenant-affordability-calculator/",
+      "/move-in-cost-calculator/",
+      "/rent-split-calculator/",
+      "/guides/",
+      "/about/",
+      "/how-we-calculate/",
+      "/disclaimer/",
+      "/privacy-policy/",
+      "/contact/"
+    ]
+  },
+  {
+    "url": "https://rentreadycheck.com/how-much-income-to-rent-800/",
+    "status": 200,
+    "redirects": 0,
+    "final": "https://rentreadycheck.com/how-much-income-to-rent-800/",
+    "error": null,
+    "canonicals": [
+      "https://rentreadycheck.com/how-much-income-to-rent-800/"
+    ],
+    "robots": [
+      "index, follow"
+    ],
+    "h1": 1,
+    "title": "How Much Income Do You Need for $800 Rent? | RentReadyCheck",
+    "links": [
+      "/",
+      "/rent-readiness-score/",
+      "/guides/",
+      "/about/",
+      "/rent-readiness-score/#score-form",
+      "/rent-to-income-ratio-explained/",
+      "/do-i-need-a-cosigner-for-an-apartment/",
+      "/move-in-cost-calculator/",
+      "/how-much-rent-can-i-afford-on-30000-a-year/",
+      "/how-much-rent-can-i-afford-making-15-an-hour/",
+      "/how-much-income-to-rent-900/",
+      "/how-we-calculate/",
+      "/rent-referencing-calculator/",
+      "/guarantor-income-calculator/",
+      "/joint-tenant-affordability-calculator/",
+      "/guides/",
+      "/about/",
+      "/how-we-calculate/",
+      "/disclaimer/",
+      "/privacy-policy/",
+      "/contact/"
+    ]
+  },
+  {
+    "url": "https://rentreadycheck.com/how-much-income-to-rent-900/",
+    "status": 200,
+    "redirects": 0,
+    "final": "https://rentreadycheck.com/how-much-income-to-rent-900/",
+    "error": null,
+    "canonicals": [
+      "https://rentreadycheck.com/how-much-income-to-rent-900/"
+    ],
+    "robots": [
+      "index, follow"
+    ],
+    "h1": 1,
+    "title": "How Much Income Do You Need for $900 Rent? | RentReadyCheck",
+    "links": [
+      "/",
+      "/rent-readiness-score/",
+      "/guides/",
+      "/about/",
+      "/rent-readiness-score/#score-form",
+      "/rent-to-income-ratio-explained/",
+      "/do-i-need-a-cosigner-for-an-apartment/",
+      "/move-in-cost-calculator/",
+      "/how-much-rent-can-i-afford-on-30000-a-year/",
+      "/how-much-rent-can-i-afford-making-15-an-hour/",
+      "/how-much-income-to-rent-800/",
+      "/how-much-income-to-rent-1000/",
+      "/how-we-calculate/",
+      "/rent-referencing-calculator/",
+      "/guarantor-income-calculator/",
+      "/joint-tenant-affordability-calculator/",
+      "/guides/",
+      "/about/",
+      "/how-we-calculate/",
+      "/disclaimer/",
+      "/privacy-policy/",
+      "/contact/"
+    ]
+  },
+  {
+    "url": "https://rentreadycheck.com/how-much-income-to-rent-1000/",
+    "status": 200,
+    "redirects": 0,
+    "final": "https://rentreadycheck.com/how-much-income-to-rent-1000/",
+    "error": null,
+    "canonicals": [
+      "https://rentreadycheck.com/how-much-income-to-rent-1000/"
+    ],
+    "robots": [
+      "index, follow"
+    ],
+    "h1": 1,
+    "title": "How Much Income Do You Need for $1,000 Rent? | RentReadyCheck",
+    "links": [
+      "/",
+      "/rent-readiness-score/",
+      "/guides/",
+      "/about/",
+      "/rent-readiness-score/#score-form",
+      "/rent-to-income-ratio-explained/",
+      "/do-i-need-a-cosigner-for-an-apartment/",
+      "/move-in-cost-calculator/",
+      "/how-much-rent-can-i-afford-on-35000-a-year/",
+      "/how-much-rent-can-i-afford-making-17-an-hour/",
+      "/how-much-income-to-rent-900/",
+      "/how-much-income-to-rent-1100/",
+      "/how-we-calculate/",
+      "/rent-referencing-calculator/",
+      "/guarantor-income-calculator/",
+      "/joint-tenant-affordability-calculator/",
+      "/guides/",
+      "/about/",
+      "/how-we-calculate/",
+      "/disclaimer/",
+      "/privacy-policy/",
+      "/contact/"
+    ]
+  },
+  {
+    "url": "https://rentreadycheck.com/how-much-income-to-rent-1100/",
+    "status": 200,
+    "redirects": 0,
+    "final": "https://rentreadycheck.com/how-much-income-to-rent-1100/",
+    "error": null,
+    "canonicals": [
+      "https://rentreadycheck.com/how-much-income-to-rent-1100/"
+    ],
+    "robots": [
+      "index, follow"
+    ],
+    "h1": 1,
+    "title": "How Much Income Do You Need for $1,100 Rent? | RentReadyCheck",
+    "links": [
+      "/",
+      "/rent-readiness-score/",
+      "/guides/",
+      "/about/",
+      "/rent-readiness-score/#score-form",
+      "/rent-to-income-ratio-explained/",
+      "/do-i-need-a-cosigner-for-an-apartment/",
+      "/move-in-cost-calculator/",
+      "/how-much-rent-can-i-afford-on-40000-a-year/",
+      "/how-much-rent-can-i-afford-making-20-an-hour/",
+      "/how-much-income-to-rent-1000/",
+      "/how-much-income-to-rent-1200/",
+      "/how-we-calculate/",
+      "/rent-referencing-calculator/",
+      "/guarantor-income-calculator/",
+      "/joint-tenant-affordability-calculator/",
+      "/guides/",
+      "/about/",
+      "/how-we-calculate/",
+      "/disclaimer/",
+      "/privacy-policy/",
+      "/contact/"
+    ]
+  },
+  {
+    "url": "https://rentreadycheck.com/how-much-income-to-rent-1200/",
+    "status": 200,
+    "redirects": 0,
+    "final": "https://rentreadycheck.com/how-much-income-to-rent-1200/",
+    "error": null,
+    "canonicals": [
+      "https://rentreadycheck.com/how-much-income-to-rent-1200/"
+    ],
+    "robots": [
+      "index, follow"
+    ],
+    "h1": 1,
+    "title": "How Much Income Do You Need for $1,200 Rent? | RentReadyCheck",
+    "links": [
+      "/",
+      "/rent-readiness-score/",
+      "/guides/",
+      "/about/",
+      "/rent-readiness-score/#score-form",
+      "/rent-to-income-ratio-explained/",
+      "/do-i-need-a-cosigner-for-an-apartment/",
+      "/move-in-cost-calculator/",
+      "/how-much-rent-can-i-afford-on-45000-a-year/",
+      "/how-much-rent-can-i-afford-making-20-an-hour/",
+      "/how-much-income-to-rent-1100/",
+      "/how-much-income-to-rent-1300/",
+      "/how-we-calculate/",
+      "/rent-referencing-calculator/",
+      "/guarantor-income-calculator/",
+      "/joint-tenant-affordability-calculator/",
+      "/guides/",
+      "/about/",
+      "/how-we-calculate/",
+      "/disclaimer/",
+      "/privacy-policy/",
+      "/contact/"
+    ]
+  },
+  {
+    "url": "https://rentreadycheck.com/how-much-income-to-rent-1300/",
+    "status": 200,
+    "redirects": 0,
+    "final": "https://rentreadycheck.com/how-much-income-to-rent-1300/",
+    "error": null,
+    "canonicals": [
+      "https://rentreadycheck.com/how-much-income-to-rent-1300/"
+    ],
+    "robots": [
+      "index, follow"
+    ],
+    "h1": 1,
+    "title": "How Much Income Do You Need for $1,300 Rent? | RentReadyCheck",
+    "links": [
+      "/",
+      "/rent-readiness-score/",
+      "/guides/",
+      "/about/",
+      "/rent-readiness-score/#score-form",
+      "/rent-to-income-ratio-explained/",
+      "/do-i-need-a-cosigner-for-an-apartment/",
+      "/move-in-cost-calculator/",
+      "/how-much-rent-can-i-afford-on-45000-a-year/",
+      "/how-much-rent-can-i-afford-making-22-an-hour/",
+      "/how-much-income-to-rent-1200/",
+      "/how-much-income-to-rent-1400/",
+      "/how-we-calculate/",
+      "/rent-referencing-calculator/",
+      "/guarantor-income-calculator/",
+      "/joint-tenant-affordability-calculator/",
+      "/guides/",
+      "/about/",
+      "/how-we-calculate/",
+      "/disclaimer/",
+      "/privacy-policy/",
+      "/contact/"
+    ]
+  },
+  {
+    "url": "https://rentreadycheck.com/how-much-income-to-rent-1400/",
+    "status": 200,
+    "redirects": 0,
+    "final": "https://rentreadycheck.com/how-much-income-to-rent-1400/",
+    "error": null,
+    "canonicals": [
+      "https://rentreadycheck.com/how-much-income-to-rent-1400/"
+    ],
+    "robots": [
+      "index, follow"
+    ],
+    "h1": 1,
+    "title": "How Much Income Do You Need for $1,400 Rent? | RentReadyCheck",
+    "links": [
+      "/",
+      "/rent-readiness-score/",
+      "/guides/",
+      "/about/",
+      "/rent-readiness-score/#score-form",
+      "/rent-to-income-ratio-explained/",
+      "/do-i-need-a-cosigner-for-an-apartment/",
+      "/move-in-cost-calculator/",
+      "/how-much-rent-can-i-afford-on-50000-a-year/",
+      "/how-much-rent-can-i-afford-making-25-an-hour/",
+      "/how-much-income-to-rent-1300/",
+      "/how-much-income-to-rent-1500/",
+      "/how-we-calculate/",
+      "/rent-referencing-calculator/",
+      "/guarantor-income-calculator/",
+      "/joint-tenant-affordability-calculator/",
+      "/guides/",
+      "/about/",
+      "/how-we-calculate/",
+      "/disclaimer/",
+      "/privacy-policy/",
+      "/contact/"
+    ]
+  },
+  {
+    "url": "https://rentreadycheck.com/how-much-income-to-rent-1500/",
+    "status": 200,
+    "redirects": 0,
+    "final": "https://rentreadycheck.com/how-much-income-to-rent-1500/",
+    "error": null,
+    "canonicals": [
+      "https://rentreadycheck.com/how-much-income-to-rent-1500/"
+    ],
+    "robots": [
+      "index, follow"
+    ],
+    "h1": 1,
+    "title": "How Much Income Do You Need for $1,500 Rent? | RentReadyCheck",
+    "links": [
+      "/",
+      "/rent-readiness-score/",
+      "/guides/",
+      "/about/",
+      "/rent-readiness-score/#score-form",
+      "/rent-to-income-ratio-explained/",
+      "/do-i-need-a-cosigner-for-an-apartment/",
+      "/move-in-cost-calculator/",
+      "/how-much-rent-can-i-afford-on-50000-a-year/",
+      "/how-much-rent-can-i-afford-making-25-an-hour/",
+      "/how-much-income-to-rent-1400/",
+      "/how-much-income-to-rent-1600/",
+      "/how-we-calculate/",
+      "/rent-referencing-calculator/",
+      "/guarantor-income-calculator/",
+      "/joint-tenant-affordability-calculator/",
+      "/guides/",
+      "/about/",
+      "/how-we-calculate/",
+      "/disclaimer/",
+      "/privacy-policy/",
+      "/contact/"
+    ]
+  },
+  {
+    "url": "https://rentreadycheck.com/how-much-income-to-rent-1600/",
+    "status": 200,
+    "redirects": 0,
+    "final": "https://rentreadycheck.com/how-much-income-to-rent-1600/",
+    "error": null,
+    "canonicals": [
+      "https://rentreadycheck.com/how-much-income-to-rent-1600/"
+    ],
+    "robots": [
+      "index, follow"
+    ],
+    "h1": 1,
+    "title": "How Much Income Do You Need for $1,600 Rent? | RentReadyCheck",
+    "links": [
+      "/",
+      "/rent-readiness-score/",
+      "/guides/",
+      "/about/",
+      "/rent-readiness-score/#score-form",
+      "/rent-to-income-ratio-explained/",
+      "/do-i-need-a-cosigner-for-an-apartment/",
+      "/move-in-cost-calculator/",
+      "/how-much-rent-can-i-afford-on-60000-a-year/",
+      "/how-much-rent-can-i-afford-making-30-an-hour/",
+      "/how-much-income-to-rent-1500/",
+      "/how-much-income-to-rent-1800/",
+      "/how-we-calculate/",
+      "/rent-referencing-calculator/",
+      "/guarantor-income-calculator/",
+      "/joint-tenant-affordability-calculator/",
+      "/guides/",
+      "/about/",
+      "/how-we-calculate/",
+      "/disclaimer/",
+      "/privacy-policy/",
+      "/contact/"
+    ]
+  },
+  {
+    "url": "https://rentreadycheck.com/how-much-income-to-rent-1800/",
+    "status": 200,
+    "redirects": 0,
+    "final": "https://rentreadycheck.com/how-much-income-to-rent-1800/",
+    "error": null,
+    "canonicals": [
+      "https://rentreadycheck.com/how-much-income-to-rent-1800/"
+    ],
+    "robots": [
+      "index, follow"
+    ],
+    "h1": 1,
+    "title": "How Much Income Do You Need for $1,800 Rent? | RentReadyCheck",
+    "links": [
+      "/",
+      "/rent-readiness-score/",
+      "/guides/",
+      "/about/",
+      "/rent-readiness-score/#score-form",
+      "/rent-to-income-ratio-explained/",
+      "/do-i-need-a-cosigner-for-an-apartment/",
+      "/move-in-cost-calculator/",
+      "/how-much-rent-can-i-afford-on-60000-a-year/",
+      "/how-much-rent-can-i-afford-making-30-an-hour/",
+      "/how-much-income-to-rent-1600/",
+      "/how-much-income-to-rent-2000/",
+      "/how-we-calculate/",
+      "/rent-referencing-calculator/",
+      "/guarantor-income-calculator/",
+      "/joint-tenant-affordability-calculator/",
+      "/guides/",
+      "/about/",
+      "/how-we-calculate/",
+      "/disclaimer/",
+      "/privacy-policy/",
+      "/contact/"
+    ]
+  },
+  {
+    "url": "https://rentreadycheck.com/how-much-income-to-rent-2000/",
+    "status": 200,
+    "redirects": 0,
+    "final": "https://rentreadycheck.com/how-much-income-to-rent-2000/",
+    "error": null,
+    "canonicals": [
+      "https://rentreadycheck.com/how-much-income-to-rent-2000/"
+    ],
+    "robots": [
+      "index, follow"
+    ],
+    "h1": 1,
+    "title": "How Much Income Do You Need for $2,000 Rent? | RentReadyCheck",
+    "links": [
+      "/",
+      "/rent-readiness-score/",
+      "/guides/",
+      "/about/",
+      "/rent-readiness-score/#score-form",
+      "/rent-to-income-ratio-explained/",
+      "/do-i-need-a-cosigner-for-an-apartment/",
+      "/move-in-cost-calculator/",
+      "/how-much-rent-can-i-afford-on-70000-a-year/",
+      "/how-much-rent-can-i-afford-making-30-an-hour/",
+      "/how-much-income-to-rent-1800/",
+      "/how-much-income-to-rent-2200/",
+      "/how-we-calculate/",
+      "/rent-referencing-calculator/",
+      "/guarantor-income-calculator/",
+      "/joint-tenant-affordability-calculator/",
+      "/guides/",
+      "/about/",
+      "/how-we-calculate/",
+      "/disclaimer/",
+      "/privacy-policy/",
+      "/contact/"
+    ]
+  },
+  {
+    "url": "https://rentreadycheck.com/how-much-income-to-rent-2200/",
+    "status": 200,
+    "redirects": 0,
+    "final": "https://rentreadycheck.com/how-much-income-to-rent-2200/",
+    "error": null,
+    "canonicals": [
+      "https://rentreadycheck.com/how-much-income-to-rent-2200/"
+    ],
+    "robots": [
+      "index, follow"
+    ],
+    "h1": 1,
+    "title": "How Much Income Do You Need for $2,200 Rent? | RentReadyCheck",
+    "links": [
+      "/",
+      "/rent-readiness-score/",
+      "/guides/",
+      "/about/",
+      "/rent-readiness-score/#score-form",
+      "/rent-to-income-ratio-explained/",
+      "/do-i-need-a-cosigner-for-an-apartment/",
+      "/move-in-cost-calculator/",
+      "/how-much-rent-can-i-afford-on-80000-a-year/",
+      "/how-much-rent-can-i-afford-making-30-an-hour/",
+      "/how-much-income-to-rent-2000/",
+      "/how-much-income-to-rent-2500/",
+      "/how-we-calculate/",
+      "/rent-referencing-calculator/",
+      "/guarantor-income-calculator/",
+      "/joint-tenant-affordability-calculator/",
+      "/guides/",
+      "/about/",
+      "/how-we-calculate/",
+      "/disclaimer/",
+      "/privacy-policy/",
+      "/contact/"
+    ]
+  },
+  {
+    "url": "https://rentreadycheck.com/how-much-income-to-rent-2500/",
+    "status": 200,
+    "redirects": 0,
+    "final": "https://rentreadycheck.com/how-much-income-to-rent-2500/",
+    "error": null,
+    "canonicals": [
+      "https://rentreadycheck.com/how-much-income-to-rent-2500/"
+    ],
+    "robots": [
+      "index, follow"
+    ],
+    "h1": 1,
+    "title": "How Much Income Do You Need for $2,500 Rent? | RentReadyCheck",
+    "links": [
+      "/",
+      "/rent-readiness-score/",
+      "/guides/",
+      "/about/",
+      "/rent-readiness-score/#score-form",
+      "/rent-to-income-ratio-explained/",
+      "/do-i-need-a-cosigner-for-an-apartment/",
+      "/move-in-cost-calculator/",
+      "/how-much-rent-can-i-afford-on-80000-a-year/",
+      "/how-much-rent-can-i-afford-making-30-an-hour/",
+      "/how-much-income-to-rent-2200/",
+      "/how-much-income-to-rent-3000/",
+      "/how-we-calculate/",
+      "/rent-referencing-calculator/",
+      "/guarantor-income-calculator/",
+      "/joint-tenant-affordability-calculator/",
+      "/guides/",
+      "/about/",
+      "/how-we-calculate/",
+      "/disclaimer/",
+      "/privacy-policy/",
+      "/contact/"
+    ]
+  },
+  {
+    "url": "https://rentreadycheck.com/how-much-income-to-rent-3000/",
+    "status": 200,
+    "redirects": 0,
+    "final": "https://rentreadycheck.com/how-much-income-to-rent-3000/",
+    "error": null,
+    "canonicals": [
+      "https://rentreadycheck.com/how-much-income-to-rent-3000/"
+    ],
+    "robots": [
+      "index, follow"
+    ],
+    "h1": 1,
+    "title": "How Much Income Do You Need for $3,000 Rent? | RentReadyCheck",
+    "links": [
+      "/",
+      "/rent-readiness-score/",
+      "/guides/",
+      "/about/",
+      "/rent-readiness-score/#score-form",
+      "/rent-to-income-ratio-explained/",
+      "/do-i-need-a-cosigner-for-an-apartment/",
+      "/move-in-cost-calculator/",
+      "/how-much-rent-can-i-afford-on-100000-a-year/",
+      "/how-much-rent-can-i-afford-making-30-an-hour/",
+      "/how-much-income-to-rent-2500/",
+      "/how-we-calculate/",
+      "/rent-referencing-calculator/",
+      "/guarantor-income-calculator/",
+      "/joint-tenant-affordability-calculator/",
+      "/guides/",
+      "/about/",
+      "/how-we-calculate/",
+      "/disclaimer/",
+      "/privacy-policy/",
+      "/contact/"
+    ]
+  },
+  {
+    "url": "https://rentreadycheck.com/how-much-rent-can-i-afford-on-30000-a-year/",
+    "status": 200,
+    "redirects": 0,
+    "final": "https://rentreadycheck.com/how-much-rent-can-i-afford-on-30000-a-year/",
+    "error": null,
+    "canonicals": [
+      "https://rentreadycheck.com/how-much-rent-can-i-afford-on-30000-a-year/"
+    ],
+    "robots": [
+      "index, follow"
+    ],
+    "h1": 1,
+    "title": "How Much Rent Can I Afford on $30K a Year? | RentReadyCheck",
+    "links": [
+      "/",
+      "/rent-readiness-score/",
+      "/guides/",
+      "/about/",
+      "/rent-readiness-score/#score-form",
+      "/",
+      "/guides/",
+      "/move-in-cost-calculator/",
+      "/joint-tenant-affordability-calculator/",
+      "/rent-split-calculator/",
+      "/do-i-need-a-cosigner-for-an-apartment/",
+      "/how-much-rent-can-i-afford-on-35000-a-year/",
+      "/how-much-rent-can-i-afford-making-15-an-hour/",
+      "/rent-to-income-ratio-explained/",
+      "/what-is-30-times-rent/",
+      "/what-is-36-times-rent/",
+      "/do-i-need-a-cosigner-for-an-apartment/",
+      "/how-much-should-i-save-before-moving-out/",
+      "/security-deposit-basics/",
+      "/how-we-calculate/",
+      "/guides/",
+      "/about/",
+      "/how-we-calculate/",
+      "/disclaimer/",
+      "/privacy-policy/",
+      "/contact/"
+    ]
+  },
+  {
+    "url": "https://rentreadycheck.com/how-much-rent-can-i-afford-on-35000-a-year/",
+    "status": 200,
+    "redirects": 0,
+    "final": "https://rentreadycheck.com/how-much-rent-can-i-afford-on-35000-a-year/",
+    "error": null,
+    "canonicals": [
+      "https://rentreadycheck.com/how-much-rent-can-i-afford-on-35000-a-year/"
+    ],
+    "robots": [
+      "index, follow"
+    ],
+    "h1": 1,
+    "title": "How Much Rent Can I Afford on $35K a Year? | RentReadyCheck",
+    "links": [
+      "/",
+      "/rent-readiness-score/",
+      "/guides/",
+      "/about/",
+      "/rent-readiness-score/#score-form",
+      "/",
+      "/guides/",
+      "/move-in-cost-calculator/",
+      "/joint-tenant-affordability-calculator/",
+      "/rent-split-calculator/",
+      "/do-i-need-a-cosigner-for-an-apartment/",
+      "/how-much-rent-can-i-afford-on-30000-a-year/",
+      "/how-much-rent-can-i-afford-on-40000-a-year/",
+      "/how-much-rent-can-i-afford-making-17-an-hour/",
+      "/rent-to-income-ratio-explained/",
+      "/what-is-30-times-rent/",
+      "/what-is-36-times-rent/",
+      "/do-i-need-a-cosigner-for-an-apartment/",
+      "/how-much-should-i-save-before-moving-out/",
+      "/security-deposit-basics/",
+      "/how-we-calculate/",
+      "/guides/",
+      "/about/",
+      "/how-we-calculate/",
+      "/disclaimer/",
+      "/privacy-policy/",
+      "/contact/"
+    ]
+  },
+  {
+    "url": "https://rentreadycheck.com/how-much-rent-can-i-afford-on-40000-a-year/",
+    "status": 200,
+    "redirects": 0,
+    "final": "https://rentreadycheck.com/how-much-rent-can-i-afford-on-40000-a-year/",
+    "error": null,
+    "canonicals": [
+      "https://rentreadycheck.com/how-much-rent-can-i-afford-on-40000-a-year/"
+    ],
+    "robots": [
+      "index, follow"
+    ],
+    "h1": 1,
+    "title": "How Much Rent Can I Afford on $40K a Year? | RentReadyCheck",
+    "links": [
+      "/",
+      "/rent-readiness-score/",
+      "/guides/",
+      "/about/",
+      "/rent-readiness-score/#score-form",
+      "/",
+      "/guides/",
+      "/move-in-cost-calculator/",
+      "/joint-tenant-affordability-calculator/",
+      "/rent-split-calculator/",
+      "/do-i-need-a-cosigner-for-an-apartment/",
+      "/how-much-rent-can-i-afford-on-35000-a-year/",
+      "/how-much-rent-can-i-afford-on-45000-a-year/",
+      "/how-much-rent-can-i-afford-making-20-an-hour/",
+      "/rent-to-income-ratio-explained/",
+      "/what-is-30-times-rent/",
+      "/what-is-36-times-rent/",
+      "/do-i-need-a-cosigner-for-an-apartment/",
+      "/how-much-should-i-save-before-moving-out/",
+      "/security-deposit-basics/",
+      "/how-we-calculate/",
+      "/guides/",
+      "/about/",
+      "/how-we-calculate/",
+      "/disclaimer/",
+      "/privacy-policy/",
+      "/contact/"
+    ]
+  },
+  {
+    "url": "https://rentreadycheck.com/how-much-rent-can-i-afford-on-45000-a-year/",
+    "status": 200,
+    "redirects": 0,
+    "final": "https://rentreadycheck.com/how-much-rent-can-i-afford-on-45000-a-year/",
+    "error": null,
+    "canonicals": [
+      "https://rentreadycheck.com/how-much-rent-can-i-afford-on-45000-a-year/"
+    ],
+    "robots": [
+      "index, follow"
+    ],
+    "h1": 1,
+    "title": "How Much Rent Can I Afford on $45K a Year? | RentReadyCheck",
+    "links": [
+      "/",
+      "/rent-readiness-score/",
+      "/guides/",
+      "/about/",
+      "/rent-readiness-score/#score-form",
+      "/",
+      "/guides/",
+      "/move-in-cost-calculator/",
+      "/joint-tenant-affordability-calculator/",
+      "/rent-split-calculator/",
+      "/do-i-need-a-cosigner-for-an-apartment/",
+      "/how-much-rent-can-i-afford-on-40000-a-year/",
+      "/how-much-rent-can-i-afford-on-50000-a-year/",
+      "/how-much-rent-can-i-afford-making-22-an-hour/",
+      "/rent-to-income-ratio-explained/",
+      "/what-is-30-times-rent/",
+      "/what-is-36-times-rent/",
+      "/do-i-need-a-cosigner-for-an-apartment/",
+      "/how-much-should-i-save-before-moving-out/",
+      "/security-deposit-basics/",
+      "/how-we-calculate/",
+      "/guides/",
+      "/about/",
+      "/how-we-calculate/",
+      "/disclaimer/",
+      "/privacy-policy/",
+      "/contact/"
+    ]
+  },
+  {
+    "url": "https://rentreadycheck.com/how-much-rent-can-i-afford-on-50000-a-year/",
+    "status": 200,
+    "redirects": 0,
+    "final": "https://rentreadycheck.com/how-much-rent-can-i-afford-on-50000-a-year/",
+    "error": null,
+    "canonicals": [
+      "https://rentreadycheck.com/how-much-rent-can-i-afford-on-50000-a-year/"
+    ],
+    "robots": [
+      "index, follow"
+    ],
+    "h1": 1,
+    "title": "How Much Rent Can I Afford on $50K a Year? | RentReadyCheck",
+    "links": [
+      "/",
+      "/rent-readiness-score/",
+      "/guides/",
+      "/about/",
+      "/rent-readiness-score/#score-form",
+      "/",
+      "/guides/",
+      "/move-in-cost-calculator/",
+      "/joint-tenant-affordability-calculator/",
+      "/rent-split-calculator/",
+      "/do-i-need-a-cosigner-for-an-apartment/",
+      "/how-much-rent-can-i-afford-on-45000-a-year/",
+      "/how-much-rent-can-i-afford-on-60000-a-year/",
+      "/how-much-rent-can-i-afford-making-25-an-hour/",
+      "/rent-to-income-ratio-explained/",
+      "/what-is-30-times-rent/",
+      "/what-is-36-times-rent/",
+      "/do-i-need-a-cosigner-for-an-apartment/",
+      "/how-much-should-i-save-before-moving-out/",
+      "/security-deposit-basics/",
+      "/how-we-calculate/",
+      "/guides/",
+      "/about/",
+      "/how-we-calculate/",
+      "/disclaimer/",
+      "/privacy-policy/",
+      "/contact/"
+    ]
+  },
+  {
+    "url": "https://rentreadycheck.com/how-much-rent-can-i-afford-on-60000-a-year/",
+    "status": 200,
+    "redirects": 0,
+    "final": "https://rentreadycheck.com/how-much-rent-can-i-afford-on-60000-a-year/",
+    "error": null,
+    "canonicals": [
+      "https://rentreadycheck.com/how-much-rent-can-i-afford-on-60000-a-year/"
+    ],
+    "robots": [
+      "index, follow"
+    ],
+    "h1": 1,
+    "title": "How Much Rent Can I Afford on $60K a Year? | RentReadyCheck",
+    "links": [
+      "/",
+      "/rent-readiness-score/",
+      "/guides/",
+      "/about/",
+      "/rent-readiness-score/#score-form",
+      "/",
+      "/guides/",
+      "/move-in-cost-calculator/",
+      "/joint-tenant-affordability-calculator/",
+      "/rent-split-calculator/",
+      "/do-i-need-a-cosigner-for-an-apartment/",
+      "/how-much-rent-can-i-afford-on-50000-a-year/",
+      "/how-much-rent-can-i-afford-on-70000-a-year/",
+      "/how-much-rent-can-i-afford-making-30-an-hour/",
+      "/rent-to-income-ratio-explained/",
+      "/what-is-30-times-rent/",
+      "/what-is-36-times-rent/",
+      "/do-i-need-a-cosigner-for-an-apartment/",
+      "/how-much-should-i-save-before-moving-out/",
+      "/security-deposit-basics/",
+      "/how-we-calculate/",
+      "/guides/",
+      "/about/",
+      "/how-we-calculate/",
+      "/disclaimer/",
+      "/privacy-policy/",
+      "/contact/"
+    ]
+  },
+  {
+    "url": "https://rentreadycheck.com/how-much-rent-can-i-afford-on-70000-a-year/",
+    "status": 200,
+    "redirects": 0,
+    "final": "https://rentreadycheck.com/how-much-rent-can-i-afford-on-70000-a-year/",
+    "error": null,
+    "canonicals": [
+      "https://rentreadycheck.com/how-much-rent-can-i-afford-on-70000-a-year/"
+    ],
+    "robots": [
+      "index, follow"
+    ],
+    "h1": 1,
+    "title": "How Much Rent Can I Afford on $70K a Year? | RentReadyCheck",
+    "links": [
+      "/",
+      "/rent-readiness-score/",
+      "/guides/",
+      "/about/",
+      "/rent-readiness-score/#score-form",
+      "/",
+      "/guides/",
+      "/move-in-cost-calculator/",
+      "/joint-tenant-affordability-calculator/",
+      "/rent-split-calculator/",
+      "/do-i-need-a-cosigner-for-an-apartment/",
+      "/how-much-rent-can-i-afford-on-60000-a-year/",
+      "/how-much-rent-can-i-afford-on-75000-a-year/",
+      "/how-much-rent-can-i-afford-making-30-an-hour/",
+      "/rent-to-income-ratio-explained/",
+      "/what-is-30-times-rent/",
+      "/what-is-36-times-rent/",
+      "/do-i-need-a-cosigner-for-an-apartment/",
+      "/how-much-should-i-save-before-moving-out/",
+      "/security-deposit-basics/",
+      "/how-we-calculate/",
+      "/guides/",
+      "/about/",
+      "/how-we-calculate/",
+      "/disclaimer/",
+      "/privacy-policy/",
+      "/contact/"
+    ]
+  },
+  {
+    "url": "https://rentreadycheck.com/how-much-rent-can-i-afford-on-75000-a-year/",
+    "status": 200,
+    "redirects": 0,
+    "final": "https://rentreadycheck.com/how-much-rent-can-i-afford-on-75000-a-year/",
+    "error": null,
+    "canonicals": [
+      "https://rentreadycheck.com/how-much-rent-can-i-afford-on-75000-a-year/"
+    ],
+    "robots": [
+      "index, follow"
+    ],
+    "h1": 1,
+    "title": "How Much Rent Can I Afford on $75K a Year? | RentReadyCheck",
+    "links": [
+      "/",
+      "/rent-readiness-score/",
+      "/guides/",
+      "/about/",
+      "/rent-readiness-score/#score-form",
+      "/",
+      "/guides/",
+      "/move-in-cost-calculator/",
+      "/joint-tenant-affordability-calculator/",
+      "/rent-split-calculator/",
+      "/do-i-need-a-cosigner-for-an-apartment/",
+      "/how-much-rent-can-i-afford-on-70000-a-year/",
+      "/how-much-rent-can-i-afford-on-80000-a-year/",
+      "/how-much-rent-can-i-afford-making-30-an-hour/",
+      "/rent-to-income-ratio-explained/",
+      "/what-is-30-times-rent/",
+      "/what-is-36-times-rent/",
+      "/do-i-need-a-cosigner-for-an-apartment/",
+      "/how-much-should-i-save-before-moving-out/",
+      "/security-deposit-basics/",
+      "/how-we-calculate/",
+      "/guides/",
+      "/about/",
+      "/how-we-calculate/",
+      "/disclaimer/",
+      "/privacy-policy/",
+      "/contact/"
+    ]
+  },
+  {
+    "url": "https://rentreadycheck.com/how-much-rent-can-i-afford-on-80000-a-year/",
+    "status": 200,
+    "redirects": 0,
+    "final": "https://rentreadycheck.com/how-much-rent-can-i-afford-on-80000-a-year/",
+    "error": null,
+    "canonicals": [
+      "https://rentreadycheck.com/how-much-rent-can-i-afford-on-80000-a-year/"
+    ],
+    "robots": [
+      "index, follow"
+    ],
+    "h1": 1,
+    "title": "How Much Rent Can I Afford on $80K a Year? | RentReadyCheck",
+    "links": [
+      "/",
+      "/rent-readiness-score/",
+      "/guides/",
+      "/about/",
+      "/rent-readiness-score/#score-form",
+      "/",
+      "/guides/",
+      "/move-in-cost-calculator/",
+      "/joint-tenant-affordability-calculator/",
+      "/rent-split-calculator/",
+      "/do-i-need-a-cosigner-for-an-apartment/",
+      "/how-much-rent-can-i-afford-on-75000-a-year/",
+      "/how-much-rent-can-i-afford-on-100000-a-year/",
+      "/how-much-rent-can-i-afford-making-30-an-hour/",
+      "/rent-to-income-ratio-explained/",
+      "/what-is-30-times-rent/",
+      "/what-is-36-times-rent/",
+      "/do-i-need-a-cosigner-for-an-apartment/",
+      "/how-much-should-i-save-before-moving-out/",
+      "/security-deposit-basics/",
+      "/how-we-calculate/",
+      "/guides/",
+      "/about/",
+      "/how-we-calculate/",
+      "/disclaimer/",
+      "/privacy-policy/",
+      "/contact/"
+    ]
+  },
+  {
+    "url": "https://rentreadycheck.com/how-much-rent-can-i-afford-on-100000-a-year/",
+    "status": 200,
+    "redirects": 0,
+    "final": "https://rentreadycheck.com/how-much-rent-can-i-afford-on-100000-a-year/",
+    "error": null,
+    "canonicals": [
+      "https://rentreadycheck.com/how-much-rent-can-i-afford-on-100000-a-year/"
+    ],
+    "robots": [
+      "index, follow"
+    ],
+    "h1": 1,
+    "title": "How Much Rent Can I Afford on $100K a Year? | RentReadyCheck",
+    "links": [
+      "/",
+      "/rent-readiness-score/",
+      "/guides/",
+      "/about/",
+      "/rent-readiness-score/#score-form",
+      "/",
+      "/guides/",
+      "/move-in-cost-calculator/",
+      "/joint-tenant-affordability-calculator/",
+      "/rent-split-calculator/",
+      "/do-i-need-a-cosigner-for-an-apartment/",
+      "/how-much-rent-can-i-afford-on-80000-a-year/",
+      "/how-much-rent-can-i-afford-making-30-an-hour/",
+      "/rent-to-income-ratio-explained/",
+      "/what-is-30-times-rent/",
+      "/what-is-36-times-rent/",
+      "/do-i-need-a-cosigner-for-an-apartment/",
+      "/how-much-should-i-save-before-moving-out/",
+      "/security-deposit-basics/",
+      "/how-we-calculate/",
+      "/guides/",
+      "/about/",
+      "/how-we-calculate/",
+      "/disclaimer/",
+      "/privacy-policy/",
+      "/contact/"
+    ]
+  },
+  {
+    "url": "https://rentreadycheck.com/how-much-rent-can-i-afford-making-15-an-hour/",
+    "status": 200,
+    "redirects": 0,
+    "final": "https://rentreadycheck.com/how-much-rent-can-i-afford-making-15-an-hour/",
+    "error": null,
+    "canonicals": [
+      "https://rentreadycheck.com/how-much-rent-can-i-afford-making-15-an-hour/"
+    ],
+    "robots": [
+      "index, follow"
+    ],
+    "h1": 1,
+    "title": "How Much Rent Can I Afford Making $15 an Hour? | RentReadyCheck",
+    "links": [
+      "/",
+      "/rent-readiness-score/",
+      "/guides/",
+      "/about/",
+      "/rent-readiness-score/#score-form",
+      "/",
+      "/guides/",
+      "/move-in-cost-calculator/",
+      "/joint-tenant-affordability-calculator/",
+      "/rent-split-calculator/",
+      "/do-i-need-a-cosigner-for-an-apartment/",
+      "/how-much-rent-can-i-afford-making-17-an-hour/",
+      "/how-much-rent-can-i-afford-on-30000-a-year/",
+      "/rent-to-income-ratio-explained/",
+      "/what-is-30-times-rent/",
+      "/what-is-36-times-rent/",
+      "/do-i-need-a-cosigner-for-an-apartment/",
+      "/how-much-should-i-save-before-moving-out/",
+      "/security-deposit-basics/",
+      "/how-we-calculate/",
+      "/guides/",
+      "/about/",
+      "/how-we-calculate/",
+      "/disclaimer/",
+      "/privacy-policy/",
+      "/contact/"
+    ]
+  },
+  {
+    "url": "https://rentreadycheck.com/how-much-rent-can-i-afford-making-17-an-hour/",
+    "status": 200,
+    "redirects": 0,
+    "final": "https://rentreadycheck.com/how-much-rent-can-i-afford-making-17-an-hour/",
+    "error": null,
+    "canonicals": [
+      "https://rentreadycheck.com/how-much-rent-can-i-afford-making-17-an-hour/"
+    ],
+    "robots": [
+      "index, follow"
+    ],
+    "h1": 1,
+    "title": "How Much Rent Can I Afford Making $17 an Hour? | RentReadyCheck",
+    "links": [
+      "/",
+      "/rent-readiness-score/",
+      "/guides/",
+      "/about/",
+      "/rent-readiness-score/#score-form",
+      "/",
+      "/guides/",
+      "/move-in-cost-calculator/",
+      "/joint-tenant-affordability-calculator/",
+      "/rent-split-calculator/",
+      "/do-i-need-a-cosigner-for-an-apartment/",
+      "/how-much-rent-can-i-afford-making-15-an-hour/",
+      "/how-much-rent-can-i-afford-making-18-an-hour/",
+      "/how-much-rent-can-i-afford-on-35000-a-year/",
+      "/rent-to-income-ratio-explained/",
+      "/what-is-30-times-rent/",
+      "/what-is-36-times-rent/",
+      "/do-i-need-a-cosigner-for-an-apartment/",
+      "/how-much-should-i-save-before-moving-out/",
+      "/security-deposit-basics/",
+      "/how-we-calculate/",
+      "/guides/",
+      "/about/",
+      "/how-we-calculate/",
+      "/disclaimer/",
+      "/privacy-policy/",
+      "/contact/"
+    ]
+  },
+  {
+    "url": "https://rentreadycheck.com/how-much-rent-can-i-afford-making-18-an-hour/",
+    "status": 200,
+    "redirects": 0,
+    "final": "https://rentreadycheck.com/how-much-rent-can-i-afford-making-18-an-hour/",
+    "error": null,
+    "canonicals": [
+      "https://rentreadycheck.com/how-much-rent-can-i-afford-making-18-an-hour/"
+    ],
+    "robots": [
+      "index, follow"
+    ],
+    "h1": 1,
+    "title": "How Much Rent Can I Afford Making $18 an Hour? | RentReadyCheck",
+    "links": [
+      "/",
+      "/rent-readiness-score/",
+      "/guides/",
+      "/about/",
+      "/rent-readiness-score/#score-form",
+      "/",
+      "/guides/",
+      "/move-in-cost-calculator/",
+      "/joint-tenant-affordability-calculator/",
+      "/rent-split-calculator/",
+      "/do-i-need-a-cosigner-for-an-apartment/",
+      "/how-much-rent-can-i-afford-making-17-an-hour/",
+      "/how-much-rent-can-i-afford-making-20-an-hour/",
+      "/how-much-rent-can-i-afford-on-35000-a-year/",
+      "/rent-to-income-ratio-explained/",
+      "/what-is-30-times-rent/",
+      "/what-is-36-times-rent/",
+      "/do-i-need-a-cosigner-for-an-apartment/",
+      "/how-much-should-i-save-before-moving-out/",
+      "/security-deposit-basics/",
+      "/how-we-calculate/",
+      "/guides/",
+      "/about/",
+      "/how-we-calculate/",
+      "/disclaimer/",
+      "/privacy-policy/",
+      "/contact/"
+    ]
+  },
+  {
+    "url": "https://rentreadycheck.com/how-much-rent-can-i-afford-making-20-an-hour/",
+    "status": 200,
+    "redirects": 0,
+    "final": "https://rentreadycheck.com/how-much-rent-can-i-afford-making-20-an-hour/",
+    "error": null,
+    "canonicals": [
+      "https://rentreadycheck.com/how-much-rent-can-i-afford-making-20-an-hour/"
+    ],
+    "robots": [
+      "index, follow"
+    ],
+    "h1": 1,
+    "title": "How Much Rent Can I Afford Making $20 an Hour? | RentReadyCheck",
+    "links": [
+      "/",
+      "/rent-readiness-score/",
+      "/guides/",
+      "/about/",
+      "/rent-readiness-score/#score-form",
+      "/",
+      "/guides/",
+      "/move-in-cost-calculator/",
+      "/joint-tenant-affordability-calculator/",
+      "/rent-split-calculator/",
+      "/do-i-need-a-cosigner-for-an-apartment/",
+      "/how-much-rent-can-i-afford-making-18-an-hour/",
+      "/how-much-rent-can-i-afford-making-22-an-hour/",
+      "/how-much-rent-can-i-afford-on-40000-a-year/",
+      "/rent-to-income-ratio-explained/",
+      "/what-is-30-times-rent/",
+      "/what-is-36-times-rent/",
+      "/do-i-need-a-cosigner-for-an-apartment/",
+      "/how-much-should-i-save-before-moving-out/",
+      "/security-deposit-basics/",
+      "/how-we-calculate/",
+      "/guides/",
+      "/about/",
+      "/how-we-calculate/",
+      "/disclaimer/",
+      "/privacy-policy/",
+      "/contact/"
+    ]
+  },
+  {
+    "url": "https://rentreadycheck.com/how-much-rent-can-i-afford-making-22-an-hour/",
+    "status": 200,
+    "redirects": 0,
+    "final": "https://rentreadycheck.com/how-much-rent-can-i-afford-making-22-an-hour/",
+    "error": null,
+    "canonicals": [
+      "https://rentreadycheck.com/how-much-rent-can-i-afford-making-22-an-hour/"
+    ],
+    "robots": [
+      "index, follow"
+    ],
+    "h1": 1,
+    "title": "How Much Rent Can I Afford Making $22 an Hour? | RentReadyCheck",
+    "links": [
+      "/",
+      "/rent-readiness-score/",
+      "/guides/",
+      "/about/",
+      "/rent-readiness-score/#score-form",
+      "/",
+      "/guides/",
+      "/move-in-cost-calculator/",
+      "/joint-tenant-affordability-calculator/",
+      "/rent-split-calculator/",
+      "/do-i-need-a-cosigner-for-an-apartment/",
+      "/how-much-rent-can-i-afford-making-20-an-hour/",
+      "/how-much-rent-can-i-afford-making-25-an-hour/",
+      "/how-much-rent-can-i-afford-on-45000-a-year/",
+      "/rent-to-income-ratio-explained/",
+      "/what-is-30-times-rent/",
+      "/what-is-36-times-rent/",
+      "/do-i-need-a-cosigner-for-an-apartment/",
+      "/how-much-should-i-save-before-moving-out/",
+      "/security-deposit-basics/",
+      "/how-we-calculate/",
+      "/guides/",
+      "/about/",
+      "/how-we-calculate/",
+      "/disclaimer/",
+      "/privacy-policy/",
+      "/contact/"
+    ]
+  },
+  {
+    "url": "https://rentreadycheck.com/how-much-rent-can-i-afford-making-25-an-hour/",
+    "status": 200,
+    "redirects": 0,
+    "final": "https://rentreadycheck.com/how-much-rent-can-i-afford-making-25-an-hour/",
+    "error": null,
+    "canonicals": [
+      "https://rentreadycheck.com/how-much-rent-can-i-afford-making-25-an-hour/"
+    ],
+    "robots": [
+      "index, follow"
+    ],
+    "h1": 1,
+    "title": "How Much Rent Can I Afford Making $25 an Hour? | RentReadyCheck",
+    "links": [
+      "/",
+      "/rent-readiness-score/",
+      "/guides/",
+      "/about/",
+      "/rent-readiness-score/#score-form",
+      "/",
+      "/guides/",
+      "/move-in-cost-calculator/",
+      "/joint-tenant-affordability-calculator/",
+      "/rent-split-calculator/",
+      "/do-i-need-a-cosigner-for-an-apartment/",
+      "/how-much-rent-can-i-afford-making-22-an-hour/",
+      "/how-much-rent-can-i-afford-making-30-an-hour/",
+      "/how-much-rent-can-i-afford-on-50000-a-year/",
+      "/rent-to-income-ratio-explained/",
+      "/what-is-30-times-rent/",
+      "/what-is-36-times-rent/",
+      "/do-i-need-a-cosigner-for-an-apartment/",
+      "/how-much-should-i-save-before-moving-out/",
+      "/security-deposit-basics/",
+      "/how-we-calculate/",
+      "/guides/",
+      "/about/",
+      "/how-we-calculate/",
+      "/disclaimer/",
+      "/privacy-policy/",
+      "/contact/"
+    ]
+  },
+  {
+    "url": "https://rentreadycheck.com/how-much-rent-can-i-afford-making-30-an-hour/",
+    "status": 200,
+    "redirects": 0,
+    "final": "https://rentreadycheck.com/how-much-rent-can-i-afford-making-30-an-hour/",
+    "error": null,
+    "canonicals": [
+      "https://rentreadycheck.com/how-much-rent-can-i-afford-making-30-an-hour/"
+    ],
+    "robots": [
+      "index, follow"
+    ],
+    "h1": 1,
+    "title": "How Much Rent Can I Afford Making $30 an Hour? | RentReadyCheck",
+    "links": [
+      "/",
+      "/rent-readiness-score/",
+      "/guides/",
+      "/about/",
+      "/rent-readiness-score/#score-form",
+      "/",
+      "/guides/",
+      "/move-in-cost-calculator/",
+      "/joint-tenant-affordability-calculator/",
+      "/rent-split-calculator/",
+      "/do-i-need-a-cosigner-for-an-apartment/",
+      "/how-much-rent-can-i-afford-making-25-an-hour/",
+      "/how-much-rent-can-i-afford-on-60000-a-year/",
+      "/rent-to-income-ratio-explained/",
+      "/what-is-30-times-rent/",
+      "/what-is-36-times-rent/",
+      "/do-i-need-a-cosigner-for-an-apartment/",
+      "/how-much-should-i-save-before-moving-out/",
+      "/security-deposit-basics/",
+      "/how-we-calculate/",
+      "/guides/",
+      "/about/",
+      "/how-we-calculate/",
+      "/disclaimer/",
+      "/privacy-policy/",
+      "/contact/"
+    ]
+  },
+  {
+    "url": "https://rentreadycheck.com/rent-to-income-ratio-explained/",
+    "status": 200,
+    "redirects": 0,
+    "final": "https://rentreadycheck.com/rent-to-income-ratio-explained/",
+    "error": null,
+    "canonicals": [
+      "https://rentreadycheck.com/rent-to-income-ratio-explained/"
+    ],
+    "robots": [
+      "index, follow"
+    ],
+    "h1": 1,
+    "title": "What Is the 3x Rent Rule? | RentReadyCheck",
+    "links": [
+      "/",
+      "/rent-readiness-score/",
+      "/guides/",
+      "/about/",
+      "/rent-readiness-score/#score-form",
+      "/rent-referencing-calculator/",
+      "/rent-referencing-calculator/",
+      "/do-i-need-a-cosigner-for-an-apartment/",
+      "/can-i-rent-with-bad-credit/",
+      "/how-much-should-i-save-before-moving-out/",
+      "/rent-referencing-calculator/",
+      "/guarantor-income-calculator/",
+      "/joint-tenant-affordability-calculator/",
+      "/guides/",
+      "/about/",
+      "/how-we-calculate/",
+      "/disclaimer/",
+      "/privacy-policy/",
+      "/contact/"
+    ]
+  },
+  {
+    "url": "https://rentreadycheck.com/what-is-30-times-rent/",
+    "status": 200,
+    "redirects": 0,
+    "final": "https://rentreadycheck.com/what-is-30-times-rent/",
+    "error": null,
+    "canonicals": [
+      "https://rentreadycheck.com/what-is-30-times-rent/"
+    ],
+    "robots": [
+      "index, follow"
+    ],
+    "h1": 1,
+    "title": "What Is 30 Times Rent? (2.5x Monthly Rent Explained) | RentReadyCheck",
+    "links": [
+      "/",
+      "/rent-readiness-score/",
+      "/guides/",
+      "/about/",
+      "/rent-readiness-score/#score-form",
+      "/rent-referencing-calculator/",
+      "/rent-referencing-calculator/",
+      "/rent-referencing-calculator/",
+      "/guarantor-income-calculator/",
+      "/joint-tenant-affordability-calculator/",
+      "/guides/",
+      "/about/",
+      "/how-we-calculate/",
+      "/disclaimer/",
+      "/privacy-policy/",
+      "/contact/"
+    ]
+  },
+  {
+    "url": "https://rentreadycheck.com/what-is-36-times-rent/",
+    "status": 200,
+    "redirects": 0,
+    "final": "https://rentreadycheck.com/what-is-36-times-rent/",
+    "error": null,
+    "canonicals": [
+      "https://rentreadycheck.com/what-is-36-times-rent/"
+    ],
+    "robots": [
+      "index, follow"
+    ],
+    "h1": 1,
+    "title": "What Is 36 Times Rent? (3x Monthly Rent Explained) | RentReadyCheck",
+    "links": [
+      "/",
+      "/rent-readiness-score/",
+      "/guides/",
+      "/about/",
+      "/rent-readiness-score/#score-form",
+      "/rent-referencing-calculator/",
+      "/rent-referencing-calculator/",
+      "/rent-referencing-calculator/",
+      "/guarantor-income-calculator/",
+      "/joint-tenant-affordability-calculator/",
+      "/guides/",
+      "/about/",
+      "/how-we-calculate/",
+      "/disclaimer/",
+      "/privacy-policy/",
+      "/contact/"
+    ]
+  },
+  {
+    "url": "https://rentreadycheck.com/do-i-need-a-cosigner-for-an-apartment/",
+    "status": 200,
+    "redirects": 0,
+    "final": "https://rentreadycheck.com/do-i-need-a-cosigner-for-an-apartment/",
+    "error": null,
+    "canonicals": [
+      "https://rentreadycheck.com/do-i-need-a-cosigner-for-an-apartment/"
+    ],
+    "robots": [
+      "index, follow"
+    ],
+    "h1": 1,
+    "title": "Do I Need a Co-Signer for an Apartment? | RentReadyCheck",
+    "links": [
+      "/",
+      "/rent-readiness-score/",
+      "/guides/",
+      "/about/",
+      "/rent-readiness-score/#score-form",
+      "/guarantor-income-calculator/",
+      "/guarantor-income-calculator/",
+      "/can-i-rent-with-bad-credit/",
+      "/rent-to-income-ratio-explained/",
+      "/rental-application-fees-explained/",
+      "/rent-referencing-calculator/",
+      "/guarantor-income-calculator/",
+      "/joint-tenant-affordability-calculator/",
+      "/guides/",
+      "/about/",
+      "/how-we-calculate/",
+      "/disclaimer/",
+      "/privacy-policy/",
+      "/contact/"
+    ]
+  },
+  {
+    "url": "https://rentreadycheck.com/how-much-does-a-guarantor-need-to-earn/",
+    "status": 200,
+    "redirects": 0,
+    "final": "https://rentreadycheck.com/how-much-does-a-guarantor-need-to-earn/",
+    "error": null,
+    "canonicals": [
+      "https://rentreadycheck.com/how-much-does-a-guarantor-need-to-earn/"
+    ],
+    "robots": [
+      "index, follow"
+    ],
+    "h1": 1,
+    "title": "How Much Does a Co-Signer Need to Earn? | RentReadyCheck",
+    "links": [
+      "/",
+      "/rent-readiness-score/",
+      "/guides/",
+      "/about/",
+      "/rent-readiness-score/#score-form",
+      "/guarantor-income-calculator/",
+      "/guarantor-income-calculator/",
+      "/rent-referencing-calculator/",
+      "/guarantor-income-calculator/",
+      "/joint-tenant-affordability-calculator/",
+      "/guides/",
+      "/about/",
+      "/how-we-calculate/",
+      "/disclaimer/",
+      "/privacy-policy/",
+      "/contact/"
+    ]
+  },
+  {
+    "url": "https://rentreadycheck.com/can-flatmates-combine-income-for-rent/",
+    "status": 200,
+    "redirects": 0,
+    "final": "https://rentreadycheck.com/can-flatmates-combine-income-for-rent/",
+    "error": null,
+    "canonicals": [
+      "https://rentreadycheck.com/can-flatmates-combine-income-for-rent/"
+    ],
+    "robots": [
+      "index, follow"
+    ],
+    "h1": 1,
+    "title": "Can Roommates Combine Income for Rent? | RentReadyCheck",
+    "links": [
+      "/",
+      "/rent-readiness-score/",
+      "/guides/",
+      "/about/",
+      "/rent-readiness-score/#score-form",
+      "/joint-tenant-affordability-calculator/",
+      "/joint-tenant-affordability-calculator/",
+      "/rent-referencing-calculator/",
+      "/guarantor-income-calculator/",
+      "/joint-tenant-affordability-calculator/",
+      "/guides/",
+      "/about/",
+      "/how-we-calculate/",
+      "/disclaimer/",
+      "/privacy-policy/",
+      "/contact/"
+    ]
+  },
+  {
+    "url": "https://rentreadycheck.com/can-i-rent-with-bad-credit/",
+    "status": 200,
+    "redirects": 0,
+    "final": "https://rentreadycheck.com/can-i-rent-with-bad-credit/",
+    "error": null,
+    "canonicals": [
+      "https://rentreadycheck.com/can-i-rent-with-bad-credit/"
+    ],
+    "robots": [
+      "index, follow"
+    ],
+    "h1": 1,
+    "title": "Can I Rent with Bad Credit? | RentReadyCheck",
+    "links": [
+      "/",
+      "/rent-readiness-score/",
+      "/guides/",
+      "/about/",
+      "/rent-readiness-score/#score-form",
+      "/rent-readiness-score/",
+      "/rent-readiness-score/",
+      "/do-i-need-a-cosigner-for-an-apartment/",
+      "/how-much-should-i-save-before-moving-out/",
+      "/security-deposit-basics/",
+      "/rent-referencing-calculator/",
+      "/guarantor-income-calculator/",
+      "/joint-tenant-affordability-calculator/",
+      "/guides/",
+      "/about/",
+      "/how-we-calculate/",
+      "/disclaimer/",
+      "/privacy-policy/",
+      "/contact/"
+    ]
+  },
+  {
+    "url": "https://rentreadycheck.com/rental-application-fees-explained/",
+    "status": 200,
+    "redirects": 0,
+    "final": "https://rentreadycheck.com/rental-application-fees-explained/",
+    "error": null,
+    "canonicals": [
+      "https://rentreadycheck.com/rental-application-fees-explained/"
+    ],
+    "robots": [
+      "index, follow"
+    ],
+    "h1": 1,
+    "title": "Rental Application Fees Explained | RentReadyCheck",
+    "links": [
+      "/",
+      "/rent-readiness-score/",
+      "/guides/",
+      "/about/",
+      "/rent-readiness-score/#score-form",
+      "/move-in-cost-calculator/",
+      "/move-in-cost-calculator/",
+      "/security-deposit-basics/",
+      "/how-much-should-i-save-before-moving-out/",
+      "/can-i-rent-with-bad-credit/",
+      "/rent-referencing-calculator/",
+      "/guarantor-income-calculator/",
+      "/joint-tenant-affordability-calculator/",
+      "/guides/",
+      "/about/",
+      "/how-we-calculate/",
+      "/disclaimer/",
+      "/privacy-policy/",
+      "/contact/"
+    ]
+  },
+  {
+    "url": "https://rentreadycheck.com/security-deposit-basics/",
+    "status": 200,
+    "redirects": 0,
+    "final": "https://rentreadycheck.com/security-deposit-basics/",
+    "error": null,
+    "canonicals": [
+      "https://rentreadycheck.com/security-deposit-basics/"
+    ],
+    "robots": [
+      "index, follow"
+    ],
+    "h1": 1,
+    "title": "Security Deposit Basics for Renters | RentReadyCheck",
+    "links": [
+      "/",
+      "/rent-readiness-score/",
+      "/guides/",
+      "/about/",
+      "/rent-readiness-score/#score-form",
+      "/move-in-cost-calculator/",
+      "/move-in-cost-calculator/",
+      "/rental-application-fees-explained/",
+      "/how-much-should-i-save-before-moving-out/",
+      "/rent-to-income-ratio-explained/",
+      "/rent-referencing-calculator/",
+      "/guarantor-income-calculator/",
+      "/joint-tenant-affordability-calculator/",
+      "/guides/",
+      "/about/",
+      "/how-we-calculate/",
+      "/disclaimer/",
+      "/privacy-policy/",
+      "/contact/"
+    ]
+  },
+  {
+    "url": "https://rentreadycheck.com/how-much-should-i-save-before-moving-out/",
+    "status": 200,
+    "redirects": 0,
+    "final": "https://rentreadycheck.com/how-much-should-i-save-before-moving-out/",
+    "error": null,
+    "canonicals": [
+      "https://rentreadycheck.com/how-much-should-i-save-before-moving-out/"
+    ],
+    "robots": [
+      "index, follow"
+    ],
+    "h1": 1,
+    "title": "How Much Should I Save Before Moving Out? | RentReadyCheck",
+    "links": [
+      "/",
+      "/rent-readiness-score/",
+      "/guides/",
+      "/about/",
+      "/rent-readiness-score/#score-form",
+      "/renter-move-in-checklist.txt",
+      "/security-deposit-basics/",
+      "/rental-application-fees-explained/",
+      "/rent-to-income-ratio-explained/",
+      "/how-we-calculate/",
+      "/rent-referencing-calculator/",
+      "/guarantor-income-calculator/",
+      "/joint-tenant-affordability-calculator/",
+      "/guides/",
+      "/about/",
+      "/how-we-calculate/",
+      "/disclaimer/",
+      "/privacy-policy/",
+      "/contact/"
+    ]
+  },
+  {
+    "url": "https://rentreadycheck.com/how-we-calculate/",
+    "status": 200,
+    "redirects": 0,
+    "final": "https://rentreadycheck.com/how-we-calculate/",
+    "error": null,
+    "canonicals": [
+      "https://rentreadycheck.com/how-we-calculate/"
+    ],
+    "robots": [
+      "index, follow"
+    ],
+    "h1": 1,
+    "title": "How Our Rent Calculators and Readiness Score Work | RentReadyCheck",
+    "links": [
+      "/",
+      "/rent-readiness-score/",
+      "/guides/",
+      "/about/",
+      "/rent-readiness-score/#score-form",
+      "/move-in-cost-calculator/",
+      "/renter-move-in-checklist.txt",
+      "/rent-readiness-score/",
+      "/guides/",
+      "/about/",
+      "/how-we-calculate/",
+      "/disclaimer/",
+      "/privacy-policy/",
+      "/contact/"
+    ]
+  },
+  {
+    "url": "https://rentreadycheck.com/about/",
+    "status": 200,
+    "redirects": 0,
+    "final": "https://rentreadycheck.com/about/",
+    "error": null,
+    "canonicals": [
+      "https://rentreadycheck.com/about/"
+    ],
+    "robots": [
+      "index, follow"
+    ],
+    "h1": 1,
+    "title": "About | RentReadyCheck",
+    "links": [
+      "/",
+      "/rent-readiness-score/",
+      "/guides/",
+      "/about/",
+      "/rent-readiness-score/#score-form",
+      "/rent-referencing-calculator/",
+      "/contact/",
+      "/how-we-calculate/",
+      "/rent-referencing-calculator/",
+      "/guarantor-income-calculator/",
+      "/joint-tenant-affordability-calculator/",
+      "/guides/",
+      "/about/",
+      "/how-we-calculate/",
+      "/disclaimer/",
+      "/privacy-policy/",
+      "/contact/"
+    ]
+  },
+  {
+    "url": "https://rentreadycheck.com/disclaimer/",
+    "status": 200,
+    "redirects": 0,
+    "final": "https://rentreadycheck.com/disclaimer/",
+    "error": null,
+    "canonicals": [
+      "https://rentreadycheck.com/disclaimer/"
+    ],
+    "robots": [
+      "index, follow"
+    ],
+    "h1": 1,
+    "title": "Disclaimer | RentReadyCheck",
+    "links": [
+      "/",
+      "/rent-readiness-score/",
+      "/guides/",
+      "/about/",
+      "/rent-readiness-score/#score-form",
+      "/rent-referencing-calculator/",
+      "/rent-referencing-calculator/",
+      "/guarantor-income-calculator/",
+      "/joint-tenant-affordability-calculator/",
+      "/guides/",
+      "/about/",
+      "/how-we-calculate/",
+      "/disclaimer/",
+      "/privacy-policy/",
+      "/contact/"
+    ]
+  },
+  {
+    "url": "https://rentreadycheck.com/privacy-policy/",
+    "status": 200,
+    "redirects": 0,
+    "final": "https://rentreadycheck.com/privacy-policy/",
+    "error": null,
+    "canonicals": [
+      "https://rentreadycheck.com/privacy-policy/"
+    ],
+    "robots": [
+      "index, follow"
+    ],
+    "h1": 1,
+    "title": "Privacy Policy | RentReadyCheck",
+    "links": [
+      "/",
+      "/rent-readiness-score/",
+      "/guides/",
+      "/about/",
+      "/rent-readiness-score/#score-form",
+      "/contact/",
+      "/rent-referencing-calculator/",
+      "/guarantor-income-calculator/",
+      "/joint-tenant-affordability-calculator/",
+      "/guides/",
+      "/about/",
+      "/how-we-calculate/",
+      "/disclaimer/",
+      "/privacy-policy/",
+      "/contact/"
+    ]
+  },
+  {
+    "url": "https://rentreadycheck.com/contact/",
+    "status": 200,
+    "redirects": 0,
+    "final": "https://rentreadycheck.com/contact/",
+    "error": null,
+    "canonicals": [
+      "https://rentreadycheck.com/contact/"
+    ],
+    "robots": [
+      "index, follow"
+    ],
+    "h1": 1,
+    "title": "Contact | RentReadyCheck",
+    "links": [
+      "/",
+      "/rent-readiness-score/",
+      "/guides/",
+      "/about/",
+      "/rent-readiness-score/#score-form",
+      "/privacy-policy/",
+      "/rent-referencing-calculator/",
+      "/guarantor-income-calculator/",
+      "/joint-tenant-affordability-calculator/",
+      "/guides/",
+      "/about/",
+      "/how-we-calculate/",
+      "/disclaimer/",
+      "/privacy-policy/",
+      "/contact/"
+    ]
+  }
+]

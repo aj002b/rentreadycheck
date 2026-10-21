@@ -15,6 +15,7 @@ import {
   type RoommateOption,
 } from "@/lib/readinessScore";
 import { rentReadinessFaqs } from "@/lib/rentReadinessFaqs";
+import { useCalculatorEngagementTracking } from "@/lib/analytics";
 
 type FormValues = {
   monthlyRent: string;
@@ -645,6 +646,10 @@ export function RentReadinessAssessment() {
         : null,
     [currentErrors, input],
   );
+  const markInteraction = useCalculatorEngagementTracking(
+    "Rent Readiness Score",
+    hasCalculated && result !== null,
+  );
 
   const update = <Key extends keyof FormValues>(key: Key, value: FormValues[Key]) => {
     const nextValues = { ...values, [key]: value };
@@ -657,6 +662,7 @@ export function RentReadinessAssessment() {
   const calculate = () => {
     setErrors(currentErrors);
     if (Object.keys(currentErrors).length === 0) {
+      markInteraction();
       setHasCalculated(true);
     }
   };
