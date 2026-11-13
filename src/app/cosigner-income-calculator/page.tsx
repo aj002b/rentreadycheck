@@ -11,7 +11,7 @@ import { WebApplicationJsonLd } from "@/components/WebApplicationJsonLd";
 import type { FAQItem } from "@/lib/site";
 
 export const metadata: Metadata = {
-  title: "Co-signer Income Calculator",
+  title: "Co-Signer Income Calculator for Apartments",
   description:
     "Estimate whether a co-signer may help with a US apartment rental application.",
 };
@@ -31,10 +31,10 @@ export default function GuarantorPage() {
       <WebApplicationJsonLd
         name="Co-signer Income Calculator"
         description="Estimate the income a co-signer may need for a US apartment rental application."
-        path="/guarantor-income-calculator/"
+        path="/cosigner-income-calculator/"
       />
       <PublicPageShell>
-        <PublicPageHero path="/guarantor-income-calculator" title="Co-signer Income Calculator">
+        <PublicPageHero path="/cosigner-income-calculator" title="Co-signer Income Calculator">
           <p>
             Estimate whether a co-signer&apos;s annual income may meet a common
             US apartment affordability threshold.
@@ -57,7 +57,7 @@ export default function GuarantorPage() {
               an example benchmark, where income is irregular, or where the
               applicant has limited rental history. You can compare renter income
               first with the{" "}
-              <Link href="/rent-referencing-calculator">rent affordability calculator</Link>.
+              <Link href="/rent-affordability-calculator">rent affordability calculator</Link>.
             </p>
           </div>
           <AdPlaceholder />
@@ -75,14 +75,14 @@ export default function GuarantorPage() {
               Support is common for students, renters with a new job, renters
               with self-employed income, and people moving without much local
               rental history. If you are applying with roommates, the{" "}
-              <Link href="/joint-tenant-affordability-calculator">roommate affordability calculator</Link>{" "}
+              <Link href="/roommate-affordability-calculator">roommate affordability calculator</Link>{" "}
               may also help.
             </p>
           </div>
         </section>
         <FAQSection items={faqs} />
         <DisclaimerBox />
-        <RelatedTools currentPath="/guarantor-income-calculator" />
+        <RelatedTools currentPath="/cosigner-income-calculator" />
       </PublicPageShell>
     </>
   );

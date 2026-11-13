@@ -28,7 +28,7 @@ export default function AboutPage() {
             The calculators help estimate rent affordability, co-signer income,
             roommate affordability, upfront move-in costs, and fair rent splits.
             A good place to begin is the{" "}
-            <Link href="/rent-referencing-calculator">rent affordability calculator</Link>.
+            <Link href="/rent-affordability-calculator">rent affordability calculator</Link>.
             The site is focused on renters in the United States.
           </p>
         </div>

@@ -8,8 +8,8 @@ Prepared 6 October 2026. Start with free methods; allow roughly 5–7 hours a we
 - The live robots.txt allows crawling and identifies a working sitemap with 30 URLs. Having a sitemap does not establish that Google has indexed those pages.
 - Exact domain and `site:rentreadycheck.com` searches in the available search tool returned no results. This is a weak-visibility signal, not proof of Google exclusion. Search Console is the authoritative next check.
 - The homepage title and heading lead with “Rent Readiness Score.” That can be a useful product feature, but its search demand has not been established. Several other pages already answer concrete income and rent questions.
-- The main US affordability calculator is at `/rent-referencing-calculator/`; roommate and co-signer tools also retain UK vocabulary in their URLs. Their visible content uses US terms. This inconsistency is worth cleaning up, but there is no evidence it is the principal cause of zero visitors.
-- `/us-rent-affordability-calculator/` is currently an explanatory guide linking to the main calculator. Its title accurately describes that role; avoid creating a second competing copy of the same calculator.
+- The main US affordability calculator is at `/rent-affordability-calculator/`; roommate and co-signer tools also retain UK vocabulary in their URLs. Their visible content uses US terms. This inconsistency is worth cleaning up, but there is no evidence it is the principal cause of zero visitors.
+- `/2-5x-vs-3x-rent/` is currently an explanatory guide linking to the main calculator. Its title accurately describes that role; avoid creating a second competing copy of the same calculator.
 - Vercel Analytics and some calculator result events are present in the source. Production collection and the dashboard's date range have not been verified. Missing analytics strings in initial HTML do not establish a problem with client-side tracking.
 - The About page describes the tools but does not identify their creator. The rent-amount pages mostly reuse one template; the salary and hourly-pay pages offer more developed examples.
 

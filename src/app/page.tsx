@@ -9,12 +9,12 @@ import { siteConfig } from "@/lib/siteConfig";
 
 export const metadata: Metadata = {
   title: {
-    absolute: "Rent Affordability & Move-In Cost Calculators | RentReadyCheck",
+    absolute: "Free Rent Calculators for US Renters | RentReadyCheck",
   },
   description:
     "Free US rent calculators: compare rent with income, estimate move-in costs, and split rent with roommates. No account required.",
   openGraph: {
-    title: "Rent Affordability & Move-In Cost Calculators | RentReadyCheck",
+    title: "Free Rent Calculators for US Renters | RentReadyCheck",
     description:
       "Compare rent with income, plan the cash needed to move, and split rent with roommates using free US calculators.",
     type: "website",

@@ -34,10 +34,10 @@ export default function RentReferencingPage() {
       <WebApplicationJsonLd
         name="Rent Affordability Calculator"
         description="Compare monthly rent with gross income using the 2.5x and 3x rent checks many US landlords use."
-        path="/rent-referencing-calculator/"
+        path="/rent-affordability-calculator/"
       />
       <PublicPageShell>
-        <PublicPageHero path="/rent-referencing-calculator" title="Rent Affordability Calculator">
+        <PublicPageHero path="/rent-affordability-calculator" title="Rent Affordability Calculator">
           <p>
             Estimate whether your income may fit common US apartment
             affordability examples, including gross monthly income around 2.5x
@@ -72,7 +72,7 @@ export default function RentReferencingPage() {
             <p>
               If you are applying with a partner, friend, or roommate, combined
               income may be considered. Try the{" "}
-              <Link href="/joint-tenant-affordability-calculator">roommate affordability calculator</Link>{" "}
+              <Link href="/roommate-affordability-calculator">roommate affordability calculator</Link>{" "}
               to compare household income with common US examples.
             </p>
           </div>
@@ -82,7 +82,7 @@ export default function RentReferencingPage() {
               A co-signer may be requested if income is below an example
               threshold, if employment is new or irregular, or if the landlord
               wants extra reassurance. The{" "}
-              <Link href="/guarantor-income-calculator">co-signer income calculator</Link>{" "}
+              <Link href="/cosigner-income-calculator">co-signer income calculator</Link>{" "}
               can help estimate support income.
             </p>
           </div>
@@ -102,7 +102,7 @@ export default function RentReferencingPage() {
         <CalculationSources />
         <FAQSection items={faqs} />
         <DisclaimerBox />
-        <RelatedTools currentPath="/rent-referencing-calculator" />
+        <RelatedTools currentPath="/rent-affordability-calculator" />
       </PublicPageShell>
     </>
   );

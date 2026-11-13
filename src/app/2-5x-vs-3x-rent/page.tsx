@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import { SEOLandingPageView } from "@/components/SEOLandingPage";
 import { getSEOLandingPage } from "@/lib/seoLandingPages";
 
-const page = getSEOLandingPage("us-rent-affordability-calculator");
+const page = getSEOLandingPage("2-5x-vs-3x-rent");
 
 export const metadata: Metadata = {
   title: {
@@ -11,6 +11,6 @@ export const metadata: Metadata = {
   description: page.description,
 };
 
-export default function USRentAffordabilityCalculatorPage() {
+export default function RentMultipleGuidePage() {
   return <SEOLandingPageView page={page} />;
 }

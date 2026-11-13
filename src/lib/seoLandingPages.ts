@@ -164,15 +164,15 @@ export const rentAmountPages: SEOLandingPage[] = rentAmounts.map(createRentAmoun
 
 export const seoLandingPages: SEOLandingPage[] = [
   {
-    slug: "us-rent-affordability-calculator",
-    title: "How US Rent Affordability Is Estimated: 2.5x and 3x Rent | RentReadyCheck",
+    slug: "2-5x-vs-3x-rent",
+    title: "2.5x vs 3x Rent: Income Rules Explained | RentReadyCheck",
     description:
       "How US apartment applications often compare gross monthly income with rent, with 2.5x and 3x rent examples and a link to the full calculator.",
-    h1: "How US rent affordability is estimated",
+    h1: "2.5x vs 3x rent: how landlords check income",
     intro:
       "US apartment applications often compare gross monthly income with monthly rent. This guide explains common 2.5x to 3x rent examples and links to the full rent affordability calculator.",
     primaryLink: {
-      href: "/rent-referencing-calculator",
+      href: "/rent-affordability-calculator",
       label: "Open rent affordability calculator",
     },
     highlights: [
@@ -247,7 +247,7 @@ export const seoLandingPages: SEOLandingPage[] = [
     intro:
       "The 3x rent rule is a common US affordability example that compares gross monthly income with monthly rent. It is useful for planning, but it is not a universal approval rule.",
     primaryLink: {
-      href: "/rent-referencing-calculator",
+      href: "/rent-affordability-calculator",
       label: "Check rent affordability",
     },
     highlights: [
@@ -321,7 +321,7 @@ export const seoLandingPages: SEOLandingPage[] = [
     intro:
       "A co-signer may help some renters strengthen an apartment application, but it depends on the property manager's screening rules and the full application picture.",
     primaryLink: {
-      href: "/guarantor-income-calculator",
+      href: "/cosigner-income-calculator",
       label: "Estimate co-signer income",
     },
     highlights: [
@@ -642,7 +642,7 @@ export const seoLandingPages: SEOLandingPage[] = [
     intro:
       "30 times rent means your gross annual income is at least 30 times the monthly rent, which works out to 2.5x monthly rent. Some apartments use it when comparing rent with income. It is only one planning benchmark, not an approval promise.",
     primaryLink: {
-      href: "/rent-referencing-calculator",
+      href: "/rent-affordability-calculator",
       label: "Check affordability",
     },
     highlights: [
@@ -694,7 +694,7 @@ export const seoLandingPages: SEOLandingPage[] = [
     intro:
       "36 times rent means your gross annual income is at least 36 times the monthly rent, the same as the 3x monthly rent rule. It is an affordability example that compares gross monthly income with monthly rent. It is common in apartment screening conversations, but it is not a universal rule.",
     primaryLink: {
-      href: "/rent-referencing-calculator",
+      href: "/rent-affordability-calculator",
       label: "Check affordability",
     },
     highlights: [
@@ -738,7 +738,7 @@ export const seoLandingPages: SEOLandingPage[] = [
     ],
   },
   {
-    slug: "how-much-does-a-guarantor-need-to-earn",
+    slug: "how-much-does-a-cosigner-need-to-earn",
     title: "How Much Does a Co-Signer Need to Earn? | RentReadyCheck",
     description:
       "Estimate how much a co-signer may need to earn for a US apartment rental application.",
@@ -746,7 +746,7 @@ export const seoLandingPages: SEOLandingPage[] = [
     intro:
       "A co-signer income requirement depends on the rent amount, property manager, and full rental application. This page explains common US examples and links to the calculator.",
     primaryLink: {
-      href: "/guarantor-income-calculator",
+      href: "/cosigner-income-calculator",
       label: "Estimate co-signer income",
     },
     highlights: [
@@ -790,7 +790,7 @@ export const seoLandingPages: SEOLandingPage[] = [
     ],
   },
   {
-    slug: "can-flatmates-combine-income-for-rent",
+    slug: "can-roommates-combine-income-for-rent",
     title: "Can Roommates Combine Income for Rent? | RentReadyCheck",
     description:
       "Learn when roommates may be able to combine income for a rental affordability check.",
@@ -798,7 +798,7 @@ export const seoLandingPages: SEOLandingPage[] = [
     intro:
       "Roommates can often be assessed together, but the exact approach depends on the landlord, property manager, lease setup, and full application.",
     primaryLink: {
-      href: "/joint-tenant-affordability-calculator",
+      href: "/roommate-affordability-calculator",
       label: "Check roommate income",
     },
     highlights: [

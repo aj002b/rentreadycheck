@@ -37,12 +37,12 @@ const guideCards = [
   },
   {
     title: "How much does a co-signer need to earn?",
-    href: "/how-much-does-a-guarantor-need-to-earn",
+    href: "/how-much-does-a-cosigner-need-to-earn",
     description: "Estimate the income a co-signer may need for a given rent.",
   },
   {
     title: "Can roommates combine income for rent?",
-    href: "/can-flatmates-combine-income-for-rent",
+    href: "/can-roommates-combine-income-for-rent",
     description: "Learn how shared leases can look at combined roommate income.",
   },
   {
@@ -78,10 +78,10 @@ const incomeByRentLinks = rentAmounts.map((amount) => ({
 }));
 
 const calculatorLinks = [
-  { href: "/rent-referencing-calculator", label: "Rent Affordability Calculator" },
-  { href: "/us-rent-affordability-calculator", label: "US Rent Affordability Guide" },
-  { href: "/guarantor-income-calculator", label: "Co-signer Income Calculator" },
-  { href: "/joint-tenant-affordability-calculator", label: "Roommate Affordability Calculator" },
+  { href: "/rent-affordability-calculator", label: "Rent Affordability Calculator" },
+  { href: "/2-5x-vs-3x-rent", label: "2.5x vs 3x Rent Guide" },
+  { href: "/cosigner-income-calculator", label: "Co-signer Income Calculator" },
+  { href: "/roommate-affordability-calculator", label: "Roommate Affordability Calculator" },
   { href: "/move-in-cost-calculator", label: "Move-In Cost Calculator" },
   { href: "/rent-split-calculator", label: "Rent Split Calculator" },
 ] as const;

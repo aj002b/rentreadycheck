@@ -10,9 +10,9 @@ const navItems = [
 ];
 
 const calculatorLinks = [
-  { label: "Rent Affordability Calculator", href: "/rent-referencing-calculator" },
-  { label: "Co-signer Income Calculator", href: "/guarantor-income-calculator" },
-  { label: "Roommate Affordability Calculator", href: "/joint-tenant-affordability-calculator" },
+  { label: "Rent Affordability Calculator", href: "/rent-affordability-calculator" },
+  { label: "Co-signer Income Calculator", href: "/cosigner-income-calculator" },
+  { label: "Roommate Affordability Calculator", href: "/roommate-affordability-calculator" },
   { label: "Move-In Cost Calculator", href: "/move-in-cost-calculator" },
   { label: "Rent Split Calculator", href: "/rent-split-calculator" },
 ];

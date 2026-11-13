@@ -11,19 +11,19 @@ const cards = [
     title: 'Rent Affordability Calculator',
     desc: 'Compare rent with monthly income using common US apartment affordability examples.',
     cta: 'Check affordability',
-    href: '/rent-referencing-calculator',
+    href: '/rent-affordability-calculator',
   },
   {
     title: 'Co-signer Income Calculator',
     desc: 'Estimate what extra support income may look like for a rental application.',
     cta: 'Estimate support',
-    href: '/guarantor-income-calculator',
+    href: '/cosigner-income-calculator',
   },
   {
     title: 'Roommate Affordability Calculator',
     desc: 'See how shared rent and combined income may change affordability.',
     cta: 'Check roommate income',
-    href: '/joint-tenant-affordability-calculator',
+    href: '/roommate-affordability-calculator',
   },
   {
     title: 'Move-In Cost Calculator',

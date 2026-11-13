@@ -1,0 +1,65 @@
+{
+  "$schema": "https://openapi.vercel.sh/vercel.json",
+  "redirects": [
+    {
+      "source": "/rent-referencing-calculator",
+      "destination": "/rent-affordability-calculator/",
+      "permanent": true
+    },
+    {
+      "source": "/rent-referencing-calculator/",
+      "destination": "/rent-affordability-calculator/",
+      "permanent": true
+    },
+    {
+      "source": "/us-rent-affordability-calculator",
+      "destination": "/2-5x-vs-3x-rent/",
+      "permanent": true
+    },
+    {
+      "source": "/us-rent-affordability-calculator/",
+      "destination": "/2-5x-vs-3x-rent/",
+      "permanent": true
+    },
+    {
+      "source": "/guarantor-income-calculator",
+      "destination": "/cosigner-income-calculator/",
+      "permanent": true
+    },
+    {
+      "source": "/guarantor-income-calculator/",
+      "destination": "/cosigner-income-calculator/",
+      "permanent": true
+    },
+    {
+      "source": "/joint-tenant-affordability-calculator",
+      "destination": "/roommate-affordability-calculator/",
+      "permanent": true
+    },
+    {
+      "source": "/joint-tenant-affordability-calculator/",
+      "destination": "/roommate-affordability-calculator/",
+      "permanent": true
+    },
+    {
+      "source": "/can-flatmates-combine-income-for-rent",
+      "destination": "/can-roommates-combine-income-for-rent/",
+      "permanent": true
+    },
+    {
+      "source": "/can-flatmates-combine-income-for-rent/",
+      "destination": "/can-roommates-combine-income-for-rent/",
+      "permanent": true
+    },
+    {
+      "source": "/how-much-does-a-guarantor-need-to-earn",
+      "destination": "/how-much-does-a-cosigner-need-to-earn/",
+      "permanent": true
+    },
+    {
+      "source": "/how-much-does-a-guarantor-need-to-earn/",
+      "destination": "/how-much-does-a-cosigner-need-to-earn/",
+      "permanent": true
+    }
+  ]
+}

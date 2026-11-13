@@ -41,7 +41,7 @@ export default function HeroSection() {
             Built for US renters. Uses common apartment affordability examples. Results are estimates only.
           </p>
           <nav aria-label="Popular rent calculators" className="mt-6 flex flex-wrap gap-3">
-            <Link href="/rent-referencing-calculator/" className="chip-link">Check affordability</Link>
+            <Link href="/rent-affordability-calculator/" className="chip-link">Check affordability</Link>
             <Link href="/move-in-cost-calculator/" className="chip-link">Plan move-in costs</Link>
             <Link href="/rent-split-calculator/" className="chip-link">Split rent fairly</Link>
           </nav>

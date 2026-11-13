@@ -11,7 +11,7 @@ import { WebApplicationJsonLd } from "@/components/WebApplicationJsonLd";
 import type { FAQItem } from "@/lib/site";
 
 export const metadata: Metadata = {
-  title: "Roommate Affordability Calculator",
+  title: "Roommate Income Calculator for Rent",
   description:
     "Combine incomes for roommates applying for a US apartment together.",
 };
@@ -31,10 +31,10 @@ export default function JointTenantPage() {
       <WebApplicationJsonLd
         name="Roommate Affordability Calculator"
         description="Combine roommate incomes and compare them with monthly rent for a shared apartment."
-        path="/joint-tenant-affordability-calculator/"
+        path="/roommate-affordability-calculator/"
       />
       <PublicPageShell>
-        <PublicPageHero path="/joint-tenant-affordability-calculator" title="Roommate Affordability Calculator">
+        <PublicPageHero path="/roommate-affordability-calculator" title="Roommate Affordability Calculator">
           <p>
             Combine annual incomes for roommates and compare them with common
             US apartment affordability examples.
@@ -73,14 +73,14 @@ export default function JointTenantPage() {
             <p>
               Some landlords ask for extra support when combined income is low or one
               applicant has a more complex situation. The{" "}
-              <Link href="/guarantor-income-calculator">co-signer income calculator</Link>{" "}
+              <Link href="/cosigner-income-calculator">co-signer income calculator</Link>{" "}
               can estimate an example co-signer income threshold.
             </p>
           </div>
         </section>
         <FAQSection items={faqs} />
         <DisclaimerBox />
-        <RelatedTools currentPath="/joint-tenant-affordability-calculator" />
+        <RelatedTools currentPath="/roommate-affordability-calculator" />
       </PublicPageShell>
     </>
   );

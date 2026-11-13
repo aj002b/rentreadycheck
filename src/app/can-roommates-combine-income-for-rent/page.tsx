@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import { SEOLandingPageView } from "@/components/SEOLandingPage";
 import { getSEOLandingPage } from "@/lib/seoLandingPages";
 
-const page = getSEOLandingPage("how-much-does-a-guarantor-need-to-earn");
+const page = getSEOLandingPage("can-roommates-combine-income-for-rent");
 
 export const metadata: Metadata = {
   title: {
@@ -11,6 +11,6 @@ export const metadata: Metadata = {
   description: page.description,
 };
 
-export default function HowMuchDoesAGuarantorNeedToEarnPage() {
+export default function CanFlatmatesCombineIncomeForRentPage() {
   return <SEOLandingPageView page={page} />;
 }
