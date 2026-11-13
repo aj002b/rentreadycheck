@@ -11,6 +11,8 @@ type InputFieldProps = {
   error?: string;
   placeholder?: string;
   type?: "number" | "text";
+  /** Spinner increment for number inputs. Defaults to "any" so decimals are valid. */
+  step?: string;
 };
 
 export function InputField({
@@ -24,6 +26,7 @@ export function InputField({
   error,
   placeholder,
   type = "number",
+  step = "any",
 }: InputFieldProps) {
   return (
     <div>
@@ -41,6 +44,7 @@ export function InputField({
           id={id}
           type={type}
           min={type === "number" ? "0" : undefined}
+          step={type === "number" ? step : undefined}
           inputMode={type === "number" ? "decimal" : undefined}
           value={value}
           onChange={(event) => onChange(event.target.value)}

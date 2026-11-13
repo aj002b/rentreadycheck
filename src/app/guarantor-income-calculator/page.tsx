@@ -34,7 +34,7 @@ export default function GuarantorPage() {
         path="/guarantor-income-calculator/"
       />
       <PublicPageShell>
-        <PublicPageHero title="Co-signer Income Calculator">
+        <PublicPageHero path="/guarantor-income-calculator" title="Co-signer Income Calculator">
           <p>
             Estimate whether a co-signer&apos;s annual income may meet a common
             US apartment affordability threshold.

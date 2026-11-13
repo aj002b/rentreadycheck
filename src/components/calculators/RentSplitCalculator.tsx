@@ -120,21 +120,12 @@ export function RentSplitCalculator() {
     <CalculatorLayout
       calculatorName="Rent Split Calculator"
       resultReady={hasResult}
+      resultSummary={title}
       form={
         <section className="form-card space-y-4 p-4 sm:p-5">
-          <FormSection
-            step="Step 1"
-            title="US apartment example"
-            description="United States dollars are used in the split table."
-            columns="grid-cols-1"
-          >
-            <p className="rounded-lg border border-rule bg-paper px-3 py-2 text-sm leading-6 text-muted">
-              This calculator uses US dollar inputs for roommate rent planning.
-            </p>
-          </FormSection>
 
           <FormSection
-            step="Step 2"
+            step="Step 1"
             title="Rent details"
             description="Add the monthly rent and choose how many people are sharing."
           >
@@ -143,7 +134,7 @@ export function RentSplitCalculator() {
           </FormSection>
 
           <FormSection
-            step="Step 3"
+            step="Step 2"
             title="Split method"
             description="Choose whether to split equally, by income, or by room size."
             columns="grid-cols-1"
@@ -152,7 +143,7 @@ export function RentSplitCalculator() {
           </FormSection>
 
           <FormSection
-            step="Step 4"
+            step="Step 3"
             title="Roommate details"
             description="Names are optional. Income or room scores are only needed for those split methods."
             columns="md:grid-cols-2"

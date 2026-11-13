@@ -98,22 +98,12 @@ export function JointTenantCalculator() {
     <CalculatorLayout
       calculatorName="Roommate Affordability Calculator"
       resultReady={hasResult}
+      resultSummary={result.title}
       form={
         <section className="form-card space-y-4 p-4 sm:p-5">
-          <FormSection
-            step="Step 1"
-            title="US apartment example"
-            description="United States examples use gross monthly income compared with monthly rent."
-            columns="grid-cols-1"
-          >
-            <p className="rounded-lg border border-rule bg-paper px-3 py-2 text-sm leading-6 text-muted">
-              This calculator uses US dollar inputs and common roommate
-              affordability examples such as 2.5x to 3x monthly rent.
-            </p>
-          </FormSection>
 
           <FormSection
-            step="Step 2"
+            step="Step 1"
             title="Rent details"
             description="Add the rent and choose the example threshold you want to compare."
           >
@@ -122,7 +112,7 @@ export function JointTenantCalculator() {
           </FormSection>
 
           <FormSection
-            step="Step 3"
+            step="Step 2"
             title="Roommate income"
             description="Add annual income for each person applying together."
           >
