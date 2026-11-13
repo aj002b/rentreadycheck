@@ -167,8 +167,9 @@ function Field({
           className={`field-control min-h-12 pl-8 text-base font-bold ${
             error ? "border-rule-strong bg-paper" : ""
           }`}
-          inputMode="numeric"
+          inputMode="decimal"
           min="0"
+          step="any"
           type="number"
           value={value}
           onChange={(event) => onChange(event.target.value)}

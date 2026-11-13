@@ -17,7 +17,8 @@ export function SEOLandingPageView({ page }: { page: SEOLandingPage }) {
       <BreadcrumbJsonLd
         items={[
           { name: "Home", href: "/" },
-          { name: page.h1, href: `/${page.slug}` },
+          { name: "Guides", href: "/guides/" },
+          { name: page.h1, href: `/${page.slug}/` },
         ]}
       />
       <FAQJsonLd items={page.faqs} />

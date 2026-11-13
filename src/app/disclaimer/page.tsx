@@ -13,7 +13,7 @@ export const metadata: Metadata = {
 export default function DisclaimerPage() {
   return (
     <PublicPageShell>
-      <PublicPageHero title="Disclaimer">
+      <PublicPageHero path="/disclaimer" title="Disclaimer">
         <p>
           RentReadyCheck provides rough calculator estimates only. The website
           does not decide rental applications and does not provide financial,

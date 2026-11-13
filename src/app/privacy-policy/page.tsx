@@ -3,7 +3,6 @@ import Link from "next/link";
 import { AdPlaceholder } from "@/components/AdPlaceholder";
 import { PublicPageHero, PublicPageShell } from "@/components/PublicPage";
 import { RelatedTools } from "@/components/RelatedTools";
-import { siteConfig } from "@/lib/siteConfig";
 
 export const metadata: Metadata = {
   title: "Privacy Policy",
@@ -14,7 +13,7 @@ export const metadata: Metadata = {
 export default function PrivacyPolicyPage() {
   return (
     <PublicPageShell>
-      <PublicPageHero eyebrow={`Last updated: ${siteConfig.lastUpdated}`} title="Privacy Policy">
+      <PublicPageHero path="/privacy-policy" title="Privacy Policy">
         <p>
           RentReadyCheck is an informational calculator website for renters.
           This page explains how the site is intended to handle calculator inputs

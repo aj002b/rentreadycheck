@@ -10,7 +10,7 @@ export const metadata: Metadata = {
 export default function MethodologyPage() {
   return (
     <PublicPageShell>
-      <PublicPageHero title="How we calculate your estimates">
+      <PublicPageHero path="/how-we-calculate" title="How we calculate your estimates">
         <p>Our calculators use the numbers you enter and the formulas below. The Rent Readiness Score is our own planning model; it is not a credit score or a prediction of rental approval.</p>
       </PublicPageHero>
       <div className="space-y-10 leading-7 text-ink-2">

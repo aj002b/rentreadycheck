@@ -134,6 +134,7 @@ export function MoveInCostCalculator({ defaults }: { defaults?: Partial<MoveInIn
     <CalculatorLayout
       calculatorName="Move-In Cost Calculator"
       resultReady={hasCalculated && !rentError}
+      resultSummary={`Move-in total: ${currency.format(result.totalMoveInCost)}`}
       form={
         <form
           id="move-in-cost-form"

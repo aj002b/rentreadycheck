@@ -14,10 +14,11 @@ export const metadata: Metadata = {
 export default function ContactPage() {
   return (
     <PublicPageShell>
-      <PublicPageHero eyebrow={`Last updated: ${siteConfig.lastUpdated}`} title="Contact">
+      <PublicPageHero path="/contact" title="Contact">
         <p>
           Have a question about RentReadyCheck or spotted something on the site
-          that needs attention? You can use the placeholder contact email below.
+          that needs attention? Email us at the address below and we will reply as
+          soon as we can.
         </p>
       </PublicPageHero>
 

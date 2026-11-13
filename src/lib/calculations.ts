@@ -1,20 +1,9 @@
 import type { CountryCode, CountryConfig, RentFrequency } from "@/lib/countries";
 import { getCountryConfig } from "@/lib/countries";
 
-export const AFFORDABILITY_MULTIPLIERS = [30, 36, 40] as const;
-export type AffordabilityMultiplier = (typeof AFFORDABILITY_MULTIPLIERS)[number];
-
 export function safeNumber(value: string | number | undefined | null): number {
   const numberValue = typeof value === "number" ? value : Number(value);
   return Number.isFinite(numberValue) ? numberValue : 0;
-}
-
-export function formatCurrency(value: number): string {
-  return new Intl.NumberFormat("en-GB", {
-    style: "currency",
-    currency: "GBP",
-    maximumFractionDigits: 0,
-  }).format(value);
 }
 
 export function formatCurrencyByCountry(
@@ -36,13 +25,6 @@ export function formatPercentage(value: number): string {
   }
 
   return `${value.toFixed(1)}%`;
-}
-
-export function calculateAnnualMultiplierRequirement(
-  monthlyRent: number,
-  multiplier: number,
-): number {
-  return monthlyRent * multiplier;
 }
 
 export function calculateMonthlyIncomeFromAnnualIncome(
@@ -84,44 +66,11 @@ export function getCountryAffordabilityResult(
   supportPersonIncome = 0,
 ) {
   const monthlyRent = normalizeRentToMonthly(rentAmount, rentFrequency);
-  const rentPercentage = calculateRentToIncomePercentage(monthlyRent, annualIncome);
   const incomeMultiple = calculateIncomeMultiple(monthlyRent, annualIncome);
   const supportPersonMultiple = calculateIncomeMultiple(
     monthlyRent,
     supportPersonIncome,
   );
-
-  if (country.code === "UK") {
-    const required30 = calculateAnnualMultiplierRequirement(monthlyRent, 30);
-    const required36 = calculateAnnualMultiplierRequirement(monthlyRent, 36);
-
-    if (annualIncome >= required36) {
-      return {
-        title: "Strong signal",
-        description:
-          "Your combined income is above an example 36x monthly rent benchmark.",
-        tone: "positive" as const,
-      };
-    }
-
-    if (annualIncome >= required30) {
-      return {
-        title: "Possible signal",
-        description:
-          "Your combined income is above an example 30x monthly rent benchmark, but below 36x.",
-        tone: "neutral" as const,
-      };
-    }
-
-    if (supportPersonIncome >= required36) {
-      return {
-        title: "Guarantor may help",
-        description:
-          "Applicant income is below the example threshold, but the guarantor income may meet a common benchmark.",
-        tone: "warning" as const,
-      };
-    }
-  }
 
   if (country.code === "US") {
     if (incomeMultiple >= 3) {
@@ -152,97 +101,10 @@ export function getCountryAffordabilityResult(
     }
   }
 
-  if (country.code === "CA") {
-    if (rentPercentage <= 30) {
-      return {
-        title: "Strong signal",
-        description:
-          "Rent is at or below 30% of gross monthly income in this example.",
-        tone: "positive" as const,
-      };
-    }
-
-    if (rentPercentage <= 35) {
-      return {
-        title: "Possible signal",
-        description:
-          "Rent is above 30% but at or below 35% of gross monthly income.",
-        tone: "neutral" as const,
-      };
-    }
-
-    if (rentPercentage <= 40) {
-      return {
-        title: "Borderline signal",
-        description:
-          "Rent is above 35% but at or below 40% of gross monthly income.",
-        tone: "warning" as const,
-      };
-    }
-  }
-
-  if (country.code === "ROW") {
-    if (rentPercentage <= 30) {
-      return {
-        title: "Strong signal",
-        description:
-          "Rent is at or below 30% of gross monthly income in this generic estimate.",
-        tone: "positive" as const,
-      };
-    }
-
-    if (rentPercentage <= 35) {
-      return {
-        title: "Possible signal",
-        description:
-          "Rent is above 30% but at or below 35% of gross monthly income in this generic estimate.",
-        tone: "neutral" as const,
-      };
-    }
-
-    if (rentPercentage <= 40) {
-      return {
-        title: "Borderline signal",
-        description:
-          "Rent is above 35% but at or below 40% of gross monthly income in this generic estimate.",
-        tone: "warning" as const,
-      };
-    }
-  }
-
-  if (country.code === "AU") {
-    if (rentPercentage <= 25) {
-      return {
-        title: "Strong signal",
-        description:
-          "Rent is at or below 25% of gross monthly income in this example.",
-        tone: "positive" as const,
-      };
-    }
-
-    if (rentPercentage <= 30) {
-      return {
-        title: "Possible signal",
-        description:
-          "Rent is above 25% but at or below 30% of gross monthly income.",
-        tone: "neutral" as const,
-      };
-    }
-
-    if (rentPercentage <= 35) {
-      return {
-        title: "Borderline signal",
-        description:
-          "Rent is above 30% but at or below 35% of gross monthly income.",
-        tone: "warning" as const,
-      };
-    }
-  }
-
   return {
     title: "May need support",
     description:
-      "Based on these rough examples, income may be below common affordability signals for the selected country.",
+      "Based on these rough examples, income may be below common US affordability signals.",
     tone: "warning" as const,
   };
 }

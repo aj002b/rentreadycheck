@@ -32,20 +32,22 @@ export function CookieNotice() {
   if (consent !== null && !opened) return null;
 
   return (
-    <section aria-label="Analytics preferences" className="fixed inset-x-0 bottom-0 z-50 px-4 pb-4 sm:px-6">
-      <div className="mx-auto flex max-w-5xl flex-col gap-4 rounded-xl border border-rule bg-surface px-4 py-4 shadow-card md:flex-row md:items-center md:justify-between">
+    <section aria-label="Analytics preferences" className="fixed inset-x-0 bottom-0 z-50 px-3 pb-3 sm:px-6 sm:pb-4">
+      <div className="mx-auto flex max-w-5xl flex-col gap-3 rounded-xl border border-rule bg-surface px-4 py-3 shadow-card sm:gap-4 sm:py-4 md:flex-row md:items-center md:justify-between">
         <div>
-          <p className="font-bold text-ink">Your analytics choice</p>
-          <p className="mt-1 max-w-3xl text-sm leading-6 text-ink-2">
-            Your calculator amounts stay in your browser. We use cookie-free Vercel Analytics for visits.
+          <p className="hidden font-bold text-ink sm:block">Your analytics choice</p>
+          <p className="max-w-3xl text-xs leading-5 text-ink-2 sm:mt-1 sm:text-sm sm:leading-6">
+            <span className="hidden sm:inline">
+              Your calculator amounts stay in your browser. We use cookie-free Vercel Analytics for visits.{" "}
+            </span>
             With your permission, Google Analytics uses cookies to measure pages and calculator use.{" "}
             <Link href="/privacy-policy/" className="text-link">Privacy Policy</Link>.
-            You can change your choice in Privacy settings.
+            <span className="hidden sm:inline"> You can change your choice in Privacy settings.</span>
           </p>
         </div>
-        <div className="flex shrink-0 flex-wrap gap-2">
-          <button type="button" onClick={() => choose("denied")} className="btn-secondary">No thanks</button>
-          <button type="button" onClick={() => choose("granted")} className="btn-secondary">Allow Google Analytics</button>
+        <div className="grid shrink-0 grid-cols-2 gap-2 sm:flex sm:flex-wrap">
+          <button type="button" onClick={() => choose("denied")} className="btn-secondary min-h-[44px] px-3 py-2 text-sm sm:min-h-[46px] sm:px-5 sm:py-3 sm:text-[15px]">No thanks</button>
+          <button type="button" onClick={() => choose("granted")} className="btn-secondary min-h-[44px] px-3 py-2 text-sm sm:min-h-[46px] sm:px-5 sm:py-3 sm:text-[15px]">Allow Google Analytics</button>
         </div>
       </div>
     </section>

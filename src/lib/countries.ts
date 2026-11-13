@@ -1,4 +1,4 @@
-export type CountryCode = "UK" | "US" | "CA" | "AU" | "ROW";
+export type CountryCode = "US";
 export type RentFrequency = "monthly" | "weekly";
 
 export type CountryConfig = {

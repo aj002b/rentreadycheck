@@ -94,22 +94,12 @@ export function GuarantorIncomeCalculator() {
     <CalculatorLayout
       calculatorName="Co-signer Income Calculator"
       resultReady={hasResult}
+      resultSummary={title}
       form={
         <section className="form-card space-y-4 p-4 sm:p-5">
-          <FormSection
-            step="Step 1"
-            title="US apartment example"
-            description="United States examples use co-signer income compared with monthly rent."
-            columns="grid-cols-1"
-          >
-            <p className="rounded-lg border border-rule bg-paper px-3 py-2 text-sm leading-6 text-muted">
-              This calculator uses US dollar inputs and common co-signer income
-              examples such as 2.5x to 3.5x monthly rent.
-            </p>
-          </FormSection>
 
           <FormSection
-            step="Step 2"
+            step="Step 1"
             title="Rent details"
             description="Add the rent amount so the example requirement can be estimated."
           >
@@ -117,7 +107,7 @@ export function GuarantorIncomeCalculator() {
           </FormSection>
 
           <FormSection
-            step="Step 3"
+            step="Step 2"
             title="Applicant income"
             description="Optional comparison only. This does not replace the co-signer estimate."
             columns="grid-cols-1"
@@ -126,7 +116,7 @@ export function GuarantorIncomeCalculator() {
           </FormSection>
 
           <FormSection
-            step="Step 4"
+            step="Step 3"
             title="Co-signer support"
             description={`Compare the ${supportPersonLabel} income with a selected example threshold.`}
           >

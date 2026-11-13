@@ -72,5 +72,22 @@ export const publicRoutes = [
   { path: "/about", priority: 0.5, lastModified: "2026-10-07" },
   { path: "/disclaimer", priority: 0.5, lastModified: "2026-05-20" },
   { path: "/privacy-policy", priority: 0.5, lastModified: "2026-10-21" },
-  { path: "/contact", priority: 0.5, lastModified: "2026-05-20" },
+  { path: "/contact", priority: 0.5, lastModified: "2026-11-13" },
 ] as const;
+
+const monthYear = new Intl.DateTimeFormat("en-US", {
+  month: "long",
+  year: "numeric",
+  timeZone: "UTC",
+});
+
+// "Last updated: October 2026" for a route, using its sitemap lastModified so
+// the visible date and the sitemap never disagree.
+export function lastUpdatedLabel(path: string) {
+  const normalized = path === "/" ? "/" : path.replace(/\/+$/, "");
+  const route = publicRoutes.find((item) => item.path === normalized);
+  const label = route
+    ? monthYear.format(new Date(`${route.lastModified}T00:00:00Z`))
+    : siteConfig.lastUpdated;
+  return `Last updated: ${label}`;
+}

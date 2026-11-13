@@ -72,7 +72,8 @@ export function RentReferencingCalculator({ initialRent = "" }: { initialRent?: 
   const monthlyRent = normalizeRentToMonthly(rent, "monthly");
   const applicantIncomes = [income1, income2, income3, income4].map(safeNumber);
   const combinedIncome = applicantIncomes.reduce((sum, income) => sum + income, 0);
-  const supportIncome = safeNumber(supportPersonIncome);
+  const hasCoSigner = hasSupportPerson === "yes";
+  const supportIncome = hasCoSigner ? safeNumber(supportPersonIncome) : 0;
   const monthlyDebt = safeNumber(debtPayments);
   const grossMonthlyIncome = calculateMonthlyIncomeFromAnnualIncome(combinedIncome);
   const remainingAfterRent = grossMonthlyIncome - monthlyRent - monthlyDebt;
@@ -86,7 +87,7 @@ export function RentReferencingCalculator({ initialRent = "" }: { initialRent?: 
     income3,
     income4,
     debtPayments,
-    supportPersonIncome,
+    hasCoSigner ? supportPersonIncome : "",
   ]);
 
   let result = getCountryAffordabilityResult(
@@ -94,7 +95,7 @@ export function RentReferencingCalculator({ initialRent = "" }: { initialRent?: 
     rent,
     "monthly",
     combinedIncome,
-    hasSupportPerson === "yes" ? supportIncome : 0,
+    supportIncome,
   );
 
   if (negativeInput) {
@@ -133,22 +134,12 @@ export function RentReferencingCalculator({ initialRent = "" }: { initialRent?: 
     <CalculatorLayout
       calculatorName="Rent Affordability Calculator"
       resultReady={showStats}
+      resultSummary={result.title}
       form={
         <section className="form-card space-y-4 p-4 sm:p-5">
-          <FormSection
-            step="Step 1"
-            title="US apartment example"
-            description="United States examples use gross monthly income compared with monthly rent."
-            columns="grid-cols-1"
-          >
-            <p className="rounded-lg border border-rule bg-paper px-3 py-2 text-sm leading-6 text-muted">
-              This calculator uses US dollar inputs and common apartment
-              affordability examples such as 2.5x to 3x monthly rent.
-            </p>
-          </FormSection>
 
           <FormSection
-            step="Step 2"
+            step="Step 1"
             title="Rent details"
             description="Add the advertised rent. Debt payments are shown for budgeting only."
           >
@@ -171,7 +162,7 @@ export function RentReferencingCalculator({ initialRent = "" }: { initialRent?: 
           </FormSection>
 
           <FormSection
-            step="Step 3"
+            step="Step 2"
             title="Applicant income"
             description="Add annual income for the renters on the apartment application."
           >
@@ -182,7 +173,7 @@ export function RentReferencingCalculator({ initialRent = "" }: { initialRent?: 
           </FormSection>
 
           <FormSection
-            step="Step 4"
+            step="Step 3"
             title="Co-signer support"
             description={`Optional. Add this only if a ${supportPersonLabel} is part of the application.`}
           >
@@ -196,14 +187,15 @@ export function RentReferencingCalculator({ initialRent = "" }: { initialRent?: 
                 { label: "Yes", value: "yes" },
               ]}
             />
-            <InputField
-              id="support-person-income"
-              label={`${supportPersonLabel[0].toUpperCase()}${supportPersonLabel.slice(1)} annual income`}
-              value={supportPersonIncome}
-              onChange={setSupportPersonIncome}
-              prefix={country.currencySymbol}
-              helpText={`Optional. Used only if a ${supportPersonLabel} is available.`}
-            />
+            {hasCoSigner ? (
+              <InputField
+                id="support-person-income"
+                label={`${supportPersonLabel[0].toUpperCase()}${supportPersonLabel.slice(1)} annual income`}
+                value={supportPersonIncome}
+                onChange={setSupportPersonIncome}
+                prefix={country.currencySymbol}
+              />
+            ) : null}
           </FormSection>
         </section>
       }
@@ -219,7 +211,7 @@ export function RentReferencingCalculator({ initialRent = "" }: { initialRent?: 
                 <Stat label="Rent as gross income" value={formatPercentage(rentPercentage)} />
                 <Stat label="Income multiple" value={`${incomeMultiple.toFixed(2)}x monthly rent`} />
                 <Stat label="Required income at 3x" value={currency(required3x)} />
-                {supportPersonIncome ? <Stat label={`${supportPersonLabel} income`} value={currency(supportIncome)} /> : null}
+                {supportIncome > 0 ? <Stat label="Co-signer income" value={currency(supportIncome)} /> : null}
                 <Stat label="After rent and debt" value={currency(remainingAfterRent)} />
               </div>
             ) : null}

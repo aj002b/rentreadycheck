@@ -37,7 +37,7 @@ export default function RentReferencingPage() {
         path="/rent-referencing-calculator/"
       />
       <PublicPageShell>
-        <PublicPageHero title="Rent Affordability Calculator">
+        <PublicPageHero path="/rent-referencing-calculator" title="Rent Affordability Calculator">
           <p>
             Estimate whether your income may fit common US apartment
             affordability examples, including gross monthly income around 2.5x

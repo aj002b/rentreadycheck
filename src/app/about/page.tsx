@@ -14,7 +14,7 @@ export const metadata: Metadata = {
 export default function AboutPage() {
   return (
     <PublicPageShell>
-      <PublicPageHero title="About RentReadyCheck">
+      <PublicPageHero path="/about" title="About RentReadyCheck">
         <p>
           RentReadyCheck is a free rent calculator website that helps renters
           estimate apartment affordability, co-signer income, roommate income,

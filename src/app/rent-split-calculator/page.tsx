@@ -34,7 +34,7 @@ export default function RentSplitPage() {
         path="/rent-split-calculator/"
       />
       <PublicPageShell>
-        <PublicPageHero title="Rent Split Calculator for Roommates">
+        <PublicPageHero path="/rent-split-calculator" title="Rent Split Calculator for Roommates">
           <p>
             Compare equal, income-based, and room-size rent splits for two, three,
             or four roommates.

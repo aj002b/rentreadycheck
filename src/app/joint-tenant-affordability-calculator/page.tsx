@@ -34,7 +34,7 @@ export default function JointTenantPage() {
         path="/joint-tenant-affordability-calculator/"
       />
       <PublicPageShell>
-        <PublicPageHero title="Roommate Affordability Calculator">
+        <PublicPageHero path="/joint-tenant-affordability-calculator" title="Roommate Affordability Calculator">
           <p>
             Combine annual incomes for roommates and compare them with common
             US apartment affordability examples.
