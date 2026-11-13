@@ -55,7 +55,7 @@ export default function DisclaimerPage() {
           <p>
             Always check the exact requirements with the landlord or property
             manager. You can use the{" "}
-            <Link href="/rent-referencing-calculator">rent affordability calculator</Link>{" "}
+            <Link href="/rent-affordability-calculator">rent affordability calculator</Link>{" "}
             as a starting point, but the final decision belongs to the people
             assessing the application.
           </p>

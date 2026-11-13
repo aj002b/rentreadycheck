@@ -62,7 +62,7 @@ export default function RentSplitPage() {
               on a lower earner, but everyone needs to be comfortable sharing income
               information. If income also affects whether you can apply for a home,
               use the{" "}
-              <Link href="/joint-tenant-affordability-calculator">roommate affordability calculator</Link>.
+              <Link href="/roommate-affordability-calculator">roommate affordability calculator</Link>.
             </p>
           </div>
           <AdPlaceholder />

@@ -18,12 +18,12 @@ export const siteConfig = {
 // lastModified is the date the page's content last changed. Update it when
 // you change what a page says, not for styling-only changes.
 export const publicRoutes = [
-  { path: "/", priority: 1, lastModified: "2026-10-07" },
+  { path: "/", priority: 1, lastModified: "2026-11-13" },
   { path: "/rent-readiness-score", priority: 0.9, lastModified: "2026-10-01" },
-  { path: "/rent-referencing-calculator", priority: 0.8, lastModified: "2026-10-07" },
-  { path: "/us-rent-affordability-calculator", priority: 0.8, lastModified: "2026-10-05" },
-  { path: "/guarantor-income-calculator", priority: 0.8, lastModified: "2026-05-21" },
-  { path: "/joint-tenant-affordability-calculator", priority: 0.8, lastModified: "2026-10-01" },
+  { path: "/rent-affordability-calculator", priority: 0.8, lastModified: "2026-10-07" },
+  { path: "/2-5x-vs-3x-rent", priority: 0.8, lastModified: "2026-11-13" },
+  { path: "/cosigner-income-calculator", priority: 0.8, lastModified: "2026-11-13" },
+  { path: "/roommate-affordability-calculator", priority: 0.8, lastModified: "2026-11-13" },
   { path: "/move-in-cost-calculator", priority: 0.8, lastModified: "2026-10-07" },
   { path: "/rent-split-calculator", priority: 0.8, lastModified: "2026-10-07" },
   { path: "/guides", priority: 0.75, lastModified: "2026-10-14" },
@@ -62,8 +62,8 @@ export const publicRoutes = [
   { path: "/what-is-30-times-rent", priority: 0.65, lastModified: "2026-09-25" },
   { path: "/what-is-36-times-rent", priority: 0.65, lastModified: "2026-09-25" },
   { path: "/do-i-need-a-cosigner-for-an-apartment", priority: 0.65, lastModified: "2026-09-25" },
-  { path: "/how-much-does-a-guarantor-need-to-earn", priority: 0.65, lastModified: "2026-09-25" },
-  { path: "/can-flatmates-combine-income-for-rent", priority: 0.65, lastModified: "2026-09-25" },
+  { path: "/how-much-does-a-cosigner-need-to-earn", priority: 0.65, lastModified: "2026-09-25" },
+  { path: "/can-roommates-combine-income-for-rent", priority: 0.65, lastModified: "2026-09-25" },
   { path: "/can-i-rent-with-bad-credit", priority: 0.65, lastModified: "2026-09-25" },
   { path: "/rental-application-fees-explained", priority: 0.65, lastModified: "2026-09-25" },
   { path: "/security-deposit-basics", priority: 0.65, lastModified: "2026-09-25" },

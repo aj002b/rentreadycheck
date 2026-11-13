@@ -44,19 +44,19 @@ const relatedTools = [
     title: "Rent Affordability Calculator",
     description: "Compare income with a monthly apartment target.",
     cta: "Check affordability",
-    href: "/rent-referencing-calculator",
+    href: "/rent-affordability-calculator",
   },
   {
     title: "Co-signer Income Calculator",
     description: "Estimate what support income may look like.",
     cta: "Estimate support",
-    href: "/guarantor-income-calculator",
+    href: "/cosigner-income-calculator",
   },
   {
     title: "Roommate Affordability Calculator",
     description: "See how shared rent can change affordability.",
     cta: "Check roommate income",
-    href: "/joint-tenant-affordability-calculator",
+    href: "/roommate-affordability-calculator",
   },
   {
     title: "Move-In Cost Calculator",

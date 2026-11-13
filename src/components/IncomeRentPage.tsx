@@ -378,7 +378,7 @@ export function IncomeRentPageView({ page }: { page: IncomeRentPage }) {
               <p>
                 Splitting by income means each person pays the same share of their pay. Use
                 the{" "}
-                <Link href="/joint-tenant-affordability-calculator/" className="inline-block py-1.5 font-bold text-accent hover:underline">
+                <Link href="/roommate-affordability-calculator/" className="inline-block py-1.5 font-bold text-accent hover:underline">
                   roommate affordability calculator
                 </Link>{" "}
                 or the{" "}

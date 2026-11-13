@@ -17,7 +17,7 @@ The site is fully client-side. There is no database, login, payment flow, extern
 - Per-page canonical tags, FAQ and breadcrumb JSON-LD, sitemap, robots, Open Graph metadata, and a custom 404 page
 - Static export, deployed on Vercel
 
-The site is US-focused. Some URLs still use UK terms (`guarantor`, `joint-tenant`, `rent-referencing`, `flatmates`) from an earlier version; the page content uses US terms.
+The site is US-focused. Pages that used UK terms in their URLs (`guarantor`, `joint-tenant`, `rent-referencing`, `flatmates`) were moved to US-worded URLs in November 2026; `vercel.json` permanently redirects the old addresses.
 
 ## Local Development
 

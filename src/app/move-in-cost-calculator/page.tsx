@@ -25,9 +25,9 @@ const faqs: FAQItem[] = [
 
 const relatedTools = [
   { label: "Rent Readiness Score", href: "/rent-readiness-score/" },
-  { label: "Rent Affordability Calculator", href: "/rent-referencing-calculator" },
-  { label: "Co-signer Income Calculator", href: "/guarantor-income-calculator" },
-  { label: "Roommate Affordability Calculator", href: "/joint-tenant-affordability-calculator" },
+  { label: "Rent Affordability Calculator", href: "/rent-affordability-calculator" },
+  { label: "Co-signer Income Calculator", href: "/cosigner-income-calculator" },
+  { label: "Roommate Affordability Calculator", href: "/roommate-affordability-calculator" },
   { label: "Rent Split Calculator", href: "/rent-split-calculator" },
 ];
 
@@ -61,7 +61,7 @@ export default function MoveInCostPage() {
               Before move-in, renters often need enough cash for the security deposit,
               first rent payment, application fee, and practical moving
               costs. If affordability is your first question, start with the{" "}
-              <Link href="/rent-referencing-calculator">rent affordability calculator</Link>.
+              <Link href="/rent-affordability-calculator">rent affordability calculator</Link>.
             </p>
           </div>
           <div>

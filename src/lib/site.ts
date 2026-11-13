@@ -9,21 +9,21 @@ export const estimateDisclaimer =
 export const tools = [
   {
     title: "Rent Affordability Calculator",
-    href: "/rent-referencing-calculator",
+    href: "/rent-affordability-calculator",
     description: "Compare monthly rent with gross monthly income before you apply.",
     bestFor: "Checking common 2.5x rent and 3x rent examples.",
     ctaLabel: "Check your score",
   },
   {
     title: "Co-signer Income Calculator",
-    href: "/guarantor-income-calculator",
+    href: "/cosigner-income-calculator",
     description: "Estimate whether a co-signer may help your rental application.",
     bestFor: "Renters who may need extra application support.",
     ctaLabel: "Estimate co-signer support",
   },
   {
     title: "Roommate Affordability Calculator",
-    href: "/joint-tenant-affordability-calculator",
+    href: "/roommate-affordability-calculator",
     description: "Combine incomes for roommates applying for an apartment together.",
     bestFor: "Roommates comparing household income with monthly rent.",
     ctaLabel: "Check roommate income",

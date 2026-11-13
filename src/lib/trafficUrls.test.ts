@@ -3,8 +3,8 @@ import { analyticsUrl, toolShareUrl } from "./trafficUrls";
 
 describe("traffic URL privacy", () => {
   it("removes financial inputs, names and fragments from analytics URLs", () => {
-    expect(analyticsUrl("https://rentreadycheck.com/rent-referencing-calculator/?rent=1500&income=54000&name=Test+Person&email=test@example.com#results"))
-      .toBe("https://rentreadycheck.com/rent-referencing-calculator/");
+    expect(analyticsUrl("https://rentreadycheck.com/rent-affordability-calculator/?rent=1500&income=54000&name=Test+Person&email=test@example.com#results"))
+      .toBe("https://rentreadycheck.com/rent-affordability-calculator/");
   });
 
   it("retains campaign labels while removing calculator parameters", () => {
@@ -19,7 +19,7 @@ describe("traffic URL privacy", () => {
   });
 
   it("shares the production tool without any entered values or preview hostname", () => {
-    expect(toolShareUrl("http://localhost:3000/rent-referencing-calculator/?rent=1500&income=54000#results"))
-      .toBe("https://rentreadycheck.com/rent-referencing-calculator/?utm_source=share&utm_medium=referral&utm_campaign=tool_share");
+    expect(toolShareUrl("http://localhost:3000/rent-affordability-calculator/?rent=1500&income=54000#results"))
+      .toBe("https://rentreadycheck.com/rent-affordability-calculator/?utm_source=share&utm_medium=referral&utm_campaign=tool_share");
   });
 });
